@@ -1,0 +1,97 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Intel Compilers 2015 update 2
+##
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Intel Compilers 2015 Update 2 to your environment."
+}
+
+module-whatis "adds Intel compilers to your environment variables"
+
+conflict compilers
+
+set		 prefix		      /shared/ucl/apps/intel/2015
+set              main_root            /shared/ucl/apps/intel/2015/composer_xe_2015.2.164
+
+prepend-path	 INCLUDE	      $main_root/mkl/include
+prepend-path     INCLUDE              $prefix/include
+
+prepend-path     PATH                 $main_root/debugger/gdb/intel64_mic/bin
+prepend-path     PATH                 $main_root/bin/intel64_mic
+prepend-path     PATH                 $main_root/bin/intel64
+
+prepend-path     MANPATH              $main_root/debugger/gdb/intel64_mic/share/man/
+prepend-path     MANPATH              $main_root/debugger/gdb/intel64/share/man/
+prepend-path     MANPATH              $main_root/man/en_US
+
+prepend-path     LD_LIBRARY_PATH      $main_root/mkl/lib/intel64
+prepend-path     LD_LIBRARY_PATH      $main_root/mpirt/lib/intel64
+prepend-path     LD_LIBRARY_PATH      $main_root/compiler/lib/intel64
+
+prepend-path     LIBRARY_PATH         $main_root/compiler/lib/intel64
+prepend-path     LIBRARY_PATH         $main_root/mkl/lib/intel64
+
+# Intel secretly relies on GCC. :( (See also: the cxx shim in the _cxx module.)
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
+
+prepend-path     MIC_LD_LIBRARY_PATH  $main_root/mkl/lib/intel64
+prepend-path     MIC_LD_LIBRARY_PATH  $main_root/mpirt/lib/mic
+prepend-path     MIC_LD_LIBRARY_PATH  $main_root/compiler/lib/mic
+
+prepend-path	 MIC_LIBRARY_PATH     $main_root/mpirt/lib/mic
+prepend-path	 MIC_LIBRARY_PATH     $main_root/compiler/lib/mic
+
+prepend-path	 CPATH		      $main_root/mkl/include
+
+setenv           INTEL_LICENSE_FILE   28518@lic-intel.ucl.ac.uk
+
+setenv           INTEL_CC_HOME        $main_root
+setenv           INTEL_FC_HOME        $main_root
+setenv		 MKLROOT	      $main_root/mkl
+
+prepend-path     NLSPATH              $main_root/mkl/lib/intel64/locale/%l_%t/%N
+prepend-path     NLSPATH              $main_root/compiler/lib/intel64/locale/%l_%t/%N
+
+
+# Debugger stuff:
+prepend-path     NLSPATH              $main_root/debugger/gdb/intel64_mic/share/locale/%l_%t/%N
+prepend-path     NLSPATH              $main_root/debugger/intel64/locale/%l_%t/%N
+setenv           GDBSERVER_MIC        $main_root/debugger/gdb/target/mic/bin/gdbserver
+setenv		 GDB_CROSS	      $main_root/debugger/gdb/intel64_mic/bin/gdb-mic
+setenv		 MPM_LAUNCHER	      $main_root/debugger/mpm/bin/start_mpm.sh
+setenv		 INTEL_PYTHONHOME     $main_root/debugger/python/intel64/
+prepend-path	 INFOPATH	      $main_root/debugger/gdb/intel64_mic/share/info/
+prepend-path	 INFOPATH	      $main_root/debugger/gdb/intel64/share/info/
+#prepend-path     PATH                 $main_root/bin/intel64_mic
+#prepend-path     PATH                 $main_root/debugger/gui/intel64
+
+# IPP stuff:
+set              ipp_root             $main_root/ipp
+setenv		 IPPROOT	      $ipp_root
+
+prepend-path     LD_LIBRARY_PATH      $ipp_root/lib/intel64
+prepend-path     LIBRARY_PATH         $ipp_root/lib/intel64
+prepend-path	 CPATH		      $ipp_root/include
+prepend-path     NLSPATH              $ipp_root/lib/intel64/locale/%l_%t/%N
+
+# TBB stuff:
+set              tbb_root             $main_root/tbb
+setenv		 TBBROOT	      $tbb_root
+
+append-path      MIC_LD_LIBRARY_PATH  $tbb_root/lib/mic
+append-path	 MIC_LIBRARY_PATH     $tbb_root/lib/mic
+prepend-path     LD_LIBRARY_PATH      $tbb_root/lib/intel64/gcc4.4
+prepend-path     LIBRARY_PATH         $tbb_root/lib/intel64/gcc4.4
+prepend-path     CPATH                $tbb_root/include
+
+
+setenv CC        icc
+setenv CXX       icpc
+setenv FC        ifort
+setenv F90       ifort
+setenv F77       ifort
+
