@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Core libraries for Research Computing OS
+##
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds a core set of applications and libraries to your environment."
+}
+
+module-whatis "adds a core set of applications and libraries to your environment."
+
+# Pick up GCC 4.9.2 libraries
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
+
+

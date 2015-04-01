@@ -12,6 +12,7 @@ proc ModulesHelp { } {
 module-whatis "adds Intel compilers to your environment variables"
 
 conflict compilers
+prereq rcps-core
 
 set		 prefix		      /shared/ucl/apps/intel/2015
 set              main_root            /shared/ucl/apps/intel/2015/composer_xe_2015.2.164
@@ -33,10 +34,6 @@ prepend-path     LD_LIBRARY_PATH      $main_root/compiler/lib/intel64
 
 prepend-path     LIBRARY_PATH         $main_root/compiler/lib/intel64
 prepend-path     LIBRARY_PATH         $main_root/mkl/lib/intel64
-
-# Intel secretly relies on GCC. :( (See also: the cxx shim in the _cxx module.)
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
 
 prepend-path     MIC_LD_LIBRARY_PATH  $main_root/mkl/lib/intel64
 prepend-path     MIC_LD_LIBRARY_PATH  $main_root/mpirt/lib/mic
