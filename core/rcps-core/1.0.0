@@ -16,4 +16,6 @@ module-whatis "adds a core set of applications and libraries to your environment
 prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
 prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
 
-
+# GNU screen
+prepend-path     PATH                 /shared/ucl/apps/screen/4.2.1/bin
+prepend-path     MANPATH              /shared/ucl/apps/screen/4.2.1/share/man
