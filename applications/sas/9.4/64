@@ -4,6 +4,7 @@
 #
 #                                                      H.T. 24 Feb 2009
 # Updated for SAS 9.4 December 2014 - BAA
+# Updated for updated Legion software stack - April 2015 - BAA
 
 proc ModulesHelp { } {
 
@@ -55,3 +56,5 @@ if { ! [info exists ::env(OMP_NUM_THREADS) ] } {
     puts stderr "Setting OMP_NUM_THREADS to 1."
     setenv OMP_NUM_THREADS 1
 }
+
+puts stderr "SAS not yet running on updated Legion software stack."
