@@ -91,4 +91,4 @@ setenv CXX       icpc
 setenv FC        ifort
 setenv F90       ifort
 setenv F77       ifort
-
+setenv COMPILER_TAG   intel-2015
