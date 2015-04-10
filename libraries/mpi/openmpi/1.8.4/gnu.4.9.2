@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-10
+
+proc ModulesHelp { } {
+  global openmpiversion
+
+  puts stderr "\tAdds OpenMPI 1.8.4 for GCC 4.9.2 compilers to your environment variables,"
+}
+
+module-whatis "adds OpenMPI 1.8.4 for GCC 4.9.2 compilers to your environment variables"
+
+conflict mpi
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+
+set              openmpiversion    1.8.4
+set              root              /shared/ucl/apps/openmpi/1.8.5/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+prepend-path     PATH              /shared/ucl/apps/openmpi/ucl-wrapper/bin
+append-path      MANPATH           $root/share/man
+setenv           MPI_HOME          $root
+setenv           MPI_RUN           $root/bin/mpirun
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+setenv           GERUN_LAUNCHER    openmpi-sge
