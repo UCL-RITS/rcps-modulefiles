@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds OpenBLAS 0.2.14 for GCC 4.9.2 compilers to your environment variables."
+}
+
+module-whatis "adds OpenBLAS 0.2.14 for GCC 4.9.2 compilers to your environment variables"
+
+conflict atlas
+conflict openblas
+prereq rcps-core
+
+set              root              /shared/ucl/apps/openblas/0.12.14/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
