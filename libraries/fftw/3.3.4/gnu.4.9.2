@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds FFTW 3.3.4 for GCC 4.9.2 compilers to your environment variables.  Includes both single and double precision versions."
+}
+
+module-whatis "adds FFTW 3.3.4 for GCC 4.9.2 compilers to your environment variables"
+
+conflict fftw
+prereq rcps-core
+
+set              root              /shared/ucl/apps/fftw/3.3.4/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
