@@ -10,6 +10,8 @@ proc ModulesHelp { } {
 
     puts stderr "This module adds SAS 9.4 64 bit to your environment."
     puts stderr ""
+    puts stderr "This is a full SAS Foundation instllation including all components"
+    puts stderr "licenced to UCL"
     puts stderr ""
 }
 
