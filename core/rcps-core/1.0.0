@@ -16,6 +16,15 @@ module-whatis "adds a core set of applications and libraries to your environment
 prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
 prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
 
+# Unfortunately, for the Intel C++ preprocessor to work, we need to have
+# g++ in our path.  
+prepend-path     PATH                 /shared/ucl/apps/gcc/4.9.2/bin
+ 
+
+# GERun
+setenv           GERUN_PATH           /shared/ucl/apps/GERun
+prepend-path     PATH                 /shared/ucl/apps/GERun
+
 # GNU screen
 prepend-path     PATH                 /shared/ucl/apps/screen/4.2.1/bin
 prepend-path     MANPATH              /shared/ucl/apps/screen/4.2.1/share/man

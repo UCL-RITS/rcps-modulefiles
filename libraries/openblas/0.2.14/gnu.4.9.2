@@ -5,15 +5,16 @@
 ## Built by O.K. on Legion on 2015-04-13
 
 proc ModulesHelp { } {
-  puts stderr "\tAdds FFTW 2.1.5 for GCC 4.9.2 compilers to your environment variables.  Includes both single and double precision versions with --enable-type-prefix to distinguish them."
+  puts stderr "\tAdds OpenBLAS 0.2.14 for GCC 4.9.2 compilers to your environment variables."
 }
 
-module-whatis "adds FFTW 2.1.5 for GCC 4.9.2 compilers to your environment variables"
+module-whatis "adds OpenBLAS 0.2.14 for GCC 4.9.2 compilers to your environment variables"
 
-conflict fftw
+conflict atlas
+conflict openblas
 prereq rcps-core
 
-set              root              /shared/ucl/apps/fftw/2.1.5/gnu-4.9.2
+set              root              /shared/ucl/apps/openblas/0.2.14/gnu-4.9.2
 
 prepend-path     PATH              $root/bin
 prepend-path     MANPATH           $root/share/man

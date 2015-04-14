@@ -14,10 +14,10 @@ module-whatis "adds GCC 4.9.2 compilers to your environment variables"
 conflict compilers
 prereq rcps-core
 
-prepend-path      PATH /shared/ucl/apps/gcc/4.9.2/bin
 prepend-path      MANPATH /shared/ucl/apps/gcc/4.9.2/share/man
 setenv CC gcc
 setenv CXX g++
 setenv FC gfortran
 setenv F90 gfortran
 setenv F77 gfortran
+setenv COMPILER_TAG gnu-4.9.2
