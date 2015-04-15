@@ -11,10 +11,10 @@ proc ModulesHelp { } {
 module-whatis "adds UCL recommended set of python packages to your environment variables"
 
 prereq rcps-core
-module load python/2.7.9
+module load python/3.4.3
 module load openblas
 
-set              root              /shared/ucl/apps/python/bundles/python2
+set              root              /shared/ucl/apps/python/bundles/python3
 
 setenv           VIRTUAL_ENV       $root/venv
 
