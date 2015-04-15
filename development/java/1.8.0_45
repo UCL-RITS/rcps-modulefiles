@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-15
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Oracle JDK 1.8.0_45 compilers to your environment variables,"
+}
+
+module-whatis "adds Oracle JDK 1.8.0_45 compilers to your environment variables"
+
+conflict java
+prereq rcps-core
+
+set              root              /shared/ucl/apps/java/1.8.0_45
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           JAVA_HOME         $root
