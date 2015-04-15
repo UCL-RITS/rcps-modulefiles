@@ -33,3 +33,9 @@ prepend-path     MANPATH              /shared/ucl/apps/screen/4.2.1/share/man
 prepend-path     PATH                 /shared/ucl/apps/cmake/3.2.1/gnu-4.9.2/bin
 prepend-path     MANPATH              /shared/ucl/apps/cmake/3.2.1/gnu-4.9.2/share/man
 
+# Git
+prepend-path     PATH                 /shared/ucl/apps/git/2.3.5/gnu-4.9.2/bin
+prepend-path     MANPATH              /shared/ucl/apps/git/2.3.5/gnu-4.9.2/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/git/2.3.5/gnu-4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/git/2.3.5/gnu-4.9.2/lib64
+
