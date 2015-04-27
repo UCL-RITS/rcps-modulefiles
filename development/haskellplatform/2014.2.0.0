@@ -10,10 +10,10 @@ proc ModulesHelp { } {
 
 module-whatis "adds Haskell Platform to your environment variables"
 
-conflict haskellplatfrom
+conflict haskellplatform
 prereq rcps-core
 
-set              root              /shared/ucl/apps/haskell-platfrom/2014.2.0.0/ghc-7.8.3-x86_64
+set              root              /shared/ucl/apps/haskell-platform/2014.2.0.0/ghc-7.8.3-x86_64
 
 prepend-path     PATH              $root/bin
 append-path      MANPATH           $root/man
