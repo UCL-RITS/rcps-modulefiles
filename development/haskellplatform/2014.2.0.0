@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-27
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Haskell Platform to your environment variables,"
+}
+
+module-whatis "adds Haskell Platform to your environment variables"
+
+conflict haskellplatfrom
+prereq rcps-core
+
+set              root              /shared/ucl/apps/haskell-platfrom/2014.2.0.0/ghc-7.8.3-x86_64
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     PATH $::env(HOME)/.cabal/bin
