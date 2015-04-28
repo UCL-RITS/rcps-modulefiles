@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-28
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Mono 3.12.1 compilers to your environment variables,"
+}
+
+module-whatis "adds Mono 3.12.1 compilers to your environment variables"
+
+conflict mono
+prereq rcps-core
+
+set              root              /shared/ucl/apps/mono/3.12.1
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
