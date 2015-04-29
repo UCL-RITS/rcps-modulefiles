@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Fortran compiler 6.0, 64 bit
+##
+## Modified April 2015 for version 6.0 Build 1044 and Legion's OS upgrade by BAA
+##
+proc ModulesHelp { } {
+
+  puts stderr "Adds the NAG Fortran compiler V6.0 Build 1044 to your environment."
+  puts stderr ""
+}
+
+module-whatis "adds NAG Fortran compiler V6.0 Build 1044 to your environment."
+
+conflict compilers
+prereq rcps-core
+
+set             prefix          /shared/ucl/apps/NAG/fortran-compiler
+set		release		6.0
+
+prepend-path	PATH		$prefix/$release/bin
+prepend-path    LD_LIBRARY_PATH $prefix/$release/lib/NAG_Fortran
+prepend-path    LIBRARY_PATH    $prefix/$release/lib/NAG_Fortran   
+prepend-path	MANPATH		$prefix/$release/man
+
+setenv NAG_KUSARI_FILE lm-server:
+setenv FC              nagfor
+setenv F77             nagfor
+setenv COMPILER_TAG    nag
