@@ -1,0 +1,61 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Intel MPI 2015 update 3 for GCC Compilers
+##
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Intel MPI 5.0 Update 3 to your environment variables for use with GCC 4.9.2"
+}
+
+module-whatis "adds Intel MPI to your environment variables"
+
+conflict mpi
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+
+set              root                 /shared/ucl/apps/intel/2015/impi/5.0.3.048
+
+prepend-path     PATH                 $root/intel64/bin
+append-path      MANPATH              $root/man
+prepend-path     LD_LIBRARY_PATH      $root/intel64/lib
+prepend-path     LIBRARY_PATH         $root/intel64/lib
+prepend-path     CPATH                $root/intel64/include 
+
+setenv           MPI_HOME             $root
+setenv           I_MPI_ROOT           $root
+
+setenv           I_MPI_DEVICE         rdssm
+setenv           I_MPI_CC             gcc
+setenv           I_MPI_CXX            g++
+setenv           I_MPI_F90            gfortran
+setenv           I_MPI_F77            gfortran
+setenv           TMI_CONFIG           /shared/ucl/apps/intel/2015/impi/5.0.3.048/intel64/etc/tmi.conf
+
+setenv           GERUN_LAUNCHER    intel
+prepend-path     PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
+
+# Check to see whether this is running in a scheduled environment (NHOSTS>1) and
+# if not, set shared memory only.
+if { [info exists ::env(NHOSTS) ] } {
+
+        # Scheduled.
+        # Check to see whether we have more than one host and if so set tmi and shared
+        # memory, otherwise, set shared memory.
+        if { $::env(NHOSTS) > 1} {
+
+                # Multi-node, scheduled.
+                setenv I_MPI_FABRICS shm:tmi
+        } else {
+
+                # Single node, scheduled.
+                setenv I_MPI_FABRICS shm
+        }
+} else {
+
+        # Not scheduled.
+        setenv I_MPI_FABRICS shm
+}
+
