@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## NONMEM 7.3.0 using GCC Fortran 4.9.2 and Intel MPI
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds NONMEM 7.3.0 using GCC Fortran 4.9.2 to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NONMEM/nm730_Intel/"
+}
+
+module-whatis "Adds NONMEM 7.3.0 using GCC Fortran 4.9.2 to your environment."
+
+# Location of NONMEM:
+
+set prefix /shared/ucl/apps/NONMEM/nm730_GNU-4.9.2
+
+prereq compilers/gnu/4.9.2
+prereq atlas/3.10.2/gnu.4.9.2
+prereq mpi/intel/2015/update3/gnu.4.9.2
+
+prepend-path PATH	$prefix/run
+setenv mpibinpath	/shared/ucl/apps/intel/2015/impi/5.0.3.048/intel64/bin
+setenv mpilibpath	/shared/ucl/apps/intel/2015/impi/5.0.3.048/intel64/lib
+setenv mpilibname	libmpi.so
