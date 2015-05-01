@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-05-01
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS 10Feb15 package to your environment."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines.  This version has been "
+    puts stderr "built as a binary (\"lmp_legion\")"
+    puts stderr ""
+    puts stderr "Please note that you must have the Intel MPI and compilers "
+    puts stderr "loaded for this version of LAMMPS to work."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 10Feb15 to your environment"
+
+
+conflict lammps
+prereq rcps-core
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+
+set              root              /shared/ucl/apps/lammps/10Feb15/intel-2015-update2/lammps-10Feb15
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib64
+prepend-path     LD_LIBRARY_PATH   $root/lib64
