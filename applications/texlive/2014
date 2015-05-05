@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## TeXLive 2014
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds TeX Live 2014 to your environment."
+    puts ""
+    puts stderr "TeX Live is a complete TeX and LaTeX system"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/TeXLive/2014"
+}
+
+module-whatis "Adds TeX Live 2014 to your environment."
+
+# Location of TeXLive:
+
+set prefix /shared/ucl/apps/TeXLive/2014
+
+prereq rcps-core/1.0.0
+
+prepend-path PATH		$prefix/bin
+prepend-path PATH		$prefix/bin/x86_64-linux
+prepend-path MANPATH		$prefix/texmf-dist/doc/man
+prepend-path INFOPATH		$prefix/texmf-dist/doc/info
