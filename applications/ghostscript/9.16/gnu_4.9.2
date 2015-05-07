@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Ghostscript 9.16 compiled with GCC 4.9.2
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Ghostscript Version 9.16 to your environment."
+    puts ""
+    puts stderr "Ghostscript is an interpreter for PostScript and PDF."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Ghostscript/9.16"
+}
+
+module-whatis "Adds Ghostscript 9.16 to your environment."
+
+# Location of Ghostscript:
+
+set prefix /shared/ucl/apps/Ghostscript/9.16
+
+prereq rcps-core/1.0.0
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
