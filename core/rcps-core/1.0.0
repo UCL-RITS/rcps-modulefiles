@@ -39,3 +39,9 @@ prepend-path     MANPATH              /shared/ucl/apps/git/2.3.5/gnu-4.9.2/share
 prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/git/2.3.5/gnu-4.9.2/lib64
 prepend-path     LIBRARY_PATH         /shared/ucl/apps/git/2.3.5/gnu-4.9.2/lib64
 
+# Flex
+prepend-path     PATH                 /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/bin
+prepend-path     MANPATH              /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/lib64
+
