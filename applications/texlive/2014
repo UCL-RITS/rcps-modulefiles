@@ -22,6 +22,7 @@ module-whatis "Adds TeX Live 2014 to your environment."
 set prefix /shared/ucl/apps/TeXLive/2014
 
 prereq rcps-core/1.0.0
+prereq applications/ghostscript/9.16/gnu_4.9.2
 
 prepend-path PATH		$prefix/bin
 prepend-path PATH		$prefix/bin/x86_64-linux
