@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GNU texinfo 5.2 compiled with GCC 4.9.2
+##
+## Brian Alston May 2015
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds GNU texinfo Version 5.2 to your environment."
+    puts ""
+    puts stderr "Texinfo uses a single source file to produce output in a number of"
+    puts stderr "formats, both online and printed eg dvi, html, info, pdf, xml, etc."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/texinfo/5.2"
+}
+
+module-whatis "Adds GNU texinfo 5.2 to your environment."
+
+# Location of texinfo:
+
+set prefix /shared/ucl/apps/texinfo/5.2
+
+prereq rcps-core/1.0.0
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
