@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## GSL 1.16 compiled using GCC 4.9.2
+
+proc ModulesHelp { } {
+    puts stderr "Adds the GNU Scientific Library Version 1.16 compiled using GCC 4.9.2"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "GSL provides a wide range of mathematical routines such as random"
+    puts stderr "number generators, special functions and least-squares fitting."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/gsl/1.16/gcc"
+}
+
+module-whatis "adds GSL 1.16 for GCC 4.9.2 to your environment."
+
+conflict gsl
+prereq rcps-core
+
+set              root              /shared/ucl/apps/gsl/1.16/gcc
+
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
