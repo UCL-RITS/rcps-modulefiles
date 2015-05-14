@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## HDF5 1.8.15 compiled using GCC 4.9.2 - Serial version
+
+proc ModulesHelp { } {
+    puts stderr "Adds HDF5 Version 1.8.15 (Serial) compiled using GCC 4.9.2"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "HDF5 is a data model, library, and file format for storing and"
+    puts stderr "managing data. This is the serial version compiled with GCC 4.9.2."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/HDF/5-1.8.15-gcc.4.9.2"
+}
+
+module-whatis "adds HDF5 1.8.15 (Serial) for GCC 4.9.2 to your environment."
+
+conflict hdf
+prereq rcps-core
+
+set              root              /shared/ucl/apps/HDF/5-1.8.15-gcc.4.9.2
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
