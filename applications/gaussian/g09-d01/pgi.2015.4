@@ -36,6 +36,7 @@ if [modulefunctions::isTMPDIR] {
 set root 		/shared/ucl/apps/gaussian/g09-d01/pgi-2015.4
 set gv_root		/shared/ucl/apps/gaussian/gaussview
 append-path PATH      	$root/g09
+append-path PATH	$root/g09/bsd
 prepend-path PATH       $gv_root/gv5
 
 setenv g09root		$root
