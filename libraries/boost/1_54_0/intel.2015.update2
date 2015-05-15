@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+#
+# Boost 1.54.0, 64 bit with Python and MPI libraries
+#
+#                                                      O.K. 14th May 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This package adds the Boost 1.54.0 library to your environment."
+    puts stderr ""
+    puts stderr "This version is 64-bit with Python and MPI libraries."
+    puts stderr ""
+}
+
+module-whatis "Adds Boost 1.54.0 with Python and MPI libraries to your environment. "
+
+prereq rcps-core/1.0.0
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq python/2.7.9
+
+conflict boost
+
+set root /shared/ucl/apps/boost/1_54_0/intel-2015-update2
+
+prepend-path LD_LIBRARY_PATH      $root/lib
+prepend-path    LIBRARY_PATH      $root/lib
+prepend-path           CPATH      $root/include
+setenv       BOOST_ROOT           $root
+setenv       BOOSTROOT            $root
+
