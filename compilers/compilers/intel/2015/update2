@@ -93,3 +93,4 @@ setenv F90       ifort
 setenv F77       ifort
 setenv CXXCPP    "icpc -E"
 setenv COMPILER_TAG   intel-2015-update2
+setenv BLAS_TAG  mkl
