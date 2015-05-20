@@ -99,7 +99,6 @@ setenv           QTINC             $tproot/platforms/linux64Icc/qt-4.6.8/include
 setenv           QTLIB             $tproot/platforms/linux64Icc/qt-4.6.8/lib
 setenv           QT_DIR            $tproot/platforms/linux64Icc/qt-4.6.8
 
-prepend-path     PATH              $root/bin
 prepend-path     PATH              $tproot/platforms/linux64Icc/qt-4.6.8/bin
 
 prepend-path     PATH              $tproot/platforms/linux64Icc/gperftools-svn/bin
@@ -109,9 +108,6 @@ prepend-path     PATH              $oftop/site/2.3.1/platforms/linux64IccDPOpt/b
 prepend-path     PATH              $root/platforms/linux64IccDPOpt/bin
 prepend-path     PATH              $root/bin
 prepend-path     PATH              $root/wmake
-
-prepend-path     LD_RUN_PATH       $root/lib64
-prepend-path     LD_RUN_PATH       /shared/ucl/apps/gcc/4.9.2/lib64
 
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/CGAL-4.3/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/gperftools-svn/lib
@@ -123,9 +119,6 @@ prepend-path     LD_RUN_PATH       $oftop/site/2.3.1/platforms/linux64IccDPOpt/l
 prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
-
-prepend-path     LD_LIBRARY_PATH   $root/lib64
-prepend-path     LD_LIBRARY_PATH   /shared/ucl/apps/gcc/4.9.2/lib64
 
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/CGAL-4.3/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/gperftools-svn/lib
