@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-05-20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the OpenFOAM 2.3.1 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds OpenFOAM 2.3.1 to your environment"
+
+
+conflict lammps
+prereq rcps-core
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq python/2.7.9
+prereq boost/1_54_0/intel.2015.update2
+
+set              root              /shared/ucl/apps/OpenFOAM/OpenFOAM-2.3.1
+set              tproot            /shared/ucl/apps/OpenFOAM/ThirdParty-2.3.1
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib64
+prepend-path     LD_LIBRARY_PATH   $root/lib64
