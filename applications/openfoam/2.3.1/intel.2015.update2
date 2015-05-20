@@ -46,7 +46,7 @@ setenv           FOAM_MPI          5.0.3.048
 setenv           FOAM_RUN          $local/run
 
 setenv           FOAM_SETTINGS     ""
-setenv           FOAM_SIGFPE       ""
+setenv           FOAM_SIGFPE       1
 
 setenv           FOAM_SITE_APPBIN  $oftop/site/2.3.1/platforms/linux64IccDPOpt/bin
 setenv           FOAM_SITE_LIBBIN  $oftop/site/2.3.1/platforms/linux64IccDPOpt/lib
