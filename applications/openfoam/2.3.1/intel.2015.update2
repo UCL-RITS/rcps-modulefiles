@@ -92,7 +92,7 @@ setenv           WM_PROJECT_INST_DIR $oftop
 setenv           WM_PROJECT        OpenFOAM
 setenv           WM_PROJECT_USER_DIR $local
 setenv           WM_PROJECT_VERSION 2.3.1
-setenv           WM_THIRD_PARTY_DIR=$tproot
+setenv           WM_THIRD_PARTY_DIR $tproot
 
 setenv           QTDIR             $tproot/platforms/linux64Icc/qt-4.6.8
 setenv           QTINC             $tproot/platforms/linux64Icc/qt-4.6.8/include
