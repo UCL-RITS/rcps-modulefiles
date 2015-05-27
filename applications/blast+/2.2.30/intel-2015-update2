@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+#
+# BLAST+ 2.2.30
+#
+#                                                      H.K. 27th May 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the BLAST+ 2.2.30 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds the BLAST+ 2.2.30 package to your environment."
+
+prereq rcps-core
+prereq compilers/intel/2015/update2
+
+conflict blast+
+
+set root 			/shared/ucl/apps/blast+/2.2.30/intel-2015-update2
+prepend-path PATH      		$root/bin/
+prepend-path LD_LIBRARY_PATH 	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+
+setenv BLASTDB			$root/data
