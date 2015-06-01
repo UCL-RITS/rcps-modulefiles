@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NetCDF 4.3.3.1 compiled using GCC 4.9.2 
+
+proc ModulesHelp { } {
+    puts stderr "Adds NetCDF Version 4.3.3.1 compiled using GCC 4.9.2"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "NetCDF is a set of software libraries and self-describing,"
+    puts stderr "machine-independent data formats that support the creation,"
+    puts stderr "access, and sharing of array-oriented scientific data."
+    puts stderr ""
+    puts stderr "This version was compiled with GCC 4.9.2"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.3.3.1-gcc.4.9.2"
+}
+
+module-whatis "adds NetCDF 4.3.3.1 for GCC 4.9.2 to your environment."
+
+conflict netcdf
+prereq rcps-core
+prereq hdf/5-1.8.15/gnu.4.9.2
+
+set              root              /shared/ucl/apps/NetCDF/4.3.3.1-gcc.4.9.2
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
