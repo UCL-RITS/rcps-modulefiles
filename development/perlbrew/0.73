@@ -20,7 +20,14 @@ prereq rcps-core
 conflict perlbrew
 
 set root 			/shared/ucl/apps/perl/perlbrewroot
+set support			/shared/ucl/apps/perl/perlbrewsupport
+
 prepend-path PATH      		$root/bin/
+prepend-path PERL5LIB		$support/share/perl5
+prepend-path PERL5LIB		$support/lib64/perl5
+prepend-path PERL5LIB		$support/lib/perl5
+prepend-path PERL5LIB		$support/lib
+prepend-path PERL5LIB		$support
 prepend-path PERL5LIB		$root/share/perl5
 
 setenv PERLBREWROOT		$root
