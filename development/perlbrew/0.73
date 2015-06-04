@@ -21,5 +21,6 @@ conflict perlbrew
 
 set root 			/shared/ucl/apps/perl/perlbrewroot
 prepend-path PATH      		$root/bin/
+prepend-path PERL5LIB		$root/share/perl5
 
 setenv PERLBREWROOT		$root
