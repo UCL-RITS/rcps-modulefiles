@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# Perlbrew 0.73
+#
+#                                                      H.K. 4th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Perlbrew 0.73 package to your environment."
+    puts stderr "Use Perlbrew to manage your own Perls and Perl modules. "
+    puts stderr "Before use:"
+    puts stderr "source /shared/ucl/apps/perl/perlbrewroot/etc/bashrc"
+    puts stderr ""
+}
+
+module-whatis "This module adds the Perlbrew 0.73 package to your environment. Use Perlbrew to manage your own Perls and Perl modules"
+
+prereq rcps-core
+
+conflict perlbrew
+
+set root 			/shared/ucl/apps/perl/perlbrewroot
+prepend-path PATH      		$root/bin/
+
+setenv PERLBREWROOT		$root
