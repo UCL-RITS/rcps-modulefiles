@@ -1,0 +1,41 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## JAGS 3.4.0 compiled with GCC 4.9.2 + ATLAS
+##
+## Brian Alston June 2015
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds JAGS 3.4.0 to your environment."
+    puts stderr ""
+    puts stderr "JAGS (Just Another Gibbs Sampler) is a program for analysis"
+    puts stderr "of Bayesian hierarchical models using Markov Chain Monte Carlo"
+    puts stderr "(MCMC) simulation  not wholly unlike BUGS."
+    puts stderr ""
+    puts stderr "It integrates well with R using the rjags package."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/JAGS/3.4.0"
+}
+
+module-whatis "Adds JAGS 3.4.0 to your environment."
+
+# Location of JAGS:
+
+set prefix /shared/ucl/apps/JAGS/3.4.0
+prereq rcps-core/1.0.0
+prereq compilers/gnu/4.9.2
+prereq atlas/3.10.2/gnu.4.9.2
+
+conflict jags
+
+append-path PATH                $prefix/bin
+append-path MANPATH             $prefix/share/man
+append-path LD_LIBRARY_PATH	$prefix/lib
+append-path LIBRARY_PATH	$prefix/lib
+
+setenv JAGS		$prefix/bin/jags
+setenv JAGS_INCLUDE	$prefix/include/JAGS
