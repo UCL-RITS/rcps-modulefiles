@@ -53,3 +53,9 @@ prepend-path     PATH                 /shared/ucl/apps/apr-util/1.5.4/bin
 prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/apr-util/1.5.4/lib
 prepend-path     LIBRARY_PATH         /shared/ucl/apps/apr-util/1.5.4/lib
 
+# Subversion
+prepend-path     PATH                 /shared/ucl/apps/subversion/1.8.13/bin
+prepend-path     MANPATH              /shared/ucl/apps/subversion/1.8.13/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/subversion/1.8.13/lib
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/subversion/1.8.13/lib
+
