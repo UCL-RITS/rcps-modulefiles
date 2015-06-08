@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-06-08
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds scons 2.3.4 to your environment variables,"
+}
+
+module-whatis "adds scons 2.3.4 to your environment variables"
+
+conflict scons
+prereq python/2.7.9
+prereq rcps-core
+
+set              root              /shared/ucl/apps/scons/2.3.4
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     PYTHONPATH        $root/lib/scons-2.3.4
