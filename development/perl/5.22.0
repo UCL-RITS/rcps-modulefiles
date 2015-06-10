@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# Perl 5.22.0
+#
+#                                                      H.K. 10th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Perl 5.22.0 to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds adds Perl 5.22.0 to your environment."
+
+prereq rcps-core
+
+conflict perl
+
+set root 			/shared/ucl/apps/perl/perlbrewroot/perls/perl-5.22.0
+set moduleroot			$root/lib/site_perl
+prepend-path PATH      		$root/bin
+prepend-path PERL5LIB 		$root/lib
+prepend-path PERL5LIB		$moduleroot
+prepend-path PERL5LIB		$moduleroot/5.22.0
