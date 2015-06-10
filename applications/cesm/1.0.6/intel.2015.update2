@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-06-10
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the CESM 2.0.6 package to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "See: "
+    puts stderr "https://wiki.rc.ucl.ac.uk/wiki/CESM_on_Legion"
+    puts stderr ""
+}
+
+module-whatis "Adds CESM 1.0.6 to your environment."
+
+conflict cesm
+prereq rcps-core
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq netcdf/4.3.3.1/intel.2015.update2
+
+set              root              /shared/ucl/apps/cesm/cesm1_0_6/
+
+prepend-path     PATH              $root/scripts
