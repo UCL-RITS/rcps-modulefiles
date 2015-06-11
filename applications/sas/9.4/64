@@ -1,4 +1,4 @@
-#%Module
+#%Module -*- tcl -*-
 #
 # SAS 9.4, 364 bit
 #
@@ -59,4 +59,3 @@ if { ! [info exists ::env(OMP_NUM_THREADS) ] } {
     setenv OMP_NUM_THREADS 1
 }
 
-puts stderr "SAS not yet running on updated Legion software stack."
