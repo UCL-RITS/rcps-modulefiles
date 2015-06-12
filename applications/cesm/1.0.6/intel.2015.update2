@@ -2,7 +2,7 @@
 ##
 ## modulefile
 ##
-## Built by O.K. on Legion on 2015-06-10
+## Built by O.K. on Legion on 2015-06-12
 
 proc ModulesHelp { } {
 
@@ -20,8 +20,19 @@ conflict cesm
 prereq rcps-core
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
-prereq netcdf/4.3.3.1/intel.2015.update2
+prereq hdf/5-1.8.15/intel.2015.update2
+
 
 set              root              /shared/ucl/apps/cesm/cesm1_0_6/
 
 prepend-path     PATH              $root/scripts
+
+set              ncroot            /shared/ucl/apps/cesm/support/netcdf
+
+prepend-path     PATH              $ncroot/bin
+prepend-path     LD_RUN_PATH       $ncroot/lib
+prepend-path     LD_LIBRARY_PATH   $ncroot/lib
+prepend-path     CPATH             $ncroot/include
+prepend-path     INCLUDE_PATH      $ncroot/include
+prepend-path     MANPATH           $ncroot/share/man
+
