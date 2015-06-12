@@ -14,7 +14,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "This version was compiled with Intel 2015 Update 2"
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.3.3.1-intel_2015-update2"
+    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.3.3.1-intel-2015-update2"
 }
 
 module-whatis "adds NetCDF 4.3.3.1 for Intel 2015 to your environment."
@@ -24,7 +24,7 @@ prereq rcps-core
 prereq compilers/intel/2015/update2
 prereq hdf/5-1.8.15/intel.2015.update2
 
-set              root              /shared/ucl/apps/NetCDF/4.3.3.1-intel_2015-update2
+set              root              /shared/ucl/apps/NetCDF/4.3.3.1-intel-2015-update2
 
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
