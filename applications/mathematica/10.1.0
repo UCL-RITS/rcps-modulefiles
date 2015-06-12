@@ -1,0 +1,48 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Mathematica 10.1
+##
+## Brian Alston June 2015
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Mathematica 10.1.0 to your environment."
+    puts stderr ""
+    puts stderr "Mathematica is a general purpose package and language for"
+    puts stderr "mathematical applications. It can be used for numerical"
+    puts stderr "calculations, symbolic computation and visualization."
+    puts stderr "Mathematica supports numbers of any precision."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Mathematica/10.1"
+}}
+
+module-whatis "Adds Mathematica 10.1.0 to your environment."
+
+# Location of Mathematica:
+
+set prefix /shared/ucl/apps/Mathematica/10.1
+prereq rcps-core/1.0.0
+
+conflict mathematica
+
+prepend-path	PATH			$prefix/bin
+setenv 		MATHEMATICA_BASE	$prefix/share
+setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica
+
+if { ! [info exists ::env(OMP_NUM_THREADS)]} {
+    setenv  OMP_NUM_THREADS 	4
+}
+
+if {[info exists ::env(DISPLAY)]} {
+    puts stderr ""
+    puts stderr "When running the Notebook interface please start Mathematica"
+    puts stderr "using:"
+    puts stderr "        mathematica -mesa"
+    puts stderr ""
+    puts stderr "If you do not, your X server may crash!"
+    puts stderr ""
+}
