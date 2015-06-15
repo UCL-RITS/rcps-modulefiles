@@ -4,6 +4,8 @@
 ##
 ## Ghostscript 9.16 compiled with GCC 4.9.2
 ##
+## Ghostscript shared onbject support added 15th June 2015
+##
 
 # New Legion modules layout
 
@@ -25,3 +27,7 @@ prereq rcps-core/1.0.0
 
 prepend-path PATH		$prefix/bin
 prepend-path MANPATH		$prefix/share/man
+prepend-path LD_RUN_PATH        $prefix/lib
+prepend-path LD_LIBRARY_PATH    $prefix/lib
+prepend-path CPATH              $prefix/include
+prepend-path INCLUDE_PATH       $prefix/include
