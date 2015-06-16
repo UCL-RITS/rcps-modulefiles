@@ -6,8 +6,14 @@
 ##
 ## Brian Alston June 2015
 ##
+## Added installation of UCL Parallel Kernels Prefs file if user doesn't have one.
+##
 
 # New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 
 proc ModulesHelp { } {
     puts stderr "Adds Mathematica 10.1.0 to your environment."
@@ -25,6 +31,7 @@ module-whatis "Adds Mathematica 10.1.0 to your environment."
 # Location of Mathematica:
 
 set prefix /shared/ucl/apps/Mathematica/10.1
+set userBase ~/Scratch/.Mathematica
 prereq rcps-core/1.0.0
 
 conflict mathematica
@@ -32,6 +39,18 @@ conflict mathematica
 prepend-path	PATH			$prefix/bin
 setenv 		MATHEMATICA_BASE	$prefix/share
 setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica
+
+set parPrefsDir $userBase/ApplicationData/Parallel/Preferences
+
+if { [modulefunctions::isModuleLoad] } {
+    if { [modulefunctions::createDir $parPrefsDir] } {
+    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+    } else {
+    	puts stderr ""
+    	puts stderr "Problem setting up Parallel Kernel perfs directory."
+    	puts stderr ""
+    }
+}
 
 if { ! [info exists ::env(OMP_NUM_THREADS)]} {
     setenv  OMP_NUM_THREADS 	4
