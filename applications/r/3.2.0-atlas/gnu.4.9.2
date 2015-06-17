@@ -52,5 +52,5 @@ prepend-path MANPATH		$prefix/share/man
 append-path  LD_LIBRARY_PATH	$prefix/lib64/R/lib
 setenv 	     R_BROWSER		firefox
 
-# Waiting for Lustre to be available on dev
-# setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.2.0-ATLAS/library
+# Databases need to be stored on Lustre not NFS
+setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.2.0-ATLAS/library
