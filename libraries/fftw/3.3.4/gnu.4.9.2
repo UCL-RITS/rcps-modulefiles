@@ -3,6 +3,8 @@
 ## modulefile
 ##
 ## Built by O.K. on Legion on 2015-04-13
+##
+## Added extra env vars as on current Legion - BAA June 2015
 
 proc ModulesHelp { } {
   puts stderr "\tAdds FFTW 3.3.4 for GCC 4.9.2 compilers to your environment variables.  Includes both single and double precision versions."
@@ -21,3 +23,7 @@ prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
 prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
+
+setenv           FFTWLIBDIR        $root/lib
+setenv           FFTWINCLUDE       $root/include
+setenv           FFTWLIB           fftw
