@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds FFTW 2.1.5 for Intel compilers to your environment variables.  Includes both single and double precision versions with --enable-type-prefix to distinguish them."
+}
+
+module-whatis "adds FFTW 2.1.5 for Intel compilers to your environment variables"
+
+conflict fftw
+prereq rcps-core
+
+set              root              /shared/ucl/apps/fftw/2.1.5/intel-2015-update2
+
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
