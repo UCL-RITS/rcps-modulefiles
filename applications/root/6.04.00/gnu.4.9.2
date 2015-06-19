@@ -25,7 +25,7 @@ module-whatis "Adds ROOT 6.04.00 to your environment."
 
 # Location of ROOT:
 
-set prefix /shared/ucl/apps/ROOT/6.04.00
+set prefix /shared/ucl/apps/ROOT/6.04.00/gnu-4.9.2
 
 prereq rcps-core/1.0.0
 prereq compilers/gnu/4.9.2
@@ -39,3 +39,4 @@ setenv ROOTSYS	$prefix
 prepend-path PATH                $prefix/bin
 prepend-path MANPATH             $prefix/share/man
 prepend-path LD_LIBRARY_PATH	 $prefix/lib/root
+/
