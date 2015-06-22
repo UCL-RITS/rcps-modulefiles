@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# BamTools 2.4.0
+#
+#                                                      H.K. 22nd June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the BamTools 2.4.0 package to your environment."
+    puts stderr "BamTools provides both a programmer's API and an end-user's toolkit"
+    puts stderr "for handling BAM files."
+    puts stderr ""
+}
+
+module-whatis "Adds BamTools 2.4.0 to your environment. BamTools provides both a programmer's API and an end-user's toolkit for handling
+BAM files."
+
+# Add binary to PATH
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+
+conflict bamtools
+
+set root 			/shared/ucl/apps/bamtools/2.4.0/gnu-4.9.2
+prepend-path PATH      		$root/bin
+prepend-path LD_LIBRARY_PATH	$root/lib/bamtools
+prepend-path LIBRARY_PATH	$root/lib/bamtools
+prepend-path CPATH		$root/include/bamtools
