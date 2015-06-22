@@ -1,0 +1,43 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## ROOT 5.34.30 compiled with GCC 4.9.2 + FFTW and GSL
+##
+## Brian Alston June 2015
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds ROOT 5.34.30 to your environment."
+    puts stderr ""
+    puts stderr "ROOT provides a set of OO frameworks for handling, analysing,"
+    puts stderr "and visualising large amounts of data. Included are specialised"
+    puts stderr "storage methods, methods for histograming, curve fitting, "
+    puts stderr "function evaluation, minimization etc. ROOT includes a built-in"
+    puts stderr "CINT C++ interpreter."
+    puts stderr ""
+    puts stderr "This is the version to use with the R/Bioconductor/xps package."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ROOT/5.34.30"
+}
+
+module-whatis "Adds ROOT 5.34.30 to your environment."
+
+# Location of ROOT:
+
+set prefix /shared/ucl/apps/ROOT/5.34.30/gnu-4.9.2
+
+prereq rcps-core/1.0.0
+prereq compilers/gnu/4.9.2
+prereq fftw/3.3.4/gnu.4.9.2
+prereq gsl/1.16/gnu_4.9.2
+
+conflict root
+
+setenv ROOTSYS	$prefix
+
+prepend-path PATH                $prefix/bin
+prepend-path MANPATH             $prefix/share/man
+prepend-path LD_LIBRARY_PATH	 $prefix/lib/root
