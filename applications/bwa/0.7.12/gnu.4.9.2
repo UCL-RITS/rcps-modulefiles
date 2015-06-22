@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# BWA 0.7.12
+#
+#                                                      H.K. 22nd June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the BWA 0.7.12 package to your environment."
+    puts stderr "BWA is a software package for mapping DNA sequences against a"
+    puts stderr "large reference genome, such as the human genome."
+    puts stderr ""
+}
+
+module-whatis "Adds BWA 0.7.12 to your environment. BWA is a software package for mapping DNA sequences against a large reference genome, such as the human genome."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict bamtools
+
+set root 			/shared/ucl/apps/bwa/0.7.12/gnu-4.9.2
+prepend-path PATH      		$root
