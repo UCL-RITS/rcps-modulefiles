@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# SAMtools 2.1
+#
+#                                                      H.K. 22nd June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SAMtools 2.1 package to your environment."
+    puts stderr "Reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
+    puts stderr ""
+}
+
+module-whatis "Adds SAMtools 2.1 to your environment. Reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict samtools
+
+set root 			/shared/ucl/apps/samtools/1.2/gnu-4.9.2
+prepend-path PATH      		$root/bin
+prepend-path MANPATH		$root/share/man
