@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+#
+# Trimmomatic 0.33
+#
+#                                                      H.K. 23rd June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Trimmomatic 0.33 package to your environment."
+    puts stderr "A flexible read trimming tool for Illumina NGS data."
+    puts stderr ""
+    puts stderr "To run Trimmomatic, prefix the .jar with \$TRIMMOMATIC_PATH"
+    puts stderr "e.g."
+    puts stderr "java -Xmx2g -jar \$TRIMMOMATIC_PATH/trimmomatic-0.33.jar option1 option2"
+    puts stderr ""
+    puts stderr "Wrappers are also provided, so you can run:"
+    puts stderr "trimmomatic-0.33.jar option1 option2"
+    puts stderr "which is the equivalent of the previous example."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Trimmomatic 0.33 to your environment. A flexible read trimming tool for Illumina NGS data."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict trimmomatic
+
+set root 			/shared/ucl/apps/Trimmomatic/0.33
+prepend-path PATH      		$root
+setenv TRIMMOMATIC_PATH		$root/jar
