@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# Bison 3.0.4
+#
+#                                                      H.K. 24th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Bison 3.0.4 package to your environment."
+    puts stderr "Bison is a general-purpose parser generator."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Bison 3.0.4 to your environment. Bison is a general-purpose parser generator."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict bison
+
+set root 			/shared/ucl/apps/bison/3.0.4/gnu-4.9.2
+prepend-path PATH      		$root/bin
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path MANPATH		$root/share/man
+prepend-path INFOPATH		$root/share/info
