@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# gperf 3.0.4
+#
+#                                                      H.K. 24th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the gperf 3.0.4 package to your environment."
+    puts stderr "GNU gperf is a perfect hash function generator."
+    puts stderr ""
+
+}
+
+module-whatis "Adds gperf 3.0.4 to your environment. GNU gperf is a perfect hash function generator."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict gperf
+
+set root 			/shared/ucl/apps/gperf/3.0.4/gnu-4.9.2
+prepend-path PATH      		$root/bin
+prepend-path MANPATH		$root/share/man
+prepend-path INFOPATH		$root/share/info
