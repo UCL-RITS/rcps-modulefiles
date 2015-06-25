@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# SMALT 0.7.6
+#
+#                                                      H.K. 25th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SMALT 0.7.6 package to your environment."
+    puts stderr "SMALT aligns DNA sequencing reads with a reference genome."
+    puts stderr "Compiled with bambamc support for SAM/BAM input and BAM output."
+    puts stderr ""
+
+}
+
+module-whatis "Adds SMALT 0.7.6 to your environment. SMALT aligns DNA sequencing reads with a reference genome. Compiled with bambamc support for SAM/BAM input and BAM output."
+
+# Add binary to PATH
+prereq rcps-core
+prereq bambamc
+
+conflict smalt
+
+set root 			/shared/ucl/apps/smalt/0.7.6/gnu-4.9.2
+prepend-path PATH    		$root/bin
