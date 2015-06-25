@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# bambamc 0.0.50
+#
+#                                                      H.K. 25th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the bambamc 0.0.50 package to your environment."
+    puts stderr "bambamc is a lightweight C implementation of the read name collation"
+    puts stderr "code from the larger libmaus/biobambam C++ project."
+    puts stderr ""
+
+}
+
+module-whatis "Adds bambamc 0.0.50 to your environment. bambamc is a lightweight C implementation of the read name collation code from the larger libmaus/biobambam C++ project."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict bambamc
+
+set root 			/shared/ucl/apps/bambamc/0.0.50/gnu-4.9.2
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH    	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
