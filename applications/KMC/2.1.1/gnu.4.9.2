@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# KMC 2.1.1
+#
+#                                                      H.K. 25th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the KMC 2.1.1 package to your environment."
+    puts stderr "KMC is a disk-based program for counting k-mers from FASTQ/FASTA files."
+    puts stderr ""
+
+}
+
+module-whatis "Adds KMC 2.1.1 to your environment. KMC is a disk-based program for counting k-mers from FASTQ/FASTA files."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict kmc
+
+set root 			/shared/ucl/apps/KMC/2.1.1/gnu-4.9.2
+prepend-path PATH    		$root/bin
