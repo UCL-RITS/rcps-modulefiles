@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# MUMmer 3.23
+#
+#                                                      H.K. 26th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the MUMmer 3.23 package to your environment."
+    puts stderr "MUMmer is a system for rapidly aligning entire genomes, whether in complete or draft form."
+    puts stderr ""
+
+}
+
+module-whatis "Adds MUMmer 3.23 to your environment. MUMmer is a system for rapidly aligning entire genomes, whether in complete or draft form."
+
+# Add binary to PATH
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+
+conflict mummer
+
+set root 			/shared/ucl/apps/MUMmer/3.23/gnu-4.9.2/MUMmer3.23
+prepend-path PATH    		$root
