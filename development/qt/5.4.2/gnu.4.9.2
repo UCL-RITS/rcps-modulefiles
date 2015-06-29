@@ -1,0 +1,41 @@
+#%Module -*- tcl -*-
+#
+# Qt 5.4.2
+#
+#                                                      H.K. 29th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Qt 5.4.2 package to your environment."
+    puts stderr "Qt is a cross-platform development tool."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Qt 5.4.2 to your environment. Qt is a cross-platform development tool."
+
+# Add binary to PATH
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+prereq bison/3.0.4/gnu.4.9.2
+prereq gperf/3.0.4/gnu.4.9.2
+
+conflict qt
+
+set root 			/shared/ucl/apps/qt/5.4.2/gnu-4.9.2
+set support			/shared/ucl/apps/qt/5.4.2/gnu-4.9.2/support
+
+prepend-path PYTHONPATH 	$support/lib/python2.7/site-packages
+prepend-path PKG_CONFIG_PATH 	$support/share/pkgconfig
+prepend-path PKG_CONFIG_PATH 	$support/lib/pkgconfig
+prepend-path LD_LIBRARY_PATH	$support/lib
+prepend-path LIBRARY_PATH	$support/lib
+prepend-path CPATH		$support/include
+prepend-path INCLUDE_PATH	$support/include
+
+prepend-path PATH    		$root/bin
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
