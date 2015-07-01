@@ -13,6 +13,7 @@ module-whatis "adds OpenBLAS 0.2.14 for Intel 2015 update 2compilers to your env
 conflict atlas
 conflict openblas
 prereq rcps-core
+prereq compilers/intel/2015/update2
 
 set              root              /shared/ucl/apps/openblas/0.2.14/intel-2015-update2
 
