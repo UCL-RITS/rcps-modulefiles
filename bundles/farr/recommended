@@ -11,7 +11,6 @@ proc ModulesHelp { } {
 module-whatis "Adds set of default applications to the environment for FARR users."
 
 prereq rcps-core
-module load python/2.7.9
 module load openblas/0.2.14/gnu.4.9.2
 module load kmc/2.1.1/gnu.4.9.2
 module load mummer/3.23/gnu.4.9.2
