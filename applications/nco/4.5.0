@@ -1,0 +1,45 @@
+#%Module -*- tcl -*-
+#
+# NCO 4.5.0
+#
+#                                                      O.K. 2nd July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the NCO package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds nco to your environment."
+
+# NCO
+prereq rcps-core
+prereq hdf/5-1.8.15/gnu.4.9.2
+prereq netcdf/4.3.3.1/gnu.4.9.2
+prereq udunits/2.2.19
+
+# Antlr
+prereq mono/3.12.1
+prereq java/1.8.0_45
+prereq python/2.7.9
+prereq bison/3.0.4/gnu.4.9.2
+
+conflict nco
+
+set antroot /shared/ucl/apps/nco/antlr-2.7.7
+prepend-path     PATH              $antroot/bin
+prepend-path     LD_LIBRARY_PATH   $antroot/lib
+prepend-path     LIBRARY_PATH      $antroot/lib
+prepend-path     CPATH             $antroot/include
+prepend-path     INCLUDE_PATH      $antroot/include
+
+
+
+set root /shared/ucl/apps/nco/nco-4.5.0
+prepend-path     PATH              $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
