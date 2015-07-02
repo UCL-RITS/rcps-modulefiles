@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# Udunits 2.2.19
+#
+#                                                      O.K. 2nd July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the udunits package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds udunits to your environment."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict udunits
+
+set root /shared/ucl/apps/udunits/2.2.19
+prepend-path     PATH              $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+prepend-path     INFOPATH          $root/share/info
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
