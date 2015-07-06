@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# Szip 2.1
+#
+#                                                      O.K. 6th July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the szip package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds szip to your environment."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict szip
+
+set root /shared/ucl/apps/szip/2.1
+prepend-path     PATH              $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+prepend-path     INFOPATH          $root/share/info
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
