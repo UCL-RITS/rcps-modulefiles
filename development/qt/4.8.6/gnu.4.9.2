@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+#
+# Qt 4.8.6
+#
+#                                                      H.K. 6th July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Qt 4.8.6 package to your environment."
+    puts stderr "Qt is a cross-platform development tool."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Qt 4.8.6 to your environment. Qt is a cross-platform development tool."
+
+# Add binary to PATH
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+
+conflict qt
+
+set root 			/shared/ucl/apps/qt/4.8.6/gnu-4.9.2
+set alsa			/shared/ucl/apps/alsa/1.0.29/gnu-4.9.2
+
+prepend-path PKG_CONFIG_PATH 	$alsa/lib/pkgconfig
+prepend-path LD_LIBRARY_PATH	$alsa/lib
+prepend-path LIBRARY_PATH	$alsa/lib
+prepend-path CPATH		$alsa/include
+prepend-path INCLUDE_PATH	$alsa/include
+
+prepend-path PATH    		$root/bin
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
