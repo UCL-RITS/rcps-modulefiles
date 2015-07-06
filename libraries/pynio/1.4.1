@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# PyNIO 1.4.1 
+#
+#                                                      O.K. 6th July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PyNIO 1.4.1 package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds PyNIO to your environment."
+
+# Add binary to PATH
+prereq rcps-core
+prereq python/2.7.9
+prereq python2/recommended
+prereq netcdf/4.3.3.1/gnu.4.9.2
+prereq hdf/5-1.8.15/gnu.4.9.2
+
+conflict pynio
+
+set root 			/shared/ucl/apps/pynio/1.4.1
+prepend-path PATH    		$root/bin
+prepend-path PYTHONPATH         $root/lib/python2.7/site-packages
