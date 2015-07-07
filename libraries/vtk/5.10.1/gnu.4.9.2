@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## VTK 6.2.0 compiled using GCC 4.9.2 
+
+proc ModulesHelp { } {
+    puts stderr "Adds VTK 5.10.1 compiled using GCC 4.9.2"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "This version has Python and Java bindings."
+}
+
+module-whatis "adds VTK 5.10.1  for GCC 4.9.2 to your environment."
+
+conflict vtk
+prereq rcps-core
+prereq hdf/5-1.8.15/gnu.4.9.2
+prereq python/2.7.9
+prereq python2/recommended
+prereq java/1.8.0_45
+prereq qt/4.8.6/gnu.4.9.2
+
+set              root              /shared/ucl/apps/vtk/5.10.1/gcc.4.9.2
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages
+prepend-path     CLASSPATH         $root/lib/vtk.jar
