@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# Lua 5.3.1
+#
+#                                                      H.K. July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Lua 5.3.1 package to your environment."
+    puts stderr "Lua is a powerful, fast, lightweight, embeddable scripting language."
+    puts stderr ""
+}
+
+module-whatis "This module adds the Lua 5.3.1 package to your environment. Lua is a powerful, fast, lightweight, embeddable scripting language."
+
+prereq rcps-core
+
+conflict lua
+
+set root 			/shared/ucl/apps/lua/5.3.1/gnu-4.9.2
+
+prepend-path PATH      		$root/bin
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path MANPATH		$root/man
