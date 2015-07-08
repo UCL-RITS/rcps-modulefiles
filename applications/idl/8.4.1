@@ -32,7 +32,7 @@ proc appDirSetup { appDir } {
 
     if { [catch {file type $appDir} type] } {	# appDir does not exist yet
 	if { [modulefunctions::createDir $target] } {
-	    return [modulefunctions::createSymlink $target $appDir]
+	    return [modulefunctions::createSymlink $appDir $target]
 	} else {
 	    return false
 	}
@@ -47,7 +47,7 @@ proc appDirSetup { appDir } {
 		puts stderr "    $err"
 		return false
 	    }
-	    return [modulefunctions::createSymlink $target $appDir]
+	    return [modulefunctions::createSymlink $appDir $target]
 	}
     } else {
 	return false
