@@ -15,6 +15,7 @@ module-whatis "This module adds the Samtools 0.1.19 package to your environment.
 prereq rcps-core
 
 conflict samtools
+conflict bcftools
 
 set root 			/shared/ucl/apps/samtools/0.1.19/gnu-4.9.2/samtools-0.1.19
 
