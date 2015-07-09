@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# Samtools 0.1.19 
+#
+#                                                      H.K. 15th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Samtools 0.1.19 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds the Samtools 0.1.19 package to your environment."
+
+prereq rcps-core
+
+conflict samtools
+
+set root 			/shared/ucl/apps/samtools/0.1.19/gnu-4.9.2/samtools-0.1.19
+
+prepend-path PATH      		$root
+prepend-path PATH      		$root/misc
+prepend-path PATH      		$root/bcftools
+prepend-path LIBRARY_PATH	$root
+prepend-path LD_LIBRARY_PATH	$root
+prepend-path CPATH		$root
+prepend-path INCLUDE_PATH	$root
+
