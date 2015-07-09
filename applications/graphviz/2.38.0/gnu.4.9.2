@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+#
+# Graphviz 2.38.0
+#
+#                                                      H.K. July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Graphviz 2.38.0 package to your environment."
+    puts stderr "Graphviz is open source graph visualization software."
+    puts stderr ""
+}
+
+module-whatis "This module adds the Graphviz 2.38.0 package to your environment. Graphviz is open source graph visualization software."
+
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+prereq swig/3.0.5/gnu.4.9.2
+prereq qt/4.8.6/gnu.4.9.2
+prereq ghostscript/9.16/gnu_4.9.2
+prereq python/2.7.9
+prereq lua/5.3.1
+prereq perl/5.22.0
+
+conflict graphviz
+
+set root 			/shared/ucl/apps/graphviz/2.38.0/gnu-4.9.2
+
+prepend-path PATH      		$root/bin
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
+prepend-path MANPATH		$root/share/man
