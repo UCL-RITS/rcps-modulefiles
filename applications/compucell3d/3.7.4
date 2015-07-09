@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-09
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the CompuCell3D package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds CompuCell3D to your environment"
+
+
+conflict compucell3d
+prereq rcps-core
+prereq hdf/5-1.8.15/gnu.4.9.2
+prereq python/2.7.9
+prereq openblas/0.2.14/gnu.4.9.2
+prereq python2/recommended
+prereq java/1.8.0_45
+prereq qt/4.8.6/gnu.4.9.2
+prereq vtk/5.10.1/gnu.4.9.2
+prereq swig/3.0.5/gnu.4.9.2
+
+set              root              /shared/ucl/apps/compucell3d/3.7.4
+set              support           /shared/ucl/apps/compucell3d/support
+
+
+prepend-path     PATH              $support/bin
+prepend-path     LD_RUN_PATH       $support/lib
+prepend-path     LD_LIBRARY_PATH   $support/lib
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $support/lib
