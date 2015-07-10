@@ -1,0 +1,129 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## STAR-CD 4.22.058
+##
+## Brian Alston July 2015
+##
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds STAR-CD 4.22.058 to your path."
+    pusts stderr ""
+    puts stderr "STAR-CD is a code for performing CFD simulations. It is designed for"
+    puts stderr "modelling fluid flow, heat transfer, mass transfer and chemical reactions."
+    puts stderr ""
+    puts stderr "The parallel version of the code, STAR-HPC, is based on a domain (mesh)"
+    puts stderr "decomposition methodology utilising message-passing protocols to communicate"
+    puts stderr "between sub-domain boundaries via the distributed processor/system memory."
+    puts stderr "The parallel code provides the ability to substantially reduce the modelling"
+    puts stderr "solution time and enable greater modelling accuracy through finer meshes accessible"
+    puts stderr "through the combined memory available of each computer/processor used."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/STAR-CD/4.22.058"
+}
+
+
+module-whatis "Adds STAR-CD 4.22.058 to your environment."
+
+conflict star-cd
+
+prereq rcps-core/1.0.0
+
+# Location of STAR-CD:
+
+set prefix /shared/ucl/apps/STAR-CD/4.22.058
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legstarcd"     
+}
+
+setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+
+prepend-path PATH               $prefix/bin
+prepend-path PATH               $prefix/sbin
+
+setenv FLEXLMTOP $prefix/FLEXLM/11.9.1.0C
+setenv FLEXLM $prefix/FLEXLM/11.9.1.0C/linux64_2.6-x86-glibc_2.3.4
+
+setenv HPMPITOP NOHPMPI
+setenv HPMPI NOHPMPI/linux64_2.4-x86-glibc_2.2.5
+
+setenv HPC_SCRATCH "\$TMPDIR"
+
+setenv IBMMPITOP $prefix/IBMMPI/8.3.0.2isv
+setenv IBMMPI $prefix/IBMMPI/8.3.0.2isv/linux64_2.6-x86-glibc_2.3.4
+
+setenv ICETOP $prefix/ICE/4.22.098
+setenv ICE $prefix/ICE/4.22.098/linux64_2.6-x86-glibc_2.3.4-gcc_4.4.3-ifort_11.0
+
+setenv INTELMPITOP $prefix/INTELMPI/4.1.1.036
+setenv INTELMPI $prefix/INTELMPI/4.1.1.036/linux64_2.6-x86_glibc_2.3.4
+setenv INTEL /shared/ucl/apps/intel/2015/
+
+setenv LM_LICENSE_FILE ""
+
+setenv MPICHTOP NOMPICH
+setenv MPICH NOMPICH/linux64_2.4-gcc_3.2.2-glibc_2.2.5-dso
+
+setenv OPENMPITOP $prefix/OPENMPI/1.6.2
+setenv OPENMPI $prefix/OPENMPI/1.6.2/linux64_2.6-gcc_3.4.6-glibc_2.3.4
+
+setenv PCMPITOP $prefix/PCMPI/8.1.1.0
+setenv PCMPI $prefix/PCMPI/8.1.1.0/linux64_2.6-x86-glibc_2.3.4
+
+setenv PEMFC NOPEMFC
+setenv PGI /shared/ucl/apps/PGI/2015.4/linux86-64/15.4#
+setenv PNP_JOBSTAGE 1
+
+setenv PROSTARTOP $prefix/PROSTAR/4.22.016
+setenv PROSTAR $prefix/PROSTAR/4.22.016/linux64_2.6-x86-glibc_2.3.4-gcc_4.4.3-ifort_11.0
+setenv RAMPICH /usr/mpich/mpich-1.2.6-pgi614
+setenv RUNTIME NONE
+setenv SOFC NOSOFC
+
+setenv STARCDMAN $prefix/STARCDMAN/4.22.015/generic
+setenv STARDATA $prefix/STARDATA/3.01.010/generic
+setenv STARINI Default
+setenv STARNET $prefix/STARNET/3.00.024/generic
+
+setenv STARPLUGIN_AERO NOSTARPLUGIN_AERO
+setenv STARPLUGIN_AFTER $prefix/AFTER/4.10.012
+setenv STARPLUGIN_DARSCFD $prefix/DARSCFD/2.05.007
+setenv STARPLUGIN_DARSTABLE $prefix/DARSTABLE/4.20.006
+setenv STARPLUGIN_DARSTIF $prefix/DARSTIF/2.08.012
+setenv STARPLUGIN_DEMCFD NOSTARPLUGIN_DEMCFD
+setenv STARPLUGIN_DOLFA NOSTARPLUGIN_DOLFA
+setenv STARPLUGIN_GTPOWER NOSTARPLUGIN_GTPOWER
+setenv STARPLUGIN_ICE $prefix/STARICE/4.22.098
+setenv STARPLUGIN_PEMFC NOSTARPLUGIN_PEMFC
+setenv STARPLUGIN_SOFC NOSTARPLUGIN_SOFC
+setenv STARPLUGIN_SOOTNOX $prefix/SOOTNOX/1.04.005
+setenv STARPLUGIN_VTM NOSTARPLUGIN_VTM
+setenv STARPLUGIN_WAVE $prefix/WAVE/2.14.004
+
+setenv STARTOP $prefix/STAR/4.22.058
+setenv STAR $prefix/STAR/4.22.058/linux64_2.6-ifort_13.1-glibc_2.5
+setenv STARDIR $prefix
+
+setenv XTMPI /opt/cray/mpt/default/gni/mpich2-gnu/47/lib
+
+if { [info exists ::env(TMPDIR) ] } {
+  set TMPDIR $::env(TMPDIR)
+}  else {
+  set TMPDIR /tmp
+}
+
+setenv STARFLAGS "-nodefile=$TMPDIR/machines -scratch=$TMPDIR -set CDLMD_LICENSE_FILE=1999@ntsrv1.meng.ucl.ac.uk"
+setenv REMOTETASK "/usr/bin/ssh -o StrictHostKeyChecking=no"
+setenv REMOTECOPY "/usr/bin/scp -o StrictHostKeyChecking=no"
+
+
