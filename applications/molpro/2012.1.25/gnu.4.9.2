@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-13
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Molpro package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Molpro to your environment"
+
+
+conflict molpro
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi
+
+set              root              /shared/ucl/apps/molpro/2012.1.25/molprop_2012_1_Linux_x86_64_i8
+
+setenv           AMBERHOME         $root
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
