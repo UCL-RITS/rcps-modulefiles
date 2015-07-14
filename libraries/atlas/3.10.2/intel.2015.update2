@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## 					 H.K. July 2015
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds ATLAS 3.10.2 for Intel 15 compilers to your environment variables."
+}
+
+module-whatis "adds ATLAS 3.10.2 for Intel 15 compilers to your environment variables"
+
+conflict atlas
+conflict openblas
+prereq rcps-core
+
+set              root              /shared/ucl/apps/atlas/3.10.2/intel-2015-update2
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+setenv           BLAS_TAG          atlas
+setenv   	 ATLASROOT	   $root
