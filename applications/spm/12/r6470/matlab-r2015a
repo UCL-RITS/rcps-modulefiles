@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-14
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SPM12 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds SPM12 to your environment"
+
+
+conflict spm
+prereq rcps-core
+prereq matlab/full/r2015a/8.5
+
+set              root              /shared/ucl/apps/spm/spm12-r6470
+prepend-path     MATLABPATH        $root
