@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## Bowtie 1.1.2
+##
+##                                                            O.K. 14 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds Bowtie 1.1.2 to your environment."
+    puts stderr ""
+    puts stderr "Bowtie is an ultrafast, memory-efficient short read aligner." 
+    puts stderr "This version is fully 64-bit and removes the"
+    puts stdder "4-billion-nucleotide reference genome limit of all pre-1.1.0"
+    puts stdder "versions."
+    puts stderr "Directory: /shared/ucl/apps/bowtie/bowtie-1.1.2"
+    puts stderr ""
+}
+
+module-whatis "Adds Bowtie 1.1.2 to your environment."
+
+conflict bowtie
+
+# Location of Bowtie
+set prefix /shared/ucl/apps/bowtie/bowtie-1.1.2
+
+prepend-path PATH                $prefix
+setenv BT1_HOME                  $prefix

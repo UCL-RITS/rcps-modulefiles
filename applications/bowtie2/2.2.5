@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## Bowtie2 2.2.5
+##								OK 14 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds Bowtie2 2.2.5 to your environment."
+    puts stderr ""
+    puts stderr "Bowtie 2 is an ultrafast and memory-efficient tool for aligning" 
+    puts stderr "sequencing reads to long reference sequences."
+    puts stdder "This version is fully 64-bit and removes the 4-billion-nucleotide"
+    puts stderr "reference genome limit of all pre-2.2.0 versions."
+    puts stderr "Directory: /shared/ucl/apps/bowtie2/bowtie2-2.2.5"
+    puts stderr ""
+}
+
+module-whatis "Adds Bowtie2 2.2.5 to your environment."
+
+conflict bowtie2
+
+# Location of Bowtie2
+set prefix /shared/ucl/apps/bowtie2/bowtie2-2.2.5
+
+append-path PATH                $prefix
+setenv BT2_HOME                 $prefix
