@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## Legacy Blast 2.2.26
+##
+##                                                            O.K. 14 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds Legacy Blast 2.2.26 to your environment."
+    puts stderr ""
+    puts stderr "Where possible you should use Blast+." 
+    puts stderr ""
+}
+
+module-whatis "Adds Blast 2.2.26 to your environment."
+
+conflict blast
+
+# Location of Bowtie
+set prefix /shared/ucl/apps/blast/blast-2.2.26
+
+prepend-path PATH                $prefix/bin
