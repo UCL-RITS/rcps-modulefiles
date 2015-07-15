@@ -18,7 +18,7 @@ prereq rcps-core
 prereq hdf/5-1.8.15/gnu.4.9.2
 prereq netcdf/4.3.3.1/gnu.4.9.2
 prereq udunits/2.2.19
-prereq gsl/1.16/gnu_4.9.2
+prereq gsl/1.16/gnu.4.9.2
 
 # Antlr
 prereq mono/3.12.1
