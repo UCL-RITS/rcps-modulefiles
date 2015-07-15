@@ -26,4 +26,8 @@ prepend-path LIBRARY_PATH	$root
 prepend-path LD_LIBRARY_PATH	$root
 prepend-path CPATH		$root
 prepend-path INCLUDE_PATH	$root
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
 
