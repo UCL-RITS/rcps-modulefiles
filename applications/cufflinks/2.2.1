@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# Cufflinks 2.2.1
+#
+#                                                      O.K. 15th July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Cufflinks 2.2.1 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Cufflinks 2.2.1 to your environment."
+
+conflict cufflinks
+prereq rcps-core
+prereq samtools/0.1.19
+prereq python/2.7.9
+prereq boost/1_54_0/gnu.4.9.2
+
+set root 			/shared/ucl/apps/cufflinks/2.2.1/gnu-4.9.2
+prepend-path PATH      		$root/bin
