@@ -18,7 +18,7 @@ prereq rcps-core
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
 prereq python/2.7.9
-prereq boost/1_54_0/intel.2015.update2
+prereq boost/1_54_0/mpi/intel.2015.update2
 
 set              oftop             /shared/ucl/apps/OpenFOAM
 set              root              $oftop/OpenFOAM-2.3.1

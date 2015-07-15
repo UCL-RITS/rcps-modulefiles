@@ -2,25 +2,26 @@
 #
 # Boost 1.54.0, 64 bit with Python and MPI libraries
 #
-#                                                      O.K. 15th Jul 2015
+#                                                      H.K. 14th May 2015
 
 proc ModulesHelp { } {
 
     puts stderr "This package adds the Boost 1.54.0 library to your environment."
     puts stderr ""
-    puts stderr "This version is 64-bit with Python."
+    puts stderr "This version is 64-bit with Python and MPI libraries."
     puts stderr ""
 }
 
-module-whatis "Adds Boost 1.54.0 with Python libraries to your environment. "
+module-whatis "Adds Boost 1.54.0 with Python and MPI libraries to your environment. "
 
 prereq rcps-core/1.0.0
 prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/1.8.4/gnu.4.9.2
 prereq python/2.7.9
 
 conflict boost
 
-set root /shared/ucl/apps/boost/1_54_0/nompi/gnu-4.9.2
+set root /shared/ucl/apps/boost/1_54_0/gnu-4.9.2
 
 prepend-path LD_LIBRARY_PATH      $root/lib
 prepend-path    LIBRARY_PATH      $root/lib
