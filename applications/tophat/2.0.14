@@ -21,4 +21,4 @@ prereq bowtie2
 # Location of Bowtie
 set prefix /shared/ucl/apps/tophat/2.0.14/tophat-2.0.14.Linux_x86_64
 
-prepend-path PATH                $prefix/bin
+prepend-path PATH                $prefix
