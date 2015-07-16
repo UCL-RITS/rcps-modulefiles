@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## Tophat 2.0.14
+##
+##                                                            O.K. 16 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds Tophat 2.0.14 to your environment."
+    puts stderr ""
+    puts stderr "Where possible you should use Blast+." 
+    puts stderr ""
+}
+
+module-whatis "Adds Tophat 2.0.14 to your environment."
+
+conflict tophat
+prereq python/2.7.9
+prereq bowtie
+prereq bowtie2
+
+# Location of Bowtie
+set prefix /shared/ucl/apps/tophat/2.0.14/tophat-2.0.14.Linux_x86_64
+
+prepend-path PATH                $prefix/bin
