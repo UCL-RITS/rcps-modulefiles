@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## Velvet 1.2.10
+##
+##                                                            O.K. 16 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds Velvet 1.2.10 to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Velvet 1.2.10 to your environment."
+
+conflict velvet
+prereq rcps-core
+
+set prefix /shared/ucl/apps/velvet/1.2.10/gnu-4.9.2/velvet_1.2.10
+
+prepend-path PATH                $prefix

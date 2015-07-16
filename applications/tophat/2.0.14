@@ -7,13 +7,12 @@
 proc ModulesHelp { } {
     puts stderr "Adds Tophat 2.0.14 to your environment."
     puts stderr ""
-    puts stderr "Where possible you should use Blast+." 
-    puts stderr ""
 }
 
 module-whatis "Adds Tophat 2.0.14 to your environment."
 
 conflict tophat
+prereq rcps-core
 prereq python/2.7.9
 prereq bowtie
 prereq bowtie2
