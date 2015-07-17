@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## ea-utils revision 822
+##
+##                                                            O.K. 17 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds ea-utils to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds ea-utils to your environment."
+
+conflict ea-utils
+prereq gsl/1.16/gnu.4.9.2
+
+set prefix /shared/ucl/apps/ea-utils/822
+
+prepend-path PATH                $prefix/bin
