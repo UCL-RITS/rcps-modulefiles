@@ -1,20 +1,19 @@
 #%Module -*- tcl -*-
 ##
-## ea-utils revision 822
+## Exonerate
 ##
 ##                                                            O.K. 17 Jul 2015
 
 proc ModulesHelp { } {
-    puts stderr "Adds ea-utils to your environment."
+    puts stderr "Adds Exonerate to your environment."
     puts stderr ""
 }
 
-module-whatis "Adds ea-utils to your environment."
+module-whatis "Adds Exonerate to your environment."
 
-conflict ea-utils
+conflict exonerate
 prereq rcps-core
-prereq gsl/1.16/gnu.4.9.2
 
-set prefix /shared/ucl/apps/ea-utils/822
+set prefix /shared/ucl/apps/exonerate/2.2.0/gnu-4.9.2
 
 prepend-path PATH                $prefix/bin
