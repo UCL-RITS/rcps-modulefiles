@@ -25,7 +25,7 @@ prepend-path    LD_LIBRARY_PATH $prefix/$release/lib/NAG_Fortran
 prepend-path    LIBRARY_PATH    $prefix/$release/lib/NAG_Fortran   
 prepend-path	MANPATH		$prefix/$release/man
 
-setenv NAG_KUSARI_FILE lm-server:naglm-server.ucl.ac.uk:
+setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
 setenv FC              nagfor
 setenv F77             nagfor
 setenv COMPILER_TAG    nag
