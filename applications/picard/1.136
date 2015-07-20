@@ -21,7 +21,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds Picard Tools 1.136 to your environment"
 
-prereq  rcps-core/1.0
+prereq  rcps-core
 prereq  java/1.8.0_45
 
 conflict picard-tools
