@@ -33,5 +33,5 @@ prepend-path PATH 		$root/bin
 
 # Create link to .nwchemrc if it doesn't exist
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::createSymlink $root/.nwchemrc ~/.nwchemrc
+    modulefunctions::createSymlink ~/.nwchemrc $root/.nwchemrc
 }
