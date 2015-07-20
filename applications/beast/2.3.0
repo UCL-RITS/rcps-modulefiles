@@ -21,7 +21,7 @@ proc ModulesHelp { } {
 
 }
 
-module-whatis "Adds BEAST 2.1.3 with addons to your PATH."
+module-whatis "Adds BEAST 2.3.0 with addons to your PATH."
 
 # Add binary to PATH
 conflict beast
@@ -30,7 +30,7 @@ prereq rcps-core
 prereq java/1.8.0_45
 
 set root /shared/ucl/apps/beast/2.3.0/BEAST
-set addonroot /shared/ucl/apps/beast/2.3.0/addons
+set addonroot /shared/ucl/apps/beast/2.3.0/BEAST/addons
 
 prepend-path PATH        $root/bin
 prepend-path PATH        $addonroot/DISSECT/lib
