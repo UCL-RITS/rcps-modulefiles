@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## Tracer
+##
+##                                                      O.K. 20th July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds Tracer 1.6 to your PATH."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Tracer 1.6."
+
+# Add binary to PATH
+conflict tracer
+
+prereq rcps-core
+prereq java/1.8.0_45
+
+set root /shared/ucl/apps/tracer/1.6/Tracer_v1.6
+
+prepend-path PATH        $root/bin
+

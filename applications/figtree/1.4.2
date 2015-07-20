@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## Figtree
+##
+##                                                      O.K. 20th July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds Figtree 1.4.2 to your PATH."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Figtree 1.4.2."
+
+# Add binary to PATH
+conflict tracer
+
+prereq rcps-core
+prereq java/1.8.0_45
+
+set root /shared/ucl/apps/figtree/1.4.2/FigTree_v1.4.2
+
+prepend-path PATH        $root/bin
+
