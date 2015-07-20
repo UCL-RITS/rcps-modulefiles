@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the HOPSPACK 2.0.2 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds HOPSPACK 2.0.2 to your environment"
+
+
+conflict hopspack
+prereq rcps-core
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/1.8.4/gnu.4.9.2
+prereq atlas/3.10.2/gnu.4.9.2
+
+
+set              root              /shared/ucl/apps/hopspack/2.0.2/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
