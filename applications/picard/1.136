@@ -1,0 +1,31 @@
+#%Module
+#
+#                                                      O.K. 20th Jul 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This package adds the Picard tools to your environment."
+    puts stderr ""
+    puts stderr "This package needs Java 1.7 to be loaded."
+    puts stderr ""
+    puts stderr "To run picard tools, prefix the picard.jar with $PICARDPATH"
+    puts stderr "e.g."
+    puts stderr "java -Xmx2g -jar $PICARDPATH/picard.jar PicardCommand OPTION1=value1 OPTION2=value2..."
+    puts stderr ""
+    puts stderr "Wrappers are also provided, so you can run:"
+    puts stderr "PicardCommand OPTION1=value1 OPTION2=value2..."
+    puts stderr "Which is the equivalent of the previous example."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Picard Tools 1.136 to your environment"
+
+prereq  rcps-core/1.0
+prereq  java/1.8.0_45
+
+conflict picard-tools
+
+setenv PICARDPATH     /shared/ucl/apps/picard-tools/1.136/picard-tools-1.136/
+prepend-path PATH     /shared/ucl/apps/picard-tools/1.136/picard-tools-1.136/bin
+
