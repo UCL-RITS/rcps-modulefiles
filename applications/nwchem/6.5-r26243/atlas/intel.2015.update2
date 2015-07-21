@@ -29,7 +29,7 @@ conflict nwchem
 set root 			/shared/ucl/apps/nwchem/6.5-r26243-atlas/intel-2015-update2
 setenv PYTHONHOME 		/shared/ucl/apps/python/2.7.9/gnu-4.9.2
 # NWCHEM_BASIS_LIBRARY overrides .nwchemrc if that is different
-setenv NWCHEM_BASIS_LIBRARY 	$root/data/libraries	
+setenv NWCHEM_BASIS_LIBRARY 	$root/data/libraries/	
 prepend-path PATH 		$root/bin
 
 # Create link to .nwchemrc if it doesn't exist
