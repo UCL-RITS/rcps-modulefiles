@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## Plink 1.07
+##
+##                                                      O.K. 21st July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds Plink 1.07 to your PATH."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Plink 1.07 with addons to your PATH."
+
+# Add binary to PATH
+conflict plink
+
+prereq rcps-core
+
+set root /shared/ucl/apps/plink/1.07/gnu-4.9.2/plink-1.07-src/
+
+prepend-path PATH        $root
+
