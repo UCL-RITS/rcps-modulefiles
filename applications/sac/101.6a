@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Added 21/07/2015 by OK
+##
+## SAC (Seismic Analysis Code) Version 101.6a
+
+proc ModulesHelp { } {
+    puts stderr "Adds SAC 101.6a to your environment."
+    puts stderr ""
+    puts stderr "SAC (Seismic Analysis Code) is a general purpose interactive"
+    puts stderr "program designed for the study of sequential signals,"
+    puts stderr "especially time series data. Emphasis has been placed on "
+    puts stderr "analysis tools used by research seismologists in the study"
+    puts stderr "of seismic events."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/sac/101.6a/gnu-4.9.2"
+}
+
+module-whatis "Adds SAC 101.6a to your environment."
+
+conflict        sac
+prereq          matlab/full/r2015a/8.5
+
+set prefix      /shared/ucl/apps/sac/101.6a/gnu-4.9.2
+
+prepend-path    PATH            $prefix/bin
+setenv          SACAUX          $prefix/aux
+setenv          SACGRAPHICS     xwindows
