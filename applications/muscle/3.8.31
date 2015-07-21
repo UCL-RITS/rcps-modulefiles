@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## MUSCLE 3.8.31
+##
+##                                                            O.K. 21 Jul 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds MUSCLE 3.8.31 to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds MUSCLE 3.8.31 to your environment."
+
+conflict muscle
+prereq rcps-core
+
+set prefix /shared/ucl/apps/muscle/3.8.31/gnu-4.9.2/muscle3.8.31/src
+
+prepend-path PATH                $prefix
