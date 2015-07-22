@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-22
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GraphicsMagick 1.3.21 to your environment variables,"
+}
+
+module-whatis "adds GraphicsMagick 1.3.21 to your environment variables"
+
+conflict graphicsmagic
+prereq rcps-core
+prereq libtool/2.4.6
+prereq perl/5.22.0
+
+set              root              /shared/ucl/apps/graphicsmagick/1.3.21/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
