@@ -6,17 +6,21 @@
 
 proc ModulesHelp { } {
 
-  puts stderr "\tAdds GraphicsMagick 1.3.21 to your environment variables,"
+  puts stderr "\tAdds GDAL 2.0.0 to your environment variables,"
 }
 
-module-whatis "adds GraphicsMagick 1.3.21 to your environment variables"
+module-whatis "adds GDAL 2.0.0 to your environment variables"
 
-conflict graphicsmagick
+conflict gdal
 prereq rcps-core
 prereq libtool/2.4.6
 prereq perl/5.22.0
+prereq python/2.7.9
+prereq hdf/5-1.8.15/gnu.4.9.2
+prereq netcdf/4.3.3.1/gnu.4.9.2
 
-set              root              /shared/ucl/apps/graphicsmagick/1.3.21/gnu-4.9.2
+
+set              root              /shared/ucl/apps/gdal/2.0.0/gnu-4.9.2
 
 prepend-path     PATH              $root/bin
 append-path      MANPATH           $root/share/man
