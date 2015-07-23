@@ -12,6 +12,10 @@ proc ModulesHelp { } {
 module-whatis "adds GDAL 2.0.0 to your environment variables"
 
 conflict gdal
+
+# matlab loads an old libtiff that breaks gdal
+conflict matlab
+
 prereq rcps-core
 prereq perl/5.22.0
 prereq python/2.7.9

@@ -85,6 +85,9 @@ module-whatis "Adds Matlab R2015a to your environment."
 conflict matlab
 # prereq rcps-core/1.0.0
 
+# matlab loads an old libtiff that breaks gdal
+conflict gdal
+
 # Location of Matlab and NAG Toolbox
 set prefix /shared/ucl/apps/Matlab/R2015a/full
 set nagtoolbox /shared/ucl/apps/NAG/NAG_Toolbox/mbl6i24dml
