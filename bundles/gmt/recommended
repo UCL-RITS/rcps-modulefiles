@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-23
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds set of default modules to the environment for gmt users."
+}
+
+module-whatis "Adds set of default modules to the environment for gmt users."
+
+prereq rcps-core
+
+module load perl/5.22.0
+module load python/2.7.9
+module load hdf/5-1.8.15/gnu.4.9.2
+module load netcdf/4.3.3.1/gnu.4.9.2
+module load gdal/2.0.0
+module load libtool/2.4.6
+module load graphicsmagick/1.3.31
+module load ghostscript/9.16/gnu.4.9.2
+module load fftw/3.3.4/gnu.4.9.2
+module load gmt/5.1.2
