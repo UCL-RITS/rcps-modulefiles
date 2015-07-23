@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Fortran Library Mark 25 for Intel 2015
+
+proc ModulesHelp { } {
+    puts stderr "This module adds the NAG Fortran Library Mark 25 to your environment."
+    puts stderr ""
+    puts stderr "This version is for the Intel Compilers version 2015 update 2."
+    puts stderr ""
+    puts stderr "The NAG Fortran Library provides numerical routines covering a wide range of"
+    puts stderr "areas including curve, surface fitting and interpolation; linear, quadratic,"
+    puts stderr "integer and nonlinear programming and least squares problems; ordinary and"
+    puts stderr "partial differential equations, and mesh generation; and many more. For details"
+    puts stderr "see http://www.nag.co.uk/numeric/fl/FLdescription.asp and online documentation."
+    puts sdterr ""
+    puts stderr "Directory: /shared/ucl/apps/NAG/fortran-library/fll6i25dcl"
+    puts stderr "NAG Docs:  /shared/ucl/apps/NAG/fortran-library/doc/nagdoc_fl25"
+}
+
+module-whatis "Adds NAG Fortran Library Mark 25 for Intel 2015 to your environment."
+
+conflict nag/fortran
+prereq rcps-core
+prereq compilers/intel/2015/update2
+
+set prefix	/shared/ucl/apps/NAG/fortran-library/fll6i25dcl
+
+prepend-path PATH		$prefix/scripts
+prepend-path LD_LIBRARY_PATH	$prefix/lib:$prefix/mkl_intel64_11.2.0/lib
+prepend-path LIBRARY_PATH	$prefix/lib:$prefix/mkl_intel64_11.2.0/lib
+prepend-path LD_RUN_PATH	$prefix/lib:$prefix/mkl_intel64_11.2.0/lib
+prepend-path CPATH		$prefix/c_headers
+prepend-path INCLUDE_PATH	$prefix/c_headers
+
+setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
