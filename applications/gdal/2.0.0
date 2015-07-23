@@ -13,7 +13,6 @@ module-whatis "adds GDAL 2.0.0 to your environment variables"
 
 conflict gdal
 prereq rcps-core
-prereq libtool/2.4.6
 prereq perl/5.22.0
 prereq python/2.7.9
 prereq hdf/5-1.8.15/gnu.4.9.2
