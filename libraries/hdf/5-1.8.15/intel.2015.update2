@@ -26,5 +26,6 @@ set              root              /shared/ucl/apps/HDF/5-1.8.15-Intel_2015
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
 prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
