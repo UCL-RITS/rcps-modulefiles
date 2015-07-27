@@ -1,0 +1,36 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-27
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds TauP 2.1.2 to your environment."
+  puts stderr ""
+  puts stderr "The TauP Toolkit is a seismic travel time calculator. In"
+  puts stderr "addition to travel times, it can calculate derivative"
+  puts stderr "information such as ray paths through the earth, pierce and"
+  puts stderr "turning points. It handles many types of velocity models and"
+  puts stderr "can calculate times for virtually any seismic phase with a"
+  puts stderr "phase parser."
+  puts stderr ""
+
+}
+
+module-whatis "adds TauP 2.1.2 to your environment variables"
+
+conflict taup
+
+prereq rcps-core
+prereq java/1.8.0_45
+
+set              root              /shared/ucl/apps/taup/2.1.2/TauP-2.1.2
+
+prepend-path     PATH              $root/bin
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+setenv           TAUP_HOME           $root
