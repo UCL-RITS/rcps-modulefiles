@@ -1,0 +1,21 @@
+#%Module
+#
+# DL_POLY Classic 1.9
+#
+#                                                      H.K. July 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the DL_POLY Classic 1.9 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds DL_POLY Classic 1.9 to your environment"
+
+prereq rcps-core
+prereq compilers/intel/11.1/072
+prereq mpi/qlogic/1.2.7/intel
+
+conflict dl_poly
+
+prepend-path PATH      /shared/ucl/apps/dl_poly/classic/1.9/intel-2015-update2/execute
