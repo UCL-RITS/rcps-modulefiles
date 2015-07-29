@@ -20,6 +20,7 @@ set              root              /shared/ucl/apps/openblas/0.2.14/intel-2015-u
 prepend-path     PATH              $root/bin
 prepend-path     MANPATH           $root/share/man
 prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
 prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
