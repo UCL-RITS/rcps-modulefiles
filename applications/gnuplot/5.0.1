@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# gnuplot 5.0.1
+#
+#                                                      H.K. 25th June 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the gnuplot 5.0.1 package to your environment."
+    puts stderr "Gnuplot is a portable command-line driven graphing utility."
+    puts stderr ""
+
+}
+
+module-whatis "Adds gnuplot 5.0.1 to your environment. Gnuplot is a portable command-line driven graphing utility."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict gnuplot
+
+set root 			/shared/ucl/apps/gnuplot/5.0.1/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
