@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# Mesa 10.6.3 (OSMesa, Xlib GLX, no Gallium, no EGL, no llvm, no DRI)
+#
+#                                                      H.K. Aug 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Mesa 10.6.3 to your environment."
+    puts stderr "Mesa is an open-source implementation of the OpenGL specification."
+    puts stderr "(Built for offscreen rendering: OSMesa, Xlib GLX, no Gallium, no EGL, no llvm, no DRI)"
+    puts stderr ""
+
+}
+
+module-whatis "Adds Mesa 10.6.3 to your environment. Mesa is an open-source implementation of the OpenGL specification. (Built for offscreen rendering: OSMesa, Xlib GLX, no Gallium, no EGL, no llvm, no DRI)."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict mesa
+
+set root 			/shared/ucl/apps/mesa/10.6.3/gnu-4.9.2
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
