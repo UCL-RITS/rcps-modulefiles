@@ -1,0 +1,39 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## PGI Compilers 2015.7
+##
+## Modified 29th April 2013 to use the central UCL licence server by BAA
+## Modified October 2013 for version 13.9 by BAA
+## Modified April 2015 for version 2015.4 and Legion's OS upgrade by BAA
+## Modified August 2015 for version 2015.7 by BAA
+##
+proc ModulesHelp { } {
+
+  puts stderr "Adds Portland Group compilers V2015.7 to your environment."
+  puts stderr ""
+  puts stderr "Primarily provided for building Gaussian 09."
+}
+
+module-whatis "adds Portland Group compilers to your environment."
+
+conflict compilers
+prereq rcps-core
+
+set             prefix          /shared/ucl/apps/PGI/2015.7
+set		target		linux86-64
+set		release		15.7
+
+prepend-path	PATH		$prefix/$target/$release/bin
+prepend-path	MANPATH		$prefix/$target/$release/man
+append-path	LM_LICENSE_FILE	27000@lic-pgi.ucl.ac.uk
+
+setenv          PGI         	$prefix
+setenv          CC              pgcc
+setenv          CXX             pgCC
+setenv          FC              pgf95
+setenv          F90             pgf90
+setenv          F77             pgf77
+setenv          CXXCPP          "pgCC -E"
+setenv          COMPILER_TAG    pgi-2015.7
