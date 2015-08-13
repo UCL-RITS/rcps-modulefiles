@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "adds Intel compilers to your environment variables"
 
 conflict compilers
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 set		 prefix		      /shared/ucl/apps/intel/2015
 set              main_root            /shared/ucl/apps/intel/2015/composer_xe_2015.2.164
