@@ -18,7 +18,7 @@ proc ModulesHelp { } {
 module-whatis "adds NetCDF 4.4.1 for Intel 2015 to your environment."
 
 conflict netcdf-fortran
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 prereq hdf/5-1.8.15/intel.2015.update2
 prereq netcdf/4.3.3.1/intel.2015.update2

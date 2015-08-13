@@ -11,7 +11,7 @@ proc ModulesHelp { } {
 module-whatis "adds FFTW 3.3.4 for Intel compilers to your environment variables"
 
 conflict fftw
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 set              root              /shared/ucl/apps/fftw/3.3.4/intel-2015-update2
 

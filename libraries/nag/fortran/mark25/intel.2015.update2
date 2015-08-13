@@ -22,7 +22,7 @@ proc ModulesHelp { } {
 module-whatis "Adds NAG Fortran Library Mark 25 for Intel 2015 to your environment."
 
 conflict nag/fortran
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 
 set prefix	/shared/ucl/apps/NAG/fortran-library/fll6i25dcl
