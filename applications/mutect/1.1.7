@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+#
+# MuTect 1.1.7
+#
+#                                                      O.K. 13th Aug 2015
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds MuTect 1.1.7 to your environment."
+    puts stderr "MuTect is a GATK-based variant caller specialized for somatic/cancer variants."
+    puts stderr "Website: https://www.broadinstitute.org/gatk/download/"
+    puts stderr "Run with:" 
+    puts stderr "    java -Xmx2g -jar \$MUTECTPATH/mutect-1.1.7.jar"
+    puts stderr "or there is a wrapper so you can run with" 
+    puts stderr "    mutect"
+    puts stderr ""
+}
+
+module-whatis "Adds MuTect 1.1.7 to your environment. MuTect is a GATK-based variant caller specialized for somatic/cancer variants."
+
+conflict mutect
+prereq java/1.8.0_45
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legmutect"     
+}
+
+set prefix /shared/ucl/apps/mutect/1.1.7
+
+setenv       MUTECTPATH          $prefix
+prepend-path PATH                $prefix
+
