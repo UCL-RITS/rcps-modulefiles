@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "Adds Exonerate to your environment."
 
 conflict exonerate
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 set prefix /shared/ucl/apps/exonerate/2.2.0/gnu-4.9.2
 

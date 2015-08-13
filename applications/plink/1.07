@@ -16,7 +16,7 @@ module-whatis "Adds Plink 1.07 with addons to your PATH."
 # Add binary to PATH
 conflict plink
 
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 set root /shared/ucl/apps/plink/1.07/gnu-4.9.2/plink-1.07-src/
 

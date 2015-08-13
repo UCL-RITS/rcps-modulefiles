@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "This module adds the BLAST+ 2.2.30 package to your environment."
 
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 
 conflict blast+

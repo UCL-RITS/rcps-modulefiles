@@ -26,7 +26,7 @@ module-whatis "Adds BEAST 2.3.0 with addons to your PATH."
 # Add binary to PATH
 conflict beast
 
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq java/1.8.0_45
 
 set root /shared/ucl/apps/beast/2.3.0/BEAST

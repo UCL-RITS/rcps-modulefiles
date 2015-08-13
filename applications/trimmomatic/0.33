@@ -23,7 +23,7 @@ proc ModulesHelp { } {
 module-whatis "Adds Trimmomatic 0.33 to your environment. A flexible read trimming tool for Illumina NGS data."
 
 # Add binary to PATH
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 conflict trimmomatic
 

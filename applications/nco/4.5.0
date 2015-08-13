@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds nco to your environment."
 
 # NCO
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq hdf/5-1.8.15/gnu.4.9.2
 prereq netcdf/4.3.3.1/gnu.4.9.2
 prereq udunits/2.2.19

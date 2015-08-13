@@ -14,7 +14,7 @@ module-whatis "Adds OpenFOAM 2.3.1 to your environment"
 
 
 conflict lammps
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
 prereq python/2.7.9

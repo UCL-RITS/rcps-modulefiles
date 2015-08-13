@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds DL_POLY Classic 1.9 to your environment"
 
-prereq rcps-core
+prereq gcc-libs/4.9.2
 prereq compilers/intel/11.1/072
 prereq mpi/qlogic/1.2.7/intel
 

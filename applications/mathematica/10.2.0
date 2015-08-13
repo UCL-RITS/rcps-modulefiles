@@ -33,7 +33,7 @@ module-whatis "Adds Mathematica 10.2.0 to your environment."
 
 set prefix /shared/ucl/apps/Mathematica/10.2
 set userBase ~/Scratch/.Mathematica
-prereq rcps-core/1.0.0
+prereq gcc-libs/4.9.2
 
 conflict mathematica
 

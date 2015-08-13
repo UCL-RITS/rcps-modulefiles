@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds udunits to your environment."
 
 # Add binary to PATH
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 conflict udunits
 
