@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Core GCC libraries for Research Computing OS
+##
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GCC 4.9.2 runtime to your environment."
+}
+
+module-whatis "adds GCC 4.9.2 runtime to your evironment."
+
+conflict gcc-libs
+
+# Pick up GCC 4.9.2 libraries
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
+
+# Unfortunately, for the Intel C++ preprocessor to work, we need to have
+# g++ in our path.  
+prepend-path     PATH                 /shared/ucl/apps/gcc/4.9.2/bin

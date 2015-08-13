@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-08-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds APR 1.5.2 to your environment variables,"
+}
+
+module-whatis "adds APR 1.5.2 to your environment variables"
+
+conflict apr
+prereq gcc-libs/4.9.2
+
+#APR
+prepend-path     PATH                 /shared/ucl/apps/apr/1.5.2/bin
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/apr/1.5.2/lib
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/apr/1.5.2/lib

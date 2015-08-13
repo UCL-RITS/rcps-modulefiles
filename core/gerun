@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-08-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds gerun wrapper to your environment variables,"
+}
+
+module-whatis "adds gerun wrapper to your environment variables"
+
+conflict gerun
+
+# GERun
+setenv           GERUN_PATH           /shared/ucl/apps/GERun
+prepend-path     PATH                 /shared/ucl/apps/GERun
+
+
+

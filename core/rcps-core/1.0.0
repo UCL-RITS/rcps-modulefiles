@@ -12,50 +12,12 @@ proc ModulesHelp { } {
 
 module-whatis "adds a core set of applications and libraries to your environment."
 
-# Pick up GCC 4.9.2 libraries
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/gcc/4.9.2/lib:/shared/ucl/apps/gcc/4.9.2/lib64
-
-# Unfortunately, for the Intel C++ preprocessor to work, we need to have
-# g++ in our path.  
-prepend-path     PATH                 /shared/ucl/apps/gcc/4.9.2/bin
- 
-
-# GERun
-setenv           GERUN_PATH           /shared/ucl/apps/GERun
-prepend-path     PATH                 /shared/ucl/apps/GERun
-
-# GNU screen
-prepend-path     PATH                 /shared/ucl/apps/screen/4.2.1/bin
-prepend-path     MANPATH              /shared/ucl/apps/screen/4.2.1/share/man
-
-# CMake
-prepend-path     PATH                 /shared/ucl/apps/cmake/3.2.1/gnu-4.9.2/bin
-prepend-path     MANPATH              /shared/ucl/apps/cmake/3.2.1/gnu-4.9.2/share/man
-
-# Git
-prepend-path     PATH                 /shared/ucl/apps/git/2.3.5/gnu-4.9.2/bin
-prepend-path     MANPATH              /shared/ucl/apps/git/2.3.5/gnu-4.9.2/share/man
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/git/2.3.5/gnu-4.9.2/lib64
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/git/2.3.5/gnu-4.9.2/lib64
-
-# Flex
-prepend-path     PATH                 /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/bin
-prepend-path     MANPATH              /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/share/man
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/lib64
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/lib64
-
-#APR
-prepend-path     PATH                 /shared/ucl/apps/apr/1.5.2/bin
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/apr/1.5.2/lib
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/apr/1.5.2/lib
-prepend-path     PATH                 /shared/ucl/apps/apr-util/1.5.4/bin
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/apr-util/1.5.4/lib
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/apr-util/1.5.4/lib
-
-# Subversion
-prepend-path     PATH                 /shared/ucl/apps/subversion/1.8.13/bin
-prepend-path     MANPATH              /shared/ucl/apps/subversion/1.8.13/share/man
-prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/subversion/1.8.13/lib
-prepend-path     LIBRARY_PATH         /shared/ucl/apps/subversion/1.8.13/lib
-
+module load gcc-libs/4.9.2
+module load cmake/3.2.1
+module load flex/2.5.39
+module load git/2.3.5
+module load apr/1.5.2
+module load apr-util/1.5.4
+module load subversion/1.8.13
+module load screen/4.2.1
+module load gerun

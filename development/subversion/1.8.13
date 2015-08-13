@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-08-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Subversion 1.8.13 to your environment variables,"
+}
+
+module-whatis "adds Subversion 1.8.13 to your environment variables"
+
+conflict subversion
+prereq gcc-libs/4.9.2
+prereq apr/1.5.2
+
+# Subversion
+prepend-path     PATH                 /shared/ucl/apps/subversion/1.8.13/bin
+prepend-path     MANPATH              /shared/ucl/apps/subversion/1.8.13/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/subversion/1.8.13/lib
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/subversion/1.8.13/lib
+

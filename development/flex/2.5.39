@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-08-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Flex 2.5.39 to your environment variables,"
+}
+
+module-whatis "adds Flex 2.4.39 to your environment variables"
+
+conflict flex
+prereq gcc-libs/4.9.2
+
+# Flex
+prepend-path     PATH                 /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/bin
+prepend-path     MANPATH              /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/lib64
+
