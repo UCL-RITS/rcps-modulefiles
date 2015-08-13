@@ -11,7 +11,7 @@ proc ModulesHelp { } {
 module-whatis "adds Oracle JDK 1.8.0_45 compilers to your environment variables"
 
 conflict java
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 set              root              /shared/ucl/apps/java/1.8.0_45
 

@@ -15,7 +15,7 @@ proc ModulesHelp { } {
 
 module-whatis "This module adds the Perlbrew 0.73 package to your environment. Use Perlbrew to manage your own Perls and Perl modules"
 
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 conflict perlbrew
 

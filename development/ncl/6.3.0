@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "adds NCL 6.3.0 to your environment variables"
 
 conflict ncl
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 prereq hdf/5-1.8.15/gnu.4.9.2
 prereq netcdf/4.3.3.1/gnu.4.9.2

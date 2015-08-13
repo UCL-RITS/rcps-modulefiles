@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "adds Julia 0.3.10 to your environment variables"
 
 conflict julia
-prereq rcps-core
+prereq gcc-libs/4.9.2
 
 set              root              /shared/ucl/apps/julia/0.3.10
 
