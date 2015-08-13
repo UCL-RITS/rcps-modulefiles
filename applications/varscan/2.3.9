@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# VarScan v2.3.9
+#
+#                                                      O.K. 13th Aug 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds VarScan v2.3.9 to your environment."
+    puts stderr "VarScan is a platform-independent mutation caller for targeted,"
+    puts stderr "exome, and whole-genome resequencing data generated on Illumina," 
+    puts stderr "SOLiD, Life/PGM, Roche/454, and similar instruments."
+    puts stderr "Run with "
+    puts stderr "    java -Xmx2g -jar \$VARSCANPATH/VarScan.v2.3.7.jar"
+    puts stderr "or there is a wrapper to allow you to run with "
+    puts stderr "    varscan"
+    puts stderr "Website: http://varscan.sourceforge.net"
+    puts stderr ""
+}
+
+module-whatis "Adds VarScan v2.3.9 to your environment. VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments."
+
+conflict varscan
+prereq java/1.8.0_45
+
+set prefix /shared/ucl/apps/varscan/2.3.9
+
+setenv       VARSCANPATH         $prefix
+prepend-path PATH                $prefix
+
