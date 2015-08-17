@@ -10,12 +10,12 @@ set module_name libelf
 
 proc ModulesHelp { } {
 
-  puts stderr {Adds libelf 0.8.13 (built using Intel compilers) to your environment.}
+  puts stderr {Adds libelf 0.8.13 to your environment.}
 
 }
 
-module-whatis {Adds libelf 0.8.13 (built using Intel compilers) to your environment.}
-prereq compilers/intel/2015/update2
+module-whatis {Adds libelf 0.8.13 to your environment.}
+prereq gcc-libs/4.9.2
 conflict libelf
 
 set              prefix               /shared/ucl/apps/libelf/0.8.13/gnu-4.9.2
