@@ -21,3 +21,4 @@ module load apr-util/1.5.4
 module load subversion/1.8.13
 module load screen/4.2.1
 module load gerun
+module load nano/2.4.2
