@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+#
+# Emacs 24.5
+#
+#                                                      H.K. Aug 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Emacs 24.5 to your environment."
+    puts stderr "An extensible text editor."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Emacs 24.5 to your environment. An extensible text editor."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq giflib
+
+conflict emacs
+
+set root 			/shared/ucl/apps/emacs/24.5/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
+prepend-path INFOPATH		$root/share/info
