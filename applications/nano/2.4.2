@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# nano 2.4.2
+#
+#                                                      H.K. Aug 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds nano 2.4.2 to your environment."
+    puts stderr "A simple text editor."
+    puts stderr ""
+
+}
+
+module-whatis "Adds nano 2.4.2 to your environment. A simple text editor."
+
+# Add binary to PATH
+prereq rcps-core
+
+conflict nano
+
+set root 			/shared/ucl/apps/nano/2.4.2/gnu-4.9.2/
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
