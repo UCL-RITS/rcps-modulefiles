@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# giflib 5.1.1
+#
+#                                                      H.K. Aug 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds giflib 5.1.1 to your environment."
+    puts stderr "A library and utilities for processing gifs."
+    puts stderr ""
+
+}
+
+module-whatis "Adds nano 2.4.2 to your environment. A library and utilities for processing gifs."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict giflib
+
+set root 			/shared/ucl/apps/giflib/5.1.1/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
