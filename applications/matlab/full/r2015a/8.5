@@ -8,7 +8,8 @@
 ## Modified with fixes for Matlab runtime and GCC 26th April 2013 by BAA
 ## Modified to include support for the NAG Toolbox for Matlab March 2014 by BAA
 ## Modified for updated Legion software stack and R2015a - April 2015 - BAA
-
+## Modified for correct version of the NAG Toolbox for Matlab - August
+##  2015 - BAA
 
 proc ModulesHelp { } {
     puts stderr "Adds Matlab R2015a to your environment."
@@ -90,7 +91,7 @@ conflict gdal
 
 # Location of Matlab and NAG Toolbox
 set prefix /shared/ucl/apps/Matlab/R2015a/full
-set nagtoolbox /shared/ucl/apps/NAG/NAG_Toolbox/mbl6i24dml
+set nagtoolbox /shared/ucl/apps/NAG/matlab-toolbox/MBL6A24DNL_R2015a
 
 # Location of Matlab prefs and settings directory
 set matlabDir "~/.matlab"
@@ -102,7 +103,7 @@ setenv MCRPATH                  $prefix
 # Set environment variable for the NAG licence manager if not set
 
 if { ! [info exists ::env(NAG_KUSARI_FILE)]} {
-    setenv  NAG_KUSARI_FILE	lm-server:
+    setenv  NAG_KUSARI_FILE	lm-server:,naglm-server.ucl.ac.uk:
 }
 
 # Setup .matlab in Scratch
