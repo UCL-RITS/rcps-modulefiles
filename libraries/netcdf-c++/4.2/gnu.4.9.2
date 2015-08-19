@@ -2,29 +2,28 @@
 ##
 ## modulefile
 ##
-## NetCDF C++ bindings 4.2 compiled using Intel 2015
+## NetCDF C++ bindings 4.2 compiled using GCC 4.9.2
 
 proc ModulesHelp { } {
-    puts stderr "Adds NetCDF C++ bindings Version 4.2 compiled using Intel 2015"
+    puts stderr "Adds NetCDF C++ bindings Version 4.2 compiled using GCC"
     puts stderr "to your environment."
     puts stderr ""
     puts stderr "NetCDF is a set of software libraries and self-describing,"
     puts stderr "machine-independent data formats that support the creation,"
     puts stderr "access, and sharing of array-oriented scientific data."
     puts stderr ""
-    puts stderr "This version was compiled with Intel 2015 Update 2"
+    puts stderr "This version was compiled with GCC 4.9.2"
 }
 
-module-whatis "adds NetCDF C++ 4.2 for Intel 2015 to your environment."
+module-whatis "adds NetCDF C++ 4.2 for GCC to your environment."
 
 conflict netcdf-c++
 conflict netcdf-c++4
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq hdf/5-1.8.15/intel.2015.update2
-prereq netcdf/4.3.3.1/intel.2015.update2
+prereq hdf/5-1.8.15/gnu.4.9.2
+prereq netcdf/4.3.3.1/gnu.4.9.2
 
-set              root              /shared/ucl/apps/NetCDF-c++/4.2-intel-2015-update2
+set              root              /shared/ucl/apps/NetCDF-c++-legacy/4.2-gnu-4.9.2
 
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
