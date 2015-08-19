@@ -1,0 +1,45 @@
+#%Module
+#
+# VisIt 2.9.2
+#
+#                                                      H.K. Aug 2015
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This package adds VisIt 2.9.2 to your environment."
+    puts stderr "VisIt is a distributed, parallel visualization and graphical analysis"
+    puts stderr "tool for data defined on two- and three-dimensional (2D and 3D) meshes."
+    puts stderr ""
+    puts stderr "Visit will create a ~/.visit directory and a ~/Scratch/visit directory."
+    puts stderr "Jobfiles created by the GUI will go in the latter."
+    puts stderr "Legion hostfile: /shared/ucl/apps/visit/2.9.2/gnu-4.9.2/host_legion.xml"
+    puts stderr "Web: https://wci.llnl.gov/simulation/computer-codes/visit/"
+    puts stderr ""
+}
+
+module-whatis "This package adds VisIt 2.9.2 to your environment. VisIt is a distributed, parallel visualization and graphical analysis tool for data defined on two- and three-dimensional (2D and 3D) meshes. Visit will create a ~/.visit directory and a ~/Scratch/visit directory. Jobfiles created by the GUI will go in the latter. Legion hostfile: /shared/ucl/apps/visit/2.9.2/gnu-4.9.2/host_legion.xml Web: https://wci.llnl.gov/simulation/computer-codes/visit/"
+
+conflict visit
+
+prereq gcc-libs/4.9.2
+prereq mpi/openmpi/1.8.4/gnu.4.9.2
+prereq mesa/10.6.3
+
+set root /shared/ucl/apps/visit/2.9.2/gnu-4.9.2
+
+# Set up the visit directories. The host file is copied to ~/.visit/hosts
+# if it doesn't already exist there.
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::createDir ~/Scratch/visit
+    modulefunctions::createDir ~/.visit/hosts
+    modulefunctions::copySource $root/host_legion.xml ~/.visit/hosts/host_legion.xml
+}
+
+append-path PATH                $root/bin
+append-path LD_LIBRARY_PATH     $root/2.8.1/linux-x86_64/lib
+append-path    LIBRARY_PATH     $root/2.8.1/linux-x86_64/lib
+prepend-path CPATH              $root/2.8.1/linux-x86_64/include
+prepend-path INCLUDE_PATH	$root/2.8.1/linux-x86_64/include
