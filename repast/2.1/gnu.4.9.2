@@ -1,0 +1,41 @@
+#%Module
+#
+# Repast HPC 2.1
+#
+#                                                      O.K. 19th August 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds Repast HPC 2.1 compiled with GCC 4.9.2 and OpenMPI to your environment."
+    puts stderr ""
+    puts stderr "Repast HPC is a C++-based modelling system that is designed for use"
+    puts stderr "on large computing clusters and supercomputers. Includes ReLogo, a"
+    puts stderr "Logo-style C++."
+    puts stderr ""
+}
+
+module-whatis "Adds Repast HPC 2.1 compiled with GCC 4.9.2 and OpenMPI to your environment."
+
+# Add Repast HPC to PATH, LD_LIBRARY_PATH and LIBRARY_PATH
+conflict repast-hpc
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq hdf/5-1.8.15/gnu.4.9.2
+prereq netcdf/4.3.3.1/gnu.4.9.2
+prereq netcdf-fortran/4.4.1/gnu.4.9.2
+prereq mpi/openmpi/1.8.4/gnu.4.9.2
+prereq python/2.7.9
+prereq boost/1_54_0/mpi/gnu.4.9.2
+prereq netcdf-c++/4.2/gnu.4.9.2
+
+
+set root /shared/ucl/apps/repast_hpc/2.1.0/gnu-4.9.2/repast_hpc-2.1.0/ext
+
+prepend-path LD_LIBRARY_PATH      $root/lib
+prepend-path    LIBRARY_PATH      $root/lib
+prepend-path    PATH              $root/bin
+setenv       REPAST_HPC_INCLUDE   $root/include
+setenv       REPAST_HPC_LIB_DIR   $root/lib
+setenv       REPAST_HPC_LIB       -lrepast_hpc-2.1
+
