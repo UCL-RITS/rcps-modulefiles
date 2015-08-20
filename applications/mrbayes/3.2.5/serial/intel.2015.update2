@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-08-20
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the MrBayes 3.2.5 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds MrBayes 3.2.5 to your environment"
+
+
+conflict mrbayes
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+
+set              root              /shared/ucl/apps/mrbayes/3.2.5/intel-2015-update2/serial
+
+prepend-path     PATH              $root/bin
