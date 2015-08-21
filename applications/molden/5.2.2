@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds Molden 5.2.2 to your path."
+    puts stderr ""
+    puts stderr "Molden is a package for displaying Molecular Density "
+    puts stderr " from the Ab Initio packages GAMESS-UK , GAMESS-US and "
+    puts stderr " GAUSSIAN and the Semi-Empirical packages Mopac/Ampac, "
+    puts stderr " it also supports a number of other programs via the "
+    puts stderr " Molden Format.  "  
+    puts stderr ""
+    puts stderr "URL: http://www.cmbi.ru.nl/molden/"
+    puts stderr "Directory: /shared/ucl/apps/molden/5.2.2/bin"
+}
+
+module-whatis "Adds Molden 5.2.2 to your environment."
+
+conflict molden
+prereq gcc-libs/4.9.2
+
+set prefix /shared/ucl/apps/molden/5.2.2/gnu-4.9.2/bin
+
+append-path  PATH    ${prefix}
+
