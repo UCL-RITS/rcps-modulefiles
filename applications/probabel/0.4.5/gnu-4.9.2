@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+##
+## ProbABEL 0.4.5 compiled with GCC 4.9.2
+
+proc ModulesHelp { } {
+    puts stderr "Adds ProbABEL 0.4.5 to your environment."
+    puts stderr ""
+    puts stderr "Web site: http://www.genabel.org/packages/ProbABEL"
+
+}
+
+module-whatis "Adds ProbABEL to your environment."
+
+set prefix /shared/ucl/apps/probabel/0.4.5/gnu-4.9.2
+
+prereq gcc-libs/4.9.2
+conflict probabel
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
