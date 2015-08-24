@@ -24,6 +24,7 @@ module-whatis "Adds Ghostscript 9.16 to your environment."
 set prefix /shared/ucl/apps/Ghostscript/9.16
 
 prereq gcc-libs/4.9.2
+conflict ghostscript
 
 prepend-path PATH		$prefix/bin
 prepend-path MANPATH		$prefix/share/man
