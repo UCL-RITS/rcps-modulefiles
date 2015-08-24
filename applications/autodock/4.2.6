@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# AutoDock
+#
+#                                                      H.K. Aug 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds AutoDock and AutoGrid 4.2.6 to your environment."
+    puts stderr "AutoDock is a suite of automated docking tools. It is designed to 
+    puts stderr "predict how small molecules, such as substrates or drug candidates," 
+    puts stderr "bind to a receptor of known 3D structure."
+    puts stderr ""
+
+}
+
+module-whatis "Adds AutoDock and AutoGrid 4.2.6 to your environment. AutoDock is a suite of automated docking tools. It is designed to predict how small molecules, such as substrates or drug candidates, bind to a receptor of known 3D structure."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict autodock
+
+set root 			/shared/ucl/apps/autodock/4.2.6/gnu-4.9.2
+prepend-path PATH    		$root/bin
