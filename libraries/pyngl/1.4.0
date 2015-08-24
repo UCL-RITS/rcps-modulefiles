@@ -17,8 +17,8 @@ module-whatis "Adds PyNGL to your environment."
 prereq gcc-libs/4.9.2
 prereq python/2.7.9
 prereq python2/recommended
-prereq netcdf/4.3.3.1/gnu.4.9.2
-prereq hdf/5-1.8.15/gnu.4.9.2
+prereq netcdf/4.3.3.1/gnu-4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
 prereq ncl/6.0.0
 
 conflict pyngl

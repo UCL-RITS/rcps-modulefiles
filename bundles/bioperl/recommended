@@ -15,10 +15,10 @@ module-whatis "Loads all the modules needed to use BioPerl."
 prereq rcps-core
 
 module load compilers/gnu/4.9.2
-module load swig/3.0.5/gnu.4.9.2
-module load qt/4.8.6/gnu.4.9.2
-module load ghostscript/9.16/gnu.4.9.2
+module load swig/3.0.5/gnu-4.9.2
+module load qt/4.8.6/gnu-4.9.2
+module load ghostscript/9.16/gnu-4.9.2
 module load python/2.7.9
 module load lua/5.3.1
 module load perl/5.22.0
-module load graphviz/2.38.0/gnu.4.9.2
+module load graphviz/2.38.0/gnu-4.9.2

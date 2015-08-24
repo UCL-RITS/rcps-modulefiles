@@ -20,10 +20,10 @@ module-whatis "adds NetCDF C++ 4.2 for GCC to your environment."
 conflict netcdf-c++
 conflict netcdf-c++4
 prereq gcc-libs/4.9.2
-prereq hdf/5-1.8.15/gnu.4.9.2
-prereq netcdf/4.3.3.1/gnu.4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
+prereq netcdf/4.3.3.1/gnu-4.9.2
 
-set              root              /shared/ucl/apps/NetCDF-c++/4.2-gnu-4.9.2
+set              root              /shared/ucl/apps/NetCDF-c++-legacy/4.2-gnu-4.9.2
 
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib

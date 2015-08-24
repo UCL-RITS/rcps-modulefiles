@@ -5,23 +5,23 @@
 ## VTK 6.2.0 compiled using GCC 4.9.2 
 
 proc ModulesHelp { } {
-    puts stderr "Adds VTK 5.10.1 compiled using GCC 4.9.2"
+    puts stderr "Adds VTK 6.2.0 compiled using GCC 4.9.2"
     puts stderr "to your environment."
     puts stderr ""
     puts stderr "This version has Python and Java bindings."
 }
 
-module-whatis "adds VTK 5.10.1  for GCC 4.9.2 to your environment."
+module-whatis "adds VTK 6.2.0  for GCC 4.9.2 to your environment."
 
 conflict vtk
 prereq gcc-libs/4.9.2
-prereq hdf/5-1.8.15/gnu.4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
 prereq python/2.7.9
 prereq python2/recommended
 prereq java/1.8.0_45
-prereq qt/4.8.6/gnu.4.9.2
+prereq qt/4.8.6/gnu-4.9.2
 
-set              root              /shared/ucl/apps/vtk/5.10.1/gnu-4.9.2
+set              root              /shared/ucl/apps/vtk/6.2.0/gnu-4.9.2
 
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib

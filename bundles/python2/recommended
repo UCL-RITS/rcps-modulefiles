@@ -12,7 +12,7 @@ module-whatis "adds UCL recommended set of python packages to your environment v
 
 prereq rcps-core
 module load python/2.7.9
-module load openblas/0.2.14/gnu.4.9.2
+module load openblas/0.2.14/gnu-4.9.2
 
 set              root              /shared/ucl/apps/python/bundles/python2
 

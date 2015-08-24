@@ -28,4 +28,4 @@ prepend-path	MANPATH		$prefix/$release/man
 setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
 setenv FC              nagfor
 setenv F77             nagfor
-setenv COMPILER_TAG    nag
+setenv COMPILER_TAG    nag-6.0.1044

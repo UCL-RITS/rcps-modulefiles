@@ -28,7 +28,7 @@ module-whatis "Adds JAGS 3.4.0 to your environment."
 set prefix /shared/ucl/apps/JAGS/3.4.0
 prereq gcc-libs/4.9.2
 prereq compilers/gnu/4.9.2
-prereq atlas/3.10.2/gnu.4.9.2
+prereq atlas/3.10.2/gnu-4.9.2
 
 conflict jags
 

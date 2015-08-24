@@ -15,16 +15,16 @@ module-whatis "Adds nco to your environment."
 
 # NCO
 prereq gcc-libs/4.9.2
-prereq hdf/5-1.8.15/gnu.4.9.2
-prereq netcdf/4.3.3.1/gnu.4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
+prereq netcdf/4.3.3.1/gnu-4.9.2
 prereq udunits/2.2.19
-prereq gsl/1.16/gnu.4.9.2
+prereq gsl/1.16/gnu-4.9.2
 
 # Antlr
 prereq mono/3.12.1
 prereq java/1.8.0_45
 prereq python/2.7.9
-prereq bison/3.0.4/gnu.4.9.2
+prereq bison/3.0.4/gnu-4.9.2
 
 conflict nco
 

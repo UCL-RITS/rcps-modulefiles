@@ -12,14 +12,14 @@ module-whatis "Adds set of default applications to the environment for climate s
 
 prereq rcps-core
 
-module load hdf/5-1.8.15/gnu.4.9.2
-module load netcdf/4.3.3.1/gnu.4.9.2
+module load hdf/5-1.8.15/gnu-4.9.2
+module load netcdf/4.3.3.1/gnu-4.9.2
 module load udunits/2.2.19
-module load gsl/1.16/gnu.4.9.2
+module load gsl/1.16/gnu-4.9.2
 module load mono/3.12.1
 module load java/1.8.0_45
 module load python/2.7.9
-module load bison/3.0.4/gnu.4.9.2
+module load bison/3.0.4/gnu-4.9.2
 module load szip/2.1
 module load python2/recommended
 module load ncl/6.0.0

@@ -18,8 +18,8 @@ module-whatis "Adds GROMACS 5.0.4 with Plumed 2.1.2 to your environment. Note: P
 prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
-prereq openblas/0.2.14/intel.2015.update2
-prereq plumed/2.1.2/intel.2015.update2
+prereq openblas/0.2.14/intel-2015-update2
+prereq plumed/2.1.2/intel-2015-update2
 
 conflict gromacs
 

@@ -19,10 +19,10 @@ module-whatis "Adds MEME Suite 4.10.1_4 to your environment. The MEME Suite: Mot
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
-prereq mpi/openmpi/1.8.4/gnu.4.9.2
+prereq mpi/openmpi/1.8.4/gnu-4.9.2
 prereq perl/5.22.0
 prereq python2/recommended
-prereq ghostscript/9.16/gnu.4.9.2
+prereq ghostscript/9.16/gnu-4.9.2
 
 conflict meme
 
