@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# MEME Suite 4.10.1 patch 4
+#
+#                                                      H.K. Aug 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds MEME Suite 4.10.1_4 to your environment."
+    puts stderr "The MEME Suite: Motif-based sequence analysis tools. "
+    puts stderr "This install is for the command-line tools and connects to their"
+    puts stderr "website for further analysis."
+    puts stderr "Web: http://meme-suite.org"
+    puts stderr ""
+
+}
+
+module-whatis "Adds MEME Suite 4.10.1_4 to your environment. The MEME Suite: Motif-based sequence analysis tools. This install is for the command-line tools and connects to their website for further analysis. Web: http://meme-suite.org"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq mpi/openmpi/1.8.4/gnu.4.9.2
+prereq perl/5.22.0
+prereq python2/recommended
+prereq ghostscript/9.16/gnu.4.9.2
+
+conflict meme
+
+set root 			/shared/ucl/apps/meme/4.10.1_4/gnu-4.9.2
+prepend-path PATH    		$root/bin
