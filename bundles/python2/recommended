@@ -15,14 +15,20 @@ module load python/2.7.9
 module load openblas/0.2.14/gnu-4.9.2
 
 set              root              /shared/ucl/apps/python/bundles/python2
+set              home              $::env(HOME)
 
 setenv           VIRTUAL_ENV       $root/venv
 
 prepend-path     PATH              $root/venv/bin
 
-prepend-path     LD_RUN_PATH       $root/lib
-prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LD_RUN_PATH       $root/venv/lib
+prepend-path     LD_LIBRARY_PATH   $root/venv/lib
 
-prepend-path     CPATH             $root/include
-prepend-path     INCLUDE_PATH      $root/include
+prepend-path     LD_RUN_PATH       $root/venv/lib64
+prepend-path     LD_LIBRARY_PATH   $root/venv/lib64
 
+prepend-path     CPATH             $root/venv/include
+prepend-path     INCLUDE_PATH      $root/venv/include
+
+setenv           PYTHONUSERBASE    $home/.python2local
+prepend-path     PATH              $home/.python2local/bin
