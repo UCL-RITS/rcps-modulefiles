@@ -26,3 +26,5 @@ prepend-path     LD_LIBRARY_PATH   $root/lib
 prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
 
+setenv           PYTHONUSERBASE    ~/.python2local
+prepend-path     PATH              ~/.python2local/bin
