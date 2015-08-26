@@ -1,27 +1,25 @@
 #%Module -*- tcl -*-
 ##
-## mpb
+## hdf5
 ##
 
-set module_name mpb
+set module_name hdf5
 
 proc ModulesHelp { } {
 
-  puts stderr {Adds mpb 1.5 to your environment.}
+  puts stderr {Adds hdf5 1.8.5-p1 (built with Fortran and IntelMPI options) to your environment.}
 
 }
 
-module-whatis {Adds mpb 1.5 to your environment.}
+module-whatis {Adds hdf5 1.8.5-p1 (built with Fortran and IntelMPI options) to your environment.}
 
-prereq gcc-libs/4.9.2
-prereq hdf/5-1.8.15/gnu-4.9.2
-prereq fftw/3.3.4/gnu-4.9.2
-prereq libctl
-prereq openblas/0.2.14/gnu-4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq mpi/openmpi/1.8.4/gnu-4.9.2
 
-conflict mpb
+conflict hdf5
 
-set              prefix               /shared/ucl/apps/mpb/1.5/gnu-4.9.2
+set              prefix               /shared/ucl/apps/hdf5/1.8.15-p1-impi/intel-2015-update2
 
 
 if { [file isdirectory $prefix/bin] } then {
