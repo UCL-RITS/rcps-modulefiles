@@ -15,6 +15,8 @@ conflict compilers
 prereq gcc-libs/4.9.2
 
 prepend-path      MANPATH /shared/ucl/apps/gcc/4.9.2/share/man
+# for gcj
+prepend-path	  PATH /shared/ucl/apps/ecj/4.9/gnu-4.9.2
 setenv CC gcc
 setenv CXX g++
 setenv FC gfortran
