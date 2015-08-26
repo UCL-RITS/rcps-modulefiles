@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+#
+# NEdit 5.6 August 2015
+#
+# BAA
+
+proc ModulesHelp { } {
+    puts stderr "Adds the NEdit text editor to your environment."
+    puts stderr ""
+    puts stderr "NEdit is a multi-purpose text editor for the X Window System"
+    puts stderr "combining a Windows like graphical user interface with useful"
+    puts stderr "functions like syntax highlighting and regular expression search"
+    puts stderr "and replace."
+    puts stderr ""
+    puts stderr "NEdit is run using one of the following commands:"
+    puts stderr ""
+    puts stderr "nedit my-file &"
+    puts stderr "  starts a new NEdit session opening the file my-file."
+    puts stderr ""
+    puts stderr "ncl my-file"
+    puts stderr "  opens my-file in an existing NEdit session or opens a new"
+    puts stderr "  session if you do not have one running already."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NEdit/5.6-Aug15"
+}
+
+module-whatis "Adds the NEdit GUI text editor to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict nedit
+
+set prefix 			/shared/ucl/apps/NEdit/5.6-Aug15
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
