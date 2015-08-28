@@ -1,0 +1,46 @@
+#%Module -*- tcl -*-
+#
+#Rappture toolkit 20130903 August 2015
+#
+# BAA
+
+proc ModulesHelp { } {
+    puts stderr "Adds the Rappture toolkit version 20130903 to your environment."
+    puts stderr ""
+    puts stderr "Rappture is a toolkit supporting Rapid application"
+    puts stderr "infrastructure, making it quick and easy to develop powerful"
+    puts stderr "scientific applications."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/rappture/20130903"
+}
+
+module-whatis "Adds the Rappture toolkit to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict rappture
+
+set prefix	/shared/ucl/apps/rappture
+set ver		20130903
+set vtkdir	/shared/ucl/apps/rappture/20130903/lib/tcltk/vtk-6.0	
+set libdir	$prefix/$ver/lib
+
+prepend-path	PATH	    	$prefix/$ver/bin
+prepend-path	LD_LIBRARY_PATH	$libdir
+
+prepend-path	MATLABPATH	$libdir/matlab
+prepend-path	OCTAVE_LOADPATH	$libdir/octave3
+prepend-path	OCTAVE_PATH	$libdir/octave3
+
+prepend-path	PERL5LIB	$libdir/perl
+prepend-path	PYTHONPATH	$libdir/python2.6/site-packages
+prepend-path	RUBYLIB		$libdir/ruby
+
+prepend-path	TCLLIBPATH	$vtkdir
+prepend-path	TCL_LIBRARY	$libdir/tcl8.4
+prepend-path	TK_LIBRARY	$libdir/tk8.4
+
+prepend-path	CLASSPATH	$libdir/java
+
+prepend-path	R_LIBS		$libdir/R
+	
