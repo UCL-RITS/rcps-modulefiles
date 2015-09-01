@@ -4,7 +4,7 @@
 ##
 ## R 3.2.0 compiled with GCC 4.9.2 + ATLAS
 ##
-## Brian Alston May 2015
+## Brian Alston Sept 2015 - removed atlas prereq
 ##
 
 # New Legion modules layout
@@ -18,7 +18,7 @@ proc ModulesHelp { } {
     puts stderr "statistical tests, time series analysis, classification,"
     puts stderr "clustering, etc. "
     puts stderr ""
-    puts stderr "This version of R has been compiled with GCC 4.6.3 and the ATLAS"
+    puts stderr "This version of R has been compiled with GCC 4.9.2 and the ATLAS"
     puts stderr "high performance BLAS library."
     puts stderr ""
     puts stderr "Bioconductor is a set of R packages that provide tools for the analysis"
@@ -35,7 +35,7 @@ set prefix /shared/ucl/apps/R/R-3.2.0-ATLAS
 
 prereq gcc-libs/4.9.2
 prereq compilers/gnu/4.9.2
-prereq atlas/3.10.2/gnu-4.9.2
+# prereq atlas/3.10.2/gnu-4.9.2
 prereq fftw/3.3.4/gnu-4.9.2
 prereq ghostscript/9.16/gnu-4.9.2
 prereq texinfo/5.2/gnu-4.9.2
