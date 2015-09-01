@@ -1,0 +1,49 @@
+#%Module -*- tcl -*-
+##
+## Tephra2 normal
+##
+## 
+##
+## Brian Alston Sept 2015
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Tephra2 version r149 to your environment."
+    puts stderr ""
+    puts stderr "Tephra2 uses the advection diffusion equation to forecast tephra dispersion"
+    puts stderr "in a given location based on a user-defined set of eruptive conditions."
+    puts stderr ""
+    puts stderr "Directory:/shared/ucl/apps/Tephra2/normal/tephra2-r149"
+}
+
+module-whatis "Adds Tephra2 version r149 to your environment."
+
+conflict	tephra2
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq gmt/recommended
+prereq proj.4/4.9.1
+prereq rappture/20130903
+
+set prefix	/shared/ucl/apps/Tephra2/normal
+set userPrefix	~/Tephra2/normal
+set ver		tephra2-r149
+
+setenv  	 TOOLDIR    $userPrefix/$ver
+prepend-path      PATH	    $userPrefix/$ver/bin
+
+
+if [modulefunctions::isModuleLoad] {
+
+    modulefunctions::createDir $userPrefix
+
+    set tephraDir $prefix/$ver
+    modulefunctions::copySource $tephraDir $userPrefix/$ver
+}
+
