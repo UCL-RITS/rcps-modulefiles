@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# MGLTools 1.5.6 binary
+#
+#                                                      H.K. Sept 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds MGLTools 1.5.6 to your environment."
+    puts stderr "Applications for visualization and analysis of molecular structures."
+    puts stderr "Contains AutoDockTools (ADT), Python Molecular Viewer (PMV) and Vision."
+    puts stderr ""
+
+}
+
+module-whatis "Adds MGLTools 1.5.6 to your environment. Applications for visualization and analysis of molecular structures. Contains AutoDockTools (ADT), Python Molecular Viewer (PMV) and Vision."
+
+conflict mgltools
+
+set root 			/shared/ucl/apps/mgltools/1.5.6
+prepend-path PATH    		$root/bin
+
