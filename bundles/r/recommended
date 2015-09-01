@@ -23,3 +23,4 @@ module load texinfo/5.2/gnu-4.9.2
 module load texlive/2014
 module load gsl/1.16/gnu-4.9.2
 module load hdf/5-1.8.15/gnu-4.9.2
+module load r/3.2.0-atlas/gnu-4.9.2
