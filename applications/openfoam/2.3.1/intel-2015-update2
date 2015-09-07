@@ -28,7 +28,7 @@ set userid [read $p1]
 if {[catch {close $p1} err]} {
         puts stderr "whoami command failed: $err"
 }
-set local ~/Scratch/OpenFOAM/$userid-2.1.1
+set local ~/Scratch/OpenFOAM/$userid-2.3.1
 
 setenv           BOOST_ARCH_PATH   /shared/ucl/apps/boost/1_54_0/intel-2015-update2
 setenv           CGAL_ARCH_PATH    $tproot/platforms/linux64Icc/CGAL-4.3
