@@ -18,6 +18,7 @@ module-whatis "This module adds the Perlbrew 0.73 package to your environment. U
 prereq gcc-libs/4.9.2
 
 conflict perlbrew
+conflict perl
 
 set root 			/shared/ucl/apps/perl/perlbrewroot
 set support			/shared/ucl/apps/perl/perlbrewsupport
