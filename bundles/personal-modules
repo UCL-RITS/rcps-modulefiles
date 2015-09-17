@@ -1,0 +1,21 @@
+#%Module
+#
+# Personal Legion Modules 
+#
+#                                                      O.K. 17/Sept/2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds your personal modules to your environment."
+    puts stderr ""
+    puts stderr "To add your own modules, make a directory called modulefiles"
+    puts stderr "in your home directory, place them there and load this module."
+    puts stderr ""
+}
+
+module-whatis "Adds personal modules to your environment."
+
+set myusername $::tcl_platform(user)
+
+module           use --append /home/${myusername}/modulefiles
+
