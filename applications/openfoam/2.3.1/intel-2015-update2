@@ -109,25 +109,25 @@ prepend-path     PATH              $root/platforms/linux64IccDPOpt/bin
 prepend-path     PATH              $root/bin
 prepend-path     PATH              $root/wmake
 
+prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/CGAL-4.3/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/gperftools-svn/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/ParaView-4.1.0/lib/paraview-4.1
-prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/5.0.3.048
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64IccDPOpt/lib/5.0.3.048
 prepend-path     LD_RUN_PATH       $local/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $oftop/site/2.3.1/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64IccDPOpt/lib
-prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
+prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/5.0.3.048
 
+prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/CGAL-4.3/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/gperftools-svn/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/ParaView-4.1.0/lib/paraview-4.1
-prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/5.0.3.048
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64IccDPOpt/lib/5.0.3.048
 prepend-path     LD_LIBRARY_PATH       $local/platforms/linux64IccDPOpt/lib
 prepend-path     LD_LIBRARY_PATH       $oftop/site/2.3.1/platforms/linux64IccDPOpt/lib
 prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64IccDPOpt/lib
-prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
+prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/5.0.3.048
 
