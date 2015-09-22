@@ -18,6 +18,8 @@ module-whatis "Adds FreeSurfer 5.3.0 to your environment. FreeSurfer is a set of
 
 conflict freesurfer
 
+prereq xorg-utils/X11R7.7
+
 set root 		/shared/ucl/apps/freesurfer/5.3.0/freesurfer
 
 setenv FREESURFER_HOME  $root
