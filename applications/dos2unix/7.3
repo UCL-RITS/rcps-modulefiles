@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# dos2unix 7.3
+#
+#                                                      H.K. Sept 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds dos2unix 7.3 to your environment."
+    puts stderr "Text format converters dos2unix, unix2dos, mac2unix, unix2mac."
+    puts stderr ""
+
+}
+
+module-whatis "Adds dos2unix 7.3 to your environment. Text format converters dos2unix, unix2dos, mac2unix, unix2mac."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict dos2unix
+
+set root 			/shared/ucl/apps/dos2unix/7.3/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
