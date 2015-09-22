@@ -7,12 +7,12 @@
 proc ModulesHelp { } {
 
     puts stderr "This module adds xorg-utils from X11R7.7 to your environment."
-    puts stderr "Includes util-macros-1.17 and makedepend-1.0.5."
+    puts stderr "Includes util-macros-1.17, makedepend-1.0.5, libXScrnSaver-1.2.2"
     puts stderr ""
 
 }
 
-module-whatis "Adds xorg-utils from X11R7.7 to your environment. Includes util-macros-1.17 and makedepend-1.0.5."
+module-whatis "Adds xorg-utils from X11R7.7 to your environment. Includes util-macros-1.17, makedepend-1.0.5and libXScrnSaver-1.2.2."
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
@@ -23,3 +23,11 @@ set root 			/shared/ucl/apps/xorg/utils/X11R7.7/gnu-4.9.2
 prepend-path PATH    		$root/bin
 prepend-path MANPATH		$root/share/man
 prepend-path PKG_CONFIG_PATH	$root/share/pkgconfig
+
+set libXScrnroot                /shared/ucl/apps/libXScrnSaver/1.2.2/gnu-4.9.2
+prepend-path LIBRARY_PATH	$libXScrnroot/lib
+prepend-path LD_LIBRARY_PATH	$libXScrnroot/lib
+prepend-path CPATH		$libXScrnroot/include
+prepend-path INCLUDE_PATH	$libXScrnroot/include
+prepend-path MANPATH		$libXScrnroot/share/man
+prepend-path PKG_CONFIG_PATH	$libXScrnroot/lib/pkgconfig
