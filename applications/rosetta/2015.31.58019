@@ -23,7 +23,7 @@ proc ModulesHelp { } {
     puts stderr "Directory: /shared/ucl/apps/Rosetta/rosetta_src_2015.31.58019_bundle"
 }
 
-}
+
 
 module-whatis "Adds  Rosetta 2015.31.58019 to your environment."
 
