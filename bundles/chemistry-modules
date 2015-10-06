@@ -1,0 +1,17 @@
+#%Module
+#
+# Chemistry Legion Modules 
+#
+#                                                      O.K. 6 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Chemistry Department supported modules to your environment."
+    puts stderr ""
+    puts stderr "These modules are supported by local Chemistry IT staff."
+    puts stderr ""
+}
+
+module-whatis "Adds Chemistry Department supported modules to your environment."
+
+module           use --append /shared/ucl/depts/chemistry/modulefiles
