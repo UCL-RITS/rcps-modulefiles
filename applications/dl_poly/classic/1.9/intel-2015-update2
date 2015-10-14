@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis "Adds DL_POLY Classic 1.9 to your environment"
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/11.1/072
-prereq mpi/qlogic/1.2.7/intel
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
 
 conflict dl_poly
 
