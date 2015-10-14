@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# FSL 5.0.9
+#
+#                                                      H.K. Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds FSL 5.0.9 (FMRIB Software Library) to your environment."
+    puts stderr "FSL is a comprehensive library of analysis tools for FMRI,"
+    puts stderr "MRI and DTI brain imaging data."
+    puts stderr ""
+
+}
+
+module-whatis "Adds FSL 5.0.9 (FMRIB Software Library) to your environment. FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI brain imaging data."
+
+prereq gcc-libs/4.9.2
+
+conflict fsl
+
+set root 			/shared/ucl/apps/fsl/5.0.9/gnu-4.9.2
+prepend-path PATH    		$root/fsl/bin
+setenv FSLDIR			$root/fsl

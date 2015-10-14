@@ -1,0 +1,18 @@
+#%Module
+#
+# Physics Legion Modules 
+#
+#                                                      O.K. 6 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Physics Department supported modules to your environment."
+    puts stderr ""
+    puts stderr "These modules are supported by local Physics IT staff."
+    puts stderr ""
+}
+
+module-whatis "Adds Pysics Department supported modules to your environment."
+
+module           use --append /shared/ucl/depts/physics/modulefiles
+

@@ -15,7 +15,6 @@ module-whatis {Adds hdf5 1.8.5-p1 (built with Fortran and IntelMPI options) to y
 
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
-prereq mpi/openmpi/1.8.4/gnu-4.9.2
 
 conflict hdf5
 

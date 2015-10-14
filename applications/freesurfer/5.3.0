@@ -1,0 +1,46 @@
+#%Module -*- tcl -*-
+#
+# Freesurfer 5.3.0
+#
+#                                                      H.K. Sept 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds FreeSurfer 5.3.0 to your environment."
+    puts stderr "FreeSurfer is a set of automated tools for reconstruction of"
+    puts stderr "the brain's cortical surface from structural MRI data, and" 
+    puts stderr "overlay of functional MRI data onto the reconstructed surface."
+    puts stderr ""
+
+}
+
+module-whatis "Adds FreeSurfer 5.3.0 to your environment. FreeSurfer is a set of automated tools for reconstruction of the brain's cortical surface from structural MRI data, and overlay of functional MRI data onto the reconstructed surface."
+
+conflict freesurfer
+
+prereq xorg-utils/X11R7.7
+
+set root 		/shared/ucl/apps/freesurfer/5.3.0/freesurfer
+
+setenv FREESURFER_HOME  $root
+setenv SUBJECTS_DIR     $root/subjects
+setenv FUNCTIONALS_DIR  $root/sessions
+setenv LOCAL_DIR        $root/local
+
+# functional tools disabled as they require Matlab and not needed by user
+setenv NO_FSFAST        1
+setenv FSFAST_HOME      $root/fsfast
+setenv FSF_OUTPUT_FORMAT        nii.gz
+
+set mniDir              $root/mni
+setenv MNI_DIR          $mniDir
+setenv MINC_BIN_DIR     $mniDir/bin
+setenv MINC_LIB_DIR     $mniDir/lib
+append-path PERL5LIB    $mniDir/lib/perl5/5.8.5
+setenv MNI_PERL5LIB     $mniDir/lib/perl5/5.8.5
+setenv MNI_DATAPATH     $mniDir/data
+
+append-path PATH    		$root/bin:$root/fsfast/bin:$root/tktools:$mniDir/bin
+append-path LIBRARY_PATH	/usr/lib64:$root/lib/tcltktixblt/lib
+append-path LD_LIBRARY_PATH     /usr/lib64:$root/lib/tcltktixblt/lib
+append-path LD_RUN_PATH         /usr/lib64:$root/lib/tcltktixblt/lib
