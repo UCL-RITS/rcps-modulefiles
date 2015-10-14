@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+#
+# ANTs 2.1.0
+#
+#                                                      H.K. Oct 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds ANTs 2.1.0 (Advanced Normalization Tools) to your environment."
+    puts stderr "ANTs is popularly considered a state-of-the-art medical image"
+    puts stderr "registration and segmentation toolkit."
+    puts stderr ""
+
+}
+
+module-whatis "Adds ANTs 2.1.0 (Advanced Normalization Tools) to your environment. ANTs is popularly considered a state-of-the-art medical image registration and segmentation toolkit."
+
+conflict ants
+prereq gcc-libs/4.9.2
+
+set prefix /shared/ucl/apps/ants/2.1.0/gnu-4.9.2
+set itkprefix /shared/ucl/apps/ants/2.1.0/gnu-4.9.2/ITKv4-install
+
+prepend-path PATH               $prefix/bin
+prepend-path PATH               $itkprefix/bin
+append-path LD_LIBRARY_PATH     $prefix/lib
+append-path LIBRARY_PATH        $prefix/lib
+append-path CPATH               $prefix/include
+append-path CPATH		$itkprefix/include
+append-path INCLUDES		$prefix/include
+append-path INCLUDES		$itkprefix/include
+append-path ANTSPATH            $prefix/bin/
