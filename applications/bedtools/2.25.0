@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+#
+# bedtools 2.25.0
+#
+#                                                      H.K. Oct 2015
+
+proc ModulesHelp { } {
+    puts stderr "Adds bedtools 2.25.0 to your environment."
+    puts stderr "The bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks."
+    puts stderr ""
+
+}
+
+module-whatis "Adds bedtools 2.25.0 to your environment. The bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks."
+
+conflict bedtools
+prereq gcc-libs/4.9.2
+
+set prefix /shared/ucl/apps/bedtools/2.25.0/gnu-4.9.2
+
+prepend-path PATH               $prefix/bin
