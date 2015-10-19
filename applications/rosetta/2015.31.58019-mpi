@@ -4,7 +4,7 @@
 ##
 ## Rosetta 2015.31.58019 MPI version
 ##
-## Brian Alston October 2015
+## Brian Alston October 2015 LD_LIBRARY_PATH added
 ##
 ##
 
@@ -40,3 +40,5 @@ set prefix /shared/ucl/apps/Rosetta/rosetta_src_2015.31.58019_MPI_bundle
 
 prepend-path 	PATH		$prefix/main/source/bin
 setenv		ROSETTA3_DB	$prefix/main/database
+prepend-path	LD_LIBRARY_PATH	$prefix/main/source/build/external/release/linux/3.10/64/x86/gcc/4.9/default
+prepend-path	LD_LIBRARY_PATH	$prefix/main/source/build/src/release/linux/3.10/64/x86/gcc/4.9/default
