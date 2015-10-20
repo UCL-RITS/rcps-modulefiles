@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# primer3 2.3.6
+#
+#                                                      O.K. 20 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the primer3 2.3.6 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds the primer3 package to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict primer3
+
+set root                        /shared/ucl/apps/primer3/2.3.6/gnu-4.9.2/primer3-2.3.6
+
+prepend-path PATH               $root
+prepend-path PATH               $root/src
+
