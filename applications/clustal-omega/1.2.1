@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# Clustal Omega 1.2.1
+#
+#                                                      O.K. 23 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Clustal Omega 1.2.1 package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Clustal Omega 1.2.1 to your environment. "
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict clustal-omega
+prereq argtable
+
+set root 			/shared/ucl/apps/clustal-omega/1.2.1/gnu-4.9.2
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH    	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
+prepend-path MANPATH            $root/share/man
