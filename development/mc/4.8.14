@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# Midnight Commander 4.8.14
+#
+#                                                      O.K. 23 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Midnight Commander 4.8.14 to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "This module adds Midnight Commander 4.8.14 to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict mc
+
+set root 			/shared/ucl/apps/mc/4.8.14/gnu-4.9.2
+prepend-path PATH    		$root/bin
