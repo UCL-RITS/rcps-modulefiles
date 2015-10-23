@@ -5,10 +5,15 @@
 ## Built by O.K. on Legion on 2015-04-15
 
 proc ModulesHelp { } {
-  puts stderr "\tAdds UCL recommended set of python packages to your environment variables,"
+  puts stderr "\tAdds UCL recommended set of python packages to your environment variables."
+  puts stderr "To see what is included, check these:"
+  puts stderr "https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list"
+  puts stderr "https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list"
+  puts stderr ""
+
 }
 
-module-whatis "adds UCL recommended set of python packages to your environment variables"
+module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list"
 
 prereq rcps-core
 module load python/3.4.3

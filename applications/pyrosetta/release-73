@@ -1,0 +1,47 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## PyRosetta monolith release 73
+##
+## Brian Alston October 2015
+##
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds PyRosetta to your environment."
+    puts stderr ""
+    puts stderr "PyRosetta is a an interactive Python-based interface to"
+    puts stderr "Rosetta."
+    puts stderr ""
+    puts stderr "The Rosetta software suite includes algorithms for"
+    puts stderr "computational modeling and analysis of protein structures."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Rosetta/PyRosetta/PyRosetta.monolith.linux.release-73"
+}
+
+module-whatis "Adds PyRosetta to your environment."
+
+conflict pyrosetta
+
+# Location of PyRosetta:
+
+set prefix /shared/ucl/apps/Rosetta/PyRosetta/PyRosetta.monolith.linux.release-73
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq python2/recommended
+prereq rosetta/2015.31.58019
+
+setenv 		PYROSETTA		$prefix
+prepend-path	PYTHONPATH		$prefix
+prepend-path	DYLD_LIBRARY_PATH	$prefix:$prefix/rosetta
+prepend-path	LD_LIBRARY_PATH		$prefix:$prefix/rosetta
+setenv		PYROSETTA_DATABASE	$prefix/database
+append-path	PATH			$prefix
