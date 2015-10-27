@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## -- OK
+
+proc ModulesHelp { } {
+    puts stderr "XMDS2 is 'a software package that allows the"
+    puts stderr " fast and easy solution of sets of ordinary,"
+    puts stderr " partial and stochastic differential equations, "
+    puts stderr " using a variety of efficient numerical algorithms.'"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2/xmds-2.2.2"
+}
+
+module-whatis "Adds XMDS 2.2.2 (GNU/ATLAS/OpenMPI/FFTW toolchain) to your environment."
+
+conflict xmds
+
+set prefix /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2/xmds-2.2.2
+
+puts stderr "WARNING: This installation of this app has not yet been tested."
+puts stderr "This program requires per-user configuration. Please run the script 'xmds2-setup' before first running the program."
+
+prereq python2/recommended
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/1.8.4/gnu-4.9.2
+prereq fftw/3.3.4-ompi/gnu-4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
+
+prepend-path PATH		$prefix/bin
+prepend-path PATH               /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2
+prepend-path PATH		$prefix/scripts
+prepend-path PYTHONPATH         $prefix/lib/python2.7/site-packages
+
