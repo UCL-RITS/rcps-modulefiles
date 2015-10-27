@@ -17,7 +17,7 @@ module-whatis "Adds XMDS 2.2.2 (GNU/ATLAS/OpenMPI/FFTW toolchain) to your enviro
 
 conflict xmds
 
-set prefix /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2/xmds-2.2.2
+set prefix /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2
 
 puts stderr "WARNING: This installation of this app has not yet been tested."
 puts stderr "This program requires per-user configuration. Please run the script 'xmds2-setup' before first running the program."
@@ -28,8 +28,10 @@ prereq mpi/openmpi/1.8.4/gnu-4.9.2
 prereq fftw/3.3.4-ompi/gnu-4.9.2
 prereq hdf/5-1.8.15/gnu-4.9.2
 
-prepend-path PATH		$prefix/bin
+prepend-path PATH		$prefix/xmds-2.2.2/bin
+prepend-path PATH		$prefix/xmds/bin
 prepend-path PATH               /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2
-prepend-path PATH		$prefix/scripts
-prepend-path PYTHONPATH         $prefix/lib/python2.7/site-packages
+prepend-path PATH		$prefix/xmds/scripts
+prepend-path PYTHONPATH         $prefix/xmds-2.2.2/lib/python2.7/site-packages
+prepend-path PYTHONPATH         $prefix/xmds/lib/python2.7/site-packages
 
