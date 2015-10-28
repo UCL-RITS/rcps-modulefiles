@@ -13,7 +13,7 @@ proc ModulesHelp { } {
     puts stderr "Directory: /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2/xmds-2.2.2"
 }
 
-module-whatis "Adds XMDS 2.2.2 (GNU/ATLAS/OpenMPI/FFTW toolchain) to your environment."
+module-whatis "Adds XMDS 2.2.2 (GNU/ATLAS/Intel MPI/FFTW toolchain) to your environment."
 
 conflict xmds
 
@@ -24,8 +24,8 @@ puts stderr "This program requires per-user configuration. Please run the script
 
 prereq python2/recommended
 prereq compilers/gnu/4.9.2
-prereq mpi/openmpi/1.8.4/gnu-4.9.2
-prereq fftw/3.3.4-ompi/gnu-4.9.2
+prereq mpi/intel/2015/update3/gnu-4.9.2
+prereq fftw/3.3.4-impi/gnu-4.9.2
 prereq hdf/5-1.8.15/gnu-4.9.2
 
 prepend-path PATH		$prefix/xmds-2.2.2/bin
