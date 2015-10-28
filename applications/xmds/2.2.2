@@ -11,6 +11,10 @@ proc ModulesHelp { } {
     puts stderr " using a variety of efficient numerical algorithms.'"
     puts stderr ""
     puts stderr "Directory: /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2/xmds-2.2.2"
+    puts stderr ""
+    puts stderr "Also provides the create-svn-xmds-inst script to allow users"
+    puts stderr "to use the SVN version of xmds."
+    puts stderr ""
 }
 
 module-whatis "Adds XMDS 2.2.2 (GNU/ATLAS/Intel MPI/FFTW toolchain) to your environment."
@@ -19,7 +23,7 @@ conflict xmds
 
 set prefix /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2
 
-puts stderr "WARNING: This installation of this app has not yet been tested."
+puts stderr "WARNING: If you use the create-svn-xmds-inst script to pull a version of XMDS 2 from SVN, that version is completely untested."
 puts stderr "This program requires per-user configuration. Please run the script 'xmds2-setup' before first running the program."
 
 prereq python2/recommended
