@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# HMMER 3.1b2
+#
+#                                                      O.K. 30 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the HMMER 3.1b2 package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds HMMER 3.1b2  to your environment. "
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict hmmer
+
+set root 			/shared/ucl/apps/hmmer/3.1b2/gnu-4.9.2
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH    	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
+prepend-path MANPATH            $root/share/man
