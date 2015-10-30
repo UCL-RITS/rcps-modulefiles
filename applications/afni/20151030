@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+#
+# AFNI 20151030
+#
+#                                                      O.K. 30 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the AFNI 20151030 package to your environment."
+    puts stderr ""
+    puts stderr "This package is the version of afni_src.tar from 20151030."
+    puts stderr ""
+
+}
+
+module-whatis "Adds AFNI to your environment. "
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict afni
+prereq gsl/1.16/gnu-4.9.2
+
+set root 			/shared/ucl/apps/afni/20151030/gnu-4.9.2
+setenv AFNI_PLUGINPATH          $root
+prepend-path PATH               $root
