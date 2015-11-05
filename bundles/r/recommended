@@ -2,7 +2,7 @@
 ##
 ## Recommended R bundle
 ##
-## Version 1 by BAA on Legion on 2015-09-01
+## Version 1.1 by BAA on Legion on 2015-11-05
 
 proc ModulesHelp { } {
     puts stderr "This module adds the R 3.2.0 package to your environment."
@@ -23,4 +23,5 @@ module load texinfo/5.2/gnu-4.9.2
 module load texlive/2014
 module load gsl/1.16/gnu-4.9.2
 module load hdf/5-1.8.15/gnu-4.9.2
+module load netcdf/4.3.3.1/gnu-4.9.2
 module load r/3.2.0-atlas/gnu-4.9.2
