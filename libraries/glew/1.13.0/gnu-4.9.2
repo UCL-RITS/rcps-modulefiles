@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## GLEW 1.13.0 for GCC 4.9.2
+
+proc ModulesHelp { } {
+    puts stderr "Adds GLEW The OpenGL Extension Wrangler Library 1.13.0 to your environment."
+    puts stderr ""
+    puts stderr "GLEW is a cross-platform open-source C/C++ extension loading library. GLEW"
+    puts stderr "provides efficient run-time mechanisms for determining which OpenGL"
+    puts stderr "extensions are supported on the target platform. It is a prerequisite for"
+    puts stderr "PyMol"
+    puts stderr ""
+    puts stderr "Web: http://glew.sourceforge.net"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/GLEW/1.13.0/gnu-4.9.2"
+}
+
+module-whatis "Adds GLEW The OpenGL Extension Wrangler Library 1.11.0 to your environment."
+
+conflict glew
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+
+set prefix	/shared/ucl/apps/GLEW/1.13.0/gnu-4.9.2
+
+append-path PATH      		$prefix/bin
+append-path LD_LIBRARY_PATH     $prefix/lib64
+append-path    LIBRARY_PATH     $prefix/lib64
+prepend-path LD_RUN_PATH        $prefix/lib64
+prepend-path CPATH 		$prefix/include
+prepend-path INCLUDE_PATH	$prefix/include
