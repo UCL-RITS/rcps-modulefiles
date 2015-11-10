@@ -1,11 +1,11 @@
 #%Module -*- tcl -*-
 ##
-## Recommended R bundle
+## Recommended R bundle - version for R 3.2.2
 ##
-## Version 1.1 by BAA on Legion on 2015-11-05
+## Version 1.2 by BAA on Legion on 2015-11-10
 
 proc ModulesHelp { } {
-    puts stderr "This module adds the R 3.2.0 package to your environment."
+    puts stderr "This module adds the R 3.2.2 and Bioconductor 3.2 package to your environment."
     puts stderr ""
     puts stderr "This module also adds other modules as required."
     puts stderr ""
@@ -16,7 +16,9 @@ module-whatis "adds UCL recommended set of R packages to your environment variab
 
 module load gcc-libs/4.9.2
 module load compilers/gnu/4.9.2
-# module load atlas/3.10.2/gnu-4.9.2
+module load openblas/0.2.14/gnu-4.9.2
+module load mpi/openmpi/1.8.4/gnu-4.9.2
+module load java/1.8.0_45
 module load fftw/3.3.4/gnu-4.9.2
 module load ghostscript/9.16/gnu-4.9.2
 module load texinfo/5.2/gnu-4.9.2
@@ -24,5 +26,6 @@ module load texlive/2014
 module load gsl/1.16/gnu-4.9.2
 module load hdf/5-1.8.15/gnu-4.9.2
 module load netcdf/4.3.3.1/gnu-4.9.2
-module load r/3.2.0-atlas/gnu-4.9.2
-# mpi/openmpi/1.8.4/gnu-4.9.2`2
+module load jags/3.4.0/gnu.4.9.2-openblas
+module load root/5.34.30/gnu-4.9.2
+module load r/3.2.2-openblas/gnu-4.9.2
