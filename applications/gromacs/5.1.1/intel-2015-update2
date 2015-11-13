@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+#
+# GROMACS 5.1.1, SSE4.1 no AVX
+#
+#                                                      H.K. 11th Nov 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the GROMACS 5.1.1 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds GROMACS 5.1.1 to your environment, built using MKL"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+
+conflict gromacs
+
+set root 			/shared/ucl/apps/gromacs/5.1.1/intel-2015-update2
+prepend-path PATH      		$root/bin/
+prepend-path LD_LIBRARY_PATH 	$root/lib64
+prepend-path LIBRARY_PATH	$root/lib64
+prepend-path CPATH		$root/include
+prepend-path MANPATH		$root/share/man
+
+setenv GMXBIN		$root/bin
+setenv GMXLDLIB		$root/lib64
+setenv GMXMAN		$root/share/man
+setenv GMXDATA		$root/share/gromacs

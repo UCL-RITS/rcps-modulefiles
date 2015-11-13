@@ -1,0 +1,36 @@
+#%Module -*- tcl -*-
+#
+# GROMACS 5.1.1 with Plumed 2.2 
+# GROMACS built for SSE4.1, no AVX
+#                                                      O.K. 11th Nov 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds GROMACS 5.1.1 with Plumed 2.2 to your environment."
+    puts stderr "Note: Plumed will always run in double precision even if GROMACS is "
+    puts stderr "single-precision, so only use that combination if you need it."
+    puts stderr ""
+}
+
+module-whatis "Adds GROMACS 5.1.1 with Plumed 2.2 to your environment. Note: Plumed will always run in double precision even if GROMACS is single-precision, so only use that combination if you need it and are aware of the effects."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq openblas/0.2.14/intel-2015-update2
+prereq plumed/2.2/intel-2015-update2
+
+conflict gromacs
+
+set root 			/shared/ucl/apps/gromacs/5.1.1/plumed/intel-2015-update2
+prepend-path PATH      		$root/bin/
+prepend-path LD_LIBRARY_PATH 	$root/lib64
+prepend-path LIBRARY_PATH	$root/lib64
+prepend-path CPATH		$root/include
+prepend-path MANPATH		$root/share/man
+
+setenv GMXBIN		$root/bin
+setenv GMXLDLIB		$root/lib64
+setenv GMXMAN		$root/share/man
+setenv GMXDATA		$root/share/gromacs

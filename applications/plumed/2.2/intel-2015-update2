@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# PLUMED 2.2 with OpenBLAS
+#
+#                                                      O.K. 11th Nov 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLUMED 2.2 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds PLUMED 2.2 to your environment, built using OpenBLAS"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq openblas/0.2.14/intel-2015-update2
+
+conflict plumed
+
+set root                        /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/
+prepend-path PATH               $root/bin/
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE		$root/include
+
+setenv PLUMED_KERNEL          	$root/lib/libplumedKernel.so
