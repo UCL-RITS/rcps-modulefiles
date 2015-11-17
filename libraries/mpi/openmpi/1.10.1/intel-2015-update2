@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-11-17
+
+proc ModulesHelp { } {
+  global openmpiversion
+
+  puts stderr "\tAdds OpenMPI 1.10.1 for Intel 2015 update 2 compilers to your environment variables,"
+}
+
+module-whatis "adds OpenMPI 1.10.1 for Intel 2015 update 2 compilers to your environment variables"
+
+conflict mpi
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+
+set              openmpiversion    1.10.1
+set              root              /shared/ucl/apps/openmpi/1.8.4/intel-2015-update2
+
+prepend-path     PATH              $root/bin
+prepend-path     PATH              /shared/ucl/apps/openmpi/ucl-wrapper/bin
+append-path      MANPATH           $root/share/man
+setenv           MPI_HOME          $root
+setenv           MPI_RUN           $root/bin/mpirun
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           GERUN_LAUNCHER    openmpi-sge
