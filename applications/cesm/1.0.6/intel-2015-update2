@@ -6,7 +6,7 @@
 
 proc ModulesHelp { } {
 
-    puts stderr "This module adds the CESM 2.0.6 package to your environment."
+    puts stderr "This module adds the CESM 1.0.6 package to your environment."
     puts stderr ""
     puts stderr ""
     puts stderr "See: "
