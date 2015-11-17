@@ -1,0 +1,38 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-11-17
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the CESM 1.2.2 package to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "See: "
+    puts stderr "https://wiki.rc.ucl.ac.uk/wiki/CESM_on_Legion"
+    puts stderr ""
+}
+
+module-whatis "Adds CESM 1.2.2 to your environment."
+
+conflict cesm
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq hdf/5-1.8.15/intel-2015-update2
+
+
+set              root              /shared/ucl/apps/cesm/cesm1_2_2/
+
+prepend-path     PATH              $root/scripts
+
+set              ncroot            /shared/ucl/apps/cesm/support/netcdf
+
+prepend-path     PATH              $ncroot/bin
+prepend-path     LD_RUN_PATH       $ncroot/lib
+prepend-path     LD_LIBRARY_PATH   $ncroot/lib
+prepend-path     CPATH             $ncroot/include
+prepend-path     INCLUDE_PATH      $ncroot/include
+prepend-path     MANPATH           $ncroot/share/man
+
