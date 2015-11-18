@@ -37,4 +37,6 @@ prepend-path     LD_LIBRARY_PATH   $ncroot/lib
 prepend-path     CPATH             $ncroot/include
 prepend-path     INCLUDE_PATH      $ncroot/include
 prepend-path     MANPATH           $ncroot/share/man
-
+setenv           NETCDF_PATH       $ncroot
+setenv           NETCDF_LIB_DIR    $ncroot/lib
+setenv           NETCDF_INCLUDE_DIR   $ncroot/include
