@@ -24,3 +24,5 @@ prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
 setenv           BLAS_TAG          atlas
 setenv   	 ATLASROOT	   $root
+
+prepend-path CMAKE_PREFIX_PATH  $root

@@ -26,3 +26,5 @@ prepend-path INCLUDE_PATH	$root/include
 prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
 prepend-path MANPATH            $root/share/man
 setenv       ARGTABLE_TAG       2.13
+
+prepend-path CMAKE_PREFIX_PATH  $root

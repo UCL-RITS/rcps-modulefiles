@@ -36,3 +36,5 @@ prepend-path INCLUDE_PATH	$prefix/c_headers
 
 setenv NAG_DIR $prefix
 setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
+
+prepend-path CMAKE_PREFIX_PATH  $prefix

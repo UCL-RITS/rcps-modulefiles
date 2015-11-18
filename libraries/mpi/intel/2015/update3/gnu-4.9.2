@@ -37,6 +37,8 @@ setenv           TMI_CONFIG           /shared/ucl/apps/intel/2015/impi/5.0.3.048
 setenv           GERUN_LAUNCHER    intel
 prepend-path     PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
 
+prepend-path CMAKE_PREFIX_PATH  $root
+
 # Check to see whether this is running in a scheduled environment (NHOSTS>1) and
 # if not, set shared memory only.
 if { [info exists ::env(NHOSTS) ] } {
