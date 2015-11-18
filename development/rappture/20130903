@@ -44,3 +44,4 @@ prepend-path	CLASSPATH	$libdir/java
 
 prepend-path	R_LIBS		$libdir/R
 	
+prepend-path CMAKE_PREFIX_PATH $root

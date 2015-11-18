@@ -25,3 +25,5 @@ prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
 
 setenv           JAVA_HOME         $root
+
+prepend-path CMAKE_PREFIX_PATH $root

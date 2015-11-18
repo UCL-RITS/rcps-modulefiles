@@ -45,4 +45,4 @@ if { [file isdirectory $prefix/include] } then {
   append-path      CPATH                $prefix/include
   append-path      INCLUDE_PATH         $prefix/include
 }
-
+prepend-path CMAKE_PREFIX_PATH $prefix

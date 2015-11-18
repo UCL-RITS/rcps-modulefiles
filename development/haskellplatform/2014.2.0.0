@@ -22,3 +22,5 @@ prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
 
 prepend-path     PATH $::env(HOME)/.cabal/bin
+
+prepend-path CMAKE_PREFIX_PATH $root

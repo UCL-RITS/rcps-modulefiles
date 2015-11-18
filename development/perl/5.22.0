@@ -22,3 +22,5 @@ prepend-path PATH      		$root/bin
 prepend-path PERL5LIB 		$root/lib
 prepend-path PERL5LIB		$moduleroot
 prepend-path PERL5LIB		$moduleroot/5.22.0
+
+prepend-path CMAKE_PREFIX_PATH $root

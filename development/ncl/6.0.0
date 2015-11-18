@@ -32,3 +32,5 @@ prepend-path     LD_LIBRARY_PATH   $root/lib
 
 prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path CMAKE_PREFIX_PATH $root
