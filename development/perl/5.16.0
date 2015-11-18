@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# Perl 5.16.0
+#
+#                                                      O.K. 18th Nov 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Perl 5.16.0 to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds adds Perl 5.16.0 to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict perl
+
+set root 			/shared/ucl/apps/perl/perlbrewroot/perls/perl-5.16.0
+set moduleroot			$root/lib/site_perl
+prepend-path PATH      		$root/bin
+prepend-path PERL5LIB 		$root/lib
+prepend-path PERL5LIB		$moduleroot
+prepend-path PERL5LIB		$moduleroot/5.16.0
