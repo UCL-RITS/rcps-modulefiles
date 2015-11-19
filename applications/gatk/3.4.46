@@ -27,7 +27,7 @@ module-whatis "Adds GATK 3.4.46 to your environment. The Genome Analysis Toolkit
 
 conflict gatk
 prereq gcc-libs/4.9.2
-prereq java/1.8.0_45
+#prereq java/1.8.0_45 		not presently compatible with java 1.8
 
 # on load, check if user is in the correct group
 if [modulefunctions::isModuleLoad] {
