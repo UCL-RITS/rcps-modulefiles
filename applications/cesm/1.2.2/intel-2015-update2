@@ -40,3 +40,5 @@ prepend-path     MANPATH           $ncroot/share/man
 setenv           NETCDF_PATH       $ncroot
 setenv           NETCDF_LIB_DIR    $ncroot/lib
 setenv           NETCDF_INCLUDE_DIR   $ncroot/include
+
+setenv CCSMUSER $::env(USER)
