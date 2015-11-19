@@ -35,3 +35,5 @@ prepend-path     INCLUDE_PATH      $root/venv/include
 
 setenv           PYTHONUSERBASE    $home/.python2local
 prepend-path     PATH              $home/.python2local/bin
+
+prepend-path CMAKE_PREFIX_PATH $root
