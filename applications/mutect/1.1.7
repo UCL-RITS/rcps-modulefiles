@@ -21,7 +21,7 @@ proc ModulesHelp { } {
 module-whatis "Adds MuTect 1.1.7 to your environment. MuTect is a GATK-based variant caller specialized for somatic/cancer variants."
 
 conflict mutect
-prereq java/1.8.0_45
+# prereq java/1.8.0_45            not presently compatible with java 1.8
 
 # on load, check if user is in the correct group
 if [modulefunctions::isModuleLoad] {
