@@ -6,20 +6,20 @@ proc ModulesHelp { } {
 
     puts stderr "This package adds the Picard tools to your environment."
     puts stderr ""
-    puts stderr "This package needs Java 1.7 to be loaded."
+    puts stderr "This package needs Java 1.8 to be loaded."
     puts stderr ""
     puts stderr "To run picard tools, prefix the picard.jar with \$PICARDPATH"
-    puts stderr "e.g."
-    puts stderr "java -Xmx2g -jar \$PICARDPATH/picard.jar PicardCommand OPTION1=value1 OPTION2=value2..."
+    puts stderr "You should set TMP_DIR=$TMPDIR e.g."
+    puts stderr "java -Xmx2g -jar \$PICARDPATH/picard.jar PicardCommand TMP_DIR=$TMPDIR OPTION1=value1 OPTION2=value2..."
     puts stderr ""
-    puts stderr "Wrappers are also provided, so you can run:"
+    puts stderr "Wrappers are also provided which set TMP_DIR, so you can run:"
     puts stderr "PicardCommand OPTION1=value1 OPTION2=value2..."
     puts stderr "Which is the equivalent of the previous example."
     puts stderr ""
 
 }
 
-module-whatis "Adds Picard Tools 1.136 to your environment"
+module-whatis "Adds Picard Tools 1.136 to your environment. If using the java -jar command, you should pass TMP_DIR=$TMPDIR to Picard."
 
 prereq  gcc-libs/4.9.2
 prereq  java/1.8.0_45
