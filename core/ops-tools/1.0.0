@@ -13,4 +13,5 @@ proc ModulesHelp { } {
 module-whatis "Tools for Ops work"
 
 prepend-path PATH /shared/ucl/apps/rcops_scripts
-
+# location of become
+prepend-path PATH /shared/ucl/sysops/bin
