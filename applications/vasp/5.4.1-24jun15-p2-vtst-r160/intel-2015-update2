@@ -6,7 +6,7 @@
 ## using cmd line:
 ##  "-p /shared/ucl/apps/vasp/5.4.1-p2-p2-vtst3-r160/intel-2015-update2 -n VASP 5.4.1 + VTST r160 -r compilers/intel/2015/update2 -r mpi/intel/2015/update3/intel -w Adds VASP 5.4.1 built with VTST r160 to your environment. -c vasp -o applications/vasp/5.4.1-24jun15-p2-vtst-r160/intel-2015-update2"
 
-set module_name VASP 5.4.1 + VTST r160
+set module_name {VASP 5.4.1 + VTST r160}
 
 proc ModulesHelp { } {
 
