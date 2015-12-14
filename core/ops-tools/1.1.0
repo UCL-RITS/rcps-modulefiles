@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Tools for Research Computing Ops
+##
+
+proc ModulesHelp { } {
+
+  puts stderr "\tTools for Ops work"
+}
+
+module-whatis "Tools for Ops work"
+
+prepend-path PATH /shared/ucl/apps/cluster-scripts
+# location of become
+prepend-path PATH /shared/ucl/sysops/bin
