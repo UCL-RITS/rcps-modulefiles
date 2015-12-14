@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+
+proc ModulesHelp { } {
+    puts stderr "Adds the userscripts directory to your path."
+    puts stderr "Provides jobhist among other utilities."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/cluster-scripts"
+    puts stderr ""
+}
+
+module-whatis "Adds userscripts dir to your path. Provides jobhist among other utilities."
+
+set prefix /shared/ucl/apps/cluster-scripts
+
+prepend-path PATH               $prefix
+set-alias listuserscripts       "find $prefix -perm /a=x -type f -printf \"%f\\\\n\""
