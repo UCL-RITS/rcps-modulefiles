@@ -1,0 +1,99 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## CFD-ACE 2014.1
+##
+## Brian Alston December 2015
+##
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+
+  puts stderr "Adds CFD-ACE+ Version 2014.1 to your path."
+  puts stderr ""
+  puts stderr "CFD-ACE+ is an application for performing CFD simulations"
+  puts stderr "solving problems involving flow (of fluids or solids), heat" 	   
+  puts stderr "transfer and turbulence."
+  puts stderr ""
+  puts stderr "CFD-ACE+ is a reserved application. Access is controlled"
+  puts stderr "by membership of the Legion CFD-ACE+ group. To be given"
+  puts stderr "access to this application please email rc-support@ucl.ac.uk"
+  puts stderr ""  
+  puts stderr "Directory: /shared/ucl/apps/CFD-ACE+/V2014"
+
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+
+module-whatis "Adds CFD-ACE+ to your execution path."
+
+conflict cfd-ace
+
+prereq gcc-libs/4.9.2
+set prefix /shared/ucl/apps/CFD-ACE+/V2014
+
+set cfdaceDir "~/.foxrc"
+
+setenv ESI_HOME $prefix
+setenv PYTHONHOME $prefix/2014.1/UTILS
+setenv MPI_ROOT $prefix/2014.1/UTILS/platform_mpi-09.01.02.00
+setenv MPI_REMSH "/usr/bin/ssh -o StrictHostKeyChecking=no"
+setenv PAM_LMD_LICENSE_FILE 7789@ntsrv1.meng.ucl.ac.uk
+
+prepend-path PATH		$prefix/2014.1/UTILS/bin
+prepend-path LD_LIBRARY_PATH    $prefix/2014.1/UTILS/lib
+
+# on load, check if user is in the correct group for CDF-ACE
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "lgcfdace"     
+}
+
+# Setup CFD-ACE+ settings directory in Scratch
+
+if { ! [appDirSetup $cfdaceDir] } {
+    puts stderr ""
+    puts stderr "**** error: setting up $cfdaceDir directory failed."
+    puts stderr ""    
+    puts stderr "Note: you must load the cfd-ace module at least once from a login node."
+    puts stderr ""
+}
+
+
+
+
+
