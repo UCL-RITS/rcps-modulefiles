@@ -1,0 +1,54 @@
+#%Module -*- tcl -*-
+#
+# Gaussian G09-C01 with Linda and Gaussview 5
+#
+#                                                      BAA 11th December 2015
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Gaussian 09 Revision C01 with Linda parallel support"
+    puts stderr "and GaussView 5 to your environment."
+    puts stderr ""
+    puts stderr "Gaussian 09 is a system of linked programs for electronic structure"
+    puts stderr "modeling. GaussView 5 is a graphical tool to help prepare input for"
+    puts stderr "submission to Gaussian and to examine graphically the output that"
+    puts stderr "Gaussian produces."
+    puts stderr ""
+    puts stderr "Gaussian 09 and GaussView 5 are reserved applications. Access is"
+    puts stderr "controlled by membership of the Legion G09 group. To be given access"
+    puts stderr "to these applications please email rc-support@ucl.ac.uk"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/gaussian/G09_C01_L"
+}
+
+module-whatis "Adds Gaussian 09 Revision C01 and GaussView 5 to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict gaussian
+
+# Check if user is in Gaussian group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember Legg09
+}
+
+# Check if TMPDIR exists - if not, use /tmp (interactive use)
+if [modulefunctions::isTMPDIR] {
+    setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/[pid]
+} else {
+    setenv GAUSS_SCRDIR /tmp
+}
+
+set prefix_gv /shared/ucl/apps/gaussian/gaussview
+set prefix /shared/ucl/apps/gaussian/G09_C01_L
+
+append-path PATH	$prefix/g09
+append-path PATH	$prefix/g09/bsd
+prepend-path PATH	$prefix_gv/gv5
+setenv g09root 		$prefix
+setenv GV_DIR 		$prefix_gv/gv5
+setenv GAUSS_EXEDIR	$prefix/g09
+setenv lindaConv 	$prefix/linda.perl
+setenv LINDA_PATH	$prefix/g09/linda8.2/opteron-linux/
