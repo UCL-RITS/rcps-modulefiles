@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# ScaLAPACK 2.0.2, GCC, OpenBLAS, OpenMPI
+#
+#                                                      H.K. Jan 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds ScaLAPACK 2.0.2 built with GCC, OpenBLAS and OpenMPI to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds ScaLAPACK 2.0.2 to your environment, built with GCC, OpenBLAS and OpenMPI. Static and shared libraries."
+
+prereq gcc-libs/4.9.2
+prereq mpi/openmpi/1.10.1/gnu-4.9.2
+prereq openblas/0.2.14/gnu-4.9.2
+
+conflict scalapack
+
+set root                        /shared/ucl/apps/scalapack/2.0.2/gnu-4.9.2/openblas/
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH  $root
