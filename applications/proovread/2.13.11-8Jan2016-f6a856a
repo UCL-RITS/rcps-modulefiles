@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# proovread 2.13.11-8Jan2016-f6a856a
+#
+#                                                      H.K. Jan 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds proovread 2.13.11-8Jan2016-f6a856a to your environment."
+    puts stderr "f6a856a is the commit for this version."
+}
+
+module-whatis "Adds proovread 2.13.11-8Jan2016-f6a856a to your environment. f6a856a is the commit for this version."
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq blast+/2.2.30/intel-2015-update2
+prereq samtools/1.2/gnu-4.9.2
+prereq perl/5.22.0
+
+conflict proovread
+
+set root                        /shared/ucl/apps/proovread/2.13.11-8Jan2016-f6a856a/intel-2015-update2/proovread/
+prepend-path PATH		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path PERL5LIB    	$root/lib
+prepend-path CMAKE_PREFIX_PATH  $root
+
