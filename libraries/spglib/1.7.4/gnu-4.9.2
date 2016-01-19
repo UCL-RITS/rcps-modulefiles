@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# spglib 1.7.4
+#
+#                                                      H.K. Jan 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds spglib 1.7.4 to your environment."
+    puts stderr "Spglib is a library for finding and handling crystal symmetries written in C."
+    puts stderr ""
+}
+
+module-whatis "Adds spglib 1.7.4 to your environment. Spglib is a library for finding and handling crystal symmetries written in C."
+
+prereq gcc-libs/4.9.2
+
+conflict spglib
+
+set root                        /shared/ucl/apps/spglib/1.7.4
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path INCLUDE_PATH    	$root/include
+prepend-path CPATH		$root/include
+prepend-path CMAKE_PREFIX_PATH  $root
