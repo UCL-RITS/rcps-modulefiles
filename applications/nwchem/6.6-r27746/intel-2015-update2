@@ -1,0 +1,38 @@
+#%Module -*- tcl -*-
+##
+## NWChem 6.6 revision 27746
+## Patched as of 2016-01-20
+##                                                      H.K. 2016
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds NWChem 6.6 revision 27746 patched 2016-01-20 to your PATH" 
+    puts stderr "and gives you a symlink to the global .nwchemrc." 
+    puts stderr "You may need to alter/remove any old ~/.nwchemrc."
+    puts stderr "Global .nwchemrc: /shared/ucl/apps/nwchem/6.5-r26243/intel-2015-update2/.nwchemrc"
+    puts stderr "Built with Python 2.7 interface and MKL with ScaLAPACK."
+    puts stderr ""
+}
+
+module-whatis "Adds NWChem 6.6 revision 27746 patched 2016-01-20 to your PATH, creates symlink to global .nwchemrc. You may need to alter/remove any old ~/.nwchemrc. Built with Python 2.7 interface and MKL with ScaLAPACK. Global .nwchemrc: /shared/ucl/apps/nwchem/6.5-r26243/intel-2015-update2/.nwchemrc"
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+prereq python/2.7.9
+
+conflict nwchem
+
+set root 			/shared/ucl/apps/nwchem/6.6-r27746/intel-2015-update2
+setenv PYTHONHOME 		/shared/ucl/apps/python/2.7.9/gnu-4.9.2
+# NWCHEM_BASIS_LIBRARY overrides .nwchemrc if that is different
+setenv NWCHEM_BASIS_LIBRARY 	$root/data/libraries/
+prepend-path PATH 		$root/bin
+
+# Create link to .nwchemrc if it doesn't exist
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::createSymlink ~/.nwchemrc $root/.nwchemrc
+}
