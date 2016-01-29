@@ -1,0 +1,47 @@
+#%Module -*- tcl -*-
+#
+# ANSYS 16.1
+#
+
+# Updated for new ANSYS licence manager June 2013 BAA
+# Updated for version ANSYS 14.5.7      June 2013 BAA
+# Updated for ANSYS 15.0.7		Sept 2014 H.K.
+# Updated for upgraded Legion software stack and ANSYS 16.1 - June 2015 - BAA
+# Updated for ANSYS 17.0                Jan  2016 BAA
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the ANSYS CFX/Fluent etc packages to your environment."
+    puts stderr ""
+    puts stderr "Please remember that if you run this in the batch system, you"
+    puts stderr "can't use X-Windows output.  "
+    puts stderr ""
+    puts stderr "You MUST request licenses with  -ac app=cfx"
+    puts stderr ""
+    puts stderr "Please make sure that you have run setup_cfx.sh once on a"
+    puts stderr "login node before using this package."
+    puts stderr ""
+}
+
+module-whatis "Adds Ansys CFX/Fluent etc to your environment"
+
+conflict ansys
+
+set          prefix	/shared/ucl/apps/ANSYS/17.0
+
+prepend-path PATH       $prefix/shared_files/licensing/lic_admin
+prepend-path PATH      	$prefix/v170/CFX/bin
+prepend-path PATH	$prefix/v170/fluent/bin
+prepend-path PATH       $prefix/v170/TurboGrid/bin
+prepend-path PATH       $prefix/v170/Framework/bin/Linux64
+prepend-path PATH      	$prefix/ucl/bin
+prepend-path LM_LICENSE_FILE	1055@lic-ansys.ucl.ac.uk
+
+setenv ANSYS_ROOT      	$prefix
+setenv ANSYS161_DIR	$prefix/v170/ansys
+setenv ANSYSLIC_DIR     $prefix/shared_files/licensing
+setenv ANSYS170_PRODUCT aa_mcad
+setenv ANSYS_LOCK      	ON
+setenv ANSYS170_WORKING_DIRECTORY ~/Scratch/ansys_work
+setenv ANSBROWSER      /usr/bin/firefox
+
