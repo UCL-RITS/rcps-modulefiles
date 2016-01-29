@@ -10,14 +10,14 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
     puts stderr "scaling on a wide variety of machines.  This version has been "
-    puts stderr "built as a binary (\"lmp_legion\")"
+    puts stderr "built as a binary (\"lmp_default\")"
     puts stderr ""
     puts stderr "Please note that you must have the Intel MPI and compilers "
     puts stderr "loaded for this version of LAMMPS to work."
     puts stderr ""
 }
 
-module-whatis "Adds LAMMPS 10Feb15 to your environment"
+module-whatis "Adds LAMMPS 10Feb15 to your environment. Binary is lmp_default."
 
 
 conflict lammps
