@@ -1,0 +1,62 @@
+#%Module
+#
+# ADF 2014.10
+#
+## Added 01/Feb/2016 by BAA
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds ADF 2014.10 to your environment."
+    puts stderr ""
+    puts stderr "ADF is a computational chemistry program to understand"
+    puts stderr "and predict chemical structure and reactivity with"
+    puts stderr "density functional theory (DFT). "
+    puts stderr ""
+    puts stderr "ADF is currently only licensed for use on Grace."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ADF/adf2014.10"
+}
+
+module-whatis "Adds ADF 2014.10 to your environment."
+
+proc getClusterName { } {
+
+    set name ""
+    set hostnames [exec hostname -A]
+    if { [string match *legion* $hostnames] == 1 } {
+	set name "Legion"
+    } elseif { [string match *grace* $hostnames] == 1 } {
+	set name "Grace"
+    } elseif { [string match *aristotle* $hostnames] == 1 } {
+	set name "Aristotle"
+    } else {
+	set name "unknown"
+    }
+    return $name
+}
+
+conflict ADF
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+
+set prefix /shared/ucl/apps/ADF/adf2014.10
+if { [modulefunctions::isModuleLoad] } {
+
+    if { [string match Grace [getClusterName]] == 1  } {
+	setenv ADFHOME $prefix
+	setenv ADFBIN  $prefix/bin
+	setenv ADFRESOURCES $prefix/atomicdata
+	setenv SCMLICENSE $prefix/license.txt
+	setenv SCM_TMPDIR ~/Scratch/ADF
+	setenv SCM_USE_LOCAL_IMPI 'yes'
+	setenv SCM_IOBUFFERSIZE 512
+    } else {
+	puts stderr ""
+	puts stderr "**** error: ADF is only licensed for use on Grace."
+	puts stderr ""
+    }
+}
