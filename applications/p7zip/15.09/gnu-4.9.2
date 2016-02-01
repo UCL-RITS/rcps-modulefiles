@@ -19,6 +19,7 @@ conflict p7zip
 
 set root                      	/shared/ucl/apps/p7zip/15.09/gnu-4.9.2
 prepend-path PATH		$root/bin
-prepend-path LD_LIBRARY_PATH    $root/bin
-prepend-path LIBRARY_PATH       $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path MANPATH		$root/man
 prepend-path CMAKE_PREFIX_PATH  $root
