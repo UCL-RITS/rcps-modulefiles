@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# p7zip 15.09
+#
+#                                                      H.K. Feb 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds p7zip 15.09 to your environment."
+    puts stderr "To expand 7z files: 7z x archive.7z"
+    puts stderr ""
+}
+
+module-whatis "Adds p7zip 15.09 to your environment. To expand 7z files: 7z x archive.7z"
+
+prereq gcc-libs/4.9.2
+
+conflict p7zip
+
+set root                      	/shared/ucl/apps/p7zip/15.09/gnu-4.9.2
+prepend-path PATH		$root/bin
+prepend-path CMAKE_PREFIX_PATH  $root
