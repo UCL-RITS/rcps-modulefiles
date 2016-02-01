@@ -4,6 +4,9 @@
 #
 ## Added 01/Feb/2016 by BAA
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
     puts stderr "Adds ADF 2014.10 to your environment."
     puts stderr ""
