@@ -43,19 +43,25 @@ prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
 
+if { [info exists ::env(TMPDIR) ] } {
+    set tmpdir [env(TMPDIR)]
+} else {
+    set tmpdir /tmp
+}
+
 set prefix /shared/ucl/apps/ADF/adf2014.10
 if { [modulefunctions::isModuleLoad] } {
 
     if { [string match Grace [getClusterName]] == 1  } {
 
 	# check if user is in the correct group for ADF
-	modulefunctions::isMember "legadf"     
+	modulefunctions::isMember "legadf"
 
 	setenv ADFHOME $prefix
 	setenv ADFBIN  $prefix/bin
 	setenv ADFRESOURCES $prefix/atomicdata
 	setenv SCMLICENSE $prefix/license.txt
-	setenv SCM_TMPDIR $TMPDIR
+	setenv SCM_TMPDIR $tmpdir
 	setenv SCM_USE_LOCAL_IMPI 'yes'
 	setenv SCM_IOBUFFERSIZE 512
     } else {
