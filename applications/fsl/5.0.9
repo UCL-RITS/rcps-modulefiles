@@ -3,6 +3,7 @@
 # FSL 5.0.9
 #
 #                                                      H.K. Oct 2015
+# Updated to add extra FSL environment variables       BAA  Feb 2016
 
 proc ModulesHelp { } {
 
@@ -22,3 +23,9 @@ conflict fsl
 set root 			/shared/ucl/apps/fsl/5.0.9/gnu-4.9.2
 prepend-path PATH    		$root/fsl/bin
 setenv FSLDIR			$root/fsl
+setenv FSLOUTPUTTYPE            NIFTI_GZ
+setenv FSLMULTIFILEQUIT         TRUE
+setenv FSLTCLSH                 $root/fsl/fsltclsh
+setenv FSLWISH                  $root/fsl/fslwish
+setenv FSLCONFDIR               $root/fsl/config
+setenv FSLMACHTYPE              `$root/fsl/etc/fslconf/fslmachtype.sh`
