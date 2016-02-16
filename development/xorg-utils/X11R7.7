@@ -3,16 +3,18 @@
 # xorg-utils X11R7.7
 #
 #                                                      H.K. Aug 2015
+# Updated to include imake                             BAA Feb 2016               
 
 proc ModulesHelp { } {
 
     puts stderr "This module adds xorg-utils from X11R7.7 to your environment."
-    puts stderr "Includes util-macros-1.17, makedepend-1.0.5, libXScrnSaver-1.2.2, libXdmcp-1.1.1"
+    puts stderr "Includes util-macros-1.17, makedepend-1.0.5, libXScrnSaver-1.2.2, libXdmcp-1.1.1,"
+    puts stderr "and imake-1.0.7."
     puts stderr ""
 
 }
 
-module-whatis "Adds xorg-utils from X11R7.7 to your environment. Includes util-macros-1.17, makedepend-1.0.5 libXdmcp-1.1.1 and libXScrnSaver-1.2.2."
+module-whatis "Adds xorg-utils from X11R7.7 to your environment. Includes util-macros-1.17, makedepend-1.0.5 libXdmcp-1.1.1 and libXScrnSaver-1.2.2 and imake-1.0.7."
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
