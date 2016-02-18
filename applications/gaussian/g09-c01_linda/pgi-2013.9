@@ -29,9 +29,29 @@ prereq gcc-libs/4.9.2
 
 conflict gaussian
 
+proc getClusterName { } {
+
+    set name ""
+    set hostnames [exec hostname -A]
+    if { [string match *legion* $hostnames] == 1 } {
+        set name "Legion"
+    } elseif { [string match *grace* $hostnames] == 1 } {
+        set name "Grace"
+    } elseif { [string match *aristotle* $hostnames] == 1 } {
+        set name "Aristotle"
+    } else {
+        set name "unknown"
+    }
+    return $name
+}
+
 # Check if user is in Gaussian group
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember Legg09
+    if { [string match Legion [getClusterName]] == 1 } {
+        modulefunctions::isMember Legg09
+    } else {
+        modulefunctions::isMember legg09
+    }
 }
 
 # Check if TMPDIR exists - if not, use /tmp (interactive use)
