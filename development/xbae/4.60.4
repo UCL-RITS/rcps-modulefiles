@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# xbae 4.60.4
+#
+# Required by CERNLIB                             BAA Feb 2016               
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Xbae Matrix Widget to your environment."
+    puts stderr ""
+    puts stderr "This is required for building and using CERNLIB"
+    puts stderr ""
+
+}
+
+module-whatis "Adds the Xbae Matrix Widget to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq xorg-utils
+
+conflict xbae
+
+set root 			/shared/ucl/apps/Xbae/4.60.4/gnu-4.9.2
+prepend-path MANPATH		$root/man
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path LD_LIBRARY_PATH 	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+
