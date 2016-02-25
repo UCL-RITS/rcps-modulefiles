@@ -1,0 +1,17 @@
+#%Module
+#
+# Cancer Legion Modules 
+#
+#                                                      O.K. 6 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Cancer Institute supported modules to your environment."
+    puts stderr ""
+    puts stderr "These modules are supported by local Cancer Institute IT staff."
+    puts stderr ""
+}
+
+module-whatis "Adds Cancer Institute supported modules to your environment."
+
+module           use --append /shared/ucl/depts/cancer/modulefiles
