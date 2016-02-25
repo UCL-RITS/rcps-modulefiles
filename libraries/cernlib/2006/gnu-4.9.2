@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## CERNLIB 2006 for GCC 4.9.2
+
+proc ModulesHelp { } {
+    puts stderr "Adds the CERN Program library to your environment."
+    puts stderr ""
+    puts stderr "2006 Version."
+    puts stderr ""
+}
+
+module-whatis "Adds the CERN Program library to your environment"
+
+conflict cernlib
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq xorg-utils/X11R7.7
+prereq xbae/4.60.4
+
+set prefix	/shared/ucl/apps/CERNLIB/2006
+
+prepend-path PATH		$prefix/bin
+prepend-path LD_LIBRARY_PATH	$prefix/lib
+prepend-path LIBRARY_PATH	$prefix/lib
+prepend-path LD_RUN_PATH	$prefix/lib
