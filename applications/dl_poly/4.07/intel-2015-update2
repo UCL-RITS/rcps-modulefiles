@@ -15,9 +15,29 @@ proc ModulesHelp { } {
 
 module-whatis "Adds DL_POLY 4.07 to your environment"
 
+proc getClusterName { } {
+
+    set name ""
+    set hostnames [exec hostname -A]
+    if { [string match *legion* $hostnames] == 1 } {
+        set name "Legion"
+    } elseif { [string match *grace* $hostnames] == 1 } {
+        set name "Grace"
+    } elseif { [string match *aristotle* $hostnames] == 1 } {
+        set name "Aristotle"
+    } else {
+        set name "unknown"
+    }
+    return $name
+}
+
 # on load, check if user is in the correct group
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legdlp407"
+    if { [string match Grace [getClusterName]] == 1 } {
+        modulefunctions::isMember "lgdlp407"
+    } else {
+        modulefunctions::isMember "legdlp407"
+    }
 }
 
 # Add DL_Poly binary to PATH
