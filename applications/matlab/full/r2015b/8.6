@@ -11,6 +11,7 @@
 ## Modified for correct version of the NAG Toolbox for Matlab - August
 ##  2015 - BAA
 ## Updated to Matlab R2015b - November 2015 - BAA
+## Minor updates for DCS support in Matlab R2015b - March 2016
 
 proc ModulesHelp { } {
     puts stderr "Adds Matlab R2015b to your environment."
@@ -85,7 +86,8 @@ proc appDirSetup { appDir } {
 module-whatis "Adds Matlab R2015b to your environment."
 
 conflict matlab
-# prereq gcc-libs/4.9.2
+prereq gcc-libs/4.9.2
+prereq mpi/intel/2015/update3/intel
 
 # matlab loads an old libtiff that breaks gdal
 conflict gdal
