@@ -11,7 +11,7 @@
 ## Modified for correct version of the NAG Toolbox for Matlab - August
 ##  2015 - BAA
 ## Updated to Matlab R2015b - November 2015 - BAA
-## Minor updates for DCS support in Matlab R2015b - March 2016
+## Minor updates for DCS support in Matlab R2015b and fix for Grace startup problems - March 2016
 
 proc ModulesHelp { } {
     puts stderr "Adds Matlab R2015b to your environment."
@@ -28,6 +28,22 @@ proc ModulesHelp { } {
     puts stderr "    http://www.nag.co.uk/numeric/mb/design.asp"
     puts stderr ""
     puts stderr "Directory: /shared/ucl/apps/Matlab/R2015b/full"
+}
+
+proc getClusterName { } {
+
+    set name ""
+    set hostnames [exec hostname -A]
+    if { [string match *legion* $hostnames] == 1 } {
+	set name "Legion"
+    } elseif { [string match *grace* $hostnames] == 1 } {
+	set name "Grace"
+    } elseif { [string match *aristotle* $hostnames] == 1 } {
+	set name "Aristotle"
+    } else {
+	set name "unknown"
+    }
+    return $name
 }
 
 proc setupLink { from to } {
@@ -102,6 +118,11 @@ set matlabDir "~/.matlab"
 append-path PATH                $prefix/bin
 append-path LD_LIBRARY_PATH	$prefix/runtime/glnxa64:$prefix/bin/glnxa64:$nagtoolbox/mex.a64
 setenv MCRPATH                  $prefix
+
+# Fix for Matlab install location problem on Grace
+if { [string match Grace [getClusterName]] == 1  } {
+    setenv MATLABdefault $prefix
+}
 
 # Set environment variable for the NAG licence manager if not set
 
