@@ -108,21 +108,23 @@ prereq mpi/intel/2015/update3/intel
 # matlab loads an old libtiff that breaks gdal
 conflict gdal
 
-# Location of Matlab and NAG Toolbox
-set prefix /shared/ucl/apps/Matlab/R2015b/full
+# Location of NAG Toolbox
 set nagtoolbox /shared/ucl/apps/NAG/matlab-toolbox/MBL6A24DNL_R2015a
 
 # Location of Matlab prefs and settings directory
 set matlabDir "~/.matlab"
 
-append-path PATH                $prefix/bin
-append-path LD_LIBRARY_PATH	$prefix/runtime/glnxa64:$prefix/bin/glnxa64:$nagtoolbox/mex.a64
-setenv MCRPATH                  $prefix
 
 # Fix for Matlab install location problem on Grace
 if { [string match Grace [getClusterName]] == 1  } {
-    setenv MATLABdefault $prefix
+    set prefix /shared/ucl/apps/Matlab/R2015b/full
+} else {
+    set prefix /shared/ucl/apps/Matlab/R2015b/full
 }
+
+append-path PATH                $prefix/bin
+append-path LD_LIBRARY_PATH	$prefix/runtime/glnxa64:$prefix/bin/glnxa64:$nagtoolbox/mex.a64
+setenv MCRPATH                  $prefix
 
 # Set environment variable for the NAG licence manager if not set
 
