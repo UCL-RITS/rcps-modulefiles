@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# curl 7.47.1
+#
+#                                                      H.K. Mar 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds curl 7.47.1 to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds curl 7.47.1 to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict curl
+
+set root                        /shared/ucl/apps/curl/7.47.1/gnu-4.9.2
+prepend-path PATH		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path INCLUDE_PATH       $root/include
+prepend-path CPATH              $root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH  $root
+prepend-path MANPATH		$root/share/man
+
