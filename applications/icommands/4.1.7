@@ -24,7 +24,7 @@ package require modulefunctions 1.0
 
 if [ modulefunctions::isModuleLoad ]  {
   if { [ expr ! [ file exists ~/.irods/irods_environment.json ] ] } {
-    exec /shared/ucl/apps/userscripts/mkiconfig -q
+    exec /shared/ucl/apps/cluster-scripts/mkiconfig -q
   }
 }
 
