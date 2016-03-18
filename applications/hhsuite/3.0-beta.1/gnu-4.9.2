@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# hhsuite 3.0-beta.1
+#
+#                                                      H.K. Mar 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds hhsuite 3.0-beta.1 to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds hhsuite 3.0-beta.1 to your environment."
+
+prereq gcc-libs/4.9.2
+
+conflict hhsuite
+
+set root                        /shared/ucl/apps/hhsuite/3.0-beta.1/gnu-4.9.2
+prepend-path PATH		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib64
+prepend-path LIBRARY_PATH       $root/lib64
+prepend-path INCLUDE_PATH       $root/include
+prepend-path CPATH              $root/include
+prepend-path CMAKE_PREFIX_PATH  $root
+setenv HHLIB			$root
+
