@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## CERNLIB 2006 binaries from EL6 RPM
+
+proc ModulesHelp { } {
+    puts stderr "Adds the CERN Program library to your environment."
+    puts stderr ""
+    puts stderr "2006-35 EL6 RPM binaries"
+    puts stderr ""
+}
+
+module-whatis "Adds the CERN Program library to your environment. 2006-35 EL6 RPM binaries."
+
+conflict cernlib
+
+set prefix      /shared/ucl/apps/CERNLIB/2006-35.el6.x86_64
+
+prepend-path LIBRARY_PATH       $prefix/usr/lib64/cernlib/2006/lib
+prepend-path LD_LIBRARY_PATH    $prefix/usr/lib64/cernlib/2006/lib
+prepend-path LD_RUN_PATH        $prefix/usr/lib64/cernlib/2006/lib
+prepend-path CMAKE_PREFIX_PATH  $prefix/usr/lib64/cernlib/2006
+
