@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# Easy_Lausanne 
+#
+#                                                      O.K. Apr 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Easy Lausanne package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Easy Lausanne to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq python/2.7.9
+prereq openblas/0.2.14/gnu-4.9.2
+prereq python2/recommended
+prereq fsl
+prereq freesurfer
+
+conflict easylausanne
+
+set root 			/shared/ucl/apps/easylausanne/55c7bf0
+prepend-path PATH    		$root/bin
+prepend-path PYTHONPATH         $root/lib/python2.7/site-packages
