@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# Molpro 2015.1.5
+#
+#                                                      H.K. Apr 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Molpro 2015.1.5 built from source with MPI to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Molpro 2015.1.5 built from source with MPI to your environment."
+
+conflict molpro
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2015/update3/intel
+
+set root     /shared/ucl/apps/molpro/2015.1.5/intel-2015-update2/molprop_2015_1_linux_x86_64_i8
+
+prepend-path     PATH              $root/bin
+prepend-path 	 LIBRARY_PATH	   $root/lib
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
