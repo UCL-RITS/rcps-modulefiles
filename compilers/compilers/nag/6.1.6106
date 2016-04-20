@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Fortran compiler 6.1, 64 bit
+##
+## Modified April 2016 for version 6.1 Build 6106
+##
+proc ModulesHelp { } {
+
+  puts stderr "Adds the NAG Fortran compiler V6.1 Build 6106 to your environment."
+  puts stderr ""
+}
+
+module-whatis "adds NAG Fortran compiler V6.1 Build 6106 to your environment."
+
+conflict compilers
+prereq gcc-libs/4.9.2
+
+set             prefix          /shared/ucl/apps/NAG/fortran-compiler
+set		release		6.1
+
+prepend-path	PATH		$prefix/$release/bin
+prepend-path    LD_LIBRARY_PATH $prefix/$release/lib/NAG_Fortran
+prepend-path    LIBRARY_PATH    $prefix/$release/lib/NAG_Fortran   
+prepend-path	MANPATH		$prefix/$release/man
+
+setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
+setenv FC              nagfor
+setenv F77             nagfor
+setenv COMPILER_TAG    nag-6.1.6106
