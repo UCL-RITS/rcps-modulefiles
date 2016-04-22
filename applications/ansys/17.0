@@ -8,6 +8,9 @@
 # Updated for ANSYS 15.0.7		Sept 2014 H.K.
 # Updated for upgraded Legion software stack and ANSYS 16.1 - June 2015 - BAA
 # Updated for ANSYS 17.0                Jan  2016 BAA
+# Udated to remove the request to run setup_cfx.sh as running it now breaks 
+# access to the licence manager - April 2016 - BAA
+
 
 proc ModulesHelp { } {
 
@@ -17,9 +20,6 @@ proc ModulesHelp { } {
     puts stderr "can't use X-Windows output.  "
     puts stderr ""
     puts stderr "You MUST request licenses with  -ac app=cfx"
-    puts stderr ""
-    puts stderr "Please make sure that you have run setup_cfx.sh once on a"
-    puts stderr "login node before using this package."
     puts stderr ""
 }
 
