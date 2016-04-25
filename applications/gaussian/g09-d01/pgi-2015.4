@@ -39,12 +39,7 @@ proc getClusterName { } {
 
 # Check if user is in Gaussian group
 if [modulefunctions::isModuleLoad] {
-    if { [string match Legion [getClusterName]] == 1 } {
-        modulefunctions::isMember Legg09
-    } else {
         modulefunctions::isMember legg09
-    }
-    
 }
 
 # Check if TMPDIR exists - if not, use /tmp (interactive use)
