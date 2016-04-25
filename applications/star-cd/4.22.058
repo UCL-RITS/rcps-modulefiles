@@ -43,7 +43,7 @@ set prefix /shared/ucl/apps/STAR-CD/4.22.058
 
 # on load, check if user is in the correct group
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legstarcd"     
+    modulefunctions::isMember "legstarc"     
 }
 
 setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk

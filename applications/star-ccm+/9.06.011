@@ -71,7 +71,7 @@ set prefix /shared/ucl/apps/STAR-CCM+/9.06.011
 
 # on load, check if user is in the correct group for STAR-CCM+
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legstarcd"     
+    modulefunctions::isMember "legstarc"     
 }
 
 # Set location of Mech Eng licence manager

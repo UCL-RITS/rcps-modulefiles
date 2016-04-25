@@ -33,11 +33,7 @@ proc getClusterName { } {
 
 # on load, check if user is in the correct group
 if [modulefunctions::isModuleLoad] {
-    if { [string match Grace [getClusterName]] == 1 } {
         modulefunctions::isMember "lgdlp407"
-    } else {
-        modulefunctions::isMember "legdlp407"
-    }
 }
 
 # Add DL_Poly binary to PATH
