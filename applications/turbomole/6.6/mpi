@@ -29,6 +29,7 @@ setenv TURBOMOLE_SYSNAME em64t-unknown-linux-gnu_mpi
 prepend-path PATH $prefix/scripts
 prepend-path PATH $prefix/bin/em64t-unknown-linux-gnu_mpi
 prepend-path PATH $prefix
+prepend-path PATH /shared/ucl/apps/turbomole
 
 if { [file isdirectory $prefix/bin] } then {
   prepend-path      PATH                 $prefix/bin
