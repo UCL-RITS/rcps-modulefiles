@@ -1,0 +1,86 @@
+#%Module -*- tcl -*-
+##
+## intel-compilers 2013 version for Matlab
+##
+
+set module_name intel-compilers
+
+proc ModulesHelp { } {
+
+  puts stderr {[intel-compilers/2013.1.046] This is the package for the Intel C, C++, and Fortran compilers.}
+
+}
+
+module-whatis {[intel-compilers/2013.1.046] This is the package for the Intel C, C++, and Fortran compilers.}
+
+prereq gcc-libs/4.9.2
+
+conflict intel-compilers
+
+set              prefix               /shared/ucl/apps/intel/2013.1.046
+
+setenv INTEL_LICENSE_FILE 28518@lic-intel.ucl.ac.uk
+setenv CC icc
+setenv CXX icpc
+setenv CXXCPP "icpc -E"
+setenv F77 ifort
+setenv F90 ifort
+setenv FC ifort
+setenv COMPILER_TAG intel-2013
+setenv BLAS_TAG mkl
+setenv MKLROOT /shared/ucl/apps/intel/2013.1.046/composerxe/mkl
+setenv IPPROOT /shared/ucl/apps/intel/2013.1.046/composerxe/ipp
+setenv GDBSERVER_MIC /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/target/mic/bin/gdbserver
+setenv TBBROOT /shared/ucl/apps/intel/2013.1.046/composerxe/tbb
+setenv GDB_CROSS /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64_mic/py27/bin/gdb-mic
+# setenv DAALROOT /shared/ucl/apps/intel/2013.1.046/composerxe/daal
+setenv MPM_LAUNCHER /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/mpm/bin/start_mpm.sh
+# setenv INTEL_PYTHONHOME /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/python/intel64/
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/ipp/../compiler/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/ipp/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/mkl/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/tbb/lib/intel64/gcc4.4
+# prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/lib/intel64_lin
+# prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/../tbb/lib/intel64_lin/gcc4.4
+# prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/../compiler/lib/intel64_lin
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/mpirt/lib/mic
+# prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/mkl/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/tbb/lib/mic
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/impi/4.1.3.048/intel64/lib
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/ipp/../compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/ipp/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/mkl/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/tbb/lib/intel64/gcc4.4
+# prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/debugger_2013/libipt/intel64/lib
+# prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/lib/intel64_lin
+# prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/../tbb/lib/intel64_lin/gcc4.4
+# prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/../compiler/lib/intel64_lin
+prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/lib/mic
+prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/mpirt/lib/mic
+prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2013.1.046/composerxe/tbb/lib/mic
+prepend-path CPATH /shared/ucl/apps/intel/2013.1.046/composerxe/ipp/include
+prepend-path CPATH /shared/ucl/apps/intel/2013.1.046/composerxe/mkl/include
+prepend-path CPATH /shared/ucl/apps/intel/2013.1.046/tbb/include
+# prepend-path CPATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/include
+prepend-path NLSPATH /shared/ucl/apps/intel/2013.1.046/composerxe/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH /shared/ucl/apps/intel/2013.1.046/composerxe/mkl/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64_mic/py27/share/locale//%l_%t/%N
+prepend-path NLSPATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64/py27/share/locale/%l_%t/%N
+prepend-path PATH /shared/ucl/apps/intel/2013.1.046/composerxe/bin
+prepend-path PATH /shared/ucl/apps/intel/2013.1.046/impi/4.1.3.048/intel64/bin
+prepend-path PATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64_mic/py27/bin
+# prepend-path CLASSPATH /shared/ucl/apps/intel/2013.1.046/composerxe/daal/lib/daal.jar
+prepend-path MANPATH /shared/ucl/apps/intel/2013.1.046/man/en_US
+prepend-path MANPATH /shared/ucl/apps/intel/2013.1.046/composerxe/man/en_US
+prepend-path MANPATH /shared/ucl/apps/intel/2013.1.046/impi/4.1.3.048/man
+prepend-path MANPATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64/py27/share/man
+prepend-path MANPATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64_mic/py27/share/man
+# prepend-path MANPATH /shared/ucl/apps/intel/2013.1.046/documentation_2013/en/debugger//gdb-igfx/man/
+prepend-path INFOPATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64/py27/share/info/
+prepend-path INFOPATH /shared/ucl/apps/intel/2013.1.046/composerxe/debugger/gdb/intel64_mic/py27/share/info
+# prepend-path INFOPATH /shared/ucl/apps/intel/2013.1.046/documentation_2013/en/debugger//gdb-igfx/info/
