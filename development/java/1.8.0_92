@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-15
+## Updated for Java 1.8.0_92 May 2016 by BAA
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Oracle JDK 1.8.0_92 compilers to your environment variables,"
+}
+
+module-whatis "adds Oracle JDK 1.8.0_92 compilers to your environment variables"
+
+conflict java
+prereq gcc-libs/4.9.2
+
+set              root              /shared/ucl/apps/java/jdk1.8.0_92
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           JAVA_HOME         $root
+
+prepend-path CMAKE_PREFIX_PATH $root
