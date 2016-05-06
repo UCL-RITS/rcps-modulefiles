@@ -1,0 +1,36 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Ghostscript 9.19 compiled with GCC 4.9.2
+##
+## Ghostscript shared onbject support added 15th June 2015
+## Updated for version 9.19 May 2016
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Ghostscript Version 9.19 to your environment."
+    puts ""
+    puts stderr "Ghostscript is an interpreter for PostScript and PDF."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Ghostscript/9.19"
+}
+
+module-whatis "Adds Ghostscript 9.19 to your environment."
+
+# Location of Ghostscript:
+
+set prefix /shared/ucl/apps/Ghostscript/9.19
+
+prereq gcc-libs/4.9.2
+conflict ghostscript
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+prepend-path LD_RUN_PATH        $prefix/lib
+prepend-path LD_LIBRARY_PATH    $prefix/lib
+prepend-path LIBRARY_PATH       $prefix/lib
+prepend-path CPATH              $prefix/include
+prepend-path INCLUDE_PATH       $prefix/include
