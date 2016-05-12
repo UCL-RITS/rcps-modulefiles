@@ -3,6 +3,8 @@
 ## modulefile
 ##
 ## NetCDF 4.3.3.1 compiled using GCC 4.9.2 
+##
+## Updated to set loaction path to /shared/ucl/apps/NetCDF/4.3.3.1-gnu-4.9.2 - May 2016
 
 proc ModulesHelp { } {
     puts stderr "Adds NetCDF Version 4.3.3.1 compiled using GCC 4.9.2"
@@ -14,7 +16,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "This version was compiled with GCC 4.9.2"
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.3.3.1-gcc.4.9.2"
+    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.3.3.1-gnu-4.9.2"
 }
 
 module-whatis "adds NetCDF 4.3.3.1 for GCC 4.9.2 to your environment."
@@ -23,7 +25,7 @@ conflict netcdf
 prereq gcc-libs/4.9.2
 prereq hdf/5-1.8.15/gnu-4.9.2
 
-set              root              /shared/ucl/apps/NetCDF/4.3.3.1-gcc.4.9.2
+set              root              /shared/ucl/apps/NetCDF/4.3.3.1-gnu-4.9.2
 
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
