@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+#
+# DDT 6.0.4 with MIC support
+#
+#                                                      O.K. May 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds DDT 6.0.4 with MIC support to your environment."
+    puts stderr "DDT is an extremely powerful parallel debugger."
+    puts stderr ""
+
+}
+
+module-whatis "This module adds DDT 6.0.4 with MIC support to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict ddt
+
+set root 			/shared/ucl/apps/ddt/6.0.4
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path CMAKE_PREFIX_PATH $root
