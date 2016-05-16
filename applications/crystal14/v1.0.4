@@ -1,0 +1,59 @@
+#%Module -*- tcl -*-
+#
+# Crystal14 v1.0.4
+#
+## Added 01/Feb/2016 by BAA
+## Updated for version 1.0.4 16th May 2016
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Crystal14 v1.0.4 to your environment."
+    puts stderr ""
+    puts stderr "Crystal is a general-purpose program for the study of crystalline"
+    puts stderr "solids. The CRYSTAL program computes the electronic structure of"
+    puts stderr "periodic systems within Hartree Fock, density functional or various"
+    puts stderr "hybrid approximations."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Crystal14/v1.0.4"
+}
+
+module-whatis "Adds Crystal14 v1.0.4 to your environment."
+
+conflict crystal14
+
+prereq gcc-libs/4.9.2
+prereq mpi/openmpi/1.8.4/intel-2015-update2
+
+if { [info exists ::env(TMPDIR) ] } {
+    set tmpdir $::env(TMPDIR)
+} else {
+    set tmpdir /tmp
+}
+
+set prefix /shared/ucl/apps/Crystal14/v1.0.4
+
+# check if user is in the correct group for Crystal14
+modulefunctions::isMember "legcryst"
+
+setenv CRY14_ROOT $prefix
+setenv CRY14_BIN bin
+set cry14_arch Linux-ifort_XE_openmpi_emt64
+setenv CRY14_ARCH $cry14_arch
+set version v1.0.4
+setenv VERSION $version
+
+setenv CRY14_EXEDIR $prefix/bin/$cry14_arch
+prepend-path PATH $prefix/bin/$cry14_arch/$version
+setenv CRY14_UTILS $prefix/utils14
+prepend-path PATH $prefix/utils14
+setenv CRY2K6_GRA $prefix/crgra2006
+setenv GRA6_EXEDIR $prefix/crgra2006/bin/Linux-pgf
+prepend-path PATH $prefix/crgra2006
+
+setenv CRY14_TEST $prefix/test_cases/inputs
+setenv CRY14_SCRDIR $tmpdir
+
+
