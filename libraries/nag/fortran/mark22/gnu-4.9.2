@@ -1,0 +1,40 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Fortran Library Mark 22 for GCC 4.9.2
+
+proc ModulesHelp { } {
+    puts stderr "This module adds the NAG Fortran Library Mark 22 to your environment."
+    puts stderr ""
+    puts stderr "This version is for GCC 4.9.2."
+    puts stderr ""
+    puts stderr "The NAG Fortran Library provides numerical routines covering a wide range of"
+    puts stderr "areas including curve, surface fitting and interpolation; linear, quadratic,"
+    puts stderr "integer and nonlinear programming and least squares problems; ordinary and"
+    puts stderr "partial differential equations, and mesh generation; and many more. For details"
+    puts stderr "see http://www.nag.co.uk/numeric/fl/FLdescription.asp and online documentation."
+    puts sdterr ""
+    puts stderr "Directory: /shared/ucl/apps/NAG/fortran-library/fll6a22dfl"
+    puts stderr "NAG Docs:  /shared/ucl/apps/NAG/fortran-library/doc/nagdoc_fl22"
+}
+
+module-whatis "Adds NAG Fortran Library Mark 22 for GCC to your environment."
+
+conflict nag/fortran
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+
+set prefix	/shared/ucl/apps/NAG/fortran-library/fll6a22dfl
+
+prepend-path PATH		$prefix/scripts
+prepend-path LD_LIBRARY_PATH	$prefix/lib:$prefix/acml
+prepend-path LIBRARY_PATH	$prefix/lib:$prefix/acml
+prepend-path LD_RUN_PATH	$prefix/lib:$prefix/acml
+prepend-path CPATH		$prefix/c_headers
+prepend-path INCLUDE_PATH	$prefix/c_headers
+
+setenv NAG_DIR $prefix
+setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
+
+prepend-path CMAKE_PREFIX_PATH  $prefix
