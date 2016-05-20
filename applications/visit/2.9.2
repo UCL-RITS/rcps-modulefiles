@@ -27,7 +27,8 @@ conflict visit
 prereq gcc-libs/4.9.2
 prereq mpi/openmpi/1.8.4/gnu-4.9.2
 
-set root /shared/ucl/apps/visit/2.9.2/gnu-4.9.2
+set version 2.9.2
+set root /shared/ucl/apps/visit/$version/gnu-4.9.2
 
 # Set up the visit directories. The host file is copied to ~/.visit/hosts
 # if it doesn't already exist there.
@@ -38,7 +39,7 @@ if [modulefunctions::isModuleLoad] {
 }
 
 append-path PATH                $root/bin
-append-path LD_LIBRARY_PATH     $root/2.8.1/linux-x86_64/lib
-append-path    LIBRARY_PATH     $root/2.8.1/linux-x86_64/lib
-prepend-path CPATH              $root/2.8.1/linux-x86_64/include
-prepend-path INCLUDE_PATH	$root/2.8.1/linux-x86_64/include
+append-path LD_LIBRARY_PATH     $root/$version/linux-x86_64/lib
+append-path    LIBRARY_PATH     $root/$version/linux-x86_64/lib
+prepend-path CPATH              $root/$version/linux-x86_64/include
+prepend-path INCLUDE_PATH	$root/$version/linux-x86_64/include
