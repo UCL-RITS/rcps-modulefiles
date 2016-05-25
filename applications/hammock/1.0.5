@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+#
+# Hammock 1.0.5
+#
+#                                                      H.K. 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "Loads the dependencies for Hammock 1.0.5 to your environment and makes a"
+    puts stderr "quick-install alias, do-hammock-install"
+    puts stderr "Run as java -Xmx2g -jar \$HAMMOCKPATH/Hammock.jar mode param1 param2 -d outputpath"
+    puts stderr "Will use Scratch for temporary files."
+    puts stderr ""
+}
+
+module-whatis "Loads the dependencies for Hammock 1.0.5 to your environment and makes a quick-install alias, do-hammock-install. Run as java -Xmx2g -jar \$HAMMOCKPATH/Hammock.jar mode param1 param2 -d outputpath. Will use Scratch for temporary files."
+
+module load gcc-libs/4.9.2
+module load argtable
+module load clustal-omega/1.2.1
+module load hmmer/3.1b2
+module load p7zip/15.09/gnu-4.9.2
+
+conflict hammock
+
+set version			1.0.5
+set root                      	$::env(USER)/Hammock_v_$version
+prepend-path CMAKE_PREFIX_PATH  $root
+setenv HHLIB			$root/hhsuite-2.0.16/lib/hh
+setenv HAMMOCKPATH		$root/dist
+
+set alias  do-hammock-install /shared/ucl/apps/build_scripts/Hammock_v_1.0.5_install
+
