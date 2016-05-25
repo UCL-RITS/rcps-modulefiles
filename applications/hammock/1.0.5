@@ -24,7 +24,7 @@ module load p7zip/15.09/gnu-4.9.2
 conflict hammock
 
 set version			1.0.5
-set root                      	$::env(USER)/Hammock_v_$version
+set root                      	$::env(HOME)/Hammock_v_$version
 prepend-path CMAKE_PREFIX_PATH  $root
 setenv HHLIB			$root/hhsuite-2.0.16/lib/hh
 setenv HAMMOCKPATH		$root/dist
