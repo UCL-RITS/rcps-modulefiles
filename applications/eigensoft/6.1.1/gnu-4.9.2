@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+#
+# EIGENSOFT 6.1.1
+#
+#                                                      H.K. 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds EIGENSOFT 6.1.1 to your environment."
+    puts stderr "Population genetics methods and EIGENSTRAT stratification correction method."
+    puts stderr ""
+}
+
+module-whatis "Adds EIGENSOFT 6.1.1 to your environment. Population genetics methods and EIGENSTRAT stratification correction method."
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq gsl/1.16/gnu-4.9.2
+prereq openblas/0.2.14/gnu-4.9.2
+
+conflict eigensoft
+
+set root                      	/shared/ucl/apps/eigensoft/6.1.1/gnu-4.9.2
+prepend-path PATH		$root/bin
+prepend-path CMAKE_PREFIX_PATH  $root
+
