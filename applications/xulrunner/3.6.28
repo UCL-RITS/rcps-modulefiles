@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## XULRunner 3.6.28 runtime binaries
+
+proc ModulesHelp { } {
+    puts stderr "Adds the XULRunner 3.6.28 runtime binaries to your environment."
+    puts stderr "XULRunner is a Mozilla runtime package that can be used to bootstrap XUL+XPCOM applications."
+    puts stderr ""
+}
+
+module-whatis "Adds the XULRunner 3.6.28 runtime binaries to your environment. XULRunner is a Mozilla runtime package that can be used to bootstrap XUL+XPCOM applications."
+
+conflict xulrunner
+
+set prefix      /shared/ucl/apps/xulrunner/3.6.28
+
+prepend-path PATH		$prefix
+prepend-path LIBRARY_PATH       $prefix
+prepend-path LD_LIBRARY_PATH    $prefix
+prepend-path LD_RUN_PATH        $prefix
+prepend-path CMAKE_PREFIX_PATH  $prefix
+setenv MOZILLA_FIVE_HOME	$prefix
+
