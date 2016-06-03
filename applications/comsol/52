@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## COMSOL 52 binaries
+
+proc ModulesHelp { } {
+    puts stderr "Adds the COMSOL 52 binaries to your environment."
+    puts stderr "COMSOL Multiphysics® is a general-purpose software platform, based on advanced"
+    puts stderr "numerical methods, for modeling and simulating physics-based problems."
+    puts stderr ""
+}
+
+module-whatis "Adds the COMSOL 52 binaries to your environment. COMSOL Multiphysics® is a general-purpose software platform, based on advanced numerical methods, for modeling and simulating physics-based problems."
+
+conflict comsol
+
+prereq xulrunner/3.6.28/gnu-4.9.2
+
+set prefix      /shared/ucl/apps/comsol/52
+
+prepend-path PATH		$prefix/bin
+prepend-path CMAKE_PREFIX_PATH  $prefix
+setenv FLROOT			$prefix
+
