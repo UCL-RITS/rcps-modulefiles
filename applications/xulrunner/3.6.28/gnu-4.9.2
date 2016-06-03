@@ -17,9 +17,9 @@ conflict xulrunner
 set prefix      /shared/ucl/apps/xulrunner/3.6.28
 
 prepend-path PATH		$prefix/bin
-prepend-path LIBRARY_PATH       $prefix/lib
-prepend-path LD_LIBRARY_PATH    $prefix/lib
-prepend-path LD_RUN_PATH        $prefix/lib
+prepend-path LIBRARY_PATH       $prefix/lib:$prefix/lib/xulrunner-1.9.2.28
+prepend-path LD_LIBRARY_PATH    $prefix/lib:$prefix/lib/xulrunner-1.9.2.28
+prepend-path LD_RUN_PATH        $prefix/lib:$prefix/lib/xulrunner-1.9.2.28
 prepend-path CPATH		$prefix/include
 prepend-path INCLUDE_PATH	$prefix/include
 prepend-path PKG_CONFIG_PATH	$prefix/lib/pkgconfig
