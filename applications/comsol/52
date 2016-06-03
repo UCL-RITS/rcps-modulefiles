@@ -4,6 +4,9 @@
 ##
 ## COMSOL 52 binaries
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
     puts stderr "Adds the COMSOL 52 binaries to your environment."
     puts stderr "COMSOL Multiphysics® is a general-purpose software platform, based on advanced"
@@ -16,6 +19,11 @@ module-whatis "Adds the COMSOL 52 binaries to your environment. COMSOL Multiphys
 conflict comsol
 
 prereq xulrunner/3.6.28/gnu-4.9.2
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legcomsl"     
+}
 
 set prefix      /shared/ucl/apps/comsol/52
 
