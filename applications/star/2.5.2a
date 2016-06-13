@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+## STAR 2.5.2a
+##								OK 13 Jun 2065
+
+proc ModulesHelp { } {
+    puts stderr "Adds STAR 2.5.2a to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds STAR 2.5.2a to your environment."
+
+conflict star
+
+set prefix /shared/ucl/apps/star/2.5.2a/gnu-4.9.2/STAR
+
+append-path PATH                $prefix/bin
