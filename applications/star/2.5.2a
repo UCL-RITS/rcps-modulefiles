@@ -11,6 +11,7 @@ proc ModulesHelp { } {
 module-whatis "Adds STAR 2.5.2a to your environment."
 
 conflict star
+prereq gcc-libs/4.9.2
 
 set prefix /shared/ucl/apps/star/2.5.2a/gnu-4.9.2/STAR
 
