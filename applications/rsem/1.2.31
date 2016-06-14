@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## RSEM 1.2.31
+##								OK 13 Jun 2065
+
+proc ModulesHelp { } {
+    puts stderr "Adds RSEM 1.2.31 to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds RSEM 1.2.31 to your environment."
+
+conflict rsem
+prereq gcc-libs/4.9.2
+
+set prefix /shared/ucl/apps/rsem/v1.2.31/gnu-4.9.2
+
+append-path PATH                $prefix/bin
