@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# Mesa 10.6.9 (OSMesa, Xlib GLX, no Gallium, no EGL, no llvm, no DRI)
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Mesa 10.6.9 to your environment."
+    puts stderr "Mesa is an open-source implementation of the OpenGL specification."
+    puts stderr "(Built for offscreen rendering: OSMesa, Xlib GLX, no Gallium, no EGL, no llvm, no DRI)"
+    puts stderr ""
+
+}
+
+module-whatis "Adds Mesa 10.6.9 to your environment. Mesa is an open-source implementation of the OpenGL specification. (Built for offscreen rendering: OSMesa, Xlib GLX, no Gallium, no EGL, no llvm, no DRI)."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict mesa
+
+set root 			/shared/ucl/apps/mesa/10.6.9/gnu-4.9.2
+append-path LD_LIBRARY_PATH	$root/lib
+append-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH  $root
