@@ -2,20 +2,20 @@
 ##
 ## modulefile
 ##
-## webkitgtk and webkitgtk-devel binaries from EL7 RPM
+## webkitgtk-1 and webkitgtk-devel binaries from EL7 RPM
 
 proc ModulesHelp { } {
-    puts stderr "Adds the webkitgtk with webkitgtk-devel library to your environment."
+    puts stderr "Adds the webkitgtk-1 with webkitgtk-devel library to your environment."
     puts stderr ""
-    puts stderr "2.4.9-1 EL7 RPM binaries"
+    puts stderr "2.2.4-1 EL7 RPM binaries"
     puts stderr ""
 }
 
-module-whatis "Adds the webkitgtk with webkitgtk-devel library to your environment. 2.4.9-1 EL7 RPM binaries."
+module-whatis "Adds the webkitgtk-1 with webkitgtk-devel library to your environment. 2.2.4-1 EL7 RPM binaries."
 
 conflict webkitgtk
 
-set prefix      /shared/ucl/apps/webkitgtk/2.4.9-1.el7.x86_64
+set prefix      /shared/ucl/apps/webkitgtk/2.2.4-1.el7.x86_64
 
 prepend-path PATH		$prefix/bin
 prepend-path PATH		$prefix/libexec/webkitgtk
