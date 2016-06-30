@@ -1,0 +1,115 @@
+#%Module16.5#####################################################################
+
+proc ModulesHelp { } {
+    global helpmsg
+    puts stderr "\t$helpmsg\n"
+}
+
+
+#
+# 1. change 'version' string to appropriate version number: 6.0, 5.2, ...
+#
+set version 16.5
+set major 16
+set minor 5
+
+#
+# 2. change 'pgihome' to base directory: /usr/pgi, /opt/pgi, ...
+#
+set pgihome /shared/ucl/apps/pgi/16.5/gnu-4.9.2
+
+#
+# 3. if you want to use exclusively 32-bit compilers
+#        set target linux86
+#    if you want to use exclusively 64-bit compilers
+#        set target linux86-64
+#    if you want the target to depend on the host
+#    use the following code
+#        set f [ exec arch ]
+#        if { $f == "x86_64" } {
+#            set target linux86-64
+#        } else {
+#            set target linux86
+#        }
+#
+
+set kern [ exec uname -s ]
+set bits [ exec uname -m ]
+if { $kern == "Linux" } {
+    if { $bits == "x86_64" } {
+        set target linux86-64
+    } else {
+        puts stderr "pgi64 only supported on linux86-64 and osx86-64.\n"
+        puts stderr "Please load pgi for other platforms instead.\n"
+        exit 1
+    }
+} elseif { $kern == "Darwin" } {
+    set target osx86-64
+}
+
+set pgidir $pgihome/$target/$version
+
+if [ file isdirectory $pgidir/bin ] {
+    module-whatis "Changes the PGI home directory to $target $version"
+    set helpmsg "
+Purpose
+-------
+This module file defines the system paths and environment variables
+needed to use the PGI Compilers and Tools version $version.  The available
+compilers are pgcc, pgCC, pgcpp, pgc++, pgf77, pgf90, pgf95, and pgfortran.
+The available tools are pgdbg, pgprof, and pgcollect.
+
+Product Description
+-------------------
+PGI compilers and tools for 64-bit x64 and 32-bit x86 processor-based
+workstations or servers with or without GPU accelerators.  PGI Fortran 2003,
+C11 and GNU-compatible C++11 compilers support OpenMP 3.1 and OpenACC 2.0.
+PGI tools support OpenMP debugging and profiling.  PGI products are available
+on Linux, OS X and Windows.
+
+Dependencies
+------------
+None.
+
+Documentation
+-------------
+  Documentation for PGI $version is available at:
+
+  http://www.pgroup.com/resources/docs.htm
+
+Additional PGI Resources
+------------------------
+  General Product Information             http://www.pgroup.com/
+  License Sales and Renewals              sales@pgroup.com
+  Support Options                         http://www.pgroup.com/support/
+  User Forum                              http://www.pgroup.com/userforum/
+"
+    # bring in new version
+    setenv PGI $pgihome
+    setenv CC $pgidir/bin/pgcc
+    setenv FC $pgidir/bin/pgfortran
+    setenv F90 $pgidir/bin/pgf90
+    setenv F77 $pgidir/bin/pgf77
+    setenv CPP "$pgidir/bin/pgcc -Mcpp"
+    setenv CXX $pgidir/bin/pgc++
+    prepend-path PATH $pgidir/bin
+    prepend-path MANPATH $pgidir/man
+    if { $kern == "Linux" } {
+      prepend-path LD_LIBRARY_PATH $pgidir/lib
+    } elseif { $kern == "Darwin" } {
+      prepend-path DYLD_LIBRARY_PATH $pgidir/lib
+    }
+} else {
+    module-whatis "PGI $target $version not installed"
+    set helpmsg "PGI $target $version not installed"
+    if [ expr [ module-info mode load ] || [ module-info mode display ] ] {
+	# bring in new version
+	puts stderr "PGI $target $version not installed on [uname nodename]"
+    }
+}
+
+# Only allow one instance of PGI compilers to load
+conflict pgi
+setenv COMPILER_TAG pgi-2016.5
+conflict compilers
+prereq gcc-libs/4.9.2
