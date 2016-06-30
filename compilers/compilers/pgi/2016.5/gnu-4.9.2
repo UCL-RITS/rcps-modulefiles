@@ -110,6 +110,8 @@ Additional PGI Resources
 
 # Only allow one instance of PGI compilers to load
 conflict pgi
+# Customisation below
 setenv COMPILER_TAG pgi-2016.5
 conflict compilers
 prereq gcc-libs/4.9.2
+setenv LM_LICENSE_FILE 27000@lic-pgi.ucl.ac.uk
