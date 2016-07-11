@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+#
+# libmatheval 1.1.11
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds libmatheval 1.1.11 to your environment."
+    puts stderr "GNU libmatheval is a library (callable from C and Fortran) to" 
+    puts stderr "parse and evaluate symbolic expressions input as text."
+    puts stderr ""
+
+}
+
+module-whatis "Adds libmatheval 1.1.11 to your environment. GNU libmatheval is a library (callable from C and Fortran) to parse and evaluate symbolic expressions input as text."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict libmatheval
+
+set prefix 			/shared/ucl/apps/libmatheval/1.1.11/gnu-4.9.2
+prepend-path LD_LIBRARY_PATH    $prefix/lib
+prepend-path LIBRARY_PATH    	$prefix/lib
+prepend-path CPATH	    	$prefix/include
+prepend-path INCLUDE_PATH	$prefix/include
+prepend-path PKG_CONFIG_PATH    $prefix/lib/pkgconfig
+prepend-path INFOPATH		$prefix/share/info
+prepend-path CMAKE_PREFIX_PATH  $prefix
+
