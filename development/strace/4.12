@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# strace 4.12
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds strace 4.12 to your environment."
+    puts stderr "Trace system calls and signals."
+    puts stderr ""
+
+}
+
+module-whatis "Adds strace 4.12 to your environment. Trace system calls and signals."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict strace
+
+set root 			/shared/ucl/apps/strace/4.12/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
+
