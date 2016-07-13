@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the tmux 2.2 package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "This module adds the tmux 2.2 package to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict tmux
+
+set root 			/shared/ucl/apps/tmux/2.2/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
