@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+
+proc ModulesHelp { } {
+    puts stderr "Adds Mrxvt a multi-tabbed xterm replacement to your environment."
+    puts stderr ""
+    puts stderr "Example command line for accessing Legion via ssh using mrxvt:"
+    puts stderr ""
+    puts stderr "ssh -X your-userid@legion.rc.ucl.ac.uk /shared/ucl/apps/bin/mrxvt &"
+    puts stderr ""
+    puts stderr "Type man mrxvt for details."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/mrxvt/0.5.4"
+}
+
+module-whatis "Adds Mrxvt a multi-tabbed xterm replacement to your environment."
+
+prereq gcc-libs/4.9.2
+conflict mrxvt
+
+# First is for real and second for testing:
+set prefix /shared/ucl/apps/mrxvt/0.5.4
+# set prefix /home/ccaabaa/preinstall/apps/mrxvt/0.5.4
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		:$prefix/share/man
