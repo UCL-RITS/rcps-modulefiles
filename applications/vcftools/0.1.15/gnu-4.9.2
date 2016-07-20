@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# VCFtools 0.1.15
+#
+#                                                      BAA 20th July 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds VCFtools version 0.1.15 to your environment."
+    puts stderr ""
+    puts stderr "Tools for working with VCF files including validation, summarising,"
+    puts stderr "merging and filtering specific variants etc."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/VCFtools/v0.1.14-14"
+}
+
+module-whatis "Adds VCFtools version 0.1.15 to your environment. Tools for working with VCF files."
+
+prereq gcc-libs/4.9.2
+prereq perl/5.22.0
+
+conflict vcftools
+
+set root 			/shared/ucl/apps/VCFtools/v0.1.14-14
+prepend-path PATH      		$root/bin
+prepend-path MANPATH		$root/share/man
+prepend-path PERL5LIB           $root/lib/site_perl/5.22.0
