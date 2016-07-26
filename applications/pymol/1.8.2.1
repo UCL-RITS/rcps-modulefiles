@@ -1,0 +1,42 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## PyMOL 1.8.2.1
+##
+## Owain Kenway July 2016
+##
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds PyMol 1.8.2.1 to your environment."
+    puts stderr ""
+    puts stderr "PyMol is user-sponsored Python-enhanced molecular visualization"
+    puts stderr "system on an open-source foundation. It performs 3D visualization"
+    puts stderr "of proteins, small molecules, density, surfaces, and trajectories."
+    puts stderr "It also includes molecular editing, ray tracing, and movies."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/pymol/v1.8.2.1"
+    puts stderr "Web:       http://sourceforge.net/projects/pymol/"
+}
+
+module-whatis "Adds PyMol to your environment."
+
+conflict pymol
+
+# Location of PyRosetta:
+
+set prefix /shared/ucl/apps/pymol/v1.8.2.1
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq glew/1.13.0/gnu-4.9.2
+prereq python2/recommended
+
+append-path	PATH			$prefix
