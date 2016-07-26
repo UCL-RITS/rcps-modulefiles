@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the AMBER16 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds AMBER 16 to your environment"
+
+
+conflict amber
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2015/update2
+prereq python/2.7.9
+
+set              root              /shared/ucl/apps/amber/amber-16-openmp
+
+setenv           AMBERHOME         $root
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
