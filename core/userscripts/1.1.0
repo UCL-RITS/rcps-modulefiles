@@ -16,4 +16,5 @@ module-whatis "Adds userscripts dir to your path. Provides jobhist among other u
 set prefix /shared/ucl/apps/cluster-scripts
 
 prepend-path PATH               $prefix
+prepend-path PATH		/shared/ucl/sysops/lquota/bin
 set-alias listuserscripts       "find $prefix -perm /a=x -type f -printf \"%f\\\\n\""
