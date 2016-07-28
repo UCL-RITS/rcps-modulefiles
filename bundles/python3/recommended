@@ -19,10 +19,16 @@ prereq rcps-core
 module load python/3.4.3
 module load openblas/0.2.14/gnu-4.9.2
 
-set              root              /shared/ucl/apps/python/bundles/python3
+set              base              /shared/ucl/apps/python/bundles
+set              root              $base/python3
 set              home              $::env(HOME)
 
-setenv           VIRTUAL_ENV       $root/venv
+# Derefence venv location
+set              vname             [ file readlink $root ]  
+set              realroot          $base/$vname
+
+#setenv           VIRTUAL_ENV       $root/venv
+setenv           VIRTUAL_ENV       $realroot/venv
 
 prepend-path     PATH              $root/venv/bin
 
