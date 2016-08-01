@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# Trim Galore 0.4.1
+# 
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Trim Galore 0.4.1 to your environment."
+    puts stderr "A wrapper tool around Cutadapt and FastQC to consistently apply quality and adapter trimming to FastQ files."
+    puts stderr ""
+}
+
+module-whatis "Adds Trim Galore 0.4.1 to your environment. A wrapper tool around Cutadapt and FastQC to consistently apply quality and adapter trimming to FastQ files."
+
+prereq gcc-libs/4.9.2
+
+conflict trim_galore
+
+prereq fastqc
+prereq python3/recommended
+
+set root                      	/shared/ucl/apps/trim_galore/0.4.1/trim_galore_zip
+prepend-path PATH		$root
+
