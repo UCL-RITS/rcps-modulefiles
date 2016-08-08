@@ -50,6 +50,8 @@ setenv INTEL /shared/ucl/apps/intel/2016.0.109/
 
 setenv STARINI Default
 
+setenv STARTOP $prefix/STAR/4.26.011
+setenv STAR $prefix/STAR/4.26.011/linux64_2.6-ifort_16.0-glibc_2.5
 setenv STARDIR $prefix
 
 setenv REMOTETASK "/usr/bin/ssh -o StrictHostKeyChecking=no"
