@@ -1,0 +1,64 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## STAR-CD 4.26.011
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds STAR-CD 4.26.011 using Intel 2016 compiler suite to your environment."
+    puts stderr ""
+    puts stderr "STAR-CD is a code for performing CFD simulations. It is designed for"
+    puts stderr "modelling fluid flow, heat transfer, mass transfer and chemical reactions."
+    puts stderr ""
+}
+
+module-whatis "Adds STAR-CD 4.26.011 using Intel 2016 compiler suite to your environment. STAR-CD is a code for performing CFD simulations. It is designed for modelling fluid flow, heat transfer, mass transfer and chemical reactions."
+
+conflict star-cd
+
+prereq gcc-libs
+
+set version	4.26.011
+set prefix      /shared/ucl/apps/STAR-CD/$version
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legstarc"     
+}
+
+# use /tmp if on a login node, otherwise $TMPDIR
+if { [info exists ::env(TMPDIR) ] } {
+  set TMPDIR $::env(TMPDIR)
+}  else {
+  set TMPDIR /tmp
+}
+
+setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+
+prepend-path PATH               $prefix/bin
+prepend-path PATH               $prefix/sbin
+
+setenv FLEXLMTOP $prefix/FLEXLM/11.13.0.0
+setenv FLEXLM $prefix/FLEXLM/11.13.0.0/linux64_2.5-x86
+
+setenv HPC_SCRATCH "\$TMPDIR"
+
+setenv IBMMPITOP $prefix/IBMMPI/8.3.0.2isv
+setenv IBMMPI $prefix/IBMMPI/8.3.0.2isv/linux64_2.6-x86-glibc_2.3.4
+
+setenv INTEL /shared/ucl/apps/intel/2016.0.109/
+
+setenv STARINI Default
+
+setenv STARTOP $prefix/STAR/4.26.011
+setenv STAR $prefix/STAR/4.26.011/linux64_2.6-ifort_16.0-glibc_2.5
+setenv STARDIR $prefix
+
+setenv STARFLAGS "-nodefile=$TMPDIR/machines -scratch=$TMPDIR"
+
+setenv REMOTETASK "/usr/bin/ssh -o StrictHostKeyChecking=no"
+setenv REMOTECOPY "/usr/bin/scp -o StrictHostKeyChecking=no"
+
