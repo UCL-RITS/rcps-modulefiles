@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# SOD 3.2.7
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SOD 3.2.7 package to your environment."
+    puts stderr "SOD is a program that automates tedious data selection, downloading,"
+    puts stderr "and routine processing tasks in seismology."
+    puts stderr ""
+
+}
+
+module-whatis "Adds SOD 3.2.7 to your environment. SOD is a program that automates tedious data selection, downloading, and routine processing tasks in seismology."
+
+prereq gcc-libs/4.9.2
+
+conflict sod
+
+set root                        /shared/ucl/apps/sod/3.2.7
+prepend-path PATH               $root/bin
+prepend-path CMAKE_PREFIX_PATH	$root
+
