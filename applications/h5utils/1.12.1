@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# h5utils 1.12.1
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the h5utils 1.12.1 package to your environment."
+    puts stderr "h5utils is a set of utilities for visualization and conversion of scientific data in HDF5 format."
+    puts stderr ""
+
+}
+
+module-whatis "Adds h5utils 1.12.1 to your environment. h5utils is a set of utilities for visualization and conversion of scientific data in HDF5 format."
+
+prereq gcc-libs/4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
+prereq libmatheval
+
+conflict h5utils
+
+set root                        /shared/ucl/apps/h5utils/1.12.1/gnu-4.9.2
+prepend-path PATH               $root/bin
+prepend-path MANPATH            $root/share/man
+prepend-path CMAKE_PREFIX_PATH	$root
+
