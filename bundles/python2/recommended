@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-2.list"
 
-prereq rcps-core
+prereq gcc-libs
 module load python/2.7.9
 module load openblas/0.2.14/gnu-4.9.2
 
