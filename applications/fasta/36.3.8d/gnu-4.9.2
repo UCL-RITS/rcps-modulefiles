@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## FASTA compiled with GCC 4.9.2
+## Brian Alston August 2016 
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds FASTA V36.3.8d to your environment."
+    puts stderr ""
+    puts stderr "FASTA is a package for protein and DNA sequence similarity searching"
+    puts stderr "and alignment (https://github.com/wrpearson/fasta36/)."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/FASTA/v36.3.8d"
+}
+
+module-whatis "Adds the cancer it suite to your environment."
+
+# Location:
+
+set prefix /shared/ucl/apps/FASTA/v36.3.8d
+
+prereq gcc-libs/4.9.2
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/man:
+
+
+prepend-path CMAKE_PREFIX_PATH $prefix
