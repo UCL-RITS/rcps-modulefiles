@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+##
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GDAL 2.1.1 with PROJ.4 4.9.1 to your environment variables,"
+}
+
+module-whatis "adds GDAL 2.1.1 with PROJ.4 4.9.1 to your environment variables"
+
+conflict gdal
+
+# matlab loads an old libtiff that breaks gdal
+conflict matlab
+
+prereq gcc-libs/4.9.2
+prereq perl/5.22.0
+prereq python/2.7.9
+prereq hdf/5-1.8.15/gnu-4.9.2
+prereq netcdf/4.3.3.1/gnu-4.9.2
+
+
+set              root              /shared/ucl/apps/gdal/2.1.1/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path	 CMAKE_PREFIX_PATH $root
