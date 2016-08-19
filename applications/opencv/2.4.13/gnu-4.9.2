@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# OpenCV 2.4.13
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the OpenCV 2.4.13 package to your environment."
+    puts stderr "Open Source Computer Vision Library."
+    puts stderr ""
+
+}
+
+module-whatis "Adds OpenCV 2.4.13 to your environment. Open Source Computer Vision Library."
+
+prereq gcc-libs/4.9.2
+prereq python2/recommended
+
+conflict opencv
+
+set root                        /shared/ucl/apps/opencv/2.4.13/gnu-4.9.2
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE_PATH       $root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH	$root
+
