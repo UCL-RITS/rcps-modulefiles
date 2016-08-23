@@ -72,8 +72,8 @@ proc appDirSetup { appDir } {
     	puts stderr ""
     	puts stderr "$appDir is a symbolic link pointing to [file readlink $appDir]"
 	puts stderr ""
-	puts stderr "Note: this MUST be in your Scratch area."
-	puts stderr ""
+	# puts stderr "Note: this MUST be in your Scratch area."
+	# puts stderr ""
 	return true
     }
     
@@ -85,7 +85,7 @@ proc appDirSetup { appDir } {
 	    puts stderr "$target already exists - will not be overwritten."
 	    return false
 	}
-	if { [catch {file rename $appDir $target}] } {
+	if { [catch {file rename $appDir $target} err] } {
 	    puts stderr "Cannot move $appDir to $target:"
 	    puts stderr "    $err"
 	    return false
