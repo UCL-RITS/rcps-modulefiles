@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# Default Aristotle Modules (equivalent of defmods).
+#
+#                                                      BAA 23rd Aug 2016
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the default Aristotle modules to your environment."
+    puts stderr ""
+    puts stderr "The following are loaded:"
+    puts stderr ""
+    puts stderr "rcps-core/1.0.0"
+    puts stderr "compilers/intel/2015/update2"
+    puts stderr "mpi/intel/2015/update3/intel"
+    puts stderr ""
+}
+
+module-whatis "Adds default Aristotle modules to your environment."
+
+# Load the Legion/Grace default modules and if necessary change
+module load default-modules
