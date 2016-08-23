@@ -1,0 +1,39 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## COMSOL 52a binaries
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds the COMSOL 52a binaries to your environment."
+    puts stderr "COMSOL Multiphysics® is a general-purpose software platform, based on advanced"
+    puts stderr "numerical methods, for modeling and simulating physics-based problems."
+    puts stderr "Module must be loaded once from a login node prior to running jobs."
+    puts stderr ""
+}
+
+module-whatis "Adds the COMSOL 52a binaries to your environment. COMSOL Multiphysics® is a general-purpose software platform, based on advanced numerical methods, for modeling and simulating physics-based problems. Module must be loaded once from a login node prior to running jobs."
+
+conflict comsol
+
+prereq xulrunner/3.6.28/gnu-4.9.2
+
+# on load, check if user is in the correct group and create .comsol in Scratch 
+# with a symlink from home if it does not already exist.
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legcomsl"     
+
+    set comsoldir "~/Scratch/.comsol"   
+    modulefunctions::createDir $comsoldir
+    modulefunctions::createSymlink ~/.comsol $comsoldir
+}
+
+set prefix      /shared/ucl/apps/comsol/52a
+
+prepend-path PATH		$prefix/bin
+prepend-path CMAKE_PREFIX_PATH  $prefix
+setenv FLROOT			$prefix
+
