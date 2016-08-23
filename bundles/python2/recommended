@@ -17,7 +17,12 @@ prereq rcps-core
 module load python/2.7.9
 module load openblas/0.2.14/gnu-4.9.2
 
-set              base              /shared/ucl/apps/python/bundles
+if { [ file type /shared/ucl/apps ] == "link" } {
+   set           baselink          [ file readlink /shared/ucl/apps ]
+   set           base              $baselink/python/bundles
+} else {
+   set           base              /shared/ucl/apps/python/bundles
+}
 set              root              $base/python2
 set              home              $::env(HOME)
 
