@@ -10,7 +10,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds set of default modules to the environment for gmt users."
 
-prereq rcps-core
+prereq gcc-libs
 
 module load perl/5.22.0
 module load python/2.7.9

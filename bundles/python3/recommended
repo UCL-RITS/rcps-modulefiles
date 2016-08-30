@@ -15,11 +15,16 @@ proc ModulesHelp { } {
 
 module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list"
 
-prereq rcps-core
+prereq gcc-libs
 module load python/3.4.3
 module load openblas/0.2.14/gnu-4.9.2
 
-set              base              /shared/ucl/apps/python/bundles
+if { [ file type /shared/ucl/apps ] == "link" } {
+   set           baselink          [ file readlink /shared/ucl/apps ]
+   set           base              $baselink/python/bundles
+} else {
+   set           base              /shared/ucl/apps/python/bundles
+}
 set              root              $base/python3
 set              home              $::env(HOME)
 

@@ -49,13 +49,31 @@ setenv HPC_SCRATCH "\$TMPDIR"
 setenv IBMMPITOP $prefix/IBMMPI/8.3.0.2isv
 setenv IBMMPI $prefix/IBMMPI/8.3.0.2isv/linux64_2.6-x86-glibc_2.3.4
 
+setenv ICETOP $prefix/ICE/4.26.014
+setenv ICE $prefix/ICE/4.26.014/linux64_2.6-x86-glibc_2.5.0-gcc_4.4.3-ifort_11.0
+
+setenv INTELMPITOP $prefix/INTELMPI/4.1.1.036
+setenv INTELMPI $prefix/INTELMPI/4.1.1.036/linux64_2.6-x86_glibc_2.3.4
 setenv INTEL /shared/ucl/apps/intel/2016.0.109/
 
-setenv STARINI Default
+setenv PROSTARTOP $prefix/PROSTAR/4.26.001
+setenv PROSTAR $prefix/PROSTAR/4.26.001/linux64_2.6-x86-glibc_2.3.4-gcc_4.4.3-ifort_11.0
 
 setenv STARTOP $prefix/STAR/4.26.011
 setenv STAR $prefix/STAR/4.26.011/linux64_2.6-ifort_16.0-glibc_2.5
 setenv STARDIR $prefix
+
+setenv STARCDMAN $prefix/STARCDMAN/4.26.007/generic
+setenv STARDATA $prefix/STARDATA/3.01.011/generic
+setenv STARINI default
+setenv STARNET $prefix/STARNET/3.00.024/generic
+
+setenv STARPLUGIN_DARSCFD $prefix/DARSCFD/2.05.009
+setenv STARPLUGIN_DARSTABLE $prefix/DARSTABLE/4.26.001
+setenv STARPLUGIN_DARSTIF $prefix/DARSTIF/2.08.015
+setenv STARPLUGIN_ICE $prefix/STARICE/4.26.014
+setenv STARPLUGIN_SOOTNOX $prefix/SOOTNOX/1.04.007
+setenv STARPLUGIN_WAVE $prefix/WAVE/2.14.006
 
 setenv STARFLAGS "-nodefile=$TMPDIR/machines -scratch=$TMPDIR"
 

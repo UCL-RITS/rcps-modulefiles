@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# PLINK 1.90b3.40
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLINK 1.90b3.40 package to your environment."
+    puts stderr "A comprehensive update to the PLINK association analysis toolset."
+    puts stderr ""
+
+}
+
+module-whatis "Adds PLINK 1.90b3.40 to your environment. A comprehensive update to the PLINK association analysis toolset."
+
+prereq gcc-libs/4.9.2
+
+conflict plink
+
+set root                        /shared/ucl/apps/plink/1.90b3.40/160816/gnu-4.9.2
+prepend-path PATH               $root
+prepend-path CMAKE_PREFIX_PATH	$root
+
