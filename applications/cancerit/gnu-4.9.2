@@ -1,0 +1,79 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## cancerit suite compiled with GCC 4.9.2, Perl 5.22.0, R 3.3 etc
+##
+## Brian Alston July 2016 
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds the cancer it suite to your environment."
+    puts stderr ""
+    puts stderr "https://github.com/cancerit"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/cancerit/"
+}
+
+module-whatis "Adds the cancer it suite to your environment."
+
+# Location:
+
+set prefix /shared/ucl/apps/cancerit
+
+prereq gcc-libs/4.9.2
+prereq r/recommended
+prereq htslib/1.2.1 
+prereq perl/5.22.0
+prereq curl/7.47.1/gnu-4.9.2
+prereq fasta/36.3.8d/gnu-4.9.2
+prereq bedtools/2.25.0
+prereq exonerate/2.2.0
+prereq velvet/1.2.10
+prereq python2/recommended
+prereq boost/1_54_0/gnu-4.9.2
+
+
+# For PCAP-core:
+prepend-path PATH		$prefix/PCAP-core/bin
+prepend-path CPATH              $prefix/PCAP-core/include
+prepend-path INCLUDE_PATH       $prefix/PCAP-core/include
+prepend-path LD_LIBRARY_PATH	$prefix/PCAP-core/lib
+prepend-path LIBRARY_PATH	$prefix/PCAP-core/lib
+append-path  PERL5LIB		$prefix/PCAP-core/lib/perl5
+prepend-path MANPATH		$prefix/PCAP-core/man:$prefix/PCAP-core/share/man
+
+# For cgpVcf:
+prepend-path PATH		$prefix/cgpVcf/bin
+prepend-path CPATH              $prefix/cgpVcf/include
+prepend-path INCLUDE_PATH       $prefix/cgpVcf/include
+prepend-path LD_LIBRARY_PATH	$prefix/cgpVcf/lib
+prepend-path LIBRARY_PATH	$prefix/cgpVcf/lib
+append-path  PERL5LIB		$prefix/cgpVcf/lib/perl5
+prepend-path MANPATH		$prefix/cgpVcf/man:$prefix/cgpVcf/share/man
+
+# For VAGrENT:
+prepend-path PATH		$prefix/VAGrENT/bin
+prepend-path LD_LIBRARY_PATH	$prefix/VAGrENT/lib
+prepend-path LIBRARY_PATH	$prefix/VAGrENT/lib
+append-path  PERL5LIB		$prefix/VAGrENT/lib/perl5
+prepend-path MANPATH		$prefix/VAGrENT/man:$prefix/VAGrENT/share/man
+
+# For grass:
+prepend-path PATH		$prefix/grass/bin
+append-path  PERL5LIB		$prefix/grass/lib/perl5
+prepend-path MANPATH		$prefix/grass/man
+
+# For PStreams
+prepend-path CPATH              $prefix/PStreams/0.8.1//include
+prepend-path INCLUDE_PATH       $prefix/PStreams/0.8.1//include
+
+# For BRASS
+prepend-path PATH		$prefix/BRASS/bin
+append-path  PERL5LIB		$prefix/BRASS/lib/perl5
+prepend-path MANPATH		$prefix/BRASS/man:$prefix/BRASS/share/man
+
+
+prepend-path CMAKE_PREFIX_PATH $prefix
