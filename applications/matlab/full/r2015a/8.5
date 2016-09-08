@@ -10,6 +10,7 @@
 ## Modified for updated Legion software stack and R2015a - April 2015 - BAA
 ## Modified for correct version of the NAG Toolbox for Matlab - August
 ##  2015 - BAA
+## Modified to improve messages - September 2016 - BAA
 
 proc ModulesHelp { } {
     puts stderr "Adds Matlab R2015a to your environment."
@@ -108,11 +109,16 @@ if { ! [info exists ::env(NAG_KUSARI_FILE)]} {
 
 # Setup .matlab in Scratch
 
-if { ! [appDirSetup $matlabDir] } {
-    puts stderr ""
-    puts stderr "**** error: setting up .matlab directory failed."
-    puts stderr ""
-    puts stderr "Note: you must load the Matlab module at least once from a login node."
-    puts stderr ""
+if { [modulefunctions::isModuleLoad] } {
+    if { [appDirSetup $matlabDir] } {
+	puts stderr "Matlab setup complete type matlab to start Matlab."
+	puts stderr ""
+    } else {
+	puts stderr ""
+	puts stderr "**** error: setting up .matlab directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the Matlab module at least once from a login node."
+	puts stderr ""
+    }
 }
 
