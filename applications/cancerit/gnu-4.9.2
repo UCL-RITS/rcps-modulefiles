@@ -78,5 +78,10 @@ prepend-path MANPATH		$prefix/BRASS/man:$prefix/BRASS/share/man
 # For CaVEMan
 prepend-path PATH		$prefix/CaVEMan/bin
 
+# For cgpCaVEManPostProcessing
+prepend-path PATH		$prefix/cgpCaVEManPostProcessing/bin
+append-path  PERL5LIB		$prefix/cgpCaVEManPostProcessing/lib/perl5
+prepend-path MANPATH		$prefix/cgpCaVEManPostProcessing/man
+
 
 prepend-path CMAKE_PREFIX_PATH $prefix
