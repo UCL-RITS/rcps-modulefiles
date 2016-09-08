@@ -12,6 +12,10 @@
 ##  2015 - BAA
 ## Modified to improve messages - September 2016 - BAA
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
 proc ModulesHelp { } {
     puts stderr "Adds Matlab R2015a to your environment."
     puts stderr ""
