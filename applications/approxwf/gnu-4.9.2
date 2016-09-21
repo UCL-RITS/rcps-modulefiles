@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## ApproxWF compiled with GCC 4.9.2
+##
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds ApproxWF to your environment."
+    puts stderr ""
+    puts stderr "ApproxWF is a computer program to infer locus specific selection"
+    puts stderr "coefficients, along with the effective populations size,"
+    puts stderr "the mutation rate and sequencing error rates. To do so, ApproxWF"
+    puts stderr "implements the Mean Transition Time Approximation for"
+    puts stderr "Wright-Fisher models. "
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ApproxWF"
+}
+
+module-whatis "Adds ApproxWF to your environment."
+
+# Location of ApproxWF:
+
+set prefix /shared/ucl/apps/ApproxWF
+
+prereq gcc-libs/4.9.2
+conflict approxwf
+
+prepend-path PATH		$prefix/bin
