@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+#
+# CGAL 4.9
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds CGAL 4.9 with Qt5 to your environment."
+    puts stderr "The Computational Geometry Algorithms Library."
+    puts stderr ""
+
+}
+
+module-whatis "Adds CGAL 4.9 with Qt5 to your environment. The Computational Geometry Algorithms Library."
+
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq python/2.7.9
+prereq boost/1_54_0/gnu-4.9.2
+prereq bison/3.0.4/gnu-4.9.2
+prereq gperf/3.0.4/gnu-4.9.2
+prereq qt/5.4.2/gnu-4.9.2
+
+conflict cgal
+
+set root                        /shared/ucl/apps/CGAL/4.9/gnu-4.9.2
+prepend-path PATH		$root/bin
+prepend-path LD_LIBRARY_PATH	$root/lib64
+prepend-path LIBRARY_PATH	$root/lib64
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path MANPATH		$root/share/man
+prepend-path CMAKE_PREFIX_PATH	$root
+
