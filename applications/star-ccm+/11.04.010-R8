@@ -1,0 +1,114 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## STAR-CCM+ 11.04.010-R8
+##
+## Brian Alston September 2015
+## Updated for version 11.04.010-R8 September 2016.
+##
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+  puts stderr "Adds STAR-CCM+ 11.04.010-R8 and STAR-View 11.04.010 to your path."
+  puts stderr ""
+  puts stderr "STAR-CCM+ is an application for performing CFD simulations"
+  puts stderr "solving problems involving flow (of fluids or solids), heat" 	    
+  puts stderr "transfer and stress."
+  puts stderr ""
+  puts stderr "STAR-CCM+ and STAR-View are reserved applications. Access is"
+  puts stderr "controlled by membership of the starcd group. To be given"
+  puts stderr "access to these applications please email rc-support@ucl.ac.uk"
+  puts stderr ""  
+  puts stderr "Directory: /shared/ucl/apps/STAR-CCM+/11.04.010-R8"
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+
+module-whatis "Adds STAR-CCM+ and STAR-View to your environment."
+
+conflict star-ccm+
+
+prereq gcc-libs/4.9.2
+prereq mpi/openmpi/1.8.4/intel-2015-update2
+
+# Location of STAR-CCM+:
+
+set prefix /shared/ucl/apps/STAR-CCM+/11.04.010-R8
+
+# on load, check if user is in the correct group for STAR-CCM+
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legstarc"     
+}
+
+# Set location of Mech Eng licence manager
+setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+
+# Location of STAR-CCM+ prefs and settings directories
+set username $env(USER)
+set starccmDir "~/.star-11.04.010-$username"
+set starccmDirAlt "~/.star-11.04.010"
+
+prepend-path PATH		$prefix/STAR-CCM+11.04.010-R8/star/bin
+prepend-path PATH               $prefix/STAR-View+11.04.010
+prepend-path LD_LIBRARY_PATH    $prefix/STAR-CCM+11.04.010-R8/star/lib
+
+# Setup STAR-CCM+ settings directory in Scratch
+
+if { [modulefunctions::isModuleLoad] } {
+    if { ! [appDirSetup $starccmDir] } {
+	puts stderr ""
+	puts stderr "**** error: setting up .star-11.04.010-$username directory failed."
+	puts stderr ""
+    }
+    if { ! [appDirSetup $starccmDirAlt] } {
+	puts stderr ""
+	puts stderr "**** error: setting up .11.04.010 directory failed."
+	puts stderr ""    
+	puts stderr "Note: you must load the starccm module at least once from a login node."
+	puts stderr ""
+    }
+    if { [info exists ::env(TMPDIR) ] } {
+	set TMPDIR $::env(TMPDIR)
+    }  else {
+	set TMPDIR /tmp
+    }
+}
+
+
+
+
