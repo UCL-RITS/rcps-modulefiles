@@ -26,6 +26,9 @@ prereq  java/1.8.0_45
 
 conflict picard-tools
 
-setenv PICARDPATH     /shared/ucl/apps/picard-tools/1.136/picard-tools-1.136/
-prepend-path PATH     /shared/ucl/apps/picard-tools/1.136/picard-tools-1.136/bin
+set root              /shared/ucl/apps/picard-tools/1.136/picard-tools-1.136/
+
+setenv PICARDPATH     $root
+setenv PICARD_HOME    $root
+prepend-path PATH     $root/bin
 
