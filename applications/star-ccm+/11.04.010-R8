@@ -84,8 +84,9 @@ set starccmDir "~/.star-11.04.010-$username"
 set starccmDirAlt "~/.star-11.04.010"
 
 prepend-path PATH		$prefix/STAR-CCM+11.04.010-R8/star/bin
-prepend-path PATH               $prefix/STAR-View+11.04.010
+prepend-path PATH               $prefix/STAR-View+11.04.010/bin
 prepend-path LD_LIBRARY_PATH    $prefix/STAR-CCM+11.04.010-R8/star/lib
+prepend-path LD_LIBRARY_PATH    $prefix/STAR-View+11.04.010/bin
 
 # Setup STAR-CCM+ settings directory in Scratch
 
