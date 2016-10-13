@@ -2,9 +2,10 @@
 ##
 ## Recommended R bundle - version for R 3.3.0
 ##
-## Version 1.4 by BAA on Legion on 22-6-2016
+## Version 1.5 by BAA on Legion on 11-10-2016
+## Moved to recommended 11th July 2016
 ## Updated for new version of JAGS 12th July 2016
-
+## Updated to include GLPK October 2016
 
 proc ModulesHelp { } {
     puts stderr "This module adds the R 3.3.0 and Bioconductor 3.3 package to your environment."
@@ -30,4 +31,5 @@ module load hdf/5-1.8.15/gnu-4.9.2
 module load netcdf/4.3.3.1/gnu-4.9.2
 module load jags/4.2.0/gnu.4.9.2-openblas
 module load root/5.34.30/gnu-4.9.2
+module load glpk/4.60/gnu-4.9.2
 module load r/3.3.0-openblas/gnu-4.9.2
