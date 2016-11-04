@@ -1,0 +1,18 @@
+#%Module
+#
+# Modules for Molecular Thermodynamics, maintained by Ozgur Yazaydin
+#
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Molecular Thermodynamics modules to your environment."
+    puts stderr ""
+    puts stderr "These modules are supported by local Chemical Engineering staff."
+    puts stderr ""
+}
+
+module-whatis "Adds modules for Molecular Thermodynamics to your environment."
+
+module           use --append /shared/ucl/depts/thermo/modulefiles
+
