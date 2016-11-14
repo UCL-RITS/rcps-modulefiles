@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2016-11-14
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Python 2.7.12 with pip and virtualenv to your environment variables,"
+}
+
+module-whatis "adds Python 2.7.12 with pip and virtualenv to your environment variables"
+
+conflict python
+prereq gcc-libs/4.9.2
+
+set              root              /shared/ucl/apps/python/2.7.12/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+#prepend-path CMAKE_PREFIX_PATH $root
