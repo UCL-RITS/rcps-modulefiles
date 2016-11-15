@@ -15,7 +15,7 @@ module-whatis "adds a core set of applications and libraries to your environment
 module load gcc-libs/4.9.2
 module load cmake/3.2.1
 module load flex/2.5.39
-module load git/2.3.5
+module load git/2.10.2
 module load apr/1.5.2
 module load apr-util/1.5.4
 module load subversion/1.8.13
