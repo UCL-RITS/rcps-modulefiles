@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-08-13
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Git 2.10.2 to your environment variables,"
+}
+
+module-whatis "adds Git 2.10.2 to your environment variables"
+
+conflict git
+prereq gcc-libs/4.9.2
+
+# Git
+prepend-path     PATH                 /shared/ucl/apps/git/2.10.2/gnu-4.9.2/bin
+prepend-path     MANPATH              /shared/ucl/apps/git/2.10.2/gnu-4.9.2/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/git/2.10.2/gnu-4.9.2/lib64
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/git/2.10.2/gnu-4.9.2/lib64
+
+prepend-path CMAKE_PREFIX_PATH   /shared/ucl/apps/git/2.10.2/gnu-4.9.2
