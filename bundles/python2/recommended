@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-2.list"
 
 prereq gcc-libs
-module load python/2.7.9
+module load python/2.7.12
 module load openblas/0.2.14/gnu-4.9.2
 
 if { [ file type /shared/ucl/apps ] == "link" } {
@@ -23,7 +23,7 @@ if { [ file type /shared/ucl/apps ] == "link" } {
 } else {
    set           base              /shared/ucl/apps/python/bundles
 }
-set              root              $base/python2
+set              root              $base/python2-2.0.0
 set              home              $::env(HOME)
 
 # Derefence venv location

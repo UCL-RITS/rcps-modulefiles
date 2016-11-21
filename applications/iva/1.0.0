@@ -23,10 +23,10 @@ prereq trimmomatic/0.33
 prereq samtools/1.2/gnu-4.9.2
 prereq bambamc/0.0.50/gnu-4.9.2
 prereq smalt/0.7.6/gnu-4.9.2
-prereq python3/recommended
+prereq python3/3.5
 
 conflict iva
 
-set root 			/shared/ucl/apps/iva/1.0.0
+set root 			/shared/ucl/apps/iva/1.0.0/python3.5
 prepend-path PATH    		$root/bin
-prepend-path PYTHONPATH         $root/lib/python3.4/site-packages
+prepend-path PYTHONPATH         $root/lib/python3.5/site-packages
