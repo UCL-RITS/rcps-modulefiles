@@ -17,7 +17,7 @@ module-whatis "Adds Boost 1.54.0 with Python and MPI libraries to your environme
 prereq gcc-libs/4.9.2
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
-prereq python/2.7.9
+prereq python
 
 conflict boost
 
