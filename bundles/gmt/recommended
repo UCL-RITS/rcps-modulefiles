@@ -5,6 +5,8 @@
 ## Built by O.K. on Legion on 2015-07-23
 ##
 ## Version of rGMT 5.3.1 - Nov 2016 BAA
+##
+## Updated for Python2 changes - 24th Nov 2016
 
 proc ModulesHelp { } {
   puts stderr "\tAdds set of default modules to the environment for gmt users."
@@ -15,7 +17,7 @@ module-whatis "Adds set of default modules to the environment for gmt users."
 prereq gcc-libs
 
 module load perl/5.22.0
-module load python/2.7.12
+module load python2/recommended
 module load hdf/5-1.8.15/gnu-4.9.2
 module load netcdf/4.3.3.1/gnu-4.9.2
 module load gdal/2.0.0
