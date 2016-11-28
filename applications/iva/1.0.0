@@ -15,7 +15,6 @@ module-whatis "Adds IVA 1.0.0 to your environment."
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
-prereq python/3.4.3
 prereq openblas/0.2.14/gnu-4.9.2
 prereq kmc/2.1.1/gnu-4.9.2
 prereq mummer/3.23/gnu-4.9.2
