@@ -7,6 +7,7 @@
 ## Updated for new version of JAGS 12th July 2016
 ## Updated to include GLPK October 2016
 ## Updated for R 3.3.2 and R packages rgdal and rgeos November 2016
+## Updated for RNetCDF package December 2016
 
 proc ModulesHelp { } {
     puts stderr "This module adds the R 3.3.2 and Bioconductor 3.4 package to your environment."
@@ -30,6 +31,7 @@ module load texlive/2015
 module load gsl/1.16/gnu-4.9.2
 module load hdf/5-1.8.15/gnu-4.9.2
 module load netcdf/4.3.3.1/gnu-4.9.2
+module load udunits/2.2.20/gnu-4.9.2
 module load jags/4.2.0/gnu.4.9.2-openblas
 module load root/5.34.30/gnu-4.9.2
 module load glpk/4.60/gnu-4.9.2
