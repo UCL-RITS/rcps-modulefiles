@@ -60,7 +60,7 @@ setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.3.2-OpenBLAS/library
 
 # Set environment for non-interactive R to improve calculation performance
 
-if { [info exists ::env (PS1)] } {
+if { [info exists ::env(PS1)] } {
     # interactive session so do not set env vars
     puts stderr ""
 } else {
