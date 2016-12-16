@@ -6,6 +6,7 @@
 ##
 ## Brian Alston November 2016 - Updated to R 3.3.2 and Bioconductor 3.4
 ## Updated December 2016 to add directory with RMPISNOW script to path.
+## Updated December 2016 to add non-interactive use speed up.
 ##
 
 # New Legion modules layout
@@ -56,5 +57,16 @@ append-path PATH                $prefix/lib64/R/library/snow
 
 # Databases need to be stored on Lustre not NFS
 setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.3.2-OpenBLAS/library
+
+# Set environment for non-interactive R to improve calculation performance
+
+if { [info exists ::env (PS1)] } {
+    # interactive session so do not set env vars
+    puts stderr ""
+} else {
+    # Session is not interactive
+    setenv R_COMPILE_PKGS TRUE
+    setenv R_ENABLE_JIT 3
+}
 
 prepend-path CMAKE_PREFIX_PATH $prefix
