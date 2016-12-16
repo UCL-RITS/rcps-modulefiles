@@ -58,9 +58,10 @@ append-path PATH                $prefix/lib64/R/library/snow
 # Databases need to be stored on Lustre not NFS
 setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.3.2-OpenBLAS/library
 
-# Set environment for non-interactive R to improve calculation performance
+# Set environment for non-interactive R (running in a job) to improve calculation
+# performance
 
-if { [info exists ::env(TERM)] } {
+if { [info exists ::env(JOB_ID)] } {
     # interactive session so do not set env vars
     puts stderr ""
 } else {
