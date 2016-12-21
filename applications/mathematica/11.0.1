@@ -47,15 +47,17 @@ setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica/$version
 
 set parPrefsDir $userBase/ApplicationData/Parallel/Preferences
 
-if { [modulefunctions::isModuleLoad] } {
-    if { [modulefunctions::createDir $parPrefsDir] } {
-    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
-    } else {
-    	puts stderr ""
-    	puts stderr "Problem setting up Parallel Kernel perfs directory."
-    	puts stderr ""
-    }
-}
+# Don't set up parallel preferences for the moment:
+
+# if { [modulefunctions::isModuleLoad] } {
+#     if { [modulefunctions::createDir $parPrefsDir] } {
+#     	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+#     } else {
+#     	puts stderr ""
+#     	puts stderr "Problem setting up Parallel Kernel perfs directory."
+#     	puts stderr ""
+#     }
+# }
 
 if { ! [info exists ::env(OMP_NUM_THREADS)]} {
     setenv  OMP_NUM_THREADS 	4
