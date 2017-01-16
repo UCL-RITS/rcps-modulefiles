@@ -11,6 +11,7 @@
 ## Updated for Mathematica 10.4 March 2016 (minor changes)
 ## Updated for Mathematica 11.0.0 September 2016
 ## Updated for Mathematica 11.0.1 October 2016
+## Updated to install USERBASE files from Tunnel for multi-node support - Jan 2017
 ##
 
 # New Legion modules layout
@@ -46,18 +47,28 @@ setenv 		MATHEMATICA_BASE	$prefix/share
 setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica/$version
 
 set parPrefsDir $userBase/ApplicationData/Parallel/Preferences
+set FrontEndDir $userBase/FrontEnd
+set ccspappDir /home/ccspapp/Scratch/.Mathematica/11.0.1/FrontEnd
 
-# Don't set up parallel preferences for the moment:
+# Set up parallel preferences and Tunnel multi-node support 
 
-# if { [modulefunctions::isModuleLoad] } {
-#     if { [modulefunctions::createDir $parPrefsDir] } {
-#     	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
-#     } else {
-#     	puts stderr ""
-#     	puts stderr "Problem setting up Parallel Kernel perfs directory."
-#     	puts stderr ""
-#     }
-# }
+if { [modulefunctions::isModuleLoad] } {
+    if { [modulefunctions::createDir $parPrefsDir] } {
+    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+    } else {
+    	puts stderr ""
+    	puts stderr "Problem setting up Parallel Kernel perfs directory."
+    	puts stderr ""
+    }
+    if { [modulefunctions::createDir $FrontEndDir] } {
+	modulefunctions::copySource $ccspappDir/tunnel.sh $FrontEndDir/tunnel.sh
+	modulefunctions::copySource $ccspappDir/tunnel_sub.sh $FrontEndDir/tunnel_sub.sh
+    } else {
+    	puts stderr ""
+    	puts stderr "Problem copying USERBASE Tunnel scripts from ccspapp."
+    	puts stderr ""
+    }	
+}
 
 if { ! [info exists ::env(OMP_NUM_THREADS)]} {
     setenv  OMP_NUM_THREADS 	4
