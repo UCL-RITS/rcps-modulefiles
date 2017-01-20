@@ -54,7 +54,9 @@ set ccspappDir /home/ccspapp/Scratch/.Mathematica/11.0.1/FrontEnd
 
 if { [modulefunctions::isModuleLoad] } {
     if { [modulefunctions::createDir $parPrefsDir] } {
-#    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+	#
+	# This needs to be disabled for Tunnel to work correctly.
+	#    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
 	puts stderr ""
     } else {
     	puts stderr ""
@@ -62,6 +64,8 @@ if { [modulefunctions::isModuleLoad] } {
     	puts stderr ""
     }
     if { [modulefunctions::createDir $FrontEndDir] } {
+
+	# These two Tunnel scripts need to be in users' USERBASE directories.
 	modulefunctions::copySource $ccspappDir/tunnel.sh $FrontEndDir/tunnel.sh
 	modulefunctions::copySource $ccspappDir/tunnel_sub.sh $FrontEndDir/tunnel_sub.sh
     } else {
