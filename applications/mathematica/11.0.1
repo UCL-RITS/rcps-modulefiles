@@ -54,7 +54,8 @@ set ccspappDir /home/ccspapp/Scratch/.Mathematica/11.0.1/FrontEnd
 
 if { [modulefunctions::isModuleLoad] } {
     if { [modulefunctions::createDir $parPrefsDir] } {
-    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+#    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+	puts stderr ""
     } else {
     	puts stderr ""
     	puts stderr "Problem setting up Parallel Kernel perfs directory."
