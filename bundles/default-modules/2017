@@ -2,7 +2,7 @@
 #
 # Default Legion Modules (equivalent of defmods).
 #
-#                                                      O.K. 20 Jul 2015
+#                                                      O.K. 20 Jul 2017
 
 proc ModulesHelp { } {
 
@@ -11,13 +11,13 @@ proc ModulesHelp { } {
     puts stderr "The following are loaded:"
     puts stderr ""
     puts stderr "rcps-core/1.0.0"
-    puts stderr "compilers/intel/2015/update2"
-    puts stderr "mpi/intel/2015/update3/intel"
+    puts stderr "compilers/intel/2017/update1"
+    puts stderr "mpi/intel/2017/update1/intel"
     puts stderr ""
 }
 
 module-whatis "Adds default Legion modules to your environment."
 
 module load rcps-core/1.0.0
-module load compilers/intel/2015/update2
-module load mpi/intel/2015/update3/intel
+module load compilers/intel/2017/update1
+module load mpi/intel/2017/update1/intel
