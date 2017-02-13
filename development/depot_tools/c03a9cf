@@ -17,4 +17,4 @@ prereq python/2.7.12
 
 set              root              /shared/ucl/apps/depot_tools/c03a9cf
 
-prepend-path     PATH              $root/bin
+prepend-path     PATH              $root
