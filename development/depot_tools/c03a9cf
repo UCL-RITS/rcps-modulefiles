@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 13-02-2017
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds depot_tools to your environment variables"
+}
+
+module-whatis "adds depot_tools to your environment variables"
+
+conflict depot_tools
+prereq gcc-libs/4.9.2
+
+set              root              /shared/ucl/apps/depot_tools/c03a9cf
+
+prepend-path     PATH              $root/bin
