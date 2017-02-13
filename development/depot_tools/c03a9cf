@@ -13,6 +13,7 @@ module-whatis "adds depot_tools to your environment variables"
 
 conflict depot_tools
 prereq gcc-libs/4.9.2
+prereq python/2.7.12
 
 set              root              /shared/ucl/apps/depot_tools/c03a9cf
 
