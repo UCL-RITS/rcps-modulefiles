@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 13-02-2017
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds v8 to your environment variables"
+}
+
+module-whatis "adds v8 to your environment variables"
+
+conflict v8
+prereq gcc-libs/4.9.2
+
+set              root              /shared/ucl/apps/v8/3.15/v8
+
+prepend-path     PATH              $root/out/x64.release
+prepend-path     LD_RUN_PATH       $root/out/x64.release/lib.target
+prepend-path     LD_LIBRARY_PATH   $root/out/x64.release/lib.target
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
