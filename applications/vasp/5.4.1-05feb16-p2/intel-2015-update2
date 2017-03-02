@@ -15,8 +15,8 @@ proc ModulesHelp { } {
 
 }
 
-prereq compilers/intel/2015/update2          
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel          
+prereq mpi/intel
 conflict vasp
 
 module-whatis "The VASP Quantum Chemistry package, version 5.4.1-05feb16 with patches 1 and 2."

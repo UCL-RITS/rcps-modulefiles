@@ -35,8 +35,8 @@ module-whatis "Adds NAMD 2.10 to your environment"
 
 conflict namd
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 prereq fftw/2.1.5/intel-2015-update2
 
 set              root              /shared/ucl/apps/namd/NAMD_2.10_Source

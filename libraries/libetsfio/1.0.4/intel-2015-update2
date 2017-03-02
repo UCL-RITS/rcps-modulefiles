@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds libetsfio 1.0.4 to your environment.}
 
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 prereq netcdf-fortran/4.4.1/intel-2015-update2
 
 conflict libetsfio

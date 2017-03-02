@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds turbomole 6.6 (serial) to your environment.}
 
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 conflict turbomole
 

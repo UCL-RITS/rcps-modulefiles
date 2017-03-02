@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {Adds parmetis 4.0.3 to your environment. ParMETIS is an MPI-based parallel library that implements a variety of algorithms for partitioning unstructured graphs, meshes, and for computing fill-reducing orderings of sparse matrices.}
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict parmetis
 

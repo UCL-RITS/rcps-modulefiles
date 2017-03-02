@@ -38,8 +38,8 @@ if [modulefunctions::isModuleLoad] {
 
 # Add DL_Poly binary to PATH
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict dl_poly
 

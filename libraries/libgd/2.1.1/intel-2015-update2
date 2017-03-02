@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds libgd 2.1.1 to your environment.}
 
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 conflict libgd
 

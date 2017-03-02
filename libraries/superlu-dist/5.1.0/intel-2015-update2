@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {Adds superlu-dist 5.1.0 to your environment. SuperLU_DIST is the distributed-memory parallel version of SuperLU, a general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations.}
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict superlu-dist
 

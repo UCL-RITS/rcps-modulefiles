@@ -14,7 +14,7 @@ module-whatis "adds OpenMPI 1.10.1 for Intel 2015 update 2 compilers to your env
 
 conflict mpi
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 set              openmpiversion    1.10.1
 set              root              /shared/ucl/apps/openmpi/$openmpiversion/intel-2015-update2
