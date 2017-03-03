@@ -14,8 +14,8 @@ proc ModulesHelp { } {
 
 module-whatis {Adds turbomole 6.5 (using SMP) to your environment.}
 
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict turbomole
 

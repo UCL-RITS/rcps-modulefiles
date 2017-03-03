@@ -13,7 +13,7 @@ module-whatis "adds ATLAS 3.10.2 for Intel 15 compilers to your environment vari
 conflict atlas
 conflict openblas
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 set              root              /shared/ucl/apps/atlas/3.10.2/intel-2015-update2
 

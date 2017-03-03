@@ -22,8 +22,8 @@ module-whatis "Adds LAMMPS 8Dec15 to your environment. Binary is lmp_default."
 
 conflict lammps
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 set              root              /shared/ucl/apps/lammps/8Dec15/intel-2015-update2/lammps-8Dec15
 

@@ -18,8 +18,8 @@ module-whatis "Adds NONMEM 7.3.0 using Intel Fortran 2015 to your environment."
 
 set prefix /shared/ucl/apps/NONMEM/nm730_Intel
 
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 prepend-path PATH	$prefix/run
 setenv mpibinpath	/shared/ucl/apps/intel/2015/impi/5.0.3.048/intel64/bin

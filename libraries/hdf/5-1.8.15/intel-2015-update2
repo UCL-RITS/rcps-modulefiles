@@ -19,7 +19,7 @@ module-whatis "adds HDF5 1.8.15 (Serial) for Intel 2015 to your environment."
 
 conflict hdf
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 set              root              /shared/ucl/apps/HDF/5-1.8.15-Intel_2015
 

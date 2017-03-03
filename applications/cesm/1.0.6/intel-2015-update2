@@ -18,8 +18,8 @@ module-whatis "Adds CESM 1.0.6 to your environment."
 
 conflict cesm
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 prereq hdf/5-1.8.15/intel-2015-update2
 
 

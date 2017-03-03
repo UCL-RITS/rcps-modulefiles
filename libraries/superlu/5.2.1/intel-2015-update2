@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 module-whatis {Adds superlu 5.2.1 to your environment. SuperLU is a general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations.}
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 conflict superlu
 

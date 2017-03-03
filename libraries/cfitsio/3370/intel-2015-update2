@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds cfitsio 3370 to your environment.}
 
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 conflict cfitsio
 

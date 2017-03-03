@@ -16,8 +16,8 @@ proc ModulesHelp { } {
 
 module-whatis {Adds octopus 4.1.2 to your environment.}
 
-prereq compilers/intel/2015/update2
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 prereq gsl/1.16/intel-2015-update2
 prereq hdf/5-1.8.15/intel-2015-update2
 prereq netcdf/4.3.3.1/intel-2015-update2

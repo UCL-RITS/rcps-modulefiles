@@ -14,7 +14,7 @@ module-whatis {[intel-compilers/2017.Update1] This is the package for the Intel 
 
 prereq gcc-libs/4.9.2
 
-conflict intel-compilers
+conflict compilers
 
 set              prefix               /shared/ucl/apps/intel/2017.Update1
 

@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds libxc 3.0.0 to your environment.}
 
-prereq compilers/intel/2015/update2
+prereq compilers/intel
 
 conflict libxc
 
