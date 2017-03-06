@@ -4,6 +4,9 @@
 #
 #                                                      H.K. 11th May 2015
 
+# Updated to work with both legg09 and legg03 installs depending on group
+# user is in                                           March 2017 BAA
+
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
 
@@ -20,6 +23,22 @@ module-whatis "Adds Gaussian G09-D01 to your environment and also includes Linda
 prereq gcc-libs/4.9.2
 
 conflict gaussian
+
+# Check if user is in one of the Gaussian groups
+proc isGaussianMember { group } {
+
+    set p1 [open "| /usr/bin/groups"]
+    set myGroups [read $p1]
+    if {[catch {close $p1} err]} {
+        puts stderr "groups command failed: $err"
+    }
+    if { [lsearch -exact $myGroups $group] != -1 } {
+        return true
+    } else {
+        return false
+    }
+}
+
 
 proc getClusterName { } {
 
@@ -39,7 +58,23 @@ proc getClusterName { } {
 
 # Check if user is in Gaussian group
 if [modulefunctions::isModuleLoad] {
-        modulefunctions::isMember legg09
+    if [modulefunctions::isGaussianMember legg09] {
+	set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
+    } elseif [modulefunctions::isGaussianMember legg03] {
+	set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7_2
+    } else {
+        puts stderr ""
+        puts stderr "You are not currently a member of the reserved application group"
+        puts stderr "for this module. Please email"
+        puts stderr ""
+        puts stderr "    rc-support@ucl.ac.uk"
+        puts stderr ""
+        puts stderr "requesting access to the software."
+        puts stderr ""
+        puts stderr "=================================="
+        puts stderr ""
+    }
+	
 }
 
 # Check if TMPDIR exists - if not, use /tmp (interactive use)
@@ -49,7 +84,6 @@ if [modulefunctions::isTMPDIR] {
     setenv GAUSS_SCRDIR /tmp
 }
 
-set root 		/shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
 set gv_root		/shared/ucl/apps/gaussian/gaussview
 append-path PATH      	$root/g09
 append-path PATH	$root/g09/bsd
