@@ -1,0 +1,5 @@
+#%Module1.0
+
+## Default Gaussian module
+
+set ModulesVersion "g09-d01/pgi-2015.7"
