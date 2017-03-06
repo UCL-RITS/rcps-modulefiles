@@ -58,9 +58,9 @@ proc getClusterName { } {
 
 # Check if user is in Gaussian group
 if [modulefunctions::isModuleLoad] {
-    if [modulefunctions::isGaussianMember legg09] {
+    if [isGaussianMember legg09] {
 	set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
-    } elseif [modulefunctions::isGaussianMember legg03] {
+    } elseif [isGaussianMember legg03] {
 	set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7_2
     } else {
         puts stderr ""
