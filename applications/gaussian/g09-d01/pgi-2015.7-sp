@@ -27,6 +27,22 @@ prereq gcc-libs/4.9.2
 
 conflict gaussian
 
+# Check if user is in one of the Gaussian groups
+proc isGaussianMember { group } {
+
+    set p1 [open "| /usr/bin/groups"]
+    set myGroups [read $p1]
+    if {[catch {close $p1} err]} {
+        puts stderr "groups command failed: $err"
+    }
+    if { [lsearch -exact $myGroups $group] != -1 } {
+        return true
+    } else {
+        return false
+    }
+}
+
+
 proc getClusterName { } {
 
     set name ""
