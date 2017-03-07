@@ -19,4 +19,4 @@ proc ModulesHelp { } {
 module-whatis "Adds default Aristotle modules to your environment."
 
 # Load the Legion/Grace default modules and if necessary change
-module load default-modules
+module load default-modules/2015
