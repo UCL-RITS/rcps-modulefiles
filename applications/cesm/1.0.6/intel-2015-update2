@@ -27,7 +27,7 @@ set              root              /shared/ucl/apps/cesm/cesm1_0_6/
 
 prepend-path     PATH              $root/scripts
 
-set              ncroot            /shared/ucl/apps/cesm/support/netcdf
+set              ncroot            /shared/ucl/apps/cesm/support/netcdf-2017
 
 prepend-path     PATH              $ncroot/bin
 prepend-path     LD_RUN_PATH       $ncroot/lib
