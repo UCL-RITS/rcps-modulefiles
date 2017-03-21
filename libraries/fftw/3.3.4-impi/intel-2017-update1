@@ -1,0 +1,56 @@
+#%Module -*- tcl -*-
+##
+## fftw
+##
+
+set module_name fftw
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds fftw 3.3.4 (built with Intel MPI) to your environment.}
+
+}
+
+module-whatis {Adds fftw 3.3.4 (built with Intel MPI) to your environment.}
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2017/update1
+prereq mpi/intel/2017/update1/intel
+
+conflict fftw
+
+set              prefix               /shared/ucl/apps/fftw/3.3.4-impi/intel-2017
+
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/man] } then {
+  prepend-path      MANPATH              $prefix/man
+}
+
+if { [file isdirectory $prefix/share/man] } then {
+  prepend-path      MANPATH              $prefix/share/man
+}
+
+if { [file isdirectory $prefix/lib] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib
+}
+
+if { [file isdirectory $prefix/lib64] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib64
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib64
+}
+
+if { [file isdirectory $prefix/lib/pkgconfig] } then {
+  prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+
+prepend-path CMAKE_PREFIX_PATH  $prefix
