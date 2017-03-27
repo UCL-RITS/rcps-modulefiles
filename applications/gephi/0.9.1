@@ -1,0 +1,93 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Gephi 0.9.1 binary download
+##
+## March 2017
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Gephi Version 0.9.1 to your environment."
+    puts ""
+    puts stderr "Gephi is a visualization and exploration tool for all kinds of"
+    puts stderr "graphs and networks."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Gephi/gephi-0.9.1"
+}
+
+module-whatis "Adds Gephi Version 0.9.1 to your environment."
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+    	puts stderr ""
+    	puts stderr "$appDir doesn't exist - creating as symbolic link to Scratch"
+	puts stderr ""
+	catch {modulefunctions::createDir $target} err
+	return [modulefunctions::createSymlink $appDir $target]
+    }
+    
+    if { [string compare $type "link"] == 0 } { # is a symbolic link
+    	puts stderr ""
+    	puts stderr "$appDir is a symbolic link pointing to [file readlink $appDir]"
+	puts stderr ""
+	# puts stderr "Note: this MUST be in your Scratch area."
+	# puts stderr ""
+	return true
+    }
+    
+    if { [string compare $type "directory"] == 0 } { # need to move existing dir to Scratch
+    	puts stderr ""
+	puts stderr "Moving existing $appDir to Scratch"
+	puts stderr ""
+	if { [file exists $target] } { # don't trash user's exsiting files
+	    puts stderr "$target already exists - will not be overwritten."
+	    return false
+	}
+	if { [catch {file rename $appDir $target} err] } {
+	    puts stderr "Cannot move $appDir to $target:"
+	    puts stderr "    $err"
+	    return false
+	}
+	puts stderr "creating symbolic link from $appDir to $target"
+	puts stderr ""
+	return [modulefunctions::createSymlink $appDir $target]
+    }
+
+    return false    
+}
+
+
+# Location of Gephi:
+
+set prefix /shared/ucl/apps/Gephi/gephi-0.9.1
+set gephiUserDir "~/.gephi"
+
+prereq gcc-libs/4.9.2
+prereq java/1.8.0_92
+conflict gephi
+
+prepend-path PATH		$prefix/bin
+
+# Set up Gephi user directory (for prefs etc) in Scratch
+
+if { [modulefunctions::isModuleLoad] } {
+    if { [appDirSetup $gephiUserDir] } {
+	puts stderr "Gephi setup complete type gephi & to start Gephi."
+	puts stderr ""
+    } else {
+	puts stderr ""
+	puts stderr "**** error: setting up gephi directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the Gephi module at least once from a login node."
+	puts stderr ""
+    }
+}
