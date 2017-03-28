@@ -23,11 +23,22 @@ prereq mpi/intel
 prereq hdf/5-1.8.15/intel-2015-update2
 prereq perl/5.16.0
 
+set ct $::env(COMPILER_TAG)
+  
+if { $ct == "intel-2017" } {
+  set ncroot /shared/ucl/apps/cesm/support/netcdf-2017
+
+} elseif { $ct == "intel-2015-update2" } {
+  set ncroot /shared/ucl/apps/cesm/support/netcdf
+
+} else {
+  puts stderr "There is no support NetCDF package built for this compiler."
+}
+
 set              root              /shared/ucl/apps/cesm/cesm1_2_2/
 
 prepend-path     PATH              $root/scripts
 
-set              ncroot            /shared/ucl/apps/cesm/support/netcdf-2017
 
 prepend-path     PATH              $ncroot/bin
 prepend-path     LD_RUN_PATH       $ncroot/lib
