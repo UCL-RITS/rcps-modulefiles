@@ -1,0 +1,44 @@
+#%Module -*- tcl -*-
+#
+# Nektar++ 4.3.5
+#
+# Built with GNU Compilers and OpenMPI
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Nektar++ Version 4.3.5 to your environment."
+    puts stderr ""
+    puts stderr "Nektar++ is a tensor product based finite element package"
+    puts stderr "designed to allow one to construct efficient classical low"
+    puts stderr "polynomial order h-type solvers (where h is the size of the"
+    puts stderr "finite element) as well as higher p-order piecewise polynomial"
+    puts stderr "order solvers."
+    puts stderr ""
+    puts stderr "This version is compiled with GNU Compilers and OpenMPI."
+    puts stderr ""
+}
+
+module-whatis "Adds  Nektar++ Version 4.3.5 to your environment"
+
+conflict nektar++
+
+set prefix /shared/ucl/apps/Nektar++/4.3.5/GNU_OpenMPI
+
+prereq rcps-core/1.0.0
+prereq compilers/gnu
+prereq mpi/openmpi/1.10.1/gnu-4.9.2
+prereq python3/recommended
+prereq openblas/0.2.14/gnu-4.9.2
+prereq boost/1_54_0/mpi/gnu-4.9.2-ompi-1.10.1
+prereq fftw/3.3.4/gnu-4.9.2
+
+# Probably not needed at runtime.
+# prereq ghostscript/9.19/gnu-4.9.2
+# prereq texlive/2015
+
+prepend-path PATH       $prefix/bin
+prepend-path LD_RUN_PATH        $prefix/lib64/nektar++-4.3.5
+prepend-path LD_LIBRARY_PATH    $prefix/lib64/nektar++-4.3.5
+prepend-path LIBRARY_PATH       $prefix/lib64/nektar++-4.3.5
+prepend-path CPATH              $prefix/include
+prepend-path INCLUDE_PATH       $prefix/include
