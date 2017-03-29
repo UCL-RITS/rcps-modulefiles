@@ -4,6 +4,9 @@
 ##
 ## Built by O.K. on Legion on 2015-11-17
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
   global openmpiversion
 
@@ -34,3 +37,9 @@ prepend-path     INCLUDE_PATH      $root/include
 setenv           GERUN_LAUNCHER    openmpi-sge
 
 prepend-path CMAKE_PREFIX_PATH  $root
+
+# Add compatibility library for MPI built for infiniband not omnipath
+if [modulefunctions::isCluster "Thomas"] {
+    prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
+}
+
