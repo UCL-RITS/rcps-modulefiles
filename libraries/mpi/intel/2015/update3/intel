@@ -5,9 +5,6 @@
 ## Intel MPI 2015 update 3 for Intel Compilers
 ##
 
-lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
-package require modulefunctions 1.0
-
 proc ModulesHelp { } {
 
   puts stderr "\tAdds Intel MPI 5.0 Update 3 to your environment variables"
@@ -41,11 +38,6 @@ setenv           GERUN_LAUNCHER    intel
 prepend-path     PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
 
 prepend-path CMAKE_PREFIX_PATH  $root
-
-# Add compatibility library for MPI built for infiniband not omnipath
-if [modulefunctions::isCluster "Thomas"] {
-    prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
-}
 
 # Check to see whether this is running in a scheduled environment (NHOSTS>1) and
 # if not, set shared memory only.
