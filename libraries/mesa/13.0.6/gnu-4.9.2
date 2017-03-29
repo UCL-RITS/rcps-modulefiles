@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# Mesa 13.0.6 (Gallium, LLVM, no EGL, no DRI, no GLX)
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Mesa 13.0.6 to your environment."
+    puts stderr "Mesa is an open-source implementation of the OpenGL specification."
+    puts stderr "(Build options: Gallium, LLVM, no EGL, no DRI, no GLX)"
+    puts stderr "Use "export GALLIUM_DRIVER" to choose llvmpipe, softpipe, swr"
+
+}
+
+module-whatis "Adds Mesa 13.0.6 to your environment. Mesa is an open-source implementation of the OpenGL specification. (Built options: Gallium, LLVM, no EGL, no DRI, no GLX). The default driver is llvmpipe. You can use \"export GALLIUM_DRIVER\" to explicitly choose llvmpipe, softpipe, or swr"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict mesa
+
+set root                        /shared/ucl/apps/mesa/13.0.6/gnu-4.9.2
+append-path LD_LIBRARY_PATH     $root/lib
+append-path LIBRARY_PATH        $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE_PATH       $root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH  $root
+
