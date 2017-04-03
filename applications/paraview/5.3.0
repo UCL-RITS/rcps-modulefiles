@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# ParaView 5.3.0 binaries
+#
+#                                                     
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the ParaView 5.3.0 binaries to your environment."
+    puts stderr "ParaView is an open-source, multi-platform data analysis and visualization application."
+    puts stderr ""
+}
+
+module-whatis "This module adds the ParaView 5.3.0 binaries to your environment. ParaView is an open-source, multi-platform data analysis and visualization application."
+
+prereq gcc-libs/4.9.2
+prereq llvm
+prereq mesa/13.0.6/gnu-4.9.2
+
+conflict paraview
+
+set root 			/shared/ucl/apps/paraview/5.3.0/gnu-4.9.2/ParaView-5.3.0-Qt5-OpenGL2-MPI-Linux-64bit
+
+prepend-path PATH      		$root/bin
+
