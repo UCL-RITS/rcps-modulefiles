@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+#
+# intltool 0.51.0
+#
+#                                                                                                 
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds intltool 0.51.0 to your environment."
+    puts stderr "intltool is a set of tools to centralize translation of many different "
+    puts stderr "file formats using GNU gettext-compatible PO files."
+    puts stderr ""
+
+}
+
+module-whatis "Adds intltool 0.51.0 to your environment. intltool is a set of tools to centralize translation of many different file formats using GNU gettext-compatible PO files."
+
+prereq gcc-libs/4.9.2
+
+conflict intltool
+
+set root                        /shared/ucl/apps/intltool/0.51.0/gnu-4.9.2/
+prepend-path PATH               $root/bin
+prepend-path MANPATH            $root/share/man
+prepend-path CMAKE_PREFIX_PATH $root
+
