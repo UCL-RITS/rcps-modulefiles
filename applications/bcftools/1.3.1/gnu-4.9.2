@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# BCFtools 1.3.1
+#
+#                              
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the BCFtools 1.3.1 package to your environment."
+    puts stderr "Reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising" 
+    puts stderr "SNP and short indel sequence variants."
+    puts stderr ""
+}
+
+module-whatis "Adds BCFtools 1.3.1 to your environment. Reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising SNP and short indel sequence variants"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict bcftools
+
+set root 			/shared/ucl/apps/bcftools/1.3.1/gnu-4.9.2
+prepend-path PATH      		$root/bin
+prepend-path MANPATH		$root/share/man
