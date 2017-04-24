@@ -8,10 +8,11 @@
 
 proc ModulesHelp { } {
 
-  puts stderr "\tAdds GDAL 2.0.0 to your environment variables,"
+  puts stderr "\tAdds GDAL 2.0.0 to your environment variables."
+  puts stderr ""
 }
 
-module-whatis "adds GDAL 2.0.0 to your environment variables"
+module-whatis "Adds GDAL 2.0.0 to your environment variables. Works with Python 2."
 
 conflict gdal
 
@@ -20,7 +21,7 @@ conflict matlab
 
 prereq gcc-libs/4.9.2
 prereq perl/5.22.0
-prereq python2/recommended
+prereq python
 prereq hdf/5-1.8.15/gnu-4.9.2
 prereq netcdf/4.3.3.1/gnu-4.9.2
 
