@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+#
+# Boost 1.63.0, 64 bit with Python and MPI libraries
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This package adds the Boost 1.63.0 library to your environment."
+    puts stderr ""
+    puts stderr "This version is 64-bit with Python and MPI libraries."
+    puts stderr ""
+}
+
+module-whatis "Adds Boost 1.63.0 with Python and MPI libraries to your environment. "
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/1.10.1/gnu-4.9.2
+prereq python
+
+conflict boost
+
+set root /shared/ucl/apps/boost/1_63_0/gnu-4.9.2
+
+prepend-path LD_LIBRARY_PATH      $root/lib
+prepend-path    LIBRARY_PATH      $root/lib
+prepend-path           CPATH      $root/include
+setenv       BOOST_ROOT           $root
+setenv       BOOSTROOT            $root
+
+prepend-path CMAKE_PREFIX_PATH  $root
