@@ -26,6 +26,14 @@ prereq atlas/3.10.2/intel-2015-update2
 
 conflict nwchem
 
+if [modulefunctions::isCluster "Thomas"] {
+    puts stderr ""
+    puts stderr "WARNING: This build of NWChem doesn't work on Thomas."
+    puts stderr "         You should use the following module instead:"
+    puts stderr "         nwchem/6.6-r27746/intel-2017"
+    puts stderr ""
+}
+
 set root 			/shared/ucl/apps/nwchem/6.5-r26243-atlas/intel-2015-update2
 setenv PYTHONHOME 		/shared/ucl/apps/python/2.7.9/gnu-4.9.2
 # NWCHEM_BASIS_LIBRARY overrides .nwchemrc if that is different

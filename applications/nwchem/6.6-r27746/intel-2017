@@ -2,7 +2,7 @@
 ##
 ## NWChem 6.6 revision 27746
 ## Patched as of 2016-01-20
-##                                                      H.K. 2016
+##                                                      O.K. 2017
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -17,27 +17,17 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds NWChem 6.6 revision 27746 patched 2016-01-20 to your PATH, creates symlink to global .nwchemrc. You may need to alter/remove any old ~/.nwchemrc. Built with Python 2.7 interface and MKL with ScaLAPACK. Global .nwchemrc: /shared/ucl/apps/nwchem/6.5-r26243/intel-2015-update2/.nwchemrc"
+module-whatis "Adds NWChem 6.6 revision 27746 patched 2016-01-20 to your PATH, creates symlink to global .nwchemrc. You may need to alter/remove any old ~/.nwchemrc. Built with Python 2.7 interface and MKL with ScaLAPACK. Global .nwchemrc: /shared/ucl/apps/nwchem/6.5-r26243/intel-2017/.nwchemrc"
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel
-prereq mpi/intel
-prereq python/2.7.9
+prereq compilers/intel/2017/update1
+prereq mpi/intel/2017/update1/intel
+prereq python/2.7.12
 
 conflict nwchem
 
-if [modulefunctions::isCluster "Thomas"] {
-    puts stderr ""
-    puts stderr "WARNING: This build of NWChem doesn't work on Thomas."
-    puts stderr "         You should use the following module instead:"
-    puts stderr "         nwchem/6.6-r27746/intel-2017"
-    puts stderr ""
-}
-
-
-
-set root 			/shared/ucl/apps/nwchem/6.6-r27746/intel-2015-update2
-setenv PYTHONHOME 		/shared/ucl/apps/python/2.7.9/gnu-4.9.2
+set root 			/shared/ucl/apps/nwchem/6.6-r27746/intel-2017
+setenv PYTHONHOME 		/shared/ucl/apps/python/2.7.12/gnu-4.9.2
 # NWCHEM_BASIS_LIBRARY overrides .nwchemrc if that is different
 setenv NWCHEM_BASIS_LIBRARY 	$root/data/libraries/
 prepend-path PATH 		$root/bin
