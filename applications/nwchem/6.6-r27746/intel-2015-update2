@@ -17,7 +17,7 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds NWChem 6.6 revision 27746 patched 2016-01-20 to your PATH, creates symlink to global .nwchemrc. You may need to alter/remove any old ~/.nwchemrc. Built with Python 2.7 interface and MKL with ScaLAPACK. Global .nwchemrc: /shared/ucl/apps/nwchem/6.5-r26243/intel-2015-update2/.nwchemrc"
+module-whatis "Adds NWChem 6.6 revision 27746 patched 2016-01-20 to your PATH, creates symlink to global .nwchemrc. You may need to alter/remove any old ~/.nwchemrc. Built with Python 2.7 interface and MKL with ScaLAPACK. Global .nwchemrc: /shared/ucl/apps/nwchem/6.6-r27746/intel-2015-update2/.nwchemrc"
 
 prereq gcc-libs/4.9.2
 prereq compilers/intel
