@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## pandoc 1.19.2.1 compiled with GHC 7.8.3
+##
+## Version 1 May 2017
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds pandoc Version 1.19.2.1 to your environment."
+    puts ""
+    puts stderr "pandoc is a document converter with support for a large selection of"
+    puts stderr "document formats."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/pandoc"
+}
+
+module-whatis "Adds pandoc Version 1.19.2.1 to your environment."
+
+# Location of pandoc:
+
+set prefix /shared/ucl/apps/pandoc
+
+prereq gcc-libs/4.9.2
+conflict pandoc
+
+prepend-path PATH		$prefix/bin
