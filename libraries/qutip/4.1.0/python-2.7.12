@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+#
+#                                                      O.K. May 2017
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds qutip to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds qutip to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq python2/recommended
+
+conflict qutip
+
+set root 			/shared/ucl/apps/qutip/4.1.0
+prepend-path PYTHONPATH         $root/lib/python2.7/site-packages
