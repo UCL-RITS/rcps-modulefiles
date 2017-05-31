@@ -3,6 +3,7 @@
 # Gaussian G09-C01 with Linda and Gaussview 5
 #
 #                                                      BAA 11th December 2015
+# Uopdated: May 2017 for legg03 group.
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -29,8 +30,8 @@ prereq gcc-libs/4.9.2
 
 conflict gaussian
 
-# Check if user is in Gaussian group
-modulefunctions::isMember legg09
+# Check if user is in Gaussian group (using g03 group for old versions of g09)
+modulefunctions::isMember legg03
 
 
 # Check if TMPDIR exists - if not, use /tmp (interactive use)
