@@ -57,26 +57,25 @@ proc getClusterName { } {
 }
 
 # Check if user is in Gaussian group
-set root /shared/ucl/apps/gaussian/g09-d01
-if [modulefunctions::isModuleLoad] {
-    if [isGaussianMember legg09] {
-	set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
-    } elseif [isGaussianMember legg03] {
-	set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7_2
-    } else {
-        puts stderr ""
-        puts stderr "You are not currently a member of the reserved application group"
-        puts stderr "for this module. Please email"
-        puts stderr ""
-        puts stderr "    rc-support@ucl.ac.uk"
-        puts stderr ""
-        puts stderr "requesting access to the software."
-        puts stderr ""
-        puts stderr "=================================="
-        puts stderr ""
-    }
-	
+set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
+
+if [isGaussianMember legg09] {
+    set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
+} elseif [isGaussianMember legg03] {
+    set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7_2
+} elseif [modulefunctions::isModuleLoad]  {
+    puts stderr ""
+    puts stderr "You are not currently a member of the reserved application group"
+    puts stderr "for this module. Please email"
+    puts stderr ""
+    puts stderr "    rc-support@ucl.ac.uk"
+    puts stderr ""
+    puts stderr "requesting access to the software."
+    puts stderr ""
+    puts stderr "=================================="
+    puts stderr ""
 }
+
 
 # Check if TMPDIR exists - if not, use /tmp (interactive use)
 if [modulefunctions::isTMPDIR] {
