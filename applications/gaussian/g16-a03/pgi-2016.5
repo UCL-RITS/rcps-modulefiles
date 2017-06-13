@@ -1,0 +1,90 @@
+#%Module -*- tcl -*-
+#
+# Gaussian G16-A03 with Linda and Gaussview 6
+#
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Gaussian G16-A03 package to your environment."
+    puts stderr "Also includes Linda and Gaussview 6"
+    puts stderr ""
+}
+
+module-whatis "Adds Gaussian G16-A03 to your environment and also includes Linda and Gaussview 6"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict gaussian
+
+# Check if user is in one of the Gaussian groups
+proc isGaussianMember { group } {
+
+    set p1 [open "| /usr/bin/groups"]
+    set myGroups [read $p1]
+    if {[catch {close $p1} err]} {
+        puts stderr "groups command failed: $err"
+    }
+    if { [lsearch -exact $myGroups $group] != -1 } {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+proc getClusterName { } {
+
+    set name ""
+    set hostnames [exec hostname -A]
+    if { [string match *legion* $hostnames] == 1 } {
+        set name "Legion"
+    } elseif { [string match *grace* $hostnames] == 1 } {
+        set name "Grace"
+    } elseif { [string match *aristotle* $hostnames] == 1 } {
+        set name "Aristotle"
+    } else {
+        set name "unknown"
+    }
+    return $name
+}
+
+# Check if user is in Gaussian group
+set root /shared/ucl/apps/gaussian/g16-a03/pgi-2016.5
+
+if [isGaussianMember legg16] {
+    set root  /shared/ucl/apps/gaussian/g16-a03/pgi-2016.5
+} elseif [modulefunctions::isModuleLoad]  {
+    puts stderr ""
+    puts stderr "You are not currently a member of the reserved application group"
+    puts stderr "for this module. Please email"
+    puts stderr ""
+    puts stderr "    rc-support@ucl.ac.uk"
+    puts stderr ""
+    puts stderr "requesting access to the software."
+    puts stderr ""
+    puts stderr "=================================="
+    puts stderr ""
+}
+
+
+# Check if TMPDIR exists - if not, use /tmp (interactive use)
+if [modulefunctions::isTMPDIR] {
+    setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/[pid]
+} else {
+    setenv GAUSS_SCRDIR /tmp
+}
+
+set gv_root		/shared/ucl/apps/gaussian/gaussview
+append-path PATH      	$root/g16
+append-path PATH	$root/g16/bsd
+prepend-path PATH       $gv_root/gv6
+
+setenv g09root		$root
+setenv GAUSS_EXEDIR	$root/g16
+setenv GV_DIR		$gv_root/gv6
+setenv lindaConv	$root/linda.perl
+setenv LINDA_PATH	$root/g16/linda9.0/linux64bit/
