@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## lm-utils - license manager utilities
+##
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds utilities to check license manager status to your environment."
+}
+
+module-whatis "adds utilities to check license manager status to your environment."
+
+conflict lm-utils
+
+set prefix /shared/ucl/apps/lm-utils
+
+prepend-path PATH               $prefix/bin
