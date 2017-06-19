@@ -1,0 +1,55 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## CPMD 4.1 Intel 2017 + MPI
+##
+## Brian Alston June 2017
+##
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+  puts stderr "Adds CPMD 4.1 to your path."
+  puts stderr ""
+  puts stderr "The CPMD code is a parallelized plane wave / pseudopotential"
+  puts stderr "implementation of Density Functional Theory, particularly"
+  puts stderr "designed for ab-initio molecular dynamics."
+  puts stderr ""
+  puts stderr "CPMD is a reserved application. Access is only avaiulable"
+  puts sdterr "to users who have been granted an academic licnese for CMPD."
+  puts stderr "You can apply for a license here:"
+  puts stderr ""
+  puts stderr "    http://cpmd.org/download/cpmd-licence"
+  puts stderr ""
+  puts stderr "After obtaining a license, to be given access please email"
+  puts stderr "rc-support@ucl.ac.uk"
+  puts stderr ""  
+  puts stderr "Directory: /shared/ucl/apps/CPMD"
+}
+
+
+
+module-whatis "Adds  CPMD 4.1 to your environment."
+
+conflict cpmd
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+prereq mpi/intel
+
+# Location of CPMD
+
+set prefix /shared/ucl/apps/CPMD/4.1/Intel-MPI
+
+# on load, check if user is in the correct group for CPMD
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legcpmd"     
+}
+
+prepend-path PATH		$prefix/bin
