@@ -1,0 +1,51 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## ABAQUS 2017
+##
+## Brian Alston June 2017
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+  puts stderr "Adds Abaqus 2017 to your path."
+  puts stderr ""
+  puts stderr "Abaqus is a commercial software suite for finite"
+  puts stderr "element analysis and computer-aided engineering"
+  puts stderr ""
+  puts stderr "Abaqus is a reserved applications. Access is"
+  puts stderr "controlled by membership of the abaqus group. To be given"
+  puts stderr "access to these applications please email rc-support@ucl.ac.uk"
+  puts stderr ""  
+  puts stderr "Directory: /shared/ucl/apps/ABAQUS/2017"
+}
+
+
+
+module-whatis "Adds Abaqus 2017 to your environment."
+
+conflict abaqus
+
+prereq gcc-libs/4.9.2
+
+# Location of STAR-CCM+:
+
+set prefix /shared/ucl/apps/ABAQUS/2017
+
+# on load, check if user is in the correct group for Abaqus
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legabq"     
+}
+
+# Set location of Mech Eng licence manager
+prepend-path LM_LICENSE_FILE   27004@ntsrv1.meng.ucl.ac.uk
+
+prepend-path PATH		$prefix/Commands
+
+
