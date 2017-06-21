@@ -6,6 +6,7 @@
 ##
 ## Brian Alston June 2017
 ##
+##
 
 # New Legion modules layout
 
@@ -47,5 +48,3 @@ if [modulefunctions::isModuleLoad] {
 prepend-path LM_LICENSE_FILE   27004@ntsrv1.meng.ucl.ac.uk
 
 prepend-path PATH		$prefix/Commands
-
-
