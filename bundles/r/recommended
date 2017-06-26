@@ -1,6 +1,6 @@
 #%Module -*- tcl -*-
 ##
-## Recommended R bundle - version for R 3.3.2
+## Recommended R bundle - version for R 3.4.0 and Bioconductor 3.5
 ##
 ## Version 1.5 by BAA on Legion on 11-10-2016
 ## Moved to recommended 11th July 2016
@@ -8,11 +8,13 @@
 ## Updated to include GLPK October 2016
 ## Updated for R 3.3.2 and R packages rgdal and rgeos November 2016
 ## Updated for RNetCDF package December 2016
+## Updated for R 3.4.0 and Bioconductor 3.5 May 2017
 ##
-## Installed as current recommended R bundle 30th January 2017.
+## Installed as current recommended R bundle 26th June 2017.
+
 
 proc ModulesHelp { } {
-    puts stderr "This module adds the R 3.3.2 and Bioconductor 3.4 package to your environment."
+    puts stderr "This module adds the R 3.4.0 and Bioconductor 3.5 package to your environment."
     puts stderr ""
     puts stderr "This module also adds other modules as required."
     puts stderr ""
@@ -24,7 +26,7 @@ module-whatis "adds UCL recommended set of R packages to your environment variab
 module load gcc-libs/4.9.2            
 module load compilers/gnu/4.9.2 
 module load openblas/0.2.14/gnu-4.9.2
-module load mpi/openmpi/1.8.4/gnu-4.9.2
+module load mpi/openmpi/1.10.1/gnu-4.9.2
 module load java/1.8.0_92
 module load fftw/3.3.4/gnu-4.9.2
 module load ghostscript/9.19/gnu-4.9.2
@@ -45,4 +47,4 @@ module load gdal/2.0.0
 module load gmt/recommended
 module load proj.4/4.9.1
 module load geos/3.5.0/gnu-4.9.2
-module load r/3.3.2-openblas/gnu-4.9.2
+module load r/3.4.0-openblas/gnu-4.9.2
