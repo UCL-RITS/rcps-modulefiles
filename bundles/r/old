@@ -16,6 +16,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "This module also adds other modules as required."
     puts stderr ""
+    puts stderr "Installed as r/old bundle 26th June 2017."
     puts stderr ""
 }
 
