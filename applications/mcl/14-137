@@ -13,7 +13,7 @@ prereq gcc-libs/4.9.2
 
 conflict mcl
 
-set              prefix               /shared/ucl/apps/mcl/14-13
+set              prefix               /shared/ucl/apps/mcl/14-137
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
