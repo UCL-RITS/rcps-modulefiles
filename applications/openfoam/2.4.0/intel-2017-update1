@@ -16,8 +16,8 @@ module-whatis "Adds OpenFOAM 2.4.0 to your environment"
 
 conflict lammps
 prereq gcc-libs/4.9.2
-prereq compilers/intel
-prereq mpi/intel
+prereq compilers/intel/2015/update2
+prereq mpi/intel/2017/update1/intel
 prereq python/2.7.9
 prereq boost/1_54_0/mpi/intel-2015-update2
 
@@ -42,7 +42,7 @@ setenv           FOAM_INST_DIR     $oftop
 setenv           FOAM_JOB_DIR      $local/jobControl
 setenv           FOAM_LIBBIN       $root/platforms/linux64IccDPOpt/lib
 
-setenv           FOAM_MPI          5.0.3.048
+setenv           FOAM_MPI          2017.1.132
 
 setenv           FOAM_RUN          $local/run
 
@@ -61,9 +61,9 @@ setenv           FOAM_USER_LIBBIN  $local/platforms/linux64IccDPOpt/lib
 
 setenv           FOAM_UTILITIES    $root/applications/utilities
 
-setenv           MPI_ARCH_PATH     /shared/ucl/apps/intel/2015/impi/5.0.3.048
+setenv           MPI_ARCH_PATH     /shared/ucl/apps/intel/2017.Update1/impi/2017.1.132
 setenv           MPI_BUFFER_SIZE   20000000
-setenv           MPI_ROOT          /shared/ucl/apps/intel/2015/impi/5.0.3.048
+setenv           MPI_ROOT          /shared/ucl/apps/intel/2017.Update1/impi/2017.1.132
 
 setenv           ParaView_DIR      $tproot/platforms/linux64Icc/ParaView-4.1.0
 setenv           ParaView_INCLUDE_DIR  $tproot/platforms/linux64Icc/ParaView-4.1.0/include/paraview-4.1
@@ -114,21 +114,21 @@ prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/CGAL-4.3/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/gperftools-svn/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64Icc/ParaView-4.1.0/lib/paraview-4.1
-prepend-path     LD_RUN_PATH       $tproot/platforms/linux64IccDPOpt/lib/5.0.3.048
+prepend-path     LD_RUN_PATH       $tproot/platforms/linux64IccDPOpt/lib/2017.1.132
 prepend-path     LD_RUN_PATH       $local/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $oftop/site/2.4.0/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib
 prepend-path     LD_RUN_PATH       $tproot/platforms/linux64IccDPOpt/lib
-prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/5.0.3.048
+prepend-path     LD_RUN_PATH       $root/platforms/linux64IccDPOpt/lib/2017.1.132
 
 prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/dummy
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/CGAL-4.3/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/gperftools-svn/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64Icc/ParaView-4.1.0/lib/paraview-4.1
-prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64IccDPOpt/lib/5.0.3.048
+prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64IccDPOpt/lib/2017.1.132
 prepend-path     LD_LIBRARY_PATH       $local/platforms/linux64IccDPOpt/lib
 prepend-path     LD_LIBRARY_PATH       $oftop/site/2.4.0/platforms/linux64IccDPOpt/lib
 prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib
 prepend-path     LD_LIBRARY_PATH       $tproot/platforms/linux64IccDPOpt/lib
-prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/5.0.3.048
+prepend-path     LD_LIBRARY_PATH       $root/platforms/linux64IccDPOpt/lib/2017.1.132
 
