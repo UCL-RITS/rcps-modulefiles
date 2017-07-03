@@ -14,7 +14,7 @@ prereq leptonica/1.74.4
 
 conflict tesseract
 
-set              prefix               /shared/ucl/apps/leptonica/1.74.4
+set              prefix               /shared/ucl/apps/tesseract/3.05.01
 
 setenv           TESSDATA_PREFIX      $prefix/tessdata
 
