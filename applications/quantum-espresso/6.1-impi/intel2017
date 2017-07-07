@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## quantum-espresso
+##
+
+set module_name quantum-espresso
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds quantum-espresso 6.1 to your environment.}
+
+}
+
+module-whatis {Adds quantum-espresso 6.1 to your environment.}
+
+prereq compilers/intel/2017
+prereq mpi/intel/2017
+prereq xorg-utils
+
+conflict quantum-espresso
+
+set root /shared/ucl/apps/quantum-espresso/6.1/intel-2017
+
+prepend-path PATH $root/bin
+
+if { [info exists ::env(TMPDIR) ] } {
+  setenv ESPRESSO_TMPDIR $::env(TMPDIR)
+} else {
+  setenv ESPRESSO_TMPDIR /tmp
+}
+
+setenv PWGUI $root/PWgui-6.1
+
