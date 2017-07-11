@@ -21,7 +21,7 @@ prereq mesa/13.0.6/gnu-4.9.2
 conflict glbinding
 
 set              prefix               /shared/ucl/apps/glbinding/2.1.2/gnu-4.9.2
-
+prepend-path CMAKE_PREFIX_PATH $prefix
 
 if { [file isdirectory $prefix/bin] } then {
   prepend-path      PATH                 $prefix/bin
