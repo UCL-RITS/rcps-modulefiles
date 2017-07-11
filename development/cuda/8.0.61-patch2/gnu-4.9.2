@@ -19,7 +19,7 @@ prereq compilers/gnu/4.9.2
 conflict cuda
 
 set              prefix               /shared/ucl/apps/cuda/8.0.61/gnu-4.9.2
-set              OpenCL_INCLUDE_DIR   $prefix/include/CL
+setenv              OpenCL_INCLUDE_DIR   $prefix/include/CL
 
 prepend-path PATH $prefix/libnsight
 
