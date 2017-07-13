@@ -29,7 +29,8 @@ prereq cuda/8.0.61-patch2/gnu-4.9.2
 
 conflict arrayfire
 
-set              prefix               /shared/ucl/apps/arrayfire/3.5.0/gnu-4.9.2
+set              prefix               /shared/ucl/apps/arrayfire/3.5.0/gnu-4.9.2/cuda-8.061
+
 prepend-path CMAKE_PREFIX_PATH $prefix
 
 if { [file isdirectory $prefix/bin] } then {
