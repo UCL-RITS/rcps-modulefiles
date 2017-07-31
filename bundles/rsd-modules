@@ -1,0 +1,18 @@
+#%Module
+#
+# RSD Legion Modules 
+#
+#                                                      O.K. 31/July/2017
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Research Software Development supported modules to your environment."
+    puts stderr ""
+    puts stderr "These modules are supported by the Research Software Development team (rc-softdev@ucl.ac.uk)."
+    puts stderr ""
+}
+
+module-whatis "Adds Research Software Development supported modules to your environment."
+
+module           use --append /shared/ucl/apps/rsd/modulefiles
+
