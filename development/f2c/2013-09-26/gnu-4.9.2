@@ -18,6 +18,12 @@ conflict f2c
 
 set              prefix               /shared/ucl/apps/f2c/2013-09-26/gnu-4.9.2
 
+if { [ module-info mode load ] } {
+    puts stderr "Warning: f2c is not standards-compliant and is not recommended for use under any circumstances."
+    puts stderr "         It may produce erratic code due to very liberal type-checking in the Fortran input."
+    puts stderr "         Please only use this if you have legacy code that will not compile any other way."
+}
+
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 
