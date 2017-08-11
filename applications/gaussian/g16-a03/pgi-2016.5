@@ -74,7 +74,7 @@ if [isGaussianMember legg16] {
 # systemd will wipe these files when no active sessions remain.
 if [modulefunctions::isTMPDIR] {
     setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/[pid]
-} else if [modulefunctions::isCluster "Aristotle"] {
+} elseif [modulefunctions::isCluster "Aristotle"] {
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 } else {
     puts stderr "The main Gaussian executable (g16) is too resource-intensive"     

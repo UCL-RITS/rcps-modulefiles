@@ -81,7 +81,7 @@ if [isGaussianMember legg09] {
 # systemd will wipe these files when no active sessions remain.
 if [modulefunctions::isTMPDIR] {
     setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/[pid]
-} else if [modulefunctions::isCluster "Aristotle"] {
+} elseif [modulefunctions::isCluster "Aristotle"] {
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 } else {
     puts stderr "The main Gaussian executable (g09) is too resource-intensive" 
