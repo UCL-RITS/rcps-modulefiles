@@ -5,6 +5,7 @@
 ## ABAQUS 2017
 ##
 ## Brian Alston June 2017
+## Updated August 2017 to include reserved appp group check
 ##
 ##
 
@@ -24,7 +25,8 @@ proc ModulesHelp { } {
   puts stderr "paid and managed by Mechanical Engineering. Access"
   puts stderr "is controlled by membership of the abaqus group."
   puts stderr "To be given access to these applications please"
-  puts stderr "email rc-support@ucl.ac.uk"
+  puts stderr "email rc-support@ucl.ac.uk - Note: you will need"
+  puts stderr "authorisation from Mech Eng"
   puts stderr ""  
   puts stderr "Directory: /shared/ucl/apps/ABAQUS/2017"
 }
@@ -37,14 +39,14 @@ conflict abaqus
 
 prereq gcc-libs/4.9.2
 
-# Location of STAR-CCM+:
+# Location of ABAQUS:
 
 set prefix /shared/ucl/apps/ABAQUS/2017
 
 # on load, check if user is in the correct group for Abaqus
-# if [modulefunctions::isModuleLoad] {
-#    modulefunctions::isMember "legabq"     
-# }
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legabq"     
+}
 
 # Set location of Mech Eng licence manager
 prepend-path LM_LICENSE_FILE   27004@ntsrv1.meng.ucl.ac.uk
