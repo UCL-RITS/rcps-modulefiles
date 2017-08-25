@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## SIESTA with Intel compiler, MPI, MKL
+##
+
+set module_name siesta
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds SIESTA 4.0.1 to your environment.}
+
+}
+
+module-whatis {Adds SIESTA 4.0.1 to your environment.}
+
+prereq gcc-libs
+prereq compilers/intel/2017/update4
+prereq mpi/intel/2017/update3/intel
+
+conflict siesta
+
+set root /shared/ucl/apps/siesta/4.0.1/intel-2017/siesta-4.0.1/
+
+prepend-path PATH $root/Obj
+
