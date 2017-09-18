@@ -14,8 +14,8 @@ proc ModulesHelp { } {
 module-whatis {Adds SIESTA 4.0.1 to your environment.}
 
 prereq gcc-libs
-prereq compilers/intel/2017/update4
-prereq mpi/intel/2017/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict siesta
 
