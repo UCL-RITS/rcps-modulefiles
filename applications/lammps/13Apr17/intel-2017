@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## LAMMPS 13Apr17 with additional packages kspace, replica, rigid, class2
+##
+## Built Sept 2017
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS 13Apr17 package to your environment."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines.  This version has been "
+    puts stderr "built as a binary (\"lmp_default\")"
+    puts stderr ""
+    puts stderr "Please note that you must have the Intel MPI and compilers "
+    puts stderr "loaded for this version of LAMMPS to work."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 13Apr17 to your environment. Binary is lmp_default."
+
+
+conflict lammps
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+prereq mpi/intel
+
+set              root              /shared/ucl/apps/lammps/13Apr17/intel-2017/lammps-13Apr17
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
