@@ -1,0 +1,58 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Gurobi Optimizer 7.5.1
+##
+## Brian Alston October 2017
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds Gurobi 7.5.1 to your environment."
+    puts stderr ""
+    puts stderr "The Gurobi Optimizer is a solver for mathematical programming."
+    puts stderr "Solvers are included for the following:"
+    puts stderr ""
+    puts stderr "linear programming solver (LP)"
+    puts stderr "mixed-integer linear programming solver (MILP)"
+    puts stderr "quadratic programming solver (QP)"
+    puts stderr "mixed-integer quadratic programming solver (MIQP)"
+    puts stderr "quadratically constrained programming solver (QCP)"
+    puts stderr "mixed-integer quadratically constrained programming solver (MIQCP)"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Gurobi"
+}
+
+module-whatis "Adds Gurobi 7.5.1 to your environment."
+
+# Location of Gurobi:
+
+set prefix /shared/ucl/apps/Gurobi
+prereq gcc-libs/4.9.2
+
+conflict gurobi
+
+setenv GUROBI_HOME $prefix/gurobi751/linux64
+prepend-path PATH $prefix/gurobi751/linux64/bin
+prepend-path LD_LIBRARY_PATH $prefix/gurobi751/linux64/lib
+setenv GRB_LICENSE_FILE $prefix/gurobi.lic
+
+# if { [modulefunctions::isModuleLoad] } {
+#     if { [modulefunctions::createDir $parPrefsDir] } {
+#     	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/# Preferences.m
+#     } else {
+#     	puts stderr ""
+#     	puts stderr "Problem setting up Parallel Kernel perfs directory."
+#    	puts stderr ""
+#     }
+# }
+
+if { ! [info exists ::env(OMP_NUM_THREADS)]} {
+    setenv  OMP_NUM_THREADS 	4
+}
