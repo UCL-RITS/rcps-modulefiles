@@ -32,8 +32,9 @@ set              home              $::env(HOME)
 set              vname             [ file readlink $root ]  
 set              realroot          $base/$vname
 
+# Having VIRTUAL_ENV set breaks iPython - removing for now.
 #setenv           VIRTUAL_ENV       $root/venv
-setenv           VIRTUAL_ENV       $realroot/venv
+#setenv           VIRTUAL_ENV       $realroot/venv
 
 prepend-path     PATH              $root/venv/bin
 
