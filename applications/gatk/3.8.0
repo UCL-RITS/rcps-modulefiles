@@ -34,7 +34,7 @@ if [modulefunctions::isModuleLoad] {
     modulefunctions::isMember "leggatk"     
 }
 
-set prefix /shared/ucl/apps/gatk/3.8.0
+set prefix /shared/ucl/apps/gatk/3.8-0
 
 setenv       GATKPATH            $prefix
 prepend-path PATH                $prefix
