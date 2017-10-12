@@ -23,7 +23,7 @@ set              oftop             /shared/ucl/apps/openfoamplus/v1706/gnu-4.9.2
 set              root              $oftop/OpenFOAM-v1706
 set              mod_third_dir     $oftop/ThirdParty-v1706
 set p1 [open "| /usr/bin/whoami"]
-set userid [read $p1]
+set userid [string trim [read $p1]]
 if {[catch {close $p1} err]} {
         puts stderr "whoami command failed: $err"
 }
