@@ -40,10 +40,6 @@ if { [file isdirectory $prefix/lib] } then {
   prepend-path      LD_LIBRARY_PATH      $prefix/lib
 }
 
-if { [file isdirectory $prefix/lib] } then {
-  setenv            SBCL_HOME            $prefix/lib/sbcl
-}
-
 
 if { [file isdirectory $prefix/lib64] } then {
   prepend-path      LIBRARY_PATH         $prefix/lib64
