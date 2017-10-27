@@ -25,7 +25,7 @@ set prefix /shared/ucl/apps/Nektar++/4.3.5/intel
 prereq rcps-core/1.0.0
 prereq compilers/intel
 prereq mpi/intel
-prereq python3/recommended
+prereq python3/3.5
 prereq openblas/0.2.14/intel-2015-update2
 prereq boost/1_54_0/mpi/intel-2015-update2
 prereq fftw/3.3.4/intel-2015-update2
