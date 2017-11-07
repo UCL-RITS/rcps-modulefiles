@@ -30,6 +30,6 @@ if { $python_ver=="3.6" } {prereq python3/3.6}
 conflict mpi4py
 
 set root                        /shared/ucl/apps/mpi4py/2.0.0/gnu-4.9.2/python$python_ver
-prepend-path PYTHONPATH         $root/lib/python3.5/site-packages
+prepend-path PYTHONPATH         $root/lib/python$python_ver/site-packages
 prepend-path CMAKE_PREFIX_PATH	$root
 
