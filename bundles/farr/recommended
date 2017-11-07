@@ -18,6 +18,6 @@ module load trimmomatic/0.33
 module load samtools/1.2/gnu-4.9.2
 module load bambamc/0.0.50/gnu-4.9.2
 module load smalt/0.7.6/gnu-4.9.2
-module load python3/3.5
+module load python3/recommended
 module load iva/1.0.0
 
