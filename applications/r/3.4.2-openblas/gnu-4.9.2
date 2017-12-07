@@ -60,6 +60,18 @@ append-path PATH                $prefix/lib64/R/library/snow
 # Databases need to be stored on Lustre not NFS
 setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.4.2-OpenBLAS/library
 
+# Fix OpenMPI in single node Rmpi
+# Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
+if { [info exists ::env(NHOSTS)] } {
+        if { $::env(NHOSTS) == 1} {
+          setenv OMPI_MCA_btl tcp,sm,self
+          setenv OMPI_MCA_pml ob1
+        }
+} else {
+    setenv OMPI_MCA_btl tcp,sm,self
+    setenv OMPI_MCA_pml ob1
+}
+
 # Set environment for non-interactive R (running in a job) to improve calculation
 # performance
 
