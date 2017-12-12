@@ -14,6 +14,8 @@ module-whatis "adds Python 3.5.2 with pip and virtualenv to your environment var
 conflict python
 prereq gcc-libs/4.9.2
 
+setenv           PYTHON_VERSION_TAG   3.5
+
 set              root              /shared/ucl/apps/python/3.5.2/gnu-4.9.2
 
 prepend-path     PATH              $root/bin

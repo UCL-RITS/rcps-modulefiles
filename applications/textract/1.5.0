@@ -13,11 +13,20 @@ proc ModulesHelp { } {
 module-whatis {Adds textract 1.5.0 to your environment. textract extracts text from a wide range of document types.}
 
 prereq gcc-libs/4.9.2
-prereq python/3.5.2
+
+set python_ver 3.5
+
+if { [info exists ::env(PYTHON_VERSION_TAG)] } {
+   set python_ver $::env(PYTHON_VERSION_TAG)
+}
+
+if { $python_ver=="3.5" } {prereq python3/3.5}
+if { $python_ver=="3.6" } {prereq python3/3.6}
+
 
 conflict textract
 
-set              prefix               /no/prefix/given
+set              prefix       /shared/ucl/apps/textract/1.5.0/python$python_ver       
 
-prepend-path PATH /shared/ucl/apps/textract/1.5.0/bin
-prepend-path PYTHONPATH /shared/ucl/apps/textract/1.5.0/lib/python3.5/site-packages
+prepend-path PATH $prefix/bin
+prepend-path PYTHONPATH $prefix/lib/python$python_ver/site-packages

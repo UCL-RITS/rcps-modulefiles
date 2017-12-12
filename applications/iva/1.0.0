@@ -3,6 +3,7 @@
 # IVA 1.0.0 
 #
 #                                                      H.K. Sept 2015
+# Ported to work with multiple Pythons by O.K, Halloween 2017
 
 proc ModulesHelp { } {
 
@@ -13,6 +14,15 @@ proc ModulesHelp { } {
 
 module-whatis "Adds IVA 1.0.0 to your environment."
 
+set python_ver 3.5
+
+if { [info exists ::env(PYTHON_VERSION_TAG)] } {
+   set python_ver $::env(PYTHON_VERSION_TAG)
+}
+
+if { $python_ver=="3.5" } {prereq python3/3.5}
+if { $python_ver=="3.6" } {prereq python3/3.6}
+
 # Add binary to PATH
 prereq gcc-libs/4.9.2
 prereq openblas/0.2.14/gnu-4.9.2
@@ -22,10 +32,9 @@ prereq trimmomatic/0.33
 prereq samtools/1.2/gnu-4.9.2
 prereq bambamc/0.0.50/gnu-4.9.2
 prereq smalt/0.7.6/gnu-4.9.2
-prereq python3/3.5
 
 conflict iva
 
-set root 			/shared/ucl/apps/iva/1.0.0/python3.5
+set root 			/shared/ucl/apps/iva/1.0.0/python$python_ver
 prepend-path PATH    		$root/bin
-prepend-path PYTHONPATH         $root/lib/python3.5/site-packages
+prepend-path PYTHONPATH         $root/lib/python$python_ver/site-packages

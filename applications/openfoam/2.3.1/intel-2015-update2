@@ -13,7 +13,8 @@ proc ModulesHelp { } {
 module-whatis "Adds OpenFOAM 2.3.1 to your environment"
 
 
-conflict lammps
+conflict openfoam
+conflict openfoamplus
 prereq gcc-libs/4.9.2
 prereq compilers/intel
 prereq mpi/intel

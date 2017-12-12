@@ -1,0 +1,41 @@
+#%Module -*- tcl -*-
+#
+# GATK 3.8.0
+#
+#                                                      O.K. 12th Oct 2017
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds GATK 3.8.0 to your environment."
+    puts stderr "The Genome Analysis Toolkit or GATK is a software package developed" 
+    puts stderr "at the Broad Institute to analyze high-throughput sequencing data."
+    puts stderr "Website: https://www.broadinstitute.org/gatk/index.php"
+    puts stderr ""
+    puts stderr "To run GATK tools, prefix the .jar you want to run with \$GATKPATH"
+    puts stderr "e.g."
+    puts stderr "java -Xmx2g -jar \$GATKPATH/GenomeAnalysisTK.jar OPTION1=value1 OPTION2=value2..."
+    puts stderr ""
+    puts stderr "Wrappers are also provided, so you can run:"
+    puts stderr "GenomeAnalysisTK OPTION1=value1 OPTION2=value2..."
+    puts stderr "Which is the equivalent of the previous example."
+    puts stderr ""
+}
+
+module-whatis "Adds GATK 3.8.0 to your environment. The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data. Website: https://www.broadinstitute.org/gatk/index.php"
+
+conflict gatk
+prereq gcc-libs/4.9.2
+#prereq java/1.8.0_45 		not presently compatible with java 1.8
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "leggatk"     
+}
+
+set prefix /shared/ucl/apps/gatk/3.8-0
+
+setenv       GATKPATH            $prefix
+prepend-path PATH                $prefix
+

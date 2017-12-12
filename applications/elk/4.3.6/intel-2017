@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## Elk 4.3.6 
+## Built Nov 2017
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Elk 4.3.6 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Elk 4.3.6 to your environment. Binary is elk."
+
+
+conflict elk
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2017/update1
+prereq mpi/intel/2017/update1/intel
+
+set              root              /shared/ucl/apps/elk/4.3.6/intel-2017/elk-4.3.6
+
+prepend-path     PATH              $root/src
