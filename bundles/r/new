@@ -48,4 +48,4 @@ module load geos/3.5.0/gnu-4.9.2
 module load protobuf/12-2017/gnu-4.9.2
 module load jq/1.5/gnu-4.9.2
 
-module load r/3.4.0-openblas/gnu-4.9.2
+module load r/3.4.2-openblas/gnu-4.9.2
