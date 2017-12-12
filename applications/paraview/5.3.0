@@ -16,6 +16,7 @@ module-whatis "This module adds the ParaView 5.3.0 binaries to your environment.
 prereq gcc-libs/4.9.2
 prereq llvm
 prereq mesa/13.0.6/gnu-4.9.2
+prereq xorg-utils
 
 conflict paraview
 
