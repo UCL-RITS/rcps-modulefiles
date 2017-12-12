@@ -1,0 +1,50 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## deep_earth - Module bundle for Earth Sciences GEOLM037 GEOLGG23 
+##
+## V1.0 Brian Alston December 2017 
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Sets up VASP, Gnuplot etc for Earth Sciences Course module"
+    puts stderr "GEOLM037_GEOLGG23 Deep Earth"
+    puts stderr ""
+}
+
+module-whatis "Sets up VASP, Gnuplot etc for Earth Sciences"
+
+module load vasp/5.4.4-18apr2017/intel-2017-update1
+module load gnuplot/5.0.1
+module load phon/1.43/gnu-4.9.2
+
+set VASPpath /shared/ucl/apps/vasp/5.4.4-18apr2017/intel-2017/bin
+
+# We are mostly going to use symlinks and not aliases as aliases do not work in
+# scripts
+
+if [modulefunctions::isModuleLoad] {
+    # Create ~/bin directory for user if they don't have one.
+    set userBin "~/bin"
+    modulefunctions::createDir $userBin
+    modulefunctions::createSymlink $userBin/vasp $VASPpath/vasp_std
+    modulefunctions::createSymlink $userBin/more /usr/bin/less
+}
+
+prepend-path PATH $userBin
+
+
+
+
+
+
+
+
+
+
