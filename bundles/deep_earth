@@ -25,19 +25,20 @@ module load gnuplot/5.0.1
 module load phon/1.43/gnu-4.9.2
 
 set VASPpath /shared/ucl/apps/vasp/5.4.4-18apr2017/intel-2017/bin
+set userBin "~/bin"
 
 # We are mostly going to use symlinks and not aliases as aliases do not work in
 # scripts
 
 if [modulefunctions::isModuleLoad] {
     # Create ~/bin directory for user if they don't have one.
-    set userBin "~/bin"
     modulefunctions::createDir $userBin
     modulefunctions::createSymlink $userBin/vasp $VASPpath/vasp_std
     modulefunctions::createSymlink $userBin/more /usr/bin/less
 }
 
 prepend-path PATH $userBin
+prepend-path PATH .
 
 set-alias ls "ls -CF"
 set-alias back "$OLDPWD; cd $back; unset back; dirs"
