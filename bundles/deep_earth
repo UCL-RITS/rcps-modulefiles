@@ -37,7 +37,7 @@ if [modulefunctions::isModuleLoad] {
     modulefunctions::createSymlink $userBin/more /usr/bin/less
 }
 
-prepend-path PATH $userBin
+prepend-path PATH ~/bin
 prepend-path PATH .
 
 set-alias ls "ls -CF"
