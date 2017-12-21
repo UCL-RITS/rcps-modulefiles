@@ -39,7 +39,8 @@ if [modulefunctions::isModuleLoad] {
 
 prepend-path PATH $userBin
 
-
+set-alias ls "ls -CF"
+set-alias back "$OLDPWD; cd $back; unset back; dirs"
 
 
 
