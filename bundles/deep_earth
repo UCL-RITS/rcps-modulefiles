@@ -40,7 +40,7 @@ if [modulefunctions::isModuleLoad] {
 prepend-path PATH ~/bin
 prepend-path PATH .
 
-setenv PS1 "'\h \w> '"
+setenv PS1 "'\\h \\w> '"
 
 set-alias ls "ls --color=auto -CF"
 set-alias back "back=\$OLDPWD\; cd \$back\; unset back\; dirs"
