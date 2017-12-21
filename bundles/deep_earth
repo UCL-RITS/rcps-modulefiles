@@ -41,7 +41,7 @@ prepend-path PATH ~/bin
 prepend-path PATH .
 
 set-alias ls "ls -CF"
-set-alias back '$OLDPWD; cd $back; unset back; dirs'
+set-alias back 'back=\$OLDPWD; cd \$back; unset back; dirs'
 
 
 
