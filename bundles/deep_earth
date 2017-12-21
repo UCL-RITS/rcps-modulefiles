@@ -35,12 +35,12 @@ if [modulefunctions::isModuleLoad] {
     modulefunctions::createDir $userBin
     modulefunctions::createSymlink $userBin/vasp $VASPpath/vasp_std
     modulefunctions::createSymlink $userBin/more /usr/bin/less
+    setenv PS1 "\\h \\w> "
 }
 
 prepend-path PATH ~/bin
 prepend-path PATH .
 
-setenv PS1 "\\h \\w> "
 
 set-alias ls "ls --color=auto -CF"
 set-alias back "back=\$OLDPWD\; cd \$back\; unset back\; dirs"
