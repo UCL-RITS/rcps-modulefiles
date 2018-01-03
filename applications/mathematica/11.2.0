@@ -1,0 +1,93 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Mathematica 11.2.0
+##
+## Brian Alston January 2018
+##
+## Added installation of UCL Parallel Kernels Prefs file if user doesn't have one.
+## Updated for Mathematica 10.2 (very minor change of version numbers).
+## Updated for Mathematica 10.4 March 2016 (minor changes)
+## Updated for Mathematica 11.0.0 September 2016
+## Updated for Mathematica 11.0.1 October 2016
+## Updated to install USERBASE files from Tunnel for multi-node support - Jan 2017
+## Updated for Mathematica 11.2 January 2018
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds Mathematica 11.2 to your environment."
+    puts stderr ""
+    puts stderr "Mathematica is a general purpose package and language for"
+    puts stderr "mathematical applications. It can be used for numerical"
+    puts stderr "calculations, symbolic computation and visualization."
+    puts stderr "Mathematica supports numbers of any precision."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Mathematica/11.2"
+}
+
+module-whatis "Adds Mathematica 11.2 to your environment."
+
+# Location of Mathematica:
+
+set version 11.2
+set prefix /shared/ucl/apps/Mathematica/$version
+set userBase ~/Scratch/.Mathematica/$version
+prereq gcc-libs/4.9.2
+
+conflict mathematica
+
+prepend-path	PATH			$prefix/bin
+setenv 		MATHEMATICA_BASE	$prefix/share
+setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica/$version
+
+set parPrefsDir $userBase/ApplicationData/Parallel/Preferences
+set FrontEndDir $userBase/FrontEnd
+set ccspappDir /home/ccspapp/Scratch/.Mathematica/11.0.1/FrontEnd
+
+# Set up parallel preferences and Tunnel multi-node support 
+
+if { [modulefunctions::isModuleLoad] } {
+    if { [modulefunctions::createDir $parPrefsDir] } {
+	#
+	# This needs to be disabled for Tunnel to work correctly.
+	#    	modulefunctions::copySource $prefix/../UCL/Parallel_Preferences.m_UCL $parPrefsDir/Preferences.m
+	puts stderr ""
+    } else {
+    	puts stderr ""
+    	puts stderr "Problem setting up Parallel Kernel perfs directory."
+    	puts stderr ""
+    }
+    if { [modulefunctions::createDir $FrontEndDir] } {
+
+	# These two Tunnel scripts need to be in users' USERBASE directories.
+	modulefunctions::copySource $ccspappDir/tunnel.sh $FrontEndDir/tunnel.sh
+	modulefunctions::copySource $ccspappDir/tunnel_sub.sh $FrontEndDir/tunnel_sub.sh
+    } else {
+    	puts stderr ""
+    	puts stderr "Problem copying USERBASE Tunnel scripts from ccspapp."
+    	puts stderr ""
+    }	
+}
+
+if { ! [info exists ::env(OMP_NUM_THREADS)]} {
+    setenv  OMP_NUM_THREADS 	4
+}
+
+if { [modulefunctions::isModuleLoad] } {
+    if {[info exists ::env(DISPLAY)]} {
+	puts stderr ""
+	puts stderr "When running the Notebook interface you may need to start Mathematica"
+	puts stderr "using:"
+	puts stderr "        mathematica -mesa"
+	puts stderr ""
+	puts stderr "to aviod possible issues with your X server!"
+	puts stderr ""
+    }
+}
