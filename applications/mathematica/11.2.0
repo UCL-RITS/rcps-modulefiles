@@ -41,6 +41,9 @@ set prefix /shared/ucl/apps/Mathematica/$version
 set userBase ~/Scratch/.Mathematica/$version
 prereq gcc-libs/4.9.2
 
+# Required from Mathematica 11.2
+prereq xorg-utils/X11R7.7
+
 conflict mathematica
 
 prepend-path	PATH			$prefix/bin
