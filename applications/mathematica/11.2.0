@@ -49,7 +49,7 @@ setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica/$version
 
 set parPrefsDir $userBase/ApplicationData/Parallel/Preferences
 set FrontEndDir $userBase/FrontEnd
-set ccspappDir /home/ccspapp/Scratch/.Mathematica/11.0.1/FrontEnd
+set ccspappDir /home/ccspapp/Scratch/.Mathematica/$version/FrontEnd
 
 # Set up parallel preferences and Tunnel multi-node support 
 
