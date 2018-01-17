@@ -41,7 +41,17 @@ conflict gurobi
 setenv GUROBI_HOME $prefix/gurobi751/linux64
 prepend-path PATH $prefix/gurobi751/linux64/bin
 prepend-path LD_LIBRARY_PATH $prefix/gurobi751/linux64/lib
-setenv GRB_LICENSE_FILE $prefix/gurobi.lic
+
+set name Legion
+if [modulefunctions::isCluster $name] {
+
+    # Use the internal Legion license server
+    setenv GRB_LICENSE_FILE $prefix/gurobi.lic
+} else {
+
+    # Use the UCL wide lciense server
+    setenv GRB_LICENSE_FILE $prefix/gurobi_aristotle.lic
+}
 
 # if { [modulefunctions::isModuleLoad] } {
 #     if { [modulefunctions::createDir $parPrefsDir] } {
