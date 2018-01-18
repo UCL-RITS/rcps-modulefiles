@@ -12,6 +12,7 @@
 # access to the licence manager - April 2016 - BAA
 # Updated for ANSYS 17.2                Sept 2016 BAA
 # Updated for ANSYS 18.0                Feb 2017 BAA
+# Updated for coupled field analysis paths    Jan 2018 BAA
 
 
 proc ModulesHelp { } {
@@ -40,6 +41,11 @@ prepend-path PATH      	$prefix/ucl/bin
 
 # Added for ANSYS 18 to add products like ANSYS Mechanical APDL 
 prepend-path PATH       $prefix/v180/ansys/bin
+
+# Added for coupled field analysis
+prepend-path PATH       $prefix/v180/aisol
+prepend-path PATH       $prefix/v180/aisol/bin/linx64
+prepend-path PATH       $prefix/v180/aisol/CommonFiles/linx64
 
 prepend-path LM_LICENSE_FILE	1055@lic-ansys.ucl.ac.uk
 
