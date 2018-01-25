@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# tree 1.7.0
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds tree 1.7.0 to your environment."
+    puts stderr "Tree shows your directory structure as a tree."
+    puts stderr ""
+
+}
+
+module-whatis "Adds tree 1.7.0 to your environment. This shows your directory structure as a tree."
+
+prereq gcc-libs/4.9.2
+conflict tree
+
+set root                        /shared/ucl/apps/tree/1.7.0/gnu-4.9.2
+prepend-path PATH               $root/bin
+prepend-path MANPATH            $root/man
+
