@@ -1,0 +1,65 @@
+#%Module -*- tcl -*-
+#
+# Crystal17 v1.0.1 Intel 2017 and OpenMPI 2.1.2 build.
+#
+## Added 01/Feb/2016 by BAA
+## Updated for version 1.0.4 16th May 2016
+## Updated to remove dependency on Intel 2015 April 2017
+## Updated to Crystal17 v1.0.1 January 2018 
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Crystal17 v1.0.1 to your environment."
+    puts stderr ""
+    puts stderr "Crystal is a general-purpose program for the study of crystalline"
+    puts stderr "solids. The CRYSTAL program computes the electronic structure of"
+    puts stderr "periodic systems within Hartree Fock, density functional or various"
+    puts stderr "hybrid approximations."
+    puts stderr ""
+    puts stderr "The parallel versions of Pcrystal and Pproperties installed on Thomas"
+    puts stderr "and Grace have been optimised for the hardware."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Crystal17/v1.0.1"
+}
+
+module-whatis "Adds Crystal17 v1.0.1 to your environment."
+
+conflict crystal17
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+prereq mpi/openmpi/2.1.2/intel-2017
+
+if { [info exists ::env(TMPDIR) ] } {
+    set tmpdir $::env(TMPDIR)
+} else {
+    set tmpdir /tmp
+}
+
+set prefix /shared/ucl/apps/Crystal17/v1.0.1
+
+# check if user is in the correct group for Crystal14
+modulefunctions::isMember "legcryst"
+
+setenv CRY17_ROOT $prefix
+setenv CRY17_BIN bin
+set cry17_arch Linux-ifort17_XE_openmpi2.1.0_emt64
+setenv CRY17_ARCH $cry17_arch
+set version v1.0.1
+setenv VERSION $version
+
+setenv CRY17_EXEDIR $prefix/bin/$cry17_arch
+prepend-path PATH $prefix/bin/$cry17_arch/$version
+setenv CRY17_UTILS $prefix/utils17
+prepend-path PATH $prefix/utils17
+setenv CRY2K6_GRA $prefix/crgra2006
+setenv GRA6_EXEDIR $prefix/crgra2006/bin/Linux-pgf
+prepend-path PATH $prefix/crgra2006
+prepend-path PATH $prefix/crgra2006/bin/Linux-pgf
+
+setenv CRY17_TEST $prefix/test_cases/inputs
+setenv CRY17_SCRDIR $tmpdir
+
+
