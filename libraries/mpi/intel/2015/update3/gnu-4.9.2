@@ -21,6 +21,8 @@ prereq compilers/gnu/4.9.2
 
 set              root                 /shared/ucl/apps/intel/2015/impi/5.0.3.048
 
+setenv           INTEL_MPI_PATH       $root
+
 prepend-path     PATH                 $root/intel64/bin
 append-path      MANPATH              $root/man
 prepend-path     LD_LIBRARY_PATH      $root/intel64/lib

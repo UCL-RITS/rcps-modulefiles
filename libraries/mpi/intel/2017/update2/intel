@@ -18,6 +18,7 @@ prereq compilers/intel/2017/update3
 
 set              root                 /shared/ucl/apps/intel/2017.Update3/impi/2017.2.191
 
+setenv           INTEL_MPI_PATH       $root
 
 prepend-path     PATH                 $root/intel64/bin
 append-path      MANPATH              $root/man

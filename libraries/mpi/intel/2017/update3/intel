@@ -20,6 +20,7 @@ set              prefix               /no/prefix/given
 
 setenv GERUN_LAUNCHER intel
 setenv MPI_HOME /shared/ucl/apps/intel/2017.Update4/impi/2017.3.196
+setenv INTEL_MPI_PATH $MPI_HOME
 setenv I_MPI_ROOT /shared/ucl/apps/intel/2017.Update4/impi/2017.3.196
 setenv I_MPI_DEVICE rdssm
 setenv I_MPI_CC icc
