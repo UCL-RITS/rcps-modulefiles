@@ -4,6 +4,9 @@
 ## using cmd line:
 ##  "-o /tmp/dl_poly-modules.q5rtV1gTuQ/dl_poly/4.08-plumed-2.3.1/intel-2017 -p /shared/ucl/apps/dl_poly/4.08-plumed-2.3.1/intel-2017 -w Adds dl_poly 4.08 to your environment. DL_POLY is a general purpose classical molecular dynamics (MD) simulation software developed at Daresbury Laboratory. This version has been linked against the PLUMED metadynamics library. -c dl_poly -r gcc-libs -r compilers/intel/2017/update1 -r mpi/intel/2017/update1/intel -r openblas/0.2.14/intel-2015-update2 -r plumed/2.3.1/intel-2017-update1"
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
 
   puts stderr {Adds dl_poly 4.08 to your environment. DL_POLY is a general purpose classical molecular dynamics (MD) simulation software developed at Daresbury Laboratory. This version has been linked against the PLUMED metadynamics library.}
