@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## FoldX suite from http://foldxsuite.crg.eu
+##
+## February 2018
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds FoldX Suite 4 to your environment."
+    puts ""
+    puts stderr "http://foldxsuite.crg.eu"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/FoldX/v4"
+}
+
+module-whatis "Adds FoldX Suite 4 to your environment."
+
+# Location of FoldX:
+
+set prefix /shared/ucl/apps/FoldX/v4
+
+prereq gcc-libs/4.9.2
+conflict foldx
+
+prepend-path PATH		$prefix
+setenv FOLDXDIR    $prefix
