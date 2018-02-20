@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Blender 2.79 
+##
+## February 2018
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Blender Version 2.79 to your environment."
+    puts ""
+    puts stderr "Blender is a free and open source 3D creation suite. It is"
+    puts stderr "provided on Legion primarily for batch rendering."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Blender/blender-2.79-linux-glibc219-x86_64"
+}
+
+module-whatis "Adds Blender Version 2.79 to your environment."
+
+# Location of Blender:
+
+set prefix /shared/ucl/apps/Blender/blender-2.79-linux-glibc219-x86_64
+
+prereq gcc-libs/4.9.2
+conflict blender
+
+prepend-path PATH		$prefix
+prepend-path LD_RUN_PATH        $prefix/lib
+prepend-path LD_LIBRARY_PATH    $prefix/lib
+prepend-path LIBRARY_PATH       $prefix/lib
