@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Lynx web browser 2.8.9
+##
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Lynx Version 2.8.9 to your environment."
+    puts ""
+    puts stderr "Lynx is a text Web broser."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Lynx/2.8.9dev.16"
+}
+
+module-whatis "Adds Lynx Version 2.8.9 to your environment."
+
+# Location of Lynx:
+
+set prefix /shared/ucl/apps/Lynx/2.8.9dev.16
+
+prereq gcc-libs/4.9.2
+conflict lynx
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
