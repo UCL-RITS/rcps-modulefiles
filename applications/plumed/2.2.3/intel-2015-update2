@@ -21,7 +21,7 @@ prereq libmatheval/1.1.11
 
 conflict plumed
 
-set root                        /shared/ucl/apps/plumed/2.2/intel-2015-update2/openblas/
+set root                        /shared/ucl/apps/plumed/2.2.3/intel-2015-update2/openblas/
 prepend-path PATH               $root/bin/
 prepend-path LD_LIBRARY_PATH    $root/lib
 prepend-path LIBRARY_PATH       $root/lib
