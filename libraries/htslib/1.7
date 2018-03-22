@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# HTSlib 1.7
+#
+#                                                      O.K. March 2018
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the HTSlib 1.7 package to your environment."
+    puts stderr "HTSlib is an implementation of a unified C library for accessing common file"
+    puts stderr "formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data."
+    puts stderr ""
+}
+
+module-whatis "This module adds the HTSlib 1.7 package to your environment. HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data."
+
+prereq gcc-libs/4.9.2
+
+conflict htslib
+
+set root 			/shared/ucl/apps/htslib/1.7/gnu-4.9.2
+
+prepend-path PATH      		$root/bin
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
+prepend-path MANPATH		$root/share/man
+prepend-path CMAKE_PREFIX_PATH  $root
