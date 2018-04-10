@@ -1,0 +1,52 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds Google leveldb 1.20 to your environment.}
+
+}
+
+module-whatis {Adds Google leveldb 1.20 to your environment.}
+
+prereq gcc-libs/4.9.2
+prereq snappy/1.1.7
+
+conflict leveldb
+
+set              prefix               /shared/ucl/apps/leveldb/1.20/gnu-4.9.2
+
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/man] } then {
+  prepend-path      MANPATH              $prefix/man
+}
+
+if { [file isdirectory $prefix/share/man] } then {
+  prepend-path      MANPATH              $prefix/share/man
+}
+
+if { [file isdirectory $prefix/out-shared] } then {
+  prepend-path      LIBRARY_PATH         $prefix/out-shared
+  prepend-path      LD_LIBRARY_PATH      $prefix/out-shared
+}
+
+if { [file isdirectory $prefix/out-static] } then {
+  prepend-path      LIBRARY_PATH         $prefix/out-static
+  prepend-path      LD_LIBRARY_PATH      $prefix/out-static
+}
+
+if { [file isdirectory $prefix/lib/pkgconfig] } then {
+  prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+
