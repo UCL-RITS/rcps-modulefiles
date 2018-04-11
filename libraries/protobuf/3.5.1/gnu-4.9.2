@@ -40,6 +40,10 @@ if { [file isdirectory $prefix/lib64] } then {
   prepend-path      LD_LIBRARY_PATH      $prefix/lib64
 }
 
+if { [file isdirectory $prefix/lib/python3.6/site-packages] } then {
+  prepend-path      PYTHONPATH      $prefix/lib/python3.6/site-packages
+}
+
 if { [file isdirectory $prefix/lib/pkgconfig] } then {
   prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
 }
