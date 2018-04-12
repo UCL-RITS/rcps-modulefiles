@@ -1,0 +1,12 @@
+#%Module
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the beta module space to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds the beta module space to your environment."
+
+module           use --append /shared/ucl/apps/modulefiles/beta
