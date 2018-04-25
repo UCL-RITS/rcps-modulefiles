@@ -37,7 +37,6 @@ if { [file isdirectory $prefix/out-shared] } then {
 }
 
 if { [file isdirectory $prefix/out-static] } then {
-  prepend-path      LIBRARY_PATH         $prefix/out-static
   prepend-path      LD_LIBRARY_PATH      $prefix/out-static
 }
 
