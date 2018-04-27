@@ -3,6 +3,7 @@
 # ADF 2014.10
 #
 ## Added 01/Feb/2016 by BAA
+## Updated April 2018 with warning about license expiry
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -64,6 +65,20 @@ if { [modulefunctions::isModuleLoad] } {
 	setenv SCM_TMPDIR $tmpdir
 	setenv SCM_USE_LOCAL_IMPI 'yes'
 	setenv SCM_IOBUFFERSIZE 512
+
+	puts stdout ""
+	puts stdout "***************************************************"
+	puts stdout "*                                                 *"
+	puts stdout "* ADF license will expire at the end of May 2018  *"
+	puts stdout "* and MAY NOT be renewed. If you need to continue *"
+        puts stdout "* to use ADF please email:                        *"
+	puts stdout "*                                                 *"
+	puts stdout "* rc-support@ucl.ac.uk                            *"
+	puts stdout "*                                                 *"
+	puts stdout "* with details about your need for ADF.           *"
+	puts stdout "*                                                 *"
+	puts stdout "***************************************************"
+	puts stdout ""
     } else {
 	puts stderr ""
 	puts stderr "**** error: ADF is only licensed for use on Grace."
