@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GNU groff 1.22.3 compiled with GCC 4.9.2
+##
+## April 2018
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds GNU groff Version 1.22.3 to your environment."
+    puts ""
+    puts stderr "Primarily provided to support EPACTS."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/groff/1.22.3"
+}
+
+module-whatis "Adds GNU groff Version 1.22.3 to your environment."
+
+# Location of groff:
+
+set prefix /shared/ucl/apps/groff/1.22.3
+
+prereq gcc-libs/4.9.2
+prereq perl/5.22.0
+conflict groff
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+prepend-path INFOPATH           $prefix/share/info
