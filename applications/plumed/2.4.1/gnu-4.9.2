@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+#
+# PLUMED 2.4.1
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLUMED 2.4.1 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds PLUMED 2.4.1 to your environment, built using OpenBLAS and libmatheval"
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.0.0/gnu-4.9.2
+prereq openblas/0.2.14/gnu-4.9.2
+prereq flex/2.5.39
+prereq libmatheval/1.1.11
+
+conflict plumed
+
+set root                        /shared/ucl/apps/plumed/2.4.1/gnu-4.9.2/openblas
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE		$root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+
+setenv PLUMED_KERNEL          	$root/lib/libplumedKernel.so
+
