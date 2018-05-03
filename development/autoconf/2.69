@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GNU Autoconf 2.69
+##
+## May 2018
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds GNU Autoconf Version 2.69 to your environment."
+    puts ""
+    puts stderr "Primarily provided to support EPACTS."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Autoconf/2.69"
+}
+
+module-whatis "Adds GNU Autoconf Version 2.69 to your environment."
+
+# Location of Autoconf:
+
+set prefix /shared/ucl/apps/Autoconf/2.69
+
+prereq gcc-libs/4.9.2
+conflict autoconf
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+prepend-path INFOPATH           $prefix/share/info
