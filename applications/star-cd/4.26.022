@@ -1,0 +1,86 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## STAR-CD 4.26.022
+##
+## Updated for Version 4.26.022 May 2018
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds STAR-CD 4.26.022 using Intel 2016 compiler suite to your environment."
+    puts stderr ""
+    puts stderr "STAR-CD is a code for performing CFD simulations. It is designed for"
+    puts stderr "modelling fluid flow, heat transfer, mass transfer and chemical reactions."
+    puts sdterr ""
+    puts stderr "Version 4.26.022 mainly fixes bugs that are in 4.26.011."
+    puts stderr ""
+}
+
+module-whatis "Adds STAR-CD 4.26.022 using Intel 2016 compiler suite to your environment. STAR-CD is a code for performing CFD simulations. It is designed for modelling fluid flow, heat transfer, mass transfer and chemical reactions."
+
+conflict star-cd
+
+prereq gcc-libs
+
+set version	4.26.022
+set prefix      /shared/ucl/apps/STAR-CD/$version
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legstarc"     
+}
+
+# use /tmp if on a login node, otherwise $TMPDIR
+if { [info exists ::env(TMPDIR) ] } {
+  set TMPDIR $::env(TMPDIR)
+}  else {
+  set TMPDIR /tmp
+}
+
+setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+
+prepend-path PATH               $prefix/bin
+prepend-path PATH               $prefix/sbin
+
+# setenv FLEXLMTOP $prefix/FLEXLM/11.13.0.0
+# setenv FLEXLM $prefix/FLEXLM/11.13.0.0/linux64_2.5-x86
+
+setenv HPC_SCRATCH "\$TMPDIR"
+
+setenv IBMMPITOP $prefix/IBMMPI/8.3.0.2isv
+setenv IBMMPI $prefix/IBMMPI/8.3.0.2isv/linux64_2.6-x86-glibc_2.3.4
+
+setenv ICETOP $prefix/ICE/4.26.030
+setenv ICE $prefix/ICE/4.26.030/linux64_2.6-x86-glibc_2.5.0-gcc_4.4.3-ifort_11.0
+
+setenv INTELMPITOP $prefix/INTELMPI/4.1.1.036
+setenv INTELMPI $prefix/INTELMPI/4.1.1.036/linux64_2.6-x86_glibc_2.3.4
+setenv INTEL /shared/ucl/apps/intel/2016.0.109/
+
+setenv PROSTARTOP $prefix/PROSTAR/4.26.005
+setenv PROSTAR $prefix/PROSTAR/4.26.005/linux64_2.6-x86-glibc_2.3.4-gcc_4.4.3-ifort_11.0
+
+setenv STARTOP $prefix/STAR/4.26.022
+setenv STAR $prefix/STAR/4.26.022/linux64_2.6-ifort_16.0-glibc_2.5
+setenv STARDIR $prefix
+
+setenv STARCDMAN $prefix/STARCDMAN/4.26.009/generic
+setenv STARDATA $prefix/STARDATA/3.01.011/generic
+setenv STARINI default
+setenv STARNET $prefix/STARNET/3.00.024/generic
+
+setenv STARPLUGIN_DARSCFD $prefix/DARSCFD/2.05.009
+setenv STARPLUGIN_DARSTABLE $prefix/DARSTABLE/4.26.001
+setenv STARPLUGIN_DARSTIF $prefix/DARSTIF/2.08.015
+setenv STARPLUGIN_ICE $prefix/STARICE/4.26.030
+setenv STARPLUGIN_SOOTNOX $prefix/SOOTNOX/1.04.007
+setenv STARPLUGIN_WAVE $prefix/WAVE/2.14.006
+
+setenv STARFLAGS "-nodefile=$TMPDIR/machines -scratch=$TMPDIR"
+
+setenv REMOTETASK "/usr/bin/ssh -o StrictHostKeyChecking=no"
+setenv REMOTECOPY "/usr/bin/scp -o StrictHostKeyChecking=no"
+
