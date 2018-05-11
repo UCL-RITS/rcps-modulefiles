@@ -9,4 +9,4 @@ proc ModulesHelp { } {
 
 module-whatis {This module uses LD_PRELOAD to shadow the getcwd function with a version that retries on failure, and is intended to workaround a bug in the Lustre filesystem.}
 
-prepend-path LD_PRELOAD /shared/ucl/apps/getcwd-autoretry-preload/getcwd-autoretry-preload.so
+prepend-path LD_PRELOAD /shared/ucl/apps/getcwd-autoretry/getcwd-autoretry-preload.so
