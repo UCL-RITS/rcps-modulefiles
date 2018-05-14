@@ -45,8 +45,8 @@ setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
 prepend-path PATH               $prefix/bin
 prepend-path PATH               $prefix/sbin
 
-# setenv FLEXLMTOP $prefix/FLEXLM/11.13.0.0
-# setenv FLEXLM $prefix/FLEXLM/11.13.0.0/linux64_2.5-x86
+setenv FLEXLMTOP $prefix/FLEXLM/11.13.0.0
+setenv FLEXLM $prefix/FLEXLM/11.13.0.0/linux64_2.5-x86
 
 setenv HPC_SCRATCH "\$TMPDIR"
 
