@@ -24,7 +24,7 @@ if { [ file type /shared/ucl/apps ] == "link" } {
    set           baselink          [ file readlink /shared/ucl/apps ]
    set           base              $baselink/pypy/bundles
 } else {
-   set           base              /shared/ucl/apps/python/bundles
+   set           base              /shared/ucl/apps/pypy/bundles
 }
 set              root              $base/pypy3-3.5
 set              home              $::env(HOME)
