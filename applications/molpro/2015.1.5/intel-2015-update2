@@ -3,6 +3,7 @@
 # Molpro 2015.1.5
 #
 #                                                      H.K. Apr 2016
+# Updated May 2018 to include I_MPI_FABRICS=shm:ofa
 
 proc ModulesHelp { } {
 
@@ -24,4 +25,6 @@ prepend-path     PATH              $root/bin
 prepend-path 	 LIBRARY_PATH	   $root/lib
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
+
+setenv I_MPI_FABRICS shm:ofa
 
