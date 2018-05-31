@@ -1,0 +1,60 @@
+#%Module -*- tcl -*-
+#
+# ANSYS 19.1
+#
+
+# Updated for new ANSYS licence manager June 2013 BAA
+# Updated for version ANSYS 14.5.7      June 2013 BAA
+# Updated for ANSYS 15.0.7		Sept 2014 H.K.
+# Updated for upgraded Legion software stack and ANSYS 16.1 - June 2015 - BAA
+# Updated for ANSYS 17.0                Jan  2016 BAA
+# Udated to remove the request to run setup_cfx.sh as running it now breaks 
+# access to the licence manager - April 2016 - BAA
+# Updated for ANSYS 17.2                Sept 2016 BAA
+# Updated for ANSYS 18.0                Feb 2017 BAA
+# Updated for coupled field analysis paths    Jan 2018 BAA
+# Updated for ANSYS 19.1                May 2018 BAA
+
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the ANSYS 19.1 Campus Agreement CFX/Fluent etc products to your environment."
+    puts stderr ""
+    puts stderr "Please remember that if you run this in the batch system, you"
+    puts stderr "can't use X-Windows output.  "
+    puts stderr ""
+    puts stderr "You MUST request licenses with  -ac app=cfx"
+    puts stderr ""
+}
+
+module-whatis "Adds Ansys CFX/Fluent etc to your environment"
+
+conflict ansys
+
+set          prefix	/shared/ucl/apps/ANSYS/19.1
+
+prepend-path PATH       $prefix/shared_files/licensing/lic_admin
+prepend-path PATH      	$prefix/v191/CFX/bin
+prepend-path PATH	$prefix/v191/fluent/bin
+prepend-path PATH       $prefix/v191/TurboGrid/bin
+prepend-path PATH       $prefix/v191/Framework/bin/Linux64
+prepend-path PATH      	$prefix/ucl/bin
+
+# Added for ANSYS 19.1 to add products like ANSYS Mechanical APDL 
+prepend-path PATH       $prefix/v191/ansys/bin
+
+# Added for coupled field analysis
+prepend-path PATH       $prefix/v191/aisol
+prepend-path PATH       $prefix/v191/aisol/bin/linx64
+prepend-path PATH       $prefix/v191/aisol/CommonFiles/linx64
+
+prepend-path LM_LICENSE_FILE	1055@lic-ansys.ucl.ac.uk
+
+setenv ANSYS_ROOT      	$prefix
+setenv ANSYS191_DIR	$prefix/v191/ansys
+setenv ANSYSLIC_DIR     $prefix/shared_files/licensing
+setenv ANSYS191_PRODUCT aa_mcad
+setenv ANSYS_LOCK      	ON
+setenv ANSYS191_WORKING_DIRECTORY ~/Scratch/ansys_work
+setenv ANSBROWSER      /usr/bin/firefox
+
