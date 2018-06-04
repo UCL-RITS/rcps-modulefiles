@@ -58,3 +58,7 @@ setenv ANSYS_LOCK      	ON
 setenv ANSYS191_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
 
+# Configure MPI fabric for Intel MPI as ANSYS is not using gerun
+setenv I_MPI_FABRICS    shm:ofa
+setenv I_MPI_FALLBACK   1
+
