@@ -36,22 +36,6 @@ proc isGaussianMember { group } {
 }
 
 
-proc getClusterName { } {
-
-    set name ""
-    set hostnames [exec hostname -A]
-    if { [string match *legion* $hostnames] == 1 } {
-        set name "Legion"
-    } elseif { [string match *grace* $hostnames] == 1 } {
-        set name "Grace"
-    } elseif { [string match *aristotle* $hostnames] == 1 } {
-        set name "Aristotle"
-    } else {
-        set name "unknown"
-    }
-    return $name
-}
-
 # Check if user is in Gaussian group
 set root /shared/ucl/apps/gaussian/g16-a03/pgi-2016.5
 
