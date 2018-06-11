@@ -1,0 +1,44 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2016-02-29
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the NAMD 2.12 package to your environment."
+    puts stderr ""
+    puts stderr "NAMD is a molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines. "
+    puts stderr ""
+    puts stderr "NAMD was developed by the Theoretical and Computational "
+    puts stderr "Biophysics Group in the Beckman Institute for Advanced Science" 
+    puts stderr "and Technology at the University of Illinois at Urbana-Champaign."
+    puts stderr ""
+    puts stderr "NAMD web-site:"
+    puts stderr "http://www.ks.uiuc.edu/Research/namd/"
+    puts stderr ""
+    puts stderr "Please read the NAMD license and register: "
+    puts stderr "http://www.ks.uiuc.edu/Research/namd/license.html"
+    puts stderr ""
+    puts stderr "Note: It is a condition of the license that you cite"
+    puts stderr "specific papers in any research published that used NAMD."
+    puts stderr "More details may be found at the link above."
+    puts stderr ""
+    puts stderr "This version has been built with MPI and should be run as "
+    puts stderr "any other MPI executable."
+
+}
+
+module-whatis "Adds NAMD 2.12 to your environment"
+
+
+conflict namd
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+prereq fftw/2.1.5/intel-2015-update2
+
+set              root              /shared/ucl/apps/namd/intel-2018/NAMD_2.12_Source
+
+prepend-path     PATH              $root/bin
