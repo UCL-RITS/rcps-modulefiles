@@ -57,13 +57,15 @@ if [isGaussianMember legg16] {
 # Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
 # systemd will wipe these files when no active sessions remain.
 if [modulefunctions::isTMPDIR] {
-    setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/[pid]
+    # In theory if this is in a job the user tag is unnecessary
+    # but, just to be sure
+    setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/gaussian.[randomLabel]
 } elseif [modulefunctions::isCluster "Aristotle"] {
-    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
+    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
 } else {
     puts stderr "The main Gaussian executable (g16) is too resource-intensive"     
     puts stderr "to be run on the login nodes. Please submit it as a job."
-    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
+    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
 }
 
 set gv_root		/shared/ucl/apps/gaussian/gaussview
