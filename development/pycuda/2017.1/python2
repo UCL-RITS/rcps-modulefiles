@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Python2 PyCuda package to your environment."
+    puts stderr "MPI for Python."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Python2 PyCuda to your environment. MPI for Python."
+
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq cuda/8.0.61-patch2/gnu-4.9.2
+prereq python2/recommended
+
+conflict pycuda
+
+set root                        /shared/ucl/apps/pycuda/2017.1.1/2
+prepend-path PYTHONPATH         $root/lib/python2.7/site-packages
+prepend-path CMAKE_PREFIX_PATH	$root
+
