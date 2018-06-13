@@ -6,7 +6,8 @@
 ##
 ## Brian Alston September 2015
 ## Updated for version 11.04.010-R8 September 2016.
-## Updared for version 12.04.010 November 2017.
+## Updated for version 12.04.010 November 2017.
+## Updated to set correct MPI fabric choice - June 2018
 ##
 ##
 
@@ -88,6 +89,12 @@ prepend-path PATH		$prefix/STAR-CCM+12.04.010/star/bin
 prepend-path PATH               $prefix/STAR-View+12.04.010/bin
 prepend-path LD_LIBRARY_PATH    $prefix/STAR-CCM+12.04.010/star/lib
 prepend-path LD_LIBRARY_PATH    $prefix/STAR-View+12.04.010/bin
+
+# Set Open MPI variables for correct fabric choice - simple multinode
+# setting for testing.
+
+setenv OMPI_MCA_mtl "^psm2"
+setenv OMPI_MCA_pml "cm"
 
 # Setup STAR-CCM+ settings directory in Scratch
 
