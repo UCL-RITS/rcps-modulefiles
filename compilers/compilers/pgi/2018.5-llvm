@@ -52,7 +52,7 @@ append-path	LM_LICENSE_FILE	27000@lic-pgi.ucl.ac.uk
 setenv          PGI         	$prefix
 setenv          CC              "pgcc"
 setenv          CXX             "pgc++"
-setenv          FC              "pgf95"
+setenv          FC              "pgfortran"
 setenv          F90             "pgf90"
 setenv          F77             "pgf77"
 setenv          CXXCPP          "pgc++ -E"
