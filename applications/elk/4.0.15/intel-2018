@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Elk 4.0.15 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Elk 4.0.15 to your environment. Binary is elk."
+
+if [module-info mode load] {
+    puts stderr {Warning: Elk has been known to reliably trigger a bug 
+               in the Lustre filesystem that will crash Elk with a severe 
+               Fortran runtime (121) error. 
+             Please do not use this module and instead use the +wa version 
+               and the workaround modules it specifies as prerequisites:
+
+               module load workaround-modules
+               module load getcwd-autoretry
+               module load elk/4.0.15/intel-2018+wa
+    }
+}
+
+conflict elk
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+
+set              root              /shared/ucl/apps/elk/4.0.15/intel-2018/elk-4.0.15
+
+prepend-path     PATH              $root/src

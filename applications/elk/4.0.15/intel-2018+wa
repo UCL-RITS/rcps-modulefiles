@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## Elk 4.3.6 
+## Built Nov 2017
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Elk 4.0.15 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Elk 4.0.15 to your environment. Binary is elk."
+
+
+conflict elk
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+
+# In tests, Elk always triggers the Lustre bug the module below is a work-around for.
+#  I suspect this is due to it repeatedly and rapidly opening and closing files,
+#   but I haven't read much into the underlying causes of the bug in the Lustre code.
+prereq workaround-modules
+prereq getcwd-autoretry
+
+set              root              /shared/ucl/apps/elk/4.0.15/intel-2018/elk-4.0.15/src
+
+prepend-path     PATH              $root/src
