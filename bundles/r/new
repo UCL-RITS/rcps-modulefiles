@@ -35,7 +35,7 @@ module load hdf/5-1.8.15/gnu-4.9.2
 module load netcdf/4.3.3.1/gnu-4.9.2
 module load udunits/2.2.20/gnu-4.9.2
 module load jags/4.2.0/gnu.4.9.2-openblas
-module load root/5.34.30/gnu-4.9.2
+module load root/5.34.30/gnu-4.9.2-fftw-3.3.6
 module load glpk/4.60/gnu-4.9.2
 module load perl/5.22.0
 module load libtool/2.4.6
