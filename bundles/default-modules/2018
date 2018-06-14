@@ -1,0 +1,23 @@
+#%Module
+#
+# Default Legion Modules (equivalent of defmods).
+#
+#                                                      O.K. 14 Jun 2018
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the default Legion modules to your environment."
+    puts stderr ""
+    puts stderr "The following are loaded:"
+    puts stderr ""
+    puts stderr "rcps-core/1.0.0"
+    puts stderr "compilers/intel/2018/update3"
+    puts stderr "mpi/intel/2018/update3/intel"
+    puts stderr ""
+}
+
+module-whatis "Adds default Legion modules to your environment."
+
+module load rcps-core/1.0.0
+module load compilers/intel/2018/update3
+module load mpi/intel/2018/update3/intel
