@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds bazel compiler wrappers to your environment.}
+
+}
+
+module-whatis {Adds bazel compiler wrappers to your environment.}
+
+conflict bazel-compiler-helpers
+
+set              prefix               /shared/ucl/apps/bazel-compiler-helpers
+
+prepend-path        PATH    $prefix
+
