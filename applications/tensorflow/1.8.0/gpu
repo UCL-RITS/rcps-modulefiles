@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+#
+# Tensorflow GPU version
+#
+#                                                      O.K. June 18
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Tensorflow 1.8.0 package to your environment."
+    puts stderr ""
+    puts stderr "This version is built for GPU."
+
+}
+
+module-whatis "Adds Tensorflow 1.8.0 to your environment."
+
+
+# Add binary to PATH
+prereq python/3.6.3
+prereq compilers/gnu/4.9.2
+prereq cuda/8.0.61-patch2/gnu-4.9.2
+prereq cudnn/6.0/cuda-8.0
+conflict tensorflow
+
+set root 			/shared/ucl/apps/tensorflow/1.8.0/gpu
+if { [file isdirectory $root] } then {
+	prepend-path PYTHONPATH         $root
+}

@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+# Tensorflow CPU version
+#
+#                                                      O.K. June 18
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Tensorflow 1.8.0 package to your environment."
+    puts stderr ""
+    puts stderr "This version is built for CPU only (no GPU support)."
+
+}
+
+module-whatis "Adds Tensorflow 1.8.0 to your environment."
+
+
+# Add binary to PATH
+prereq python/3.6.3
+
+conflict tensorflow
+
+set root 			/shared/ucl/apps/tensorflow/1.8.0/cpu
+prepend-path PYTHONPATH         $root
