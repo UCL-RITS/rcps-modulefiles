@@ -23,6 +23,6 @@ prereq mpi/intel/2018/update3/intel
 prereq workaround-modules
 prereq getcwd-autoretry
 
-set              root              /shared/ucl/apps/elk/4.0.15/intel-2018/elk-4.0.15/src
+set              root              /shared/ucl/apps/elk/4.0.15/intel-2018/elk-4.0.15
 
 prepend-path     PATH              $root/src
