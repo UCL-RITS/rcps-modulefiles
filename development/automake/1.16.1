@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GNU Automake 1.16.1
+##
+## June 2018
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds GNU Automake Version 1.16.1 to your environment."
+    puts ""
+    puts stderr "Primarily provided to support EPACTS."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Automake/1.16.1"
+}
+
+module-whatis "Adds GNU Automake Version 1.16.1 to your environment."
+
+# Location of Automake:
+
+set prefix /shared/ucl/apps/Automake/1.16.1
+
+prereq gcc-libs/4.9.2
+prereq autoconf/2.69
+conflict automake
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+prepend-path INFOPATH           $prefix/share/info
