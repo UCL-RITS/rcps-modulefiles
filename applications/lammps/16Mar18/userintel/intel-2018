@@ -1,0 +1,42 @@
+#%Module -*- tcl -*-
+##
+## LAMMPS 16Mar18 with additional packages kspace, replica, rigid, class2
+##
+## Built March 2018
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS 16Mar18 package to your environment."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines.  This version has been "
+    puts stderr "built as a binary (\"lmp_default\")"
+    puts stderr ""
+    puts stderr "This version has been built with the USER-INTEL packafe which"
+    puts stderr "can improve performance 2x on Intel platforms."
+    puts stderr ""
+    puts stderr "To enable this package add -sf intel to your lammps command "
+    puts stderr "e.g."
+    puts stderr "  gerun lmp_default -sf intel -in ..."
+    puts stderr ""
+    puts stderr "For PPPM you should modify your input file.  For more details"
+    puts stderr "see http://lammps.sandia.gov/doc/accelerate_intel.html"
+    puts stderr ""
+    puts stderr "Please note that you must have the Intel MPI and compilers "
+    puts stderr "loaded for this version of LAMMPS to work."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 16Mar18 to your environment. Binary is lmp_default."
+
+
+conflict lammps
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2018
+prereq mpi/intel/2018
+
+set              root              /home/uccaoke/Applications/lammps/16Mar18/USERINTEL/intel-2018/lammps-16Mar18
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
