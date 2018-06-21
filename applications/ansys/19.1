@@ -31,6 +31,9 @@ module-whatis "Adds Ansys CFX/Fluent etc to your environment"
 
 conflict ansys
 
+# For ANSYS Electromagnetics products
+prereq   giflib/5.1.1
+
 set          prefix	/shared/ucl/apps/ANSYS/19.1
 
 prepend-path PATH       $prefix/shared_files/licensing/lic_admin
@@ -57,6 +60,10 @@ setenv ANSYS191_PRODUCT aa_mcad
 setenv ANSYS_LOCK      	ON
 setenv ANSYS191_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
+
+# For ANSYS Electromagnetics products
+prepend-path PATH       $prefix/AnsysEM/AnsysEM19.1/Linux64
+setenv ECAD_TRANSLATORS_INSTALL_DIR   $prefix/AnsysEM/LayoutIntegrations19.1/Linux64
 
 # Configure MPI fabric for Intel MPI as ANSYS is not using gerun
 setenv I_MPI_FABRICS    shm:ofa
