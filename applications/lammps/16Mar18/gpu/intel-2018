@@ -12,7 +12,7 @@ proc ModulesHelp { } {
     puts stderr "scaling on a wide variety of machines.  This version has been "
     puts stderr "built as a binary (\"lmp_default\")"
     puts stderr ""
-    puts stderr "This version has been built with the mixed precision GPU package for CUDA".
+    puts stderr "This version has been built with the mixed precision GPU package for CUDA."
     puts stderr ""
     puts stderr "To use this you must force the Intel MPI to launch locally"
     puts stderr "with fork and tell lammps to use the gpu package with some"
