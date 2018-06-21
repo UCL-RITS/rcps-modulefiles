@@ -144,7 +144,7 @@ if { [modulefunctions::isModuleLoad] } {
 if [modulefunctions::isTMPDIR] {
     if [info exists env(JOB_ID)] {
         if [info exists env(SGE_TASK_ID)] {
-            puts stderr [format "/home/%s/Scratch/matlab_prefs/%s.%s/prefs" $::env(USER) $::env(JOB_ID) $::env(SGE_TASK_ID)]
+            setenv MATLAB_PREFDIR [format "/home/%s/Scratch/matlab_prefs/%s.%s/prefs" $::env(USER) $::env(JOB_ID) $::env(SGE_TASK_ID)]
         }
     }
 }
