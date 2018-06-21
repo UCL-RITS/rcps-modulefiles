@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the deeptools package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds deeptools to your environment."
+
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq python/3.6.3
+
+conflict deeptools
+
+set root 			/shared/ucl/apps/deeptools/3.0.2/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH    $root/lib
+prepend-path PYTHONPATH         $root/lib/python3.6/site-packages
