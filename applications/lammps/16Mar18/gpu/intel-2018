@@ -27,6 +27,8 @@ proc ModulesHelp { } {
     puts stderr "Please note that you must have CUDA, the Intel MPI and compilers "
     puts stderr "loaded for this version of LAMMPS to work."
     puts stderr ""
+    puts stderr "This version is only available on Legion and Myriad as only they have GPUs."
+    puts stderr ""
 }
 
 module-whatis "Adds LAMMPS 16Mar18 to your environment. Binary is lmp_default."
