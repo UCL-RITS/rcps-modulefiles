@@ -12,7 +12,7 @@ proc ModulesHelp { } {
     puts stderr "scaling on a wide variety of machines.  This version has been "
     puts stderr "built as a binary (\"lmp_default\")"
     puts stderr ""
-    puts stderr "This version has been built with the USER-INTEL packafe which"
+    puts stderr "This version has been built with the USER-INTEL package which"
     puts stderr "can improve performance 2x on Intel platforms."
     puts stderr ""
     puts stderr "To enable this package add -sf intel to your lammps command "
