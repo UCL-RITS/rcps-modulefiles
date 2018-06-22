@@ -14,20 +14,49 @@
 # Updated for ANSYS 18.0                Feb 2017 BAA
 # Updated for coupled field analysis paths    Jan 2018 BAA
 # Updated for ANSYS 19.1                May 2018 BAA
-
+# Further updated with settings directories on Scratch and Ansys EM products support    June 2018
 
 proc ModulesHelp { } {
 
-    puts stderr "This module adds the ANSYS 19.1 Campus Agreement CFX/Fluent etc products to your environment."
+    puts stderr "This module adds the ANSYS 19.1 Campus Agreement CFX/Fluent, EM etc products to your environment."
     puts stderr ""
     puts stderr "Please remember that if you run this in the batch system, you"
     puts stderr "can't use X-Windows output.  "
     puts stderr ""
-    puts stderr "You MUST request licenses with  -ac app=cfx"
+    puts stderr "You SHOULD request licenses with  -ac app=cfx"
     puts stderr ""
 }
 
-module-whatis "Adds Ansys CFX/Fluent etc to your environment"
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+module-whatis "Adds Ansys CFX/Fluent, EM etc to your environment"
 
 conflict ansys
 
@@ -61,9 +90,37 @@ setenv ANSYS_LOCK      	ON
 setenv ANSYS191_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
 
+set AnsysDir "~/.config/Ansys/v191"
+
 # For ANSYS Electromagnetics products
 prepend-path PATH       $prefix/AnsysEM/AnsysEM19.1/Linux64
 setenv ECAD_TRANSLATORS_INSTALL_DIR   $prefix/AnsysEM/LayoutIntegrations19.1/Linux64
+
+# set $TMPDIR to /tmp if not set (ie on login nodes)
+if { ! [info exists ::env(TMPDIR) ] } {
+  setenv TMPDIR /tmp
+}
+
+set AnsysEMDir "~/Ansoft"
+
+if { [modulefunctions::isModuleLoad] } {
+    if { ! [appDirSetup $AnsysDir]} {
+	puts stderr ""
+	puts stderr "**** error: setting up ANSYS products user directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
+	puts stderr "running any jobs or qrsh sessions on the cluster."
+	puts stderr ""
+    }
+    if { ! [appDirSetup $AnsysEMDir] } {
+	puts stderr ""
+	puts stderr "**** error: setting up ANSYS Electromagnetics products user directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
+	puts stderr "running any jobs or qrsh sessions on the cluster."
+	puts stderr ""
+    }
+}
 
 # Configure MPI fabric for Intel MPI as ANSYS is not using gerun
 setenv I_MPI_FABRICS    shm:ofa
