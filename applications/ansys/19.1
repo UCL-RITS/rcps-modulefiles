@@ -104,7 +104,7 @@ if { ! [info exists ::env(TMPDIR) ] } {
 set AnsysEMDir "~/Ansoft"
 
 if { [modulefunctions::isModuleLoad] } {
-    if { ! [appDirSetup $AnsysDir]} {
+    if { ! [appDirSetup $AnsysDir] } {
 	puts stderr ""
 	puts stderr "**** error: setting up ANSYS products user directory failed."
 	puts stderr ""
