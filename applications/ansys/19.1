@@ -16,6 +16,9 @@
 # Updated for ANSYS 19.1                May 2018 BAA
 # Further updated with settings directories on Scratch and Ansys EM products support    June 2018
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
 
     puts stderr "This module adds the ANSYS 19.1 Campus Agreement CFX/Fluent, EM etc products to your environment."
@@ -90,7 +93,7 @@ setenv ANSYS_LOCK      	ON
 setenv ANSYS191_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
 
-set AnsysDir "~/.config/Ansys/v191"
+set AnsysDir "~/.config/Ansys"
 
 # For ANSYS Electromagnetics products
 prepend-path PATH       $prefix/AnsysEM/AnsysEM19.1/Linux64
