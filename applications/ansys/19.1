@@ -96,7 +96,9 @@ setenv ANSBROWSER      /usr/bin/firefox
 set AnsysDir "~/.config/Ansys"
 
 # For ANSYS Electromagnetics products
-prepend-path PATH       $prefix/AnsysEM/AnsysEM19.1/Linux64
+prepend-path PATH            $prefix/AnsysEM/AnsysEM19.1/Linux64
+prepend-path LD_LIBRARY_PATH $prefix/AnsysEM/AnsysEM19.1/Linux64
+setenv ANSYSEM_DIR           $prefix/AnsysEM/AnsysEM19.1
 setenv ECAD_TRANSLATORS_INSTALL_DIR   $prefix/AnsysEM/LayoutIntegrations19.1/Linux64
 
 # set $TMPDIR to /tmp if not set (ie on login nodes)
