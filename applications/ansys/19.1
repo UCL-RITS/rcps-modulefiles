@@ -107,6 +107,7 @@ if { ! [info exists ::env(TMPDIR) ] } {
 }
 
 set AnsysEMDir "~/Ansoft"
+set mwDir "~/.mw"
 
 if { [modulefunctions::isModuleLoad] } {
     if { ! [appDirSetup $AnsysDir] } {
@@ -120,6 +121,14 @@ if { [modulefunctions::isModuleLoad] } {
     if { ! [appDirSetup $AnsysEMDir] } {
 	puts stderr ""
 	puts stderr "**** error: setting up ANSYS Electromagnetics products user directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
+	puts stderr "running any jobs or qrsh sessions on the cluster."
+	puts stderr ""
+    }
+    if { ! [appDirSetup $mwDir] } {
+	puts stderr ""
+	puts stderr "**** error: setting up ANSYS Electromagnetics products .mw directory failed."
 	puts stderr ""
 	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
 	puts stderr "running any jobs or qrsh sessions on the cluster."
