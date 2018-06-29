@@ -95,6 +95,9 @@ setenv ANSBROWSER      /usr/bin/firefox
 
 set AnsysDir "~/.config/Ansys"
 
+# For Ansys Fluent
+set FLRECENT "~/.flrecent"
+
 # For ANSYS Electromagnetics products
 prepend-path PATH            $prefix/AnsysEM/AnsysEM19.1/Linux64
 prepend-path LD_LIBRARY_PATH $prefix/AnsysEM/AnsysEM19.1/Linux64
@@ -113,6 +116,14 @@ if { [modulefunctions::isModuleLoad] } {
     if { ! [appDirSetup $AnsysDir] } {
 	puts stderr ""
 	puts stderr "**** error: setting up ANSYS products user directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
+	puts stderr "running any jobs or qrsh sessions on the cluster."
+	puts stderr ""
+    }
+    if { ! [appDirSetup $FLRECENT] } {
+	puts stderr ""
+	puts stderr "**** error: setting up ANSYS/FLuent userfile .flrecent."
 	puts stderr ""
 	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
 	puts stderr "running any jobs or qrsh sessions on the cluster."
