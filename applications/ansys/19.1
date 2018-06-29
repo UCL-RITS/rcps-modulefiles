@@ -98,6 +98,7 @@ set AnsysDir "~/.config/Ansys"
 # For Ansys Fluent
 set FLRECENT "~/.flrecent"
 
+
 # For ANSYS Electromagnetics products
 prepend-path PATH            $prefix/AnsysEM/AnsysEM19.1/Linux64
 prepend-path LD_LIBRARY_PATH $prefix/AnsysEM/AnsysEM19.1/Linux64
@@ -108,6 +109,8 @@ setenv ECAD_TRANSLATORS_INSTALL_DIR   $prefix/AnsysEM/LayoutIntegrations19.1/Lin
 if { ! [info exists ::env(TMPDIR) ] } {
   setenv TMPDIR /tmp
 }
+
+setenv FL_TMPDIR "$TMPDIR"
 
 set AnsysEMDir "~/Ansoft"
 set mwDir "~/.mw"
