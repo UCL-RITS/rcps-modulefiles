@@ -110,7 +110,7 @@ if { ! [info exists ::env(TMPDIR) ] } {
   setenv TMPDIR /tmp
 }
 
-setenv FL_TMPDIR [::env(TMPDIR)]
+setenv FL_TMPDIR $::env(TMPDIR)
 
 set AnsysEMDir "~/Ansoft"
 set mwDir "~/.mw"
