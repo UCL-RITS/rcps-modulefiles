@@ -3,6 +3,8 @@
 ## modulefile
 ##
 ## Cuba 4.2 compiled using GCC 4.9.2
+##
+## Updated July 2018 to downgrade the version of Mathematica Cuba will owrk with to 11.0.1
 
 proc ModulesHelp { } {
     puts stderr "Adds the Cuba Numerical Integration Package Version 4.2 compiled using GCC 4.9.2"
@@ -11,9 +13,9 @@ proc ModulesHelp { } {
     puts stderr "Cuba offers a choice of four independent routines for multidimensional numerical"
     puts stderr "integration: Vegas, Suave, Divonne, and Cuhre. C/C++, Fortran, and Mathematica"
     puts stderr "interfaces are provided. Cuba has been installed primarily for use with Mathematica"
-    puts stderr "11.3."
+    puts stderr "11.0.1. This is the latest version we have installed that Cuba will work with."
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/Cuba/4.2_gnu-4.9.2"
+    puts stderr "Directory: /shared/ucl/apps/Cuba/4.2_gnu-4.9.2_Math-11.0.1"
 }
 
 module-whatis "adds Cuba Numerical Integration Package Version 4.2 to your environment."
@@ -25,10 +27,10 @@ prereq bison/3.0.4/gnu-4.9.2
 prereq gperf/3.0.4/gnu-4.9.2
 prereq qt/5.4.2/gnu-4.9.2
 prereq xorg-utils/X11R7.7
-prereq mathematica/11.3.0
+prereq mathematica/11.0.1
 
 
-set              prefix               /shared/ucl/apps/Cuba/4.2_gnu-4.9.2
+set              prefix               /shared/ucl/apps/Cuba/4.2_gnu-4.9.2_Math-11.0.1
 
 
 if { [file isdirectory $prefix/bin] } then {
