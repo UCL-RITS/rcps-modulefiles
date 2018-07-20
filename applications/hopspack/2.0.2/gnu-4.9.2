@@ -23,3 +23,6 @@ prereq atlas/3.10.2/gnu-4.9.2
 set              root              /shared/ucl/apps/hopspack/2.0.2/gnu-4.9.2
 
 prepend-path     PATH              $root/bin
+prepend-path     LD_LIBRARY_PATH   $root/lib-serial
+setenv           HOPSPACK_SERIAL   $root/lib-serial
+setenv           HOPSPACK_MPI      $root/lib-mpi
