@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# PLINK 2.0 Alpha
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLINK 2.0 alpha package to your environment."
+    puts stderr "A comprehensive update to the PLINK association analysis toolset."
+    puts stderr ""
+
+}
+
+module-whatis "Adds PLINK 2.0 alpha to your environment. A comprehensive update to the PLINK association analysis toolset."
+
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+
+conflict plink
+
+set root                        /shared/ucl/apps/plink/2.0/intel-2017/eef791c4be7755d18f94cbbe51f4f24c2462f3d2/build_dynamic
+prepend-path PATH               $root
+prepend-path CMAKE_PREFIX_PATH	$root
+
