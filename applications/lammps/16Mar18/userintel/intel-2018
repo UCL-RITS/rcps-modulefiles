@@ -35,7 +35,7 @@ prereq gcc-libs/4.9.2
 prereq compilers/intel/2018
 prereq mpi/intel/2018
 
-set              root              /home/uccaoke/Applications/lammps/16Mar18/USERINTEL/intel-2018/lammps-16Mar18
+set              root              /shared/ucl/apps/lammps/16Mar18/USERINTEL//intel-2018/lammps-16Mar18
 
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
