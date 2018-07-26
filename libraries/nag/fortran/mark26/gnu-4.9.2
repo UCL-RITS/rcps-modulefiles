@@ -3,6 +3,7 @@
 ## modulefile
 ##
 ## NAG Fortran Library Mark 26 for GCC 4.9.2
+## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
 
 proc ModulesHelp { } {
     puts stderr "This module adds the NAG Fortran Library Mark 26 to your environment."
@@ -35,6 +36,13 @@ prepend-path CPATH		$prefix/c_headers
 prepend-path INCLUDE_PATH	$prefix/c_headers
 
 setenv NAG_DIR $prefix
-setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
+
+if { [modulefunctions::isCluster Thomas]  } {
+    setenv NAG_KUSARI_FILE until03:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Aristotle]  } {
+    setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} else {
+    setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
+}
 
 prepend-path CMAKE_PREFIX_PATH  $prefix

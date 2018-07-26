@@ -6,6 +6,8 @@
 ##
 ## Modified April 2015 for version 6.0 Build 1044 and Legion's OS upgrade by BAA
 ##
+## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
+
 proc ModulesHelp { } {
 
   puts stderr "Adds the NAG Fortran compiler V6.0 Build 1044 to your environment."
@@ -25,7 +27,14 @@ prepend-path    LD_LIBRARY_PATH $prefix/$release/lib/NAG_Fortran
 prepend-path    LIBRARY_PATH    $prefix/$release/lib/NAG_Fortran   
 prepend-path	MANPATH		$prefix/$release/man
 
-setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
+if { [modulefunctions::isCluster Thomas]  } {
+    setenv NAG_KUSARI_FILE until03:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Aristotle]  } {
+    setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} else {
+    setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
+}
+
 setenv FC              nagfor
 setenv F77             nagfor
 setenv COMPILER_TAG    nag-6.0.1044
