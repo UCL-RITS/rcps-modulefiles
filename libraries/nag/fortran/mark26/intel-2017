@@ -5,6 +5,9 @@
 ## NAG Fortran Library Mark 26 for Intel 2017
 ## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
     puts stderr "This module adds the NAG Fortran Library Mark 26 to your environment."
     puts stderr ""
