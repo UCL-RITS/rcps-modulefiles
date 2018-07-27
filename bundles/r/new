@@ -12,6 +12,7 @@
 ## Updated for R 3.4.2 and Bioconductor 3.6 December 2017
 ## Updated for R 3.5.0 and Bioconductor 3.7 June 2018
 ## Updated to use mpi/openmpi/3.0.0/gnu-4.9.2 which R3.5.0 needs.
+## NOTE: Rmpi is not working currently working with R3.5.0 - July 2018. 
 
 proc ModulesHelp { } {
     puts stderr "This module adds the R 3.5.0 and Bioconductor 3.7 package to your environment."

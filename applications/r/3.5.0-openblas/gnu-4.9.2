@@ -10,6 +10,7 @@
 ## Updated May 2017 for R 3.4.0 and Bioconductor 3.5
 ## Updated October 2017 for R 3.4.2 and Bioconductor 3.6
 ## Updated May 2018 for R 3.5.0 and Bioconductor 3.7
+## Updated July 20128 with note about Rmpi not working.
 ##
 
 # New Legion modules layout
@@ -84,6 +85,8 @@ if { [info exists ::env(JOB_ID)] } {
     # interactive session so do not set env vars
     puts stderr ""
     puts stderr "R Version 3.5.0 setup."
+    puts stderr ""
+    puts stderr "NOTE: Rmpi is not currently working with R 3.5.0 - R restricted to single node jobs."
     puts stderr ""
 }
 
