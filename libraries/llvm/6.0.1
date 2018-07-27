@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# LLVM 6.0.1
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LLVM 6.0.1 package to your environment."
+    puts stderr "The LLVM Core libraries provide a modern source- and target-independent"
+    puts stderr "optimizer, along with code generation support for many popular CPUs."
+    puts stderr ""
+}
+
+module-whatis "This module adds the LLVM 6.0.1 package to your environment. The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. The LLVM Core libraries provide a modern source- and target-independent optimizer, along with code generation support for many popular CPUs."
+
+prereq gcc-libs/4.9.2
+
+conflict llvm
+
+set root                        /shared/ucl/apps/llvm/6.0.1/gnu-4.9.2
+
+prepend-path PATH               $root/bin
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE_PATH       $root/include
+prepend-path CMAKE_PREFIX_PATH  $root
+
