@@ -10,7 +10,8 @@
 ## Updated May 2017 for R 3.4.0 and Bioconductor 3.5
 ## Updated October 2017 for R 3.4.2 and Bioconductor 3.6
 ## Updated May 2018 for R 3.5.0 and Bioconductor 3.7
-## Updated July 20128 with note about Rmpi not working.
+## Updated July 20128 with note about Rmpi not working
+##         and setting R_LIBS_SITE to work on Myriad.
 ##
 
 # New Legion modules layout
@@ -60,7 +61,7 @@ setenv 	     R_BROWSER		firefox
 append-path PATH                $prefix/lib64/R/library/snow
 
 # Databases need to be stored on Lustre not NFS
-setenv       R_LIBS_SITE	/home/ccspapp/Scratch/R/R-3.5.0-OpenBLAS/library
+setenv       R_LIBS_SITE	/scratch/scratch/ccspapp/R/R-3.5.0-OpenBLAS/library
 
 # Fix OpenMPI in single node Rmpi
 # Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
