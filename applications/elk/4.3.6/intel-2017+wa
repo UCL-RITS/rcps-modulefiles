@@ -14,8 +14,8 @@ module-whatis "Adds Elk 4.3.6 to your environment. Binary is elk."
 
 conflict elk
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 
 # In tests, Elk always triggers the Lustre bug the module below is a work-around for.
 #  I suspect this is due to it repeatedly and rapidly opening and closing files,

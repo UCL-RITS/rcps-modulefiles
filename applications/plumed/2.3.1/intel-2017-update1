@@ -13,8 +13,8 @@ module-whatis "Adds PLUMED 2.3.1 to your environment, built using OpenBLAS and l
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 prereq openblas/0.2.14/intel-2015-update2
 prereq flex/2.5.39
 prereq libmatheval/1.1.11

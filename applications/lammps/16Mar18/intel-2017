@@ -22,8 +22,8 @@ module-whatis "Adds LAMMPS 16Mar18 to your environment. Binary is lmp_default."
 
 conflict lammps
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017
-prereq mpi/intel/2017
+prereq compilers
+prereq mpi/intel
 
 set              root              /shared/ucl/apps/lammps/16Mar18/intel-2017/lammps-16Mar18/
 

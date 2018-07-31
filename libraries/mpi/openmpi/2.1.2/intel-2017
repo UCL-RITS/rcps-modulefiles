@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 module-whatis {Adds openmpi 2.1.2 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
 
 prereq gcc-libs
-prereq compilers/intel/2017
+prereq compilers/intel
 
 conflict mpi
 

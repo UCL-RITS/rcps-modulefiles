@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {This is a module with no description string.}
 
 prereq gcc-libs
-prereq compilers/intel/2017
-prereq mpi/intel/2017
+prereq compilers/intel
+prereq mpi/intel/
 
 conflict yambo
 

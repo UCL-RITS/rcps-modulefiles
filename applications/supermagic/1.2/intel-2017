@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {Adds supermagic 1.2 to your environment. Supermagic is a simple MPI sanity test.}
 
 prereq gcc-libs
-prereq compilers/intel/2017/update4
-prereq mpi/intel/2017/update3/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict supermagic
 

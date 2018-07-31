@@ -14,8 +14,8 @@ proc ModulesHelp { } {
 module-whatis {Adds fftw 3.3.4 (built with Intel MPI) to your environment.}
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict fftw
 

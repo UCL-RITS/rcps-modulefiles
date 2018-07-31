@@ -26,8 +26,8 @@ if [module-info mode load] {
 
 conflict elk
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 
 set              root              /shared/ucl/apps/elk/4.3.6/intel-2017/elk-4.3.6
 

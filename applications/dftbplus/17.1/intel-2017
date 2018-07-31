@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {DFTB+ is a quantum mechanical simulation software package, based on the Density Functional Tight Binding (DFTB) method.}
 
 prereq gcc-libs
-prereq compilers/intel/2017
-prereq mpi/intel/2017
+prereq compilers/intel
+prereq mpi/intel
 prereq arpack-ng
 prereq python2
 

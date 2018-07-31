@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {Adds gromacs 2018 to your environment. GROMACS is a package for performing molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.}
 
 prereq gcc-libs
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 
 conflict gromacs
 

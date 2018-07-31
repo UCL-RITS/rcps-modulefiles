@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 module-whatis {Adds arpack-ng 3.5.0 to your environment. ARPACK-NG is a collection of Fortran77 subroutines designed to solve large scale eigenvalue problems.}
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017
-prereq mpi/intel/2017
+prereq compilers/intel
+prereq mpi/intel
 
 conflict arpack-ng
 

@@ -15,8 +15,8 @@ proc ModulesHelp { } {
 module-whatis "Adds Boost 1.63.0 with Python and Intel MPI libraries to your environment. "
 
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 prereq python
 
 conflict boost

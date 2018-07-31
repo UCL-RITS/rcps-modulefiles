@@ -27,7 +27,7 @@ module-whatis "Adds NAG Fortran Library Mark 26 for Intel 2017 to your environme
 
 conflict nag/fortran
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017
+prereq compilers/intel
 
 set prefix	/shared/ucl/apps/NAG/fortran-library/fll6i26dcl
 

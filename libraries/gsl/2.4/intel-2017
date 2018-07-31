@@ -18,7 +18,7 @@ module-whatis "adds GSL 2.4 for Intel 2017 to your environment."
 
 conflict gsl
 prereq gcc-libs
-prereq compilers/intel/2017
+prereq compilers/intel
 
 set              prefix               /shared/ucl/apps/gsl/2.4/intel-2017
 

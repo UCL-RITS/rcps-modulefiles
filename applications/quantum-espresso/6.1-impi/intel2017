@@ -13,8 +13,8 @@ proc ModulesHelp { } {
 
 module-whatis {Adds quantum-espresso 6.1 to your environment.}
 
-prereq compilers/intel/2017
-prereq mpi/intel/2017
+prereq compilers/intel
+prereq mpi/intel
 prereq xorg-utils
 
 conflict quantum-espresso

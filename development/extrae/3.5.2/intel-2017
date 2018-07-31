@@ -14,8 +14,8 @@ module-whatis {Adds extrae 3.5.2 to your environment. Extrae is an instrumentati
 
 prereq gcc-libs
 prereq gcc-libs/4.9.2
-prereq compilers/intel/2017/update1
-prereq mpi/intel/2017/update1/intel
+prereq compilers/intel
+prereq mpi/intel
 prereq elfutils/0.170/gnu-4.9.2
 prereq binutils/2.29.1/gnu-4.9.2
 prereq libdwarf/20170709/gnu-4.9.2
