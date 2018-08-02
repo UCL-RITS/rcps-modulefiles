@@ -45,3 +45,7 @@ prepend-path PATH		$prefix/bin
 prepend-path CMAKE_PREFIX_PATH  $prefix
 setenv FLROOT			$prefix
 
+# Set Intel MPI variables for correct fabric choice.
+
+setenv I_MPI_FABRICS    shm:ofa
+setenv I_MPI_FALLBACK   1
