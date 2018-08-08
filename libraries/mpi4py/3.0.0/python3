@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+#
+# mpi4py 3.0.0 for Python3
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Python3 mpi4py 3.0.0 package to your environment."
+    puts stderr "MPI for Python."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Python3 mpi4py 3.0.0 to your environment. MPI for Python."
+
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.1/gnu-4.9.2
+
+set python_ver 3.6
+
+if { [info exists ::env(PYTHON_VERSION_TAG)] } {
+   set python_ver $::env(PYTHON_VERSION_TAG)
+}
+
+if { $python_ver=="3.6" } {prereq python3/3.6}
+
+conflict mpi4py
+
+set root                        /shared/ucl/apps/mpi4py/3.0.0/gnu-4.9.2/python$python_ver
+prepend-path PYTHONPATH         $root/lib/python$python_ver/site-packages
+prepend-path CMAKE_PREFIX_PATH	$root
+
