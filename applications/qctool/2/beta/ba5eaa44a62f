@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# QCTool v2 Beta
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds qctool v2 beta to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "This module adds qctool v2 beta to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+prereq  openblas/0.2.14/gnu-4.9.2
+
+conflict qctool
+
+set root 			/shared/ucl/apps/qctool/ba5eaa44a62f
+prepend-path PATH    		$root/bin
