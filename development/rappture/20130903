@@ -4,6 +4,8 @@
 #
 # BAA
 
+# Updated August 2018 to fix setting CMAKE_PREFIX_PATH
+
 proc ModulesHelp { } {
     puts stderr "Adds the Rappture toolkit version 20130903 to your environment."
     puts stderr ""
@@ -44,4 +46,4 @@ prepend-path	CLASSPATH	$libdir/java
 
 prepend-path	R_LIBS		$libdir/R
 	
-prepend-path CMAKE_PREFIX_PATH $root
+prepend-path CMAKE_PREFIX_PATH $prefix
