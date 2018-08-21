@@ -70,6 +70,7 @@ if [modulefunctions::isTMPDIR] {
 } else {
     puts stderr "The main Gaussian executable (g09) is too resource-intensive" 
     puts stderr "to be run on the login nodes. Please submit it as a job."
+    puts stderr "Gaussview 5 is segfaulting with newer Xservers. 6 is available with Gaussian 16."
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 }
 

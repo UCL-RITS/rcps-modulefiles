@@ -14,7 +14,7 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds Gaussian G09-D01 to your environment and also includes Linda and Gaussview 5"
+module-whatis "Adds Gaussian G09-D01 to your environment and also includes Linda and Gaussview 5."
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
@@ -35,6 +35,7 @@ if [modulefunctions::isTMPDIR] {
 } else {
     puts stderr "The main Gaussian executable (g09) is too resource-intensive"     
     puts stderr "to be run on the login nodes. Please submit it as a job."
+    puts stderr "Gaussview 5 is segfaulting with newer Xservers. 6 is available with Gaussian 16."
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 }
 
