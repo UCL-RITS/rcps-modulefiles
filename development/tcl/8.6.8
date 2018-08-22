@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+##
+## Tcl/Tk 8.6.8
+##
+## 
+## 
+
+set module_name "Tcl/Tk 8.6.8"
+
+proc ModulesHelp { } {
+
+  puts stderr {This is a modulefile for $module_name}
+
+}
+
+module-whatis "This is a modulefile for $module_name"
+
+set              prefix               /shared/ucl/apps/tcl/8.6.8/gnu-4.9.2
+
+prepend-path PATH              $prefix/bin
+prepend-path LIBRARY_PATH      $prefix/lib
+prepend-path LD_LIBRARY_PATH   $prefix/lib
+prepend-path CPATH             $prefix/include
+prepend-path INCLUDE_PATH      $prefix/include
+prepend-path MANPATH           $prefix/man
+prepend-path MANPATH           $prefix/share/man
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PKG_CONFIG_PATH   $prefix/lib/pkgconfig
+
+# Used to help other programs link
+setenv TCLROOT $prefix
+setenv LIBTCL  $prefix/lib/libtcl8.6.so
+setenv LIBTK   $prefix/lib/libtk8.6.so
+
