@@ -8,7 +8,7 @@ lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
 
 proc ModulesHelp { } {
-    puts stderr "Adds GATK 4.0.3.0 to your environment."
+    puts stderr "Adds GATK 4.0.8.0 to your environment."
     puts stderr "The Genome Analysis Toolkit or GATK is a software package developed" 
     puts stderr "at the Broad Institute to analyze high-throughput sequencing data."
     puts stderr "Website: https://www.broadinstitute.org/gatk/index.php"
@@ -16,14 +16,14 @@ proc ModulesHelp { } {
     puts stderr "To run GATK tools, run 'gatk'"
 }
 
-module-whatis "Adds GATK 4.0.3.0 to your environment. The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data. Website: https://www.broadinstitute.org/gatk/index.php"
+module-whatis "Adds GATK 4.0.8.0 to your environment. The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data. Website: https://www.broadinstitute.org/gatk/index.php"
 
 conflict gatk
 prereq gcc-libs/4.9.2
 prereq java/1.8.0_92	
 
-set prefix /shared/ucl/apps/gatk-bsd/4.0.3.0/gatk-4.0.3.0
+set prefix /shared/ucl/apps/gatk-bsd/4.0.8.0/gatk-4.0.8.0
 
 setenv       GATKPATH            $prefix
 prepend-path PATH                $prefix
-setenv       GATK_LOCAL_JAR      $prefix/gatk-package-4.0.3.0-local.jar
+setenv       GATK_LOCAL_JAR      $prefix/gatk-package-4.0.8.0-local.jar
