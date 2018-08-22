@@ -15,6 +15,9 @@ proc ModulesHelp { } {
 
 module-whatis "This is a modulefile for $module_name"
 
+conflict tcl
+prereq gcc-libs/4.9.2
+
 set              prefix               /shared/ucl/apps/tcl/8.6.8/gnu-4.9.2
 
 prepend-path PATH              $prefix/bin
