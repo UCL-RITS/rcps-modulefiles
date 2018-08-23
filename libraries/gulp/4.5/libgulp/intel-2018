@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## GULP 4.5 - library only
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds GULP 4.5 library version to your environment. Built libgulp only, without FoX, for programs such as ChemShell to link. GULP is a materials simulation code.}
+
+}
+
+module-whatis "Adds GULP 4.5 library version to your environment. Built libgulp only, without FoX, for programs such as ChemShell to link. GULP is a materials simulation code."
+
+
+prereq gcc-libs
+prereq compilers/intel
+prereq mpi/intel
+conflict gulp
+
+set prefix /shared/ucl/apps/gulp/4.5/chemshell/intel-2018/gulp-4.5
+
+prepend-path LIBRARY_PATH		$prefix
+prepend-path LD_LIBRARY_PATH		$prefix
+prepend-path CMAKE_PREFIX_PATH          $prefix
+
+# To help external programs link  
+setenv LIBGULP_ROOT $prefix
+
