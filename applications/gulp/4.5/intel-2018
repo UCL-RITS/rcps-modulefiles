@@ -2,8 +2,6 @@
 ##
 ## GULP 4.5 
 
-set module_name gulp
-
 proc ModulesHelp { } {
 
   puts stderr {Adds GULP 4.5 to your environment. Built with FoX and without plumed. GULP is a materials simulation code.}

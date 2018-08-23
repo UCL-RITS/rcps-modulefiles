@@ -2,15 +2,13 @@
 ##
 ## GULP 4.5 - library only
 
-set module_name "GULP 4.5 library version"
-
 proc ModulesHelp { } {
 
-  puts stderr "Adds $module_name to your environment. Built libgulp only, without FoX, for programs such as ChemShell to link. GULP is a materials simulation code."
+  puts stderr {Adds GULP 4.5 library version to your environment. Built libgulp only, without FoX, for programs such as ChemShell to link. GULP is a materials simulation code.}
 
 }
 
-module-whatis "Adds $module_name to your environment. Built libgulp only, without FoX, for programs such as ChemShell to link. GULP is a materials simulation code."
+module-whatis "Adds GULP 4.5 library version to your environment. Built libgulp only, without FoX, for programs such as ChemShell to link. GULP is a materials simulation code."
 
 
 prereq gcc-libs
