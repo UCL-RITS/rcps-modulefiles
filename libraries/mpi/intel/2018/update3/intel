@@ -31,7 +31,7 @@ prepend-path PATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/intel64/bi
 prepend-path MANPATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/man
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/intel64/lib
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/intel64/lib
-prepend-path CPATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/include
+prepend-path CPATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/include64
 prepend-path PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
 prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/intel/2018.Update3/impi/2018.3.222
 
