@@ -62,3 +62,7 @@ if { [file isdirectory $prefix/include] } then {
   prepend-path      INCLUDE_PATH         $prefix/include
 }
 
+# This is necessary to stop Octave spawning too many OpenBLAS threads and 
+# exiting -- Owain Kenway
+setenv OPENBLAS_NUM_THREADS 1
+
