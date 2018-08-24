@@ -12,10 +12,10 @@ proc ModulesHelp { } {
 module-whatis "Octave is an open source competitor to Matlab."
 
 prereq gcc-libs
-module load openblas/0.3.2-serial/gnu-4.9.2
+module load openblas/0.3.2-native-threads/gnu-4.9.2
 module load fftw/3.3.6-pl2/gnu-4.9.2 
-module load arpack-ng/3.5.0/gnu-4.9.2-serial 
-module load suitesparse/4.5.5/gnu-4.9.2-serial 
+module load arpack-ng/3.5.0/gnu-4.9.2-threaded
+module load suitesparse/4.5.5/gnu-4.9.2-threaded 
 module load ghostscript/9.19/gnu-4.9.2
 module load hdf/5-1.8.15/gnu-4.9.2 
 module load java/1.8.0_92 
