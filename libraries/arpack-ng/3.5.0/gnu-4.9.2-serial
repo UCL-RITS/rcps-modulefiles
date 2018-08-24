@@ -15,7 +15,7 @@ prereq openblas/0.3.2-serial/gnu-4.9.2
 
 conflict arpack-ng
 
-set              prefix               /shared/ucl/apps/arpack-ng/3.5.0/3.5.0-serial
+set              prefix               /shared/ucl/apps/arpack-ng/3.5.0-serial/gnu-4.9.2
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
