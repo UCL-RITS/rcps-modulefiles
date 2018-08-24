@@ -14,7 +14,7 @@ module-whatis {Adds suitesparse 4.5.5 to your environment. SuiteSparse is a suit
 conflict suitesparse
 
 prereq gcc-libs
-prereq compilers/gnu
+#prereq compilers/gnu
 prereq openblas/0.3.2-serial/gnu-4.9.2
 
 set              prefix               /shared/ucl/apps/suitesparse/4.5.5-serial-gcc-4.9.2
