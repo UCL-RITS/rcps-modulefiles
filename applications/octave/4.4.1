@@ -1,0 +1,64 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Octave is an open source competitor to Matlab which is mostly compatible with Matlab.}
+
+}
+
+module-whatis {{Octave is an open source competitor to Matlab which is mostly compatible with Matlab.}
+
+prereq gcc-libs/4.9.2
+#prereq compilers/gnu/4.9.2
+prereq openblas/0.3.2-serial/gnu-4.9.2
+prereq fftw/3.3.6-pl2/gnu-4.9.2 
+prereq arpack-ng/3.5.0/gnu-4.9.2-serial 
+prereq suitesparse/4.5.5/gnu-4.9.2-serial 
+prereq ghostscript/9.19/gnu-4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2 
+prereq java/1.8.0_92 
+prereq libtool/2.4.6 
+prereq perl/5.22.0 
+prereq graphicsmagick/1.3.21 
+prereq texlive/2015 
+prereq bison/3.0.4/gnu-4.9.2
+prereq gnuplot/5.0.1 
+prereq texinfo/5.2/gnu-4.9.2
+
+set              prefix               /shared/ucl/apps/octave/4.4.1/gnu-4.9.2
+
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/man] } then {
+  prepend-path      MANPATH              $prefix/man
+}
+
+if { [file isdirectory $prefix/share/man] } then {
+  prepend-path      MANPATH              $prefix/share/man
+}
+
+if { [file isdirectory $prefix/lib] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib
+}
+
+if { [file isdirectory $prefix/lib64] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib64
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib64
+}
+
+if { [file isdirectory $prefix/lib/pkgconfig] } then {
+  prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+

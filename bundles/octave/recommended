@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-04-15
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds UCL recommended install of Octave  to your environment variables."
+
+}
+
+module-whatis "Octave is an open source competitor to Matlab."
+
+prereq gcc-libs
+module load openblas/0.3.2-serial/gnu-4.9.2
+module load fftw/3.3.6-pl2/gnu-4.9.2 
+module load arpack-ng/3.5.0/gnu-4.9.2-serial 
+module load suitesparse/4.5.5/gnu-4.9.2-serial 
+module load ghostscript/9.19/gnu-4.9.2
+module load hdf/5-1.8.15/gnu-4.9.2 
+module load java/1.8.0_92 
+module load libtool/2.4.6 
+module load perl/5.22.0 
+module load graphicsmagick/1.3.21 
+module load texlive/2015 
+module load bison/3.0.4/gnu-4.9.2
+module load gnuplot/5.0.1 
+module load texinfo/5.2/gnu-4.9.2
+
