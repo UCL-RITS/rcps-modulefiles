@@ -26,4 +26,4 @@ module load texlive/2015
 module load bison/3.0.4/gnu-4.9.2
 module load gnuplot/5.0.1 
 module load texinfo/5.2/gnu-4.9.2
-
+module load octave/4.4.1
