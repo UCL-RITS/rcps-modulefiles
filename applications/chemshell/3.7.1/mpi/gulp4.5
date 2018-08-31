@@ -1,0 +1,40 @@
+#%Module -*- tcl -*-
+##
+## ChemShell MPI+GULP version
+##
+## 
+## 
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+  puts stderr {This is a modulefile for ChemShell 3.7.1, MPI+GULP version. Can be used to run other packages if you load a module for those.}
+
+}
+
+module-whatis "This is a modulefile for ChemShell 3.7.1, MPI+GULP version. Can be used to run other packages if you load a module for those."
+
+conflict chemshell
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+prereq mpi/intel
+prereq tcl
+
+# check for restricted group membership
+#if [modulefunctions::isModuleLoad] {
+#    modulefunctions::isMember "lgchemsh"
+#}
+
+set          prefix            /shared/ucl/apps/chemshell/3.7.1/mpi-gulp4.5/intel-2018/chemsh-3.7.1
+
+prepend-path PATH              $prefix/bin
+prepend-path PATH              $prefix/scripts
+prepend-path LIBRARY_PATH      $prefix/lib
+prepend-path LD_LIBRARY_PATH   $prefix/lib
+prepend-path CPATH             $prefix/include
+prepend-path INCLUDE_PATH      $prefix/include
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+
