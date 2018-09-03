@@ -2,6 +2,7 @@
 ##
 ## modulefile
 ##
+## Updated September 2018 to add Amber Tools paths
 
 proc ModulesHelp { } {
 
@@ -18,8 +19,17 @@ prereq compilers/intel
 prereq python/2.7.9
 
 set              root              /shared/ucl/apps/amber/amber-16-openmp
+set              serialroot        /shared/ucl/apps/amber/amber-16
 
 setenv           AMBERHOME         $root
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+# AmberTools
+prepend-path  PATH  $serialroot/AmberTools/bin
+prepend-path  PATH  $root/AmberTools/bin
+prepend-path     LD_RUN_PATH       $serialroot/lib
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $serialroot/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
