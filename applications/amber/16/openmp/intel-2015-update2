@@ -2,6 +2,7 @@
 ##
 ## modulefile
 ##
+## Updated September 2018 to add Amber Tools paths
 
 proc ModulesHelp { } {
 
@@ -21,5 +22,10 @@ set              root              /shared/ucl/apps/amber/amber-16-openmp
 
 setenv           AMBERHOME         $root
 prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+# AmberTools
+prepend-path  PATH  $root/AmberTools/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib

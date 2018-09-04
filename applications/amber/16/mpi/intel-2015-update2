@@ -2,6 +2,7 @@
 ##
 ## modulefile
 ##
+## Updated September 2018 to add Amber Tools paths
 
 proc ModulesHelp { } {
 
@@ -27,3 +28,8 @@ prepend-path     LD_LIBRARY_PATH   $root/lib
 
 # MPI4PY for MMPBSA
 prepend-path     PYTHONPATH        /shared/ucl/apps/amber/support/16/lib/python2.7/site-packages
+
+# AmberTools
+prepend-path  PATH  $root/AmberTools/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
