@@ -1,0 +1,39 @@
+#%Module -*- tcl -*-
+#
+# MRtrix 3.0RC3
+#
+#                                                      H.K. Aug 2015
+# Updated for 3.0RC3 Sept 2018 - BAA
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds MRtrix 3.0RC3 to your environment."
+    puts stderr ""
+    puts stderr "MRtrix3 provides a set of tools to perform analysis of diffusion MRI data"
+    puts stderr "including constrained spherical deconvolution (CSD), probabilistic"
+    puts stderr "tractography, track-density imaging, and apparent fibre density."
+    puts stderr ""
+    puts stderr "Note: mrview and shview cannot be run over a remote X11 connection so are"
+    puts stderr "not usable."
+    puts stderr ""
+
+}
+
+module-whatis "Adds MRtrix 3.0RC3 to your environment."
+
+# Module requirements have changed slightly in this version
+prereq gcc-libs/4.9.2
+prereq python3/recommended
+prereq qt/4.8.6/gnu-4.9.2
+prereq eigen/3.2.5/gnu-4.9.2
+prereq fftw/3.3.6-pl2/gnu-4.9.2
+
+conflict mrtrix
+
+set root 			/shared/ucl/apps/mrtrix/3.0RC3/gnu-4.9.2
+prepend-path PATH    		$root/bin
+prepend-path MANPATH		$root/share/man
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/lib
+prepend-path INCLUDE_PATH	$root/lib
