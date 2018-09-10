@@ -65,17 +65,8 @@ append-path PATH                $prefix/lib64/R/library/snow
 # on Myriad.
 setenv       R_LIBS_SITE	/scratch/scratch/ccspapp/R/R-3.5.1-OpenBLAS/library
 
-# Fix OpenMPI in single node Rmpi
-# Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
-if { [info exists ::env(NHOSTS)] } {
-        if { $::env(NHOSTS) == 1} {
-          setenv OMPI_MCA_btl tcp,sm,self
-          setenv OMPI_MCA_pml ob1
-        }
-} else {
-    setenv OMPI_MCA_mtl "^psm2"
-    setenv OMPI_MCA_pml "cm"
-}
+setenv OMPI_MCA_mtl "^psm2"
+setenv OMPI_MCA_pml "cm"
 
 # Set environment for non-interactive R (running in a job) to improve calculation
 # performance
