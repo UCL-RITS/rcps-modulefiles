@@ -73,8 +73,8 @@ if { [info exists ::env(NHOSTS)] } {
           setenv OMPI_MCA_pml ob1
         }
 } else {
-    setenv OMPI_MCA_btl tcp,sm,self
-    setenv OMPI_MCA_pml ob1
+    setenv OMPI_MCA_mtl "^psm2"
+    setenv OMPI_MCA_pml "cm"
 }
 
 # Set environment for non-interactive R (running in a job) to improve calculation
