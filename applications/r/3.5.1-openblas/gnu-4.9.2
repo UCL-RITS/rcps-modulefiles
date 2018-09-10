@@ -65,8 +65,17 @@ append-path PATH                $prefix/lib64/R/library/snow
 # on Myriad.
 setenv       R_LIBS_SITE	/scratch/scratch/ccspapp/R/R-3.5.1-OpenBLAS/library
 
-setenv OMPI_MCA_mtl "^psm2"
-setenv OMPI_MCA_pml "cm"
+# Fix OpenMPI in single node Rmpi
+# Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
+if { [info exists ::env(NHOSTS)] } {
+        if { $::env(NHOSTS) == 1} {
+          setenv OMPI_MCA_btl tcp,sm,self
+          setenv OMPI_MCA_pml ob1
+        }
+} else {
+    setenv OMPI_MCA_btl tcp,sm,self
+    setenv OMPI_MCA_pml ob1
+}
 
 # Set environment for non-interactive R (running in a job) to improve calculation
 # performance
@@ -80,7 +89,7 @@ if { [info exists ::env(JOB_ID)] } {
     puts stderr ""
     puts stderr "R Version 3.5.1 setup."
     puts stderr ""
-    puts stderr "NOTE: Rmpi is not currently working with R 3.5.1 - R restricted to single node jobs."
+    puts stderr "NOTE: Rmpi in R 3.5.1 has major changes!"
     puts stderr ""
 }
 
