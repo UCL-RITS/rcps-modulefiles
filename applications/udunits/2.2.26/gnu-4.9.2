@@ -15,7 +15,7 @@ proc ModulesHelp { } {
     puts stderr "unit and for converting numeric values between compatible units,"
     puts sdterr "and a large database of units."
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/UDUNITS/2.2.26"
+    puts stderr "Directory: /shared/ucl/apps/udunits/2.2.26"
 }
 
 module-whatis "adds the UDUNITS-2 package to your environment."
@@ -23,7 +23,7 @@ module-whatis "adds the UDUNITS-2 package to your environment."
 conflict udunits
 prereq gcc-libs/4.9.2
 
-set    prefix    /shared/ucl/apps/UDUNITS/2.2.26
+set    prefix    /shared/ucl/apps/udunits/2.2.26
 
 
 if { [file isdirectory $prefix/bin] } then {
