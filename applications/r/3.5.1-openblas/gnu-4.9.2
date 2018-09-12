@@ -69,7 +69,7 @@ append-path PATH                $prefix/lib64/R/library/snow
 setenv       R_LIBS_SITE	/scratch/scratch/ccspapp/R/R-3.5.1-OpenBLAS/library
 
 # This doesn't work on Aristotle so
-if { [modulefunctions::isCluster Aristotle] } {
+if { [modulefunctions::isCluster aristotle] } {
     setenv R_LIBS_SITE    /home/ccspapp/Scratch/R/R-3.5.1-OpenBLAS/library
 }
 
