@@ -20,7 +20,7 @@ conflict ga
 
 set              prefix               /shared/ucl/apps/ga/5.7-8BInts/intel-2018
 
-prepend-path GAROOT=/shared/ucl/apps/ga/5.7-8BInts/intel-2018
+setenv GAROOT /shared/ucl/apps/ga/5.7-8BInts/intel-2018
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 
