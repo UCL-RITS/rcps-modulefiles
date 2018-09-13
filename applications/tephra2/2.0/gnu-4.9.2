@@ -1,0 +1,43 @@
+#%Module -*- tcl -*-
+##
+## Tephra2 Version 2.0
+##
+## 
+##
+## Brian Alston August 2018
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Tephra2 Version 2.0 to your environment."
+    puts stderr ""
+    puts stderr "Tephra2 uses the advection diffusion equation to forecast tephra dispersion"
+    puts stderr "in a given location based on a user-defined set of eruptive conditions."
+    puts stderr ""
+    puts stderr "An example job script for UCL is in:"
+    puts stderr "    /shared/ucl/apps/Tephra2/2.0/bin/run-inversion-UCL"
+    puts stderr ""
+    puts stderr "Directory:/shared/ucl/apps/Tephra2/2.0"
+}
+
+module-whatis "Adds Tephra2 version 2.0 to your environment."
+
+conflict	tephra2
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.1/gnu-4.9.2
+prereq gmt/recommended
+
+set prefix	/shared/ucl/apps/Tephra2
+# set prefix      /home/ccaabaa/lib/Tephra2
+set ver		2.0
+
+setenv  	 TEPHRA2    $prefix/$ver
+prepend-path     PATH	    $prefix/$ver/bin
+setenv           T2INPUTS   $prefix/$ver/inputs
+setenv           T2PLOTS    $prefix/$ver/plotting_scripts
