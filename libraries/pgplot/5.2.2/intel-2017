@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds PGPlot 5.2.2 to your environment.}
+
+}
+
+module-whatis {Adds PGPlot 5.2.2 to your environment.}
+
+prereq compilers/intel/2017/update4
+
+conflict pgplot
+
+set              prefix               /shared/ucl/apps/pgplot/5.2.2/intel-2017
+
+
+if { [file isdirectory $prefix] } then {
+  prepend-path      PATH                 $prefix
+}
+
+setenv PGPLOT_DIR $prefix
+
+if { [file isdirectory $prefix] } then {
+  prepend-path      LIBRARY_PATH         $prefix
+  prepend-path      LD_LIBRARY_PATH      $prefix
+}
+
+prepend-path CMAKE_PREFIX_PATH  $prefix
