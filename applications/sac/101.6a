@@ -6,6 +6,8 @@
 ##
 ## SAC (Seismic Analysis Code) Version 101.6a
 
+## Updated to use Matlab R2016b as R2015a now deleted - October 2018
+
 proc ModulesHelp { } {
     puts stderr "Adds SAC 101.6a to your environment."
     puts stderr ""
@@ -15,15 +17,15 @@ proc ModulesHelp { } {
     puts stderr "analysis tools used by research seismologists in the study"
     puts stderr "of seismic events."
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/sac/101.6a/gnu-4.9.2"
+    puts stderr "Directory: /shared/ucl/apps/sac/101.6a_R2016b/gnu-4.9.2"
 }
 
 module-whatis "Adds SAC 101.6a to your environment."
 
 conflict        sac
-prereq          matlab/full/r2015a/8.5
+prereq          matlab/full/r2016b/9.1
 
-set prefix      /shared/ucl/apps/sac/101.6a/gnu-4.9.2
+set prefix      /shared/ucl/apps/sac/101.6a_R2016b/gnu-4.9.2
 
 prepend-path    PATH            $prefix/bin
 setenv          SACAUX          $prefix/aux
