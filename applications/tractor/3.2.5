@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+#
+# TractoR 3.2.5
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds TractoR 3.2.5 to your environment."
+    puts stderr ""
+    puts stderr "TractoR (Tractography with R) is an R application for reading, writing,"
+    puts stderr "analysing and visualising magnetic resonance images stored in Analyze,"
+    puts stderr "NIfTI and DICOM file formats. It also contains functions specifically"
+    puts stderr "designed for working with diffusion MRI and tractography"
+    puts stderr ""
+
+}
+
+module-whatis "Adds TractoR 3.2.5 to your environment."
+
+# using r/new for R 3.5.1
+prereq r/new
+prereq fsl/5.0.10
+
+conflict tractor
+
+# set prefix /home/ccaabaa/Software/TractoR/tractor
+set prefix /shared/ucl/apps/TractoR/3.2.5/gnu-4.9.2/tractor
+setenv TRACTOR_HOME $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
