@@ -13,6 +13,7 @@
 # Updated for ANSYS 17.2                Sept 2016 BAA
 # Updated for ANSYS 18.0                Feb 2017 BAA
 # Updated for coupled field analysis paths    Jan 2018 BAA
+# Updated to set correct fabric         Oct 2018
 
 
 proc ModulesHelp { } {
@@ -56,4 +57,8 @@ setenv ANSYS170_PRODUCT aa_mcad
 setenv ANSYS_LOCK      	ON
 setenv ANSYS180_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
+
+# Configure MPI fabric for Intel MPI as ANSYS is not using gerun
+setenv I_MPI_FABRICS    shm:ofa
+setenv I_MPI_FALLBACK   1
 
