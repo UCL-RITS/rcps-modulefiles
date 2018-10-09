@@ -7,6 +7,7 @@
 ## Modified April 2015 for version 6.0 Build 1044 and Legion's OS upgrade by BAA
 ##
 ## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
+## Updated October 2018 to include setting NAG_KUSARI_FILE for Michael.
 
 proc ModulesHelp { } {
 
@@ -29,6 +30,8 @@ prepend-path	MANPATH		$prefix/$release/man
 
 if { [modulefunctions::isCluster Thomas]  } {
     setenv NAG_KUSARI_FILE until03:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Michael] } {
+    setenv NAG_KUSARI_FILE until11:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {
