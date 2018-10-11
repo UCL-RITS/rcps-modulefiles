@@ -39,4 +39,4 @@ prepend-path PATH		$prefix/gem/2017.10/linux_x64/exe
 prepend-path LD_LIBRARY_PATH    $prefix/gem/2017.10/linux_x64/lib
 prepend-path PATH		$prefix/stars/2017.10/linux_x64/exe
 prepend-path LD_LIBRARY_PATH    $prefix/stars/2017.10/linux_x64/lib
-setenv CMG_LIC_HOST lm-server3.ucl.ac.uk:2700
+setenv CMG_LIC_HOST lic-cmg.ucl.ac.uk:2700
