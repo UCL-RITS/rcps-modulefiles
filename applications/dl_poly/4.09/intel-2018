@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# DL_POLY 4.09, 64 bit
+#
+#                                                     
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the DL_POLY 4.09 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds DL_POLY 4.09 to your environment."
+
+# on load, check if user is in the correct group
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "lgdlp409"
+}
+
+# Add DL_Poly binary to PATH
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+prereq mpi/intel
+
+conflict dl_poly
+
+prepend-path PATH      /shared/ucl/apps/dl_poly/4.09/intel-2018/execute
