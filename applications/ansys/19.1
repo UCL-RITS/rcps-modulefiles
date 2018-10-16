@@ -14,7 +14,10 @@
 # Updated for ANSYS 18.0                Feb 2017 BAA
 # Updated for coupled field analysis paths    Jan 2018 BAA
 # Updated for ANSYS 19.1                May 2018 BAA
-# Further updated with settings directories on Scratch and Ansys EM products support    June 2018
+# Further updated with settings directories on Scratch and Ansys EM products
+# support    June 2018
+# Fix bug with creating ~/.config/Ansys settings directory when ~/.config
+# doesn't exist    Oct 2018
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -93,7 +96,8 @@ setenv ANSYS_LOCK      	ON
 setenv ANSYS191_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
 
-set AnsysDir "~/.config/Ansys"
+set AnsysDirLoc "~/.config"
+set AnsysDir "~/Scratch/.config/Ansys"
 
 # For Ansys Fluent
 set FLRECENT "~/.flrecent"
@@ -116,7 +120,15 @@ set AnsysEMDir "~/Ansoft"
 set mwDir "~/.mw"
 
 if { [modulefunctions::isModuleLoad] } {
-    if { ! [appDirSetup $AnsysDir] } {
+    if { ! [appDirSetup $AnsysDirLoc] } {
+	puts stderr ""
+	puts stderr "**** error: setting up ~/.config directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the ANSYS module at least once from a login node before"
+	puts stderr "running any jobs or qrsh sessions on the cluster."
+	puts stderr ""
+    }
+    if { ! [modulefunctions::createDir $AnsysDir] } {
 	puts stderr ""
 	puts stderr "**** error: setting up ANSYS products user directory failed."
 	puts stderr ""
