@@ -14,6 +14,11 @@ prereq flex/2.5.39
 prereq bison/3.0.4/gnu-4.9.2
 prereq ghostscript/9.19/gnu-4.9.2
 prereq texlive/2015
+prereq swig/3.0.5/gnu-4.9.2 
+prereq qt/4.8.6/gnu-4.9.2
+prereq lua/5.3.1 
+prereq perl/5.22.0 
+prereq graphviz/2.40.1
 
 conflict doxygen
 
