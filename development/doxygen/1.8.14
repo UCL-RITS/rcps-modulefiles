@@ -3,19 +3,21 @@
 
 proc ModulesHelp { } {
 
-  puts stderr {Adds bcl2fastq2 2.19.1 to your environment.}
+  puts stderr {This is a module with no description string.}
 
 }
 
-module-whatis {Adds bcl2fastq2 2.19.1 to your environment.}
+module-whatis {This is a module with no description string.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
+prereq flex/2.5.39
+prereq bison/3.0.4/gnu-4.9.2
+prereq ghostscript/9.19/gnu-4.9.2
+prereq texlive/2015
 
-conflict bcl2fastq2
-conflict bcl2fastq
+conflict doxygen
 
-set              prefix               /shared/ucl/apps/bcl2fastq2/v2.19.1
-
+set              prefix               /shared/ucl/apps/doxygen/1.8.14/gnu-4.9.2
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 

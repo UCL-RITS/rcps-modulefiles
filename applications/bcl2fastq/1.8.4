@@ -3,18 +3,18 @@
 
 proc ModulesHelp { } {
 
-  puts stderr {Adds bcl2fastq2 2.19.1 to your environment.}
+  puts stderr {Adds bcl2fastq 1.8.4 to your environment.}
 
 }
 
-module-whatis {Adds bcl2fastq2 2.19.1 to your environment.}
+module-whatis {Adds bcl2fastq 1.8.4 to your environment.}
 
 prereq gcc-libs/4.9.2
 
 conflict bcl2fastq2
 conflict bcl2fastq
 
-set              prefix               /shared/ucl/apps/bcl2fastq2/v2.19.1
+set              prefix               /shared/ucl/apps/bcl2fastq/1.8.4
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
