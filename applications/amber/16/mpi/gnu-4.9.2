@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Updated September 2018 to add Amber Tools paths
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the AMBER16 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds AMBER 16 to your environment"
+
+
+conflict amber
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.1/gnu-4.9.2
+prereq python/2.7.9
+
+set              root              /shared/ucl/apps/amber-gcc/amber-16-mpi
+
+setenv           AMBERHOME         $root
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+# MPI4PY for MMPBSA
+prepend-path     PYTHONPATH        /shared/ucl/apps/amber/support/16/lib/python2.7/site-packages
+
+# AmberTools
+prepend-path  PATH  $root/AmberTools/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
