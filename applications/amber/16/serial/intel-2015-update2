@@ -12,6 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds AMBER 16 to your environment"
 
+puts stderr "PLEASE DO NOT RUN NAB IN ARRAY JOBS."
 
 conflict amber
 prereq gcc-libs/4.9.2
