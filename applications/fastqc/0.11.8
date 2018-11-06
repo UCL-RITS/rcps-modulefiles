@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+# FastQC 0.11.8
+# Using system Perl and Java.
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds FastQC 0.11.8 to your environment."
+    puts stderr "A quality control application for high throughput sequence data."
+    puts stderr ""
+}
+
+module-whatis "Adds FastQC 0.11.8 to your environment. A quality control application for high throughput sequence data."
+
+prereq gcc-libs/4.9.2
+
+conflict fastqc
+
+set root                      	/shared/ucl/apps/fastqc/0.11.8/FastQC
+prepend-path PATH		$root
+
