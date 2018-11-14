@@ -3,7 +3,7 @@
 
 proc ModulesHelp { } {
 
-  puts stderr {Adds Miniconda 4.5.11 to your environment variables.}
+  puts stderr {Adds Miniconda 4.5.11 to your environment variables. You should use this package only to create new conda environments in your home directory.}
 
 }
 
