@@ -9,6 +9,9 @@
 ## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
 ## Updated October 2018 to include setting NAG_KUSARI_FILE for Michael.
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
 
   puts stderr "Adds the NAG Fortran compiler V6.0 Build 1044 to your environment."
