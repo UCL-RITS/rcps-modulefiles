@@ -5,6 +5,9 @@
 ## NAG Fortran Library Mark 24 for NAG Compiler 
 ## Updated November 2018 to fix NAG_KUSARI_FILE variable for all clusters with LMs
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
     puts stderr "This module adds the NAG Fortran Library Mark 24 to your environment."
     puts stderr ""
