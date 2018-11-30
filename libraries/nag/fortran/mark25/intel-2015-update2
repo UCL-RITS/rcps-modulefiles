@@ -3,6 +3,7 @@
 ## modulefile
 ##
 ## NAG Fortran Library Mark 25 for Intel 2015
+## Updated November 2018 to fix NAG_KUSARI_FILE variable for all clusters with LMs
 
 proc ModulesHelp { } {
     puts stderr "This module adds the NAG Fortran Library Mark 25 to your environment."
@@ -35,6 +36,15 @@ prepend-path CPATH		$prefix/c_headers
 prepend-path INCLUDE_PATH	$prefix/c_headers
 
 setenv NAG_DIR $prefix
-setenv NAG_KUSARI_FILE lm-server:,naglm-server.ucl.ac.uk:
+
+if { [modulefunctions::isCluster Thomas]  } {
+    setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Michael] } {
+    setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Aristotle]  } {
+    setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} else {
+    setenv NAG_KUSARI_FILE lm-server2:,lic-nag.ucl.ac.uk:
+}
 
 prepend-path CMAKE_PREFIX_PATH  $prefix
