@@ -7,6 +7,7 @@
 ## Modified April 2016 for version 6.1 Build 6106
 ## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
 ## Updated October 2018 to include setting NAG_KUSARI_FILE for Michael.
+## Updated November 2018 to fix NAG_KUSARI_FILE variable
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -31,13 +32,13 @@ prepend-path    LIBRARY_PATH    $prefix/$release/lib/NAG_Fortran
 prepend-path	MANPATH		$prefix/$release/man
 
 if { [modulefunctions::isCluster Thomas]  } {
-    setenv NAG_KUSARI_FILE until03:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Michael] } {
-    setenv NAG_KUSARI_FILE until11:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {
-    setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE lm-server2:,lic-nag.ucl.ac.uk:
 }
 
 setenv FC              nagfor
