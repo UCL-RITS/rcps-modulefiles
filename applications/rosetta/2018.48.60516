@@ -1,0 +1,44 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Rosetta 2018.48.60516 serial version
+##
+## Brian Alston October 2015 LD_LIBRARY_PATH added
+## Updated December 2018 for Rosetta 2018.48.60516
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds Rosetta 2018.48.60516 serial build to your environment."
+    puts stderr ""
+    puts stderr "The Rosetta software suite includes algorithms for"
+    puts stderr "computational modeling and analysis of protein structures."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Rosetta/rosetta_src_2018.48.60516_bundle"
+}
+
+
+
+module-whatis "Adds Rosetta 2018.48.60516 serial version to your environment."
+
+conflict rosetta
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq python2/recommended
+
+
+# Location of Rosetta:
+
+set prefix /shared/ucl/apps/Rosetta/rosetta_src_2018.48.60516_bundle
+
+prepend-path 	PATH		$prefix/main/source/bin
+setenv		ROSETTA3_DB	$prefix/main/database
+prepend-path	LD_LIBRARY_PATH	$prefix/main/source/build/external/release/linux/3.10/64/x86/gcc/4.9/default
+prepend-path	LD_LIBRARY_PATH	$prefix/main/source/build/src/release/linux/3.10/64/x86/gcc/4.9/default
