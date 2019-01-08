@@ -102,6 +102,9 @@ prereq xorg-utils/X11R7.7
 # matlab loads an old libtiff that breaks gdal
 conflict gdal
 
+# Loading one of our CUDA modules cause Matlab GPU jobs to seg fault!
+conflict cuda
+
 # Location of NAG Toolbox - currently the latest version - April 2018.
 set nagtoolbox /shared/ucl/apps/NAG/matlab-toolbox/MBL6I25DNL_R2018a/MBL6I25DNL
 
