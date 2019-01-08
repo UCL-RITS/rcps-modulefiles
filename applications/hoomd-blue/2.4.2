@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the HOOMD-blue package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds HOOMD-blue to your environment."
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.1/gnu-4.9.2
+prereq python3/recommended
+
+conflict hoomd-blue
+
+set root 			/shared/ucl/apps/hoomd-blue/2.4.2/gnu-4.9.2
+prepend-path PYTHONPATH         $root/lib/python
