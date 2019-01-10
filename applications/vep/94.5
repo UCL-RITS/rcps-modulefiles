@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds VEP 94.5."
+    puts stderr "Please note that this install does not include reference files or plugins."
+    puts stderr ""
+}
+
+module-whatis "Adds VEP 94.5 to your environment."
+
+prereq gcc-libs/4.9.2
+prereq perl/5.22.0
+
+conflict vep
+
+set root                      	/shared/ucl/apps/vep/94.5/gnu-4.9.2/ensembl-vep-release-94.5
+prepend-path PATH		$root
+
