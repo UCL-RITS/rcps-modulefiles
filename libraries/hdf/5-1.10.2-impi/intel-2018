@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## HDF5 1.10.2 compiled using Intel 2018 - Parallel version
+
+proc ModulesHelp { } {
+    puts stderr "Adds HDF5 Version 1.10.2 (Parallel) compiled using Intel 2018"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "HDF5 is a data model, library, and file format for storing and"
+    puts stderr "managing data. This is the serial version compiled with Intel 2018"
+    puts stderr "update 3."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/HDF/5-1.10.2/impi/intel-2018"
+}
+
+module-whatis "adds HDF5 1.10.2 (Parallel) for Intel 2018 to your environment."
+
+conflict hdf
+prereq gcc-libs/4.9.2
+prereq compilers/intel/2018
+prereq mpi/intel/2018
+
+set              root              /shared/ucl/apps/HDF/5-1.10.2/impi/intel-2018
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path CMAKE_PREFIX_PATH  $root
