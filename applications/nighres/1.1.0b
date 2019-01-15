@@ -10,8 +10,8 @@ proc ModulesHelp { } {
 module-whatis "Adds Nighres to your environment."
 
 prereq gcc-libs
-module prereq python/3.6.3
-module prereq java/openjdk-11/11.0.1
+prereq python/3.6.3
+prereq java/openjdk-11/11.0.1
 
 conflict nighres
 
