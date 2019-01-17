@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds SNPtest 2.5.4-beta3 to your environment. "
+
+}
+
+module-whatis "Adds SNPtest 2.5.4-beta3 to your environment. "
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict snptest
+
+set root 			/shared/ucl/apps/snptest/2.5.4-beta3/snptest_v2.5.4-beta3_linux_x86_64_static/
+prepend-path PATH      		$root
