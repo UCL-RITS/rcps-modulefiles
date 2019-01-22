@@ -1,0 +1,57 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Fortran Library Mark 26 for NAG Compiler
+## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
+## Updated November 2018 to fix NAG_KUSARI_FILE variable for all clusters with LMs
+## Updated January 2019 as Grace now has an LM running on util01
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "This module adds the NAG Fortran Library Mark 26 to your environment."
+    puts stderr ""
+    puts stderr "This version is for NAG Fortran Version 6.2"
+    puts stderr ""
+    puts stderr "The NAG Fortran Library provides numerical routines covering a wide range of"
+    puts stderr "areas including curve, surface fitting and interpolation; linear, quadratic,"
+    puts stderr "integer and nonlinear programming and least squares problems; ordinary and"
+    puts stderr "partial differential equations, and mesh generation; and many more. For details"
+    puts stderr "see http://www.nag.co.uk/numeric/fl/FLdescription.asp and online documentation."
+    puts sdterr ""
+    puts stderr "Directory: /shared/ucl/apps/NAG/fortran-library/fll6i26d9l"
+    puts stderr "NAG Docs:  /shared/ucl/apps/NAG/fortran-library/doc/nagdoc_fl26"
+}
+
+module-whatis "Adds NAG Fortran Library Mark 26 for NAG Fortran to your environment."
+
+conflict nag/fortran
+prereq gcc-libs/4.9.2
+prereq compilers/nag/6.2.6223
+
+set prefix	/shared/ucl/apps/NAG/fortran-library/fll6i26d9l
+
+prepend-path PATH		$prefix/scripts
+prepend-path LD_LIBRARY_PATH	$prefix/lib:$prefix/mkl_intel64_2017.0.3
+prepend-path LIBRARY_PATH	$prefix/lib:$prefix/mkl_intel64_2017.0.3
+prepend-path LD_RUN_PATH	$prefix/lib:$prefix/mkl_intel64_2017.0.3
+prepend-path CPATH		$prefix/c_headers
+prepend-path INCLUDE_PATH	$prefix/c_headers
+
+setenv NAG_DIR $prefix
+
+if { [modulefunctions::isCluster Thomas]  } {
+    setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Michael] } {
+    setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Grace] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Aristotle]  } {
+    setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} else {
+    setenv NAG_KUSARI_FILE lm-server2:,lic-nag.ucl.ac.uk:
+}
+
+prepend-path CMAKE_PREFIX_PATH  $prefix
