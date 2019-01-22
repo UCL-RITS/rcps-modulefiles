@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## GULP 5.1.1
+##
+## Updated for GULP 5.1.1 January 2019
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds GULP 5.1.1 to your environment. Built with FoX and without plumed. GULP is a materials simulation code.}
+
+}
+
+module-whatis {Adds GULP 5.1.1 to your environment. Built with FoX and without plumed. GULP is a materials simulation code.}
+
+
+prereq gcc-libs
+prereq compilers/intel
+prereq mpi/intel
+conflict gulp
+
+set prefix /shared/ucl/apps/gulp/5.1/intel-2018/gulp-5.1
+
+prepend-path PATH		$prefix/Src
+
