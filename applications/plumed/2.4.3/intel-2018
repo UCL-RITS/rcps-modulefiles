@@ -9,7 +9,7 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds PLUMED 2.4.3 to your environment, built using OpenBLAS and libmatheval"
+module-whatis "Adds PLUMED 2.4.3 to your environment, built using MKL and libmatheval"
 
 # Add binary to PATH
 prereq gcc-libs/4.9.2
@@ -20,7 +20,7 @@ prereq libmatheval/1.1.11
 
 conflict plumed
 
-set root                        /shared/ucl/apps/plumed/2.4.3/intel-2018/openblas
+set root                        /shared/ucl/apps/plumed/2.4.3/intel-2018/mkl
 prepend-path PATH               $root/bin
 prepend-path LD_LIBRARY_PATH    $root/lib
 prepend-path LIBRARY_PATH       $root/lib
