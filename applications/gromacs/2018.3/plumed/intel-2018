@@ -14,7 +14,7 @@ prereq compilers/intel/2018/update3
 prereq mpi/intel/2018/update3/intel
 prereq libmatheval
 prereq flex
-prereq plumed/2.4.3/intel-2017-update1
+prereq plumed/2.4.3/intel-2018
 
 conflict gromacs
 
