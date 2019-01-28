@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {OasisLMF ktools package built with the GNU compilers}
+
+}
+
+module-whatis {OasisLMF ktools package built with the GNU compilers}
+
+prereq gcc-libs
+
+conflict oasislmf/ktools
+
+set              prefix               /shared/ucl/apps/ktools/gnu-4.9.2/v3.0.3
+
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+
