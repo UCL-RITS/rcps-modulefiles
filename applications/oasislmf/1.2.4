@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+#
+proc ModulesHelp { } {
+
+    puts stderr "Oasis LMF 1.2.4"
+
+}
+
+module-whatis "Oasis LMF 1.2.4"
+
+
+# Add binary to PATH
+prereq python/3.6.3
+
+set root 			/shared/ucl/apps/oasislmf/1.2.4
+prepend-path PYTHONPATH         $root
+prepend-path PATH               $root/bin
