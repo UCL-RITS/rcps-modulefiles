@@ -26,7 +26,7 @@ prereq hdf/5-1.8.15/gnu-4.9.2
 prereq python2/recommended
 prereq java/1.8.0_45
 prereq qt/4.8.6/gnu-4.9.2
-prereq vtk/6.2.0/gnu-4.9.2ECHO $E
+prereq vtk/6.2.0/gnu-4.9.2
 
 conflict fsl
 
