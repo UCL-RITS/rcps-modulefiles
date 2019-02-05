@@ -21,12 +21,12 @@ proc ModulesHelp { } {
 module-whatis "Adds FSL 6.0.0 CUDA (FMRIB Software Library) to your environment. FSL is a comprehensive library of analysis tools for FMRI, MRI and DTI brain imaging data."
 
 prereq gcc-libs/4.9.2
-prereq cuda/9.0.176-patch4/gnu-4.9.2
+prereq cuda/7.5.18/gnu-4.9.2
 prereq hdf/5-1.8.15/gnu-4.9.2
 prereq python2/recommended
 prereq java/1.8.0_45
 prereq qt/4.8.6/gnu-4.9.2
-prereq vtk/6.2.0/gnu-4.9.2
+prereq vtk/6.2.0/gnu-4.9.2ECHO $E
 
 conflict fsl
 
