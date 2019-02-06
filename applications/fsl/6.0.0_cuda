@@ -27,8 +27,8 @@ if {! [modulefunctions::isCluster Myriad]  } {
     puts stderr ""
     puts stderr "***** Error: FSL + CUDA GPU support is only available on Myriad."
     puts stderr "      Module not loaded."
-    puts sdterr ""
-    exit 0
+    puts stderr ""
+    exit 1
 }
 
 prereq gcc-libs/4.9.2
