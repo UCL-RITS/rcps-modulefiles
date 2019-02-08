@@ -5,6 +5,9 @@
 ## CMG Version 2017.101
 ##
 ## October 2018
+##
+## Updated February 2019 to add /shared/ucl/apps/CMG/2017.101.GU/Launcher/2017.10/Linux_x64/EXE
+## to your path.
 
 # New Legion modules layout
 
@@ -39,4 +42,5 @@ prepend-path PATH		$prefix/gem/2017.10/linux_x64/exe
 prepend-path LD_LIBRARY_PATH    $prefix/gem/2017.10/linux_x64/lib
 prepend-path PATH		$prefix/stars/2017.10/linux_x64/exe
 prepend-path LD_LIBRARY_PATH    $prefix/stars/2017.10/linux_x64/lib
+prepend-path PATH               $prefix/Launcher/2017.10/Linux_x64/EXE
 setenv CMG_LIC_HOST lic-cmg.ucl.ac.uk:2700
