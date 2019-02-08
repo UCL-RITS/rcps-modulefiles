@@ -13,6 +13,8 @@
 ## Updated for Mathematica 11.0.1 October 2016
 ## Updated to install USERBASE files from Tunnel for multi-node support - Jan 2017
 ## Updated for Mathematica 11.2 January 2018
+## Updated to copy per user Tunnel support scripts from /shared/ucl/apps/Mathematica/UCL/Tunnel
+## - February 2019.
 ##
 
 # New Legion modules layout
@@ -53,6 +55,7 @@ setenv 		MATHEMATICA_USERBASE	~/Scratch/.Mathematica/$version
 set parPrefsDir $userBase/ApplicationData/Parallel/Preferences
 set FrontEndDir $userBase/FrontEnd
 set ccspappDir /home/ccspapp/Scratch/.Mathematica/$version/FrontEnd
+set tunnelAppDir /shared/ucl/apps/Mathematica/UCL/Tunnel/FrontEnd
 
 # Set up parallel preferences and Tunnel multi-node support 
 
@@ -70,8 +73,8 @@ if { [modulefunctions::isModuleLoad] } {
     if { [modulefunctions::createDir $FrontEndDir] } {
 
 	# These two Tunnel scripts need to be in users' USERBASE directories.
-	modulefunctions::copySource $ccspappDir/tunnel.sh $FrontEndDir/tunnel.sh
-	modulefunctions::copySource $ccspappDir/tunnel_sub.sh $FrontEndDir/tunnel_sub.sh
+	modulefunctions::copySource $tunnelAppDir/tunnel.sh $FrontEndDir/tunnel.sh
+	modulefunctions::copySource $tunnelAppDir/tunnel_sub.sh $FrontEndDir/tunnel_sub.sh
     } else {
     	puts stderr ""
     	puts stderr "Problem copying USERBASE Tunnel scripts from ccspapp."
