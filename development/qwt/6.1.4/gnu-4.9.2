@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+#
+# Qwt 6.1.4
+#
+#                                                      BAA February 2019
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Qwt 6.1.4 to your environment."
+    puts stderr ""
+    puts stderr "Qwt: Qt Widgets for Technical applications."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Qwt 6.1.4 to your environment."
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq qt/5.4.2/gnu-4.9.2
+
+conflict qwt
+
+set root 			/shared/ucl/apps/qwt/6.1.4/gnu-4.9.2/qwt-6.1.4
+
+prepend-path QT_PLUGIN_PATH     $root/plugins
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+prepend-path INCLUDE_PATH	$root/include
+prepend-path MANPATH            $root/doc/man
+
+setenv QWT_ROOT $root
+
+prepend-path CMAKE_PREFIX_PATH $root
