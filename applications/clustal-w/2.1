@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# Clustal W 2.1
+#
+#                                                      BAA Feb 2019
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Clustal W 2.1 to your environment."
+    puts stderr ""
+    puts stderr "Clustal W is the command line version of Clustal 2 a package"
+    puts stderr "for multiple alignment of nucleic acid and protein sequences." 
+    puts stderr ""
+
+}
+
+module-whatis "Adds Clustal W 2.1 to your environment."
+
+# Add binary to PATH
+prereq gcc-libs/4.9.2
+
+conflict clustal-w
+
+set root 			/shared/ucl/apps/clustalw/2.1/gnu-4.9.2
+prepend-path PATH               $root/bin
