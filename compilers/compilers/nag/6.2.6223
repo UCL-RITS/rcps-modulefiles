@@ -9,6 +9,7 @@
 ## Updated October 2018 to include setting NAG_KUSARI_FILE for Michael.
 ## Updated November 2018 to fix NAG_KUSARI_FILE variable
 ## Updated January 2019 as Grace now has an LM running on util01
+## Updated March 2019 for new Legion update
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -41,7 +42,7 @@ if { [modulefunctions::isCluster Thomas]  } {
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {
-    setenv NAG_KUSARI_FILE lm-server2## Updated January 2019 as Grace now has an LM running on util01
+        setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
 :,lic-nag.ucl.ac.uk:
 }
 
