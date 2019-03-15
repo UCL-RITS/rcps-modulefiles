@@ -4,6 +4,7 @@
 ##
 ## NAG Fortran Library Mark 24 for NAG Compiler 
 ## Updated November 2018 to fix NAG_KUSARI_FILE variable for all clusters with LMs
+## Updated March 2019 for new Legion update
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -47,7 +48,7 @@ if { [modulefunctions::isCluster Thomas]  } {
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {
-    setenv NAG_KUSARI_FILE lm-server2:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
 }
 
 prepend-path CMAKE_PREFIX_PATH  $prefix
