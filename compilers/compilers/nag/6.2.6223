@@ -43,7 +43,6 @@ if { [modulefunctions::isCluster Thomas]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {
         setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
-:,lic-nag.ucl.ac.uk:
 }
 
 setenv FC              nagfor
