@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Mothur is an expandable, multi-purpose bioinformatics tool aimed at microbial ecology.}
+}
+module-whatis {Mothur is an expandable, multi-purpose bioinformatics tool aimed at microbial ecology.}
+
+conflict mothur
+
+set prefix /shared/ucl/apps/mothur/1.41.3-bindist
+
+prepend-path PATH $prefix
+prepend-path PATH $prefix/blast/bin
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+
