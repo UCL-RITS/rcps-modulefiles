@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+#
+# Tensorflow CPU version
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Tensorflow 1.13.1 package to your environment."
+    puts stderr ""
+    puts stderr "This version is built for CPU only with MKL (no GPU support)."
+
+}
+
+module-whatis "Adds Tensorflow 1.13.1 to your environment."
+
+prereq gcc-libs
+module load python/3.6.3
+conflict tensorflow
+
+set root 			/shared/ucl/apps/tensorflow/1.13.1/mkl
+prepend-path PYTHONPATH         $root
