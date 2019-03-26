@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# Tensorflow GPU version
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Tensorflow 1.13.1 package to your environment."
+    puts stderr ""
+    puts stderr "This version is built for GPU."
+
+}
+
+module-whatis "Adds Tensorflow 1.13.1 to your environment."
+
+
+# Add binary to PATH
+prereq python/3.6.3
+prereq compilers/gnu/4.9.2
+prereq cuda/10.0.130/gnu-4.9.2
+prereq cudnn/7.4.2.24/cuda-10.0
+conflict tensorflow
+
+set root 			/shared/ucl/apps/tensorflow/1.13.1/gpu
+if { [file isdirectory $root] } then {
+	prepend-path PYTHONPATH         $root
+}
