@@ -25,6 +25,8 @@ conflict caffe
 
 set              prefix               /shared/ucl/apps/caffe/1.0/cpu/caffe-1.0/build
 
+prepend-path        LD_LIBRARY_PATH /shared/ucl/apps/caffe/boost/lib
+prepend-path        LIBRARY_PATH /shared/ucl/apps/caffe/boost/lib
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 
