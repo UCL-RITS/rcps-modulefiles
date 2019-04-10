@@ -1,0 +1,49 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## ROOT 5.34.36 compiled with GCC 4.9.2 + FFTW 3.3.6 and GSL 2.4
+##
+## Brian Alston June 2015
+## Reverted to old fftw - need new root module file!
+## Updated for FFTW 3.3.6 and R 3.5 June 2018
+## Updated to V 5.34.36 September 2018
+## Updated to use GSL 2.4 April 2019
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds ROOT 5.34.36 to your environment."
+    puts stderr ""
+    puts stderr "ROOT provides a set of OO frameworks for handling, analysing,"
+    puts stderr "and visualising large amounts of data. Included are specialised"
+    puts stderr "storage methods, methods for histograming, curve fitting, "
+    puts stderr "function evaluation, minimization etc. ROOT includes a built-in"
+    puts stderr "CINT C++ interpreter."
+    puts stderr ""
+    puts stderr "This is the version to use with the R/Bioconductor/xps package."
+    puts stderr "If you want to use ROOT on its own, we suggust you use the"
+    puts stderr "root/6.04.00/gnu-4.9.2 version."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ROOT/5.34.36-FFTW-3.3.6-GSL-2.4"
+}
+
+module-whatis "Adds ROOT 5.34.36 to your environment."
+
+# Location of ROOT:
+
+set prefix /shared/ucl/apps/ROOT/5.34.36-FFTW-3.3.6-GSL-2.4/gnu-4.9.2
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq fftw/3.3.6-pl2/gnu-4.9.2
+prereq gsl/2.4/gnu-4.9.2
+
+conflict root
+
+setenv ROOTSYS	$prefix
+
+prepend-path PATH                $prefix/bin
+prepend-path MANPATH             $prefix/share/man
+prepend-path LD_LIBRARY_PATH	 $prefix/lib/root
