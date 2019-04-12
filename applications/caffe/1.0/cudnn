@@ -18,7 +18,7 @@ prereq gflags/2.2.1
 prereq leveldb/1.20 
 prereq glog/0.3.5 
 prereq lmdb/0.9.22 
-prereq boost/1_63_0/gnu-4.9.2 
+#prereq boost/1_63_0/gnu-4.9.2 
 prereq hdf/5-1.8.15/gnu-4.9.2
 prereq cuda/7.5.18/gnu-4.9.2
 prereq cudnn/6.0/cuda-7.5
@@ -27,6 +27,8 @@ conflict caffe
 
 set              prefix               /shared/ucl/apps/caffe/1.0/cudnn/caffe-1.0/build
 
+prepend-path        LD_LIBRARY_PATH /shared/ucl/apps/caffe/boost/lib
+prepend-path        LIBRARY_PATH /shared/ucl/apps/caffe/boost/lib
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 
