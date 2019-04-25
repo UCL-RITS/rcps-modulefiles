@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The Clang project provides a language front-end and tooling infrastructure for languages in the C language family (C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript) for the LLVM project. This module sets variables to make the clang compiler binary the default C and C++ compiler in your environment.}
+}
+module-whatis {The Clang project provides a language front-end and tooling infrastructure for languages in the C language family (C, C++, Objective C/C++, OpenCL, CUDA, and RenderScript) for the LLVM project. This module sets variables to make the clang compiler binary the default C and C++ compiler in your environment.}
+
+conflict compilers/gnu
+conflict compilers/intel
+conflict compilers/pgi
+conflict compilers/clang
+prereq gcc-libs/4.9.2
+prereq llvm/8.0.0
+prereq gcc-libs/4.9.2
+
+set prefix /shared/ucl/apps/llvm/8.0.0/gnu-4.9.2
+
+setenv CC clang
+setenv CXX clang
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+

@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. This installation includes clang, a C compiler based on LLVM.}
+}
+module-whatis {The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. This installation includes clang, a C compiler based on LLVM.}
+
+conflict llvm
+prereq gcc-libs/4.9.2
+
+set prefix /shared/ucl/apps/llvm/8.0.0/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path MAN_PATH $prefix/share/man
+
