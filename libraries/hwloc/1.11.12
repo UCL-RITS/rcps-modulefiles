@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, ...) of the hierarchical topology of modern architectures, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. This installation includes the optional libnuma dependency.}
+}
+module-whatis {The Portable Hardware Locality (hwloc) software package provides a portable abstraction (across OS, versions, architectures, ...) of the hierarchical topology of modern architectures, including NUMA memory nodes, sockets, shared caches, cores and simultaneous multithreading. This installation includes the optional libnuma dependency.}
+
+conflict hwloc
+prereq numactl/2.0.12
+
+set prefix /shared/ucl/apps/hwloc/1.11.12
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MAN_PATH $prefix/share/man
+
