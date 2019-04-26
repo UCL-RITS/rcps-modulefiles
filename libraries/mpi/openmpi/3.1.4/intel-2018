@@ -30,6 +30,4 @@ prepend-path CPATH /shared/ucl/apps/openmpi/3.1.4/intel-2018/include
 prepend-path INCLUDE_PATH /shared/ucl/apps/openmpi/3.1.4/intel-2018/include
 prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/openmpi/3.1.4/intel-2018
 ~                                                                                                                                   
-~                                                                                                                                   
-"/tmp/openmpi-modules.EsUOGWE4P4/mpi/openmpi/3.1.4/intel-2018" 31L, 2037C                                         1,1           All
 
