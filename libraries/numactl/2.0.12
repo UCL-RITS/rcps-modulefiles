@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {numactl provides NUMA policy support, as well as tools and a library to display NUMA allocation statistics and debugging information.}
+}
+module-whatis {numactl provides NUMA policy support, as well as tools and a library to display NUMA allocation statistics and debugging information.}
+
+conflict numactl
+
+set prefix /shared/ucl/apps/numactl/2.0.12
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MAN_PATH $prefix/share/man
+
