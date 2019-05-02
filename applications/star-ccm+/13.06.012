@@ -1,0 +1,138 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## STAR-CCM+ 13.06.012
+##
+## Brian Alston September 2015
+## Updated for version 11.04.010-R8 September 2016.
+## Updated for version 12.04.010 November 2017.
+## Updated to set correct MPI fabric choice - June 2018
+## Updated for version 13.02.011 - July 2018
+## Updated for version 13.06.12 - April 2019
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds STAR-CCM+ 13.06.012 and STAR-View 13.06.012 to your path."
+    puts stderr ""
+    puts stderr "STAR-CCM+ is an application for performing CFD simulations"
+    puts stderr "solving problems involving flow (of fluids or solids), heat" 	    
+    puts stderr "transfer and stress. This is the latest version (July 2018)."
+    puts stderr ""
+    puts stderr "STAR-CCM+ and STAR-View are reserved applications. Access is"
+    puts stderr "controlled by membership of the legstarc group. To be given"
+    puts stderr "access to these applications please email rc-support@ucl.ac.uk"
+    puts stderr "All requests will need to authorised by the Mechanical"
+    puts stderr "Engineering Department who own the license."
+    puts stderr ""  
+    puts stderr "Directory: /shared/ucl/apps/STAR-CCM+/13.06.012"
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+
+module-whatis "Adds STAR-CCM+ and STAR-View to your environment."
+
+conflict star-ccm+
+
+prereq gcc-libs/4.9.2
+# prereq mpi/openmpi/1.8.4/intel-2015-update2
+
+# Location of STAR-CCM+:
+
+set prefix /shared/ucl/apps/STAR-CCM+/13.06.012
+
+# on load, check if user is in the correct group for STAR-CCM+
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::isMember "legstarc"     
+}
+
+# Set location of Mech Eng licence manager
+setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+
+# Location of STAR-CCM+ prefs and settings directories
+set username $env(USER)
+set starccmDir "~/.star-13.06.012-$username"
+set starccmDirAlt "~/.star-13.06.012"
+
+prepend-path PATH		$prefix/STAR-CCM+13.06.012/star/bin
+prepend-path PATH               $prefix/STAR-View+13.06.012//bin
+prepend-path LD_LIBRARY_PATH    $prefix/STAR-CCM+13.06.012/star/lib
+prepend-path LD_LIBRARY_PATH    $prefix/STAR-View+13.06.012//bin
+
+# Set IBM Platform MPI variables for correct fabric choice.
+
+setenv MPI_IC_ORDER "upapl:tcp"
+
+# Set Intel MPI variables for correct fabric choice.
+
+setenv I_MPI_FABRICS    shm:ofa
+setenv I_MPI_FALLBACK   1
+
+# Set Open MPI variables for correct fabric choice - simple multinode
+# setting for testing.
+
+if { [info exists ::env(MPI_HOME) ] } {
+    setenv OMPI_HOME $::env(MPI_HOME)
+    setenv OMPI_MCA_mtl "^psm2"
+    setenv OMPI_MCA_pml "cm"
+}
+
+# Setup STAR-CCM+ settings directory in Scratch
+
+if { [modulefunctions::isModuleLoad] } {
+    if { ! [appDirSetup $starccmDir] } {
+	puts stderr ""
+	puts stderr "**** error: setting up .star-13.06.012-$username directory failed."
+	puts stderr ""
+    }
+    if { ! [appDirSetup $starccmDirAlt] } {
+	puts stderr ""
+	puts stderr "**** error: setting up .star-13.06.012 directory failed."
+	puts stderr ""    
+	puts stderr "Note: you must load the starccm module at least once from a login node."
+	puts stderr ""
+    }
+    if { [info exists ::env(TMPDIR) ] } {
+	set TMPDIR $::env(TMPDIR)
+    }  else {
+	set TMPDIR /tmp
+    }
+}
+
+
+
+
