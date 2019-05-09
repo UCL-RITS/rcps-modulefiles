@@ -6,7 +6,7 @@ proc ModulesHelp { } {
 module-whatis {The LLVM Project is a collection of modular and reusable compiler and toolchain technologies. This installation includes clang, a C compiler based on LLVM.}
 
 conflict llvm
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/llvm/8.0.0/gnu-4.9.2
 prepend-path CMAKE_PREFIX_PATH $prefix

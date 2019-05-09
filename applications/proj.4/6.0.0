@@ -26,7 +26,7 @@ module-whatis "Adds the PROJ.4 Cartographic Projections library to your environm
 set prefix /shared/ucl/apps/PROJ.4/
 set ver    6.0.0
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq gmt
 conflict proj.4
 

@@ -41,7 +41,7 @@ module-whatis "Adds Mathematica 11.3 to your environment."
 set version 11.3
 set prefix /shared/ucl/apps/Mathematica/$version
 set userBase ~/Scratch/.Mathematica/$version
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 # Required from Mathematica 11.3
 prereq xorg-utils/X11R7.7

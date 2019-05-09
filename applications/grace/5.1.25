@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds Grace 5.1.25 to your environment. Grace is a 2D plotting tool."
 
 conflict grace
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/grace/5.1.25/gnu-4.9.2/grace/
 

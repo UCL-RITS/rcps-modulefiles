@@ -9,9 +9,9 @@ conflict compilers/gnu
 conflict compilers/intel
 conflict compilers/pgi
 conflict compilers/clang
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq llvm/8.0.0
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/llvm/8.0.0/gnu-4.9.2
 

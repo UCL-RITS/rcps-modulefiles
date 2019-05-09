@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "Adds MUSCLE 3.8.31 to your environment."
 
 conflict muscle
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/muscle/3.8.31/gnu-4.9.2/muscle3.8.31/src
 

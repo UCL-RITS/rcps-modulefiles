@@ -29,7 +29,7 @@ module-whatis "Adds Rosetta 2018.48.60516 MPI version to your environment."
 
 conflict rosetta
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/gnu/4.9.2
 prereq python2/recommended
 prereq mpi/openmpi/3.1.1/gnu-4.9.2

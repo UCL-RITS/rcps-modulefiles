@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds tree 1.7.0 to your environment. This shows your directory structure as a tree."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 conflict tree
 
 set root                        /shared/ucl/apps/tree/1.7.0/gnu-4.9.2

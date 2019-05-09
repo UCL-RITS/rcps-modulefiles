@@ -34,7 +34,7 @@ conflict pyrosetta
 
 set prefix /shared/ucl/apps/Rosetta/PyRosetta/PyRosetta.monolith.linux.release-73
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/gnu/4.9.2
 prereq python2/recommended
 prereq rosetta/2015.31.58019

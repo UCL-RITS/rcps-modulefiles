@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "Adds Velvet 1.2.10 to your environment."
 
 conflict velvet
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/velvet/1.2.10/gnu-4.9.2/velvet_1.2.10
 

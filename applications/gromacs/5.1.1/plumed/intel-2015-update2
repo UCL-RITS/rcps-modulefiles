@@ -15,7 +15,7 @@ proc ModulesHelp { } {
 module-whatis "Adds GROMACS 5.1.1 with Plumed 2.2 to your environment. Note: Plumed will always run in double precision even if GROMACS is single-precision, so only use that combination if you need it and are aware of the effects."
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel/2015
 prereq openblas/0.2.14/intel-2015-update2

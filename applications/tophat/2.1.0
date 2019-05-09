@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "Adds Tophat 2.1.0 to your environment."
 
 conflict tophat
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq python/2.7.9
 prereq bowtie
 prereq bowtie2

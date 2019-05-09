@@ -24,7 +24,7 @@ if { $python_ver=="3.5" } {prereq python3/3.5}
 if { $python_ver=="3.6" } {prereq python3/3.6}
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq openblas/0.2.14/gnu-4.9.2
 prereq kmc/2.1.1/gnu-4.9.2
 prereq mummer/3.23/gnu-4.9.2

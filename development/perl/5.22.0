@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "This module adds adds Perl 5.22.0 to your environment."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict perl
 

@@ -25,7 +25,7 @@ module-whatis "Adds Tephra2 version r149 to your environment."
 
 conflict	tephra2
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/gnu/4.9.2
 prereq gmt/recommended
 prereq proj.4/4.9.1

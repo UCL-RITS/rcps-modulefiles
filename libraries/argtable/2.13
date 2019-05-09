@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds argtable 2.13 to your environment. "
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict argtable
 

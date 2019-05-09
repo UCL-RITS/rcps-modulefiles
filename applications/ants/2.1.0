@@ -15,7 +15,7 @@ proc ModulesHelp { } {
 module-whatis "Adds ANTs 2.1.0 (Advanced Normalization Tools) to your environment. ANTs is popularly considered a state-of-the-art medical image registration and segmentation toolkit."
 
 conflict ants
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/ants/2.1.0/gnu-4.9.2
 set itkprefix /shared/ucl/apps/ants/2.1.0/gnu-4.9.2/ITKv4-install

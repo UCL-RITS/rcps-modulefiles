@@ -24,7 +24,7 @@ puts stderr "lammps/16Mar18/userintel/intel-2018 rather than this version, parti
 puts stderr "if this version is lacking an optional module you need."
 
 conflict lammps
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers
 prereq mpi/intel
 

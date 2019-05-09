@@ -18,7 +18,7 @@ proc ModulesHelp { } {
 module-whatis "adds HDF5 1.10.2 (Parallel) for Intel 2018 to your environment."
 
 conflict hdf
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel/2018
 prereq mpi/intel/2018
 

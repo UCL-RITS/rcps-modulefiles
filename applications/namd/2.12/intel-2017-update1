@@ -34,7 +34,7 @@ module-whatis "Adds NAMD 2.12 to your environment"
 
 
 conflict namd
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 prereq fftw/2.1.5/intel-2015-update2

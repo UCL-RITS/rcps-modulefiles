@@ -19,7 +19,7 @@ module-whatis "adds NetCDF C++ 4.2 for Intel 2015 to your environment."
 
 conflict netcdf-c++
 conflict netcdf-c++4
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq hdf/5-1.8.15/intel-2015-update2
 prereq netcdf/4.3.3.1/intel-2015-update2

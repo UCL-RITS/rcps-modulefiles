@@ -1,0 +1,39 @@
+#%Module -*- tcl -*-
+#
+# IVA 1.0.0 
+#
+#                                                      H.K. Sept 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the IVA 1.0.0 package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds IVA 1.0.0 to your environment."
+
+set test_var 3.5
+
+if { [info exists ::env(PYTHON_VERSION_TAG)] } {
+   set test_var $::env(PYTHON_VERSION_TAG)
+}
+
+if { $test_var=="3.5" } {prereq python3/3.5}
+if { $test_var=="3.6" } {prereq python3/3.6}
+
+# Add binary to PATH
+prereq gcc-libs
+prereq openblas/0.2.14/gnu-4.9.2
+prereq kmc/2.1.1/gnu-4.9.2
+prereq mummer/3.23/gnu-4.9.2
+prereq trimmomatic/0.33
+prereq samtools/1.2/gnu-4.9.2
+prereq bambamc/0.0.50/gnu-4.9.2
+prereq smalt/0.7.6/gnu-4.9.2
+
+conflict iva
+
+set root 			/shared/ucl/apps/iva/1.0.0/python$test_var
+prepend-path PATH    		$root/bin
+prepend-path PYTHONPATH         $root/lib/python$test_var/site-packages

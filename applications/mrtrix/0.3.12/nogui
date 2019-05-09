@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 module-whatis "Adds MRtrix3 0.3.12 to your environment. MRtrix3 provides a set of tools to perform analysis of diffusion MRI data, based around the concept of spherical deconvolution and probabilistic tractography. Note: mrview and shview cannot be run over a remote X11 connection so are not usable."
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq python/2.7.9
 prereq qt/4.8.6/gnu-4.9.2
 prereq gsl/1.16/gnu-4.9.2

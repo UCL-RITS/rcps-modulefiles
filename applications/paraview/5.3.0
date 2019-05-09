@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 
 module-whatis "This module adds the ParaView 5.3.0 binaries to your environment. ParaView is an open-source, multi-platform data analysis and visualization application."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq llvm/3.9.1
 prereq mesa/13.0.6/gnu-4.9.2
 prereq xorg-utils

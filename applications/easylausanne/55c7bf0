@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds Easy Lausanne to your environment."
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq python/2.7.9
 prereq openblas/0.2.14/gnu-4.9.2
 prereq python2/recommended

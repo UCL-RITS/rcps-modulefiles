@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 module-whatis "adds Intel MPI 4.1.3.048 to your environment variables"
 
 conflict mpi
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel/2013.1.046
 
 set              root                 /shared/ucl/apps/intel/2013.1.046/impi/4.1.3.048

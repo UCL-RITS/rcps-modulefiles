@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "Adds PLUMED 2.2.3 to your environment, built using OpenBLAS and libmatheval"
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 prereq openblas/0.2.14/intel-2015-update2

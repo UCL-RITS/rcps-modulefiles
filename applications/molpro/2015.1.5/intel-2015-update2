@@ -16,7 +16,7 @@ module-whatis "Adds Molpro 2015.1.5 built from source with MPI to your environme
 
 conflict molpro
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 

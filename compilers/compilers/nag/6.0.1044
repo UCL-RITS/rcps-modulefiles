@@ -24,7 +24,7 @@ proc ModulesHelp { } {
 module-whatis "adds NAG Fortran compiler V6.0 Build 1044 to your environment."
 
 conflict compilers
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set             prefix          /shared/ucl/apps/NAG/fortran-compiler
 set		release		6.0

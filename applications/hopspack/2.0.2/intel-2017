@@ -14,7 +14,7 @@ module-whatis "Adds HOPSPACK 2.0.2 to your environment"
 
 
 conflict hopspack
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 

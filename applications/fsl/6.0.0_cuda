@@ -32,7 +32,7 @@ if {! [modulefunctions::isCluster Myriad]  } {
     exit 1
 }
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq cuda/8.0.61-patch2/gnu-4.9.2
 prereq hdf/5-1.8.15/gnu-4.9.2
 prereq python2/recommended

@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "Adds ea-utils to your environment."
 
 conflict ea-utils
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq gsl/1.16/gnu-4.9.2
 
 set prefix /shared/ucl/apps/ea-utils/822

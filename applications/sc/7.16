@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds sc 7.16 to your environment.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict sc
 

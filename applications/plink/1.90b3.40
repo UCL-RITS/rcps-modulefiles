@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds PLINK 1.90b3.40 to your environment. A comprehensive update to the PLINK association analysis toolset."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict plink
 

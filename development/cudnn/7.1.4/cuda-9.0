@@ -9,7 +9,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds cuDNN to your environment.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq cuda/9.0.176-patch4/gnu-4.9.2
 
 conflict cudnn

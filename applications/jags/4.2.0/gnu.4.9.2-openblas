@@ -28,7 +28,7 @@ module-whatis "Adds JAGS 4.2.0 to your environment."
 # Location of JAGS:
 
 set prefix /shared/ucl/apps/JAGS/4.2.0_OpenBLAS
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/gnu/4.9.2
 prereq openblas/0.2.14/gnu-4.9.2
 

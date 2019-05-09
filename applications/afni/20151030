@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 module-whatis "Adds AFNI to your environment. "
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict afni
 prereq gsl/1.16/gnu-4.9.2

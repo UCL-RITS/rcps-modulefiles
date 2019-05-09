@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds proovread 2.13.11-8Jan2016-f6a856a to your environment. f6a856a is the commit for this version."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq blast+/2.2.30/intel-2015-update2
 prereq samtools/1.2/gnu-4.9.2

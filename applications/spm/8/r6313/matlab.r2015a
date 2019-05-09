@@ -14,7 +14,7 @@ module-whatis "Adds SPM8 to your environment"
 
 
 conflict spm
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq matlab/full/r2015a/8.5
 
 set              root              /shared/ucl/apps/spm/spm8-r6313

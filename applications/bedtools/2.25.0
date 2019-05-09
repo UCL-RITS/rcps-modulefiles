@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 module-whatis "Adds bedtools 2.25.0 to your environment. The bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks."
 
 conflict bedtools
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set prefix /shared/ucl/apps/bedtools/2.25.0/gnu-4.9.2
 

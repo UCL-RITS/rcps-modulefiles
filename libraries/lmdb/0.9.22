@@ -9,7 +9,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds LMDB 0.9.22 to your environment.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict lmdb
 

@@ -15,7 +15,7 @@ module-whatis "Adds AMBER 14 to your environment"
 puts stderr "PLEASE DO NOT RUN NAB IN ARRAY JOBS."
 
 conflict amber
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 prereq python/2.7.9

@@ -15,7 +15,7 @@ module-whatis "Adds OpenFOAM 2.3.1 to your environment"
 
 conflict openfoam
 conflict openfoamplus
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 prereq python/2.7.9

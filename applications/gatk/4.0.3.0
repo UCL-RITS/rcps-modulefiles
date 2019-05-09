@@ -19,7 +19,7 @@ proc ModulesHelp { } {
 module-whatis "Adds GATK 4.0.3.0 to your environment. The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data. Website: https://www.broadinstitute.org/gatk/index.php"
 
 conflict gatk
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq java/1.8.0_92	
 
 set prefix /shared/ucl/apps/gatk-bsd/4.0.3.0/gatk-4.0.3.0

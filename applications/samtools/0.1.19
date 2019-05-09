@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "This module adds the Samtools 0.1.19 package to your environment."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict samtools
 conflict bcftools

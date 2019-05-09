@@ -37,7 +37,7 @@ module-whatis "Adds Abaqus 2017 to your environment."
 
 conflict abaqus
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 # Location of ABAQUS:
 

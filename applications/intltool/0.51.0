@@ -15,7 +15,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds intltool 0.51.0 to your environment. intltool is a set of tools to centralize translation of many different file formats using GNU gettext-compatible PO files."
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict intltool
 

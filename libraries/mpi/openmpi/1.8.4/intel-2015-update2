@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 module-whatis "adds OpenMPI 1.8.4 for Intel 2015 update 2 compilers to your environment variables"
 
 conflict mpi
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 
 set              openmpiversion    1.8.4

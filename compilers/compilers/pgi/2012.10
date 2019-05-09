@@ -20,7 +20,7 @@ proc ModulesHelp { } {
 module-whatis "adds Portland Group compilers to your environment."
 
 conflict compilers
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set             prefix          /shared/ucl/apps/PGI/2012.10
 set		target		linux86-64

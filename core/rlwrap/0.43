@@ -10,7 +10,7 @@ proc ModulesHelp { } {
 module-whatis "adds rlwrap 0.43 to your environment variables"
 
 conflict rlwrap
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 prepend-path     PATH                 /shared/ucl/apps/rlwrap/0.43/gnu-4.9.2/bin
 prepend-path     MANPATH              /shared/ucl/apps/rlwrap/0.43/gnu-4.9.2/share/man

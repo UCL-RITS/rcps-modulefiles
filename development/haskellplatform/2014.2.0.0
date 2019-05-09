@@ -11,7 +11,7 @@ proc ModulesHelp { } {
 module-whatis "adds Haskell Platform to your environment variables"
 
 conflict haskellplatform
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set              root              /shared/ucl/apps/haskell-platform/2014.2.0.0/ghc-7.8.3-x86_64
 

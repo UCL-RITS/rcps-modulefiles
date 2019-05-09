@@ -9,7 +9,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds Tesseract 3.05.01 to your environment.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq leptonica/1.74.4
 
 conflict tesseract

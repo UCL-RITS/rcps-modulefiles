@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 
 module-whatis "Loads the dependencies for Torch and makes a quick-install alias."
 
-module load gcc-libs/4.9.2
+module load gcc-libs
 module load compilers/gnu/4.9.2
 module load cmake/3.2.1
 module load openblas/0.2.14/gnu-4.9.2

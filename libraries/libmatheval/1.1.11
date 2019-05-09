@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 module-whatis "Adds libmatheval 1.1.11 to your environment. GNU libmatheval is a library (callable from C and Fortran) to parse and evaluate symbolic expressions input as text."
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict libmatheval
 

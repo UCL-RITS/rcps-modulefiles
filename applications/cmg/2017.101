@@ -30,7 +30,7 @@ module-whatis "Adds CMG Reservoir Simulation Software Version 2017.101 to your e
 
 set prefix /shared/ucl/apps/CMG/2017.101.GU
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 conflict cmg
 
 setenv CMG_HOME $prefix

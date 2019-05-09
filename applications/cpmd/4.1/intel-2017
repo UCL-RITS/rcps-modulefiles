@@ -39,7 +39,7 @@ module-whatis "Adds  CPMD 4.1 to your environment."
 
 conflict cpmd
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 

@@ -11,7 +11,7 @@ proc ModulesHelp { } {
 module-whatis "adds Flex 2.4.39 to your environment variables"
 
 conflict flex
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 # Flex
 prepend-path     PATH                 /shared/ucl/apps/flex/2.5.39/gnu-4.9.2/bin

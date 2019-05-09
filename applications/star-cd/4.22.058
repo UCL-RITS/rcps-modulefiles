@@ -35,7 +35,7 @@ module-whatis "Adds STAR-CD 4.22.058 to your environment."
 
 conflict star-cd
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 # Location of STAR-CD:
 

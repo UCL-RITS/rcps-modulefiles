@@ -10,7 +10,7 @@ proc ModulesHelp { } {
 module-whatis "Adds SNPtest 2.5.4-beta3 to your environment. "
 
 # Add binary to PATH
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict snptest
 

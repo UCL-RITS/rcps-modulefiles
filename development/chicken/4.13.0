@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "adds Chicken 4.13.0 to your environment variables"
 
 conflict chicken
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set              root              /shared/ucl/apps/chicken/4.13.0/gnu-4.9.2
 

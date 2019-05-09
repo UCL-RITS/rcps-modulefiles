@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 module-whatis "adds Oracle JDK 1.8.0_92 compilers to your environment variables"
 
 conflict java
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set              root              /shared/ucl/apps/java/jdk1.8.0_92
 

@@ -9,7 +9,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds Caffe 1.0 for CUDA to your environment.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq python3/3.6 
 prereq opencv/3.4.1/gnu-4.9.2 
 prereq protobuf/3.5.1/gnu-4.9.2 

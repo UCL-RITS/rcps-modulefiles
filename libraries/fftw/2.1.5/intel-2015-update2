@@ -11,7 +11,7 @@ proc ModulesHelp { } {
 module-whatis "adds FFTW 2.1.5 for Intel compilers to your environment variables"
 
 conflict fftw
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 set              root              /shared/ucl/apps/fftw/2.1.5/intel-2015-update2
 

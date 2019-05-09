@@ -30,7 +30,7 @@ module-whatis "Adds Stata/MP 14 to your environment."
 # Location of Stata:
 
 set prefix /shared/ucl/apps/StataMP/stata14
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict stata
 

@@ -21,7 +21,7 @@ module-whatis "Adds LAMMPS 13Apr17 to your environment. Binary is lmp_default."
 
 
 conflict lammps
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 

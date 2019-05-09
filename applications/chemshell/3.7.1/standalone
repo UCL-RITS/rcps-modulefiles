@@ -17,7 +17,7 @@ proc ModulesHelp { } {
 module-whatis "This is a modulefile for ChemShell 3.7.1, standalone serial version. Can be used to run GULP and other packages if you load a module for those."
 
 conflict chemshell
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel
 prereq tcl
 

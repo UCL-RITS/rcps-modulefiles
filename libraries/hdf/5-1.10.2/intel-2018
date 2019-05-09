@@ -18,7 +18,7 @@ proc ModulesHelp { } {
 module-whatis "adds HDF5 1.10.2 (Serial) for Intel 2018 to your environment."
 
 conflict hdf
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 prereq compilers/intel/2018
 
 set              root              /shared/ucl/apps/HDF/5-1.10.2/serial/intel-2018

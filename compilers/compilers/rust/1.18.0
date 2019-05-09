@@ -9,7 +9,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds Rust 1.18.0 to your environment.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict rust
 
