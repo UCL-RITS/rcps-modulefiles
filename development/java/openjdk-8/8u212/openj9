@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds OpenJDK 8 compilers to your environment variables.  This version uses IBM's OpenJ9 JVM."
+}
+
+module-whatis "adds Oracle JDK 8 compilers to your environment variables"
+
+conflict java
+prereq gcc-libs
+
+set              root              /shared/ucl/apps/openjdk/8u212ub03/openj9/jdk8u212-b03
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           JAVA_HOME         $root
+
+prepend-path CMAKE_PREFIX_PATH $root
