@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis "adds a core set of applications and libraries to your environment."
 
-module load gcc-libs
+module load gcc-libs/4.9.2
 module load cmake/3.13.3
 module load flex/2.5.39
 module load git/2.19.1
