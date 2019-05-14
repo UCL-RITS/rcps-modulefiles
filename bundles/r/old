@@ -1,6 +1,6 @@
 #%Module -*- tcl -*-
 ##
-## Recommended R bundle - version for R 3.4.0 and Bioconductor 3.5
+## Recommended R bundle - version for R 3.4.2 and Bioconductor 3.6
 ##
 ## Version 1.5 by BAA on Legion on 11-10-2016
 ## Moved to recommended 11th July 2016
@@ -9,16 +9,18 @@
 ## Updated for R 3.3.2 and R packages rgdal and rgeos November 2016
 ## Updated for RNetCDF package December 2016
 ## Updated for R 3.4.0 and Bioconductor 3.5 May 2017
-##
-## Installed as r/old bundle 31st January 2018.
+## Updated for R 3.4.2 and Bioconductor 3.6 December 2017
+
+## Installed as current recommended R bundle 31st January 2018.
+## Moved to old bundle 14th May 2019
 
 
 proc ModulesHelp { } {
-    puts stderr "This module adds the R 3.4.0 and Bioconductor 3.5 package to your environment."
+    puts stderr "This module adds the R 3.4.2 and Bioconductor 3.6 packages to your environment."
     puts stderr ""
     puts stderr "This module also adds other modules as required."
     puts stderr ""
-    puts stderr "Installed as r/old bundle 31st January 2018."
+    puts stderr "Installed as current recommended R bundle 31st January 2018."
     puts stderr ""
 }
 
@@ -48,4 +50,7 @@ module load gdal/2.0.0
 module load gmt/recommended
 module load proj.4/4.9.1
 module load geos/3.5.0/gnu-4.9.2
-module load r/3.4.0-openblas/gnu-4.9.2
+module load protobuf/12-2017/gnu-4.9.2
+module load jq/1.5/gnu-4.9.2
+
+module load r/3.4.2-openblas/gnu-4.9.2
