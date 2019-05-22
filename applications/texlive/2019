@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## TeXLive 2019
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds TeX Live 2019 to your environment."
+    puts ""
+    puts stderr "TeX Live is a complete TeX and LaTeX system"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/TeXLive/2019"
+}
+
+module-whatis "Adds TeX Live 2019 to your environment."
+
+# Location of TeXLive:
+
+set prefix /shared/ucl/apps/TeXLive/2019
+
+conflict texlive
+prereq gcc-libs
+prereq ghostscript/9.19/gnu-4.9.2
+
+prepend-path PATH		$prefix/bin
+prepend-path PATH		$prefix/bin/x86_64-linux
+prepend-path MANPATH		$prefix/texmf-dist/doc/man
+prepend-path INFOPATH		$prefix/texmf-dist/doc/info
