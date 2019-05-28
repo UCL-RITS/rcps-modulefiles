@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# SAMtools 1.9
+#
+#                                                     
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SAMtools 1.9 package to your environment."
+    puts stderr "Reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
+    puts stderr ""
+}
+
+module-whatis "Adds SAMtools 1.9 to your environment. Reading/writing/editing/indexing/viewing SAM/BAM/CRAM format."
+
+# Add binary to PATH
+prereq gcc-libs
+
+conflict samtools
+
+set root 			/shared/ucl/apps/samtools/1.9/gnu-4.9.2
+prepend-path PATH      		$root/bin
+prepend-path MANPATH		$root/share/man
