@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+#
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Platypus variant caller package to your environment."
+
+}
+
+module-whatis "Adds Platypus to your environment."
+
+
+# Add binary to PATH
+prereq python2/recommended
+prereq htslib/1.7
+
+conflict platypus
+
+set root 			/shared/ucl/apps/platypus/3e72641/Platypus/bin
+prepend-path PYTHONPATH         $root
+prepend-path PATH         $root
+prepend-path LD_LIBRARY_PATH $root
