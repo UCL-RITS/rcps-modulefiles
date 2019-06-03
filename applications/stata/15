@@ -25,6 +25,9 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "Stata has been updated to version 15.1 (January 2018)"
     puts stderr ""
+    puts stderr "May 2019: Stata has had the latest updates applied"
+    puts stderr "(to 21 Mar 2019)"
+    puts stderr ""
     puts stderr "Directory: /shared/ucl/apps/StataMP/"
 }
 
