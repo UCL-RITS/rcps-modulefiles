@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GNU texinfo 6.6 compiled with GCC 4.9.2
+##
+## Brian Alston June 2019
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds GNU texinfo Version 6.6 to your environment."
+    puts ""
+    puts stderr "Texinfo uses a single source file to produce output in a number of"
+    puts stderr "formats, both online and printed eg dvi, html, info, pdf, xml, etc."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/texinfo/6.6"
+}
+
+module-whatis "Adds GNU texinfo 6.6 to your environment."
+
+# Location of texinfo:
+
+set prefix /shared/ucl/apps/texinfo/6.6
+
+prereq gcc-libs
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
