@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {UbPred is a random forest-based predictor of potential ubiquitination sites in proteins.}
+}
+module-whatis {UbPred is a random forest-based predictor of potential ubiquitination sites in proteins.}
+
+conflict ubpred
+
+set prefix /shared/ucl/apps/ubpred/1-bin32dist
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
