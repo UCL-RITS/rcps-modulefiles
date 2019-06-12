@@ -1,0 +1,38 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Updated for Python 2.7.12 Nov 2016
+## Updated for GDAL 2.1.4 June 2019
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds GDAL 2.1.4 with PROJ.4 6.0.0 to your environment variables,"
+}
+
+module-whatis "adds GDAL 2.1.4 with PROJ.4 6.0.0 to your environment variables. Works with Python 2."
+
+conflict gdal
+
+# matlab loads an old libtiff that breaks gdal
+conflict matlab
+
+prereq gcc-libs
+prereq perl/5.22.0
+prereq python
+prereq hdf/5-1.8.15/gnu-4.9.2
+prereq netcdf/4.3.3.1/gnu-4.9.2
+prereq proj.4/6.0.0
+
+set              root              /shared/ucl/apps/gdal/2.1.4/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path	 CMAKE_PREFIX_PATH $root
