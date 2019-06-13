@@ -1,0 +1,52 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-23
+##
+## Updated for version 5.3.1 - BAA Nov 2016
+## Updated for version 5.4.5 - BAA June 2019
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds GMT 5.4.5 to your environment variables,"
+    puts stderr ""
+    puts stderr "The Generic Mapping Tools are a collection of applications for"
+    puts stderr "manipulating and visualising geographic and Cartesian data sets."
+    puts stderr ""
+}
+
+module-whatis "adds GMT 5.4.5 to your environment variables"
+
+conflict gmt
+
+prereq gcc-libs
+prereq perl/5.22.0
+prereq python/2.7.12
+prereq hdf/5-1.8.15/gnu-4.9.2
+prereq netcdf/4.3.3.1/gnu-4.9.2
+prereq proj.4/6.0.0
+prereq gdal/2.1.4
+prereq libtool/2.4.6
+prereq graphicsmagick/1.3.21
+prereq ghostscript/9.19/gnu-4.9.2
+prereq fftw/3.3.6-pl2/gnu-4.9.2
+prereq openblas/0.2.14/gnu-4.9.2
+
+
+set              root              /shared/ucl/apps/gmt/5.4.5/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+
+# No man pages with new version currently so use previous version - not ideal
+# but better than nothing.
+append-path      MANPATH           /shared/ucl/apps/gmt/5.3.1/gnu-4.9.2/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib64
+prepend-path     LD_LIBRARY_PATH   $root/lib64
+prepend-path     LIBRARY_PATH      $root/lib64
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           GMTHOME           $root
