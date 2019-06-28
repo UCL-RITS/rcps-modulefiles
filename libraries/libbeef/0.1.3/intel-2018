@@ -24,3 +24,5 @@ prepend-path LIBRARY_PATH      $prefix/lib
 prepend-path LD_LIBRARY_PATH   $prefix/lib
 prepend-path CMAKE_PREFIX_PATH $prefix
 
+setenv LIBBEEF_PATH	       $prefix/lib
+
