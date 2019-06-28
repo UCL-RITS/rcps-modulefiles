@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## libbeef 0.1.3 commit 2822afe
+##
+## 
+## 
+
+proc ModulesHelp { } {
+
+  puts stderr {Library for Bayesian error estimation functionals for use in density functional theory codes: libbeef 0.1.3 commit 2822afe }
+
+}
+
+module-whatis "Library for Bayesian error estimation functionals for use in density functional theory codes: libbeef 0.1.3 commit 2822afe"
+
+conflict libbeef
+prereq gcc-libs/4.9.2
+prereq compilers/intel
+
+set              prefix               /shared/ucl/apps/libbeef/0.1.3-2822afe/intel-2018
+
+prepend-path PATH              $prefix/bin
+prepend-path LIBRARY_PATH      $prefix/lib
+prepend-path LD_LIBRARY_PATH   $prefix/lib
+prepend-path CMAKE_PREFIX_PATH $prefix
+
