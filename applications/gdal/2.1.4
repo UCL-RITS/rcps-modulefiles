@@ -4,13 +4,14 @@
 ##
 ## Updated for Python 2.7.12 Nov 2016
 ## Updated for GDAL 2.1.4 June 2019
+## Updated to use PROJ.4 6.1.0 July 2019
 
 proc ModulesHelp { } {
 
-  puts stderr "\tAdds GDAL 2.1.4 with PROJ.4 5.2.0 to your environment variables,"
+  puts stderr "\tAdds GDAL 2.1.4 with PROJ.4 6.1.0 to your environment variables,"
 }
 
-module-whatis "adds GDAL 2.1.4 with PROJ.4 5.2.0 to your environment variables. Works with Python 2."
+module-whatis "adds GDAL 2.1.4 with PROJ.4 6.1.0 to your environment variables. Works with Python 2."
 
 conflict gdal
 
@@ -22,7 +23,7 @@ prereq perl/5.22.0
 prereq python
 prereq hdf/5-1.8.15/gnu-4.9.2
 prereq netcdf/4.3.3.1/gnu-4.9.2
-prereq proj.4/5.2.0
+prereq proj.4/6.1.0
 
 set              root              /shared/ucl/apps/gdal/2.1.4/gnu-4.9.2
 
