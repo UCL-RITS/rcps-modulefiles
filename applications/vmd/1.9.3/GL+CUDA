@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting.}
+}
+module-whatis {VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting.}
+
+conflict vmd
+
+set prefix /tmp/vmd-test-prefix.i1PJHNRTAk
+
+prepend-path PATH /tmp/vmd-test-prefix.i1PJHNRTAk/bin
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+
