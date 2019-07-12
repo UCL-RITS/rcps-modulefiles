@@ -7,9 +7,8 @@ module-whatis {VMD is a molecular visualization program for displaying, animatin
 
 conflict vmd
 
-set prefix /tmp/vmd-test-prefix.i1PJHNRTAk
+set prefix /shared/ucl/apps/vmd/1.9.3-GL+CUDA
 
-prepend-path PATH /tmp/vmd-test-prefix.i1PJHNRTAk/bin
+prepend-path PATH /shared/ucl/apps/vmd/1.9.3-GL+CUDA/bin
 
-prepend-path CMAKE_PREFIX_PATH $prefix
 
