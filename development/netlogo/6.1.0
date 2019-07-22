@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds NetLogo toolkit to your environment variables,"
+}
+
+module-whatis "adds NetLogo tooklit compilers to your environment variables"
+
+conflict java
+prereq gcc-libs
+prereq java/openjdk-8
+
+set              root              /shared/ucl/apps/NetLogo/6.1.0/
+
+prepend-path     PATH              $root
