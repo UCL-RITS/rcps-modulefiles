@@ -9,7 +9,6 @@ proc ModulesHelp { } {
 
 module-whatis "adds NetLogo tooklit compilers to your environment variables"
 
-conflict java
 prereq gcc-libs
 prereq java/openjdk-8
 
