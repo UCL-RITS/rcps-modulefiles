@@ -1,0 +1,122 @@
+#%Module -*- tcl -*-
+#
+# SPSS 26
+#
+# November 2018 - copied from SAS module - BAA
+# Updated July 2019 for SPSS 26
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds SPSS 26 to your environment."
+    puts stderr ""
+    puts stderr "SPSS (Statistical Package for the Social Sceinces) is a major"
+    puts stderr "mature commercial statistics package. UCL has a site license"
+    puts stderr "for SPSS Statistics. More details about what modules are"
+    puts stderr "included in the license are available on the UCL Software"
+    puts stderr "Database here: http://swdb.ucl.ac.uk/package/view/id/1"
+    puts stderr ""
+    puts stderr "Directory:  /shared/ucl/apps/SPSS/Statistics/26"
+    puts stderr ""
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+# Create TMPDIR directory and set environment variable
+
+proc setupTMPDIR { } {
+    set tmpname /tmp/$::env(USER).[pid]
+    if { [catch {file mkdir $tmpname} err] } {
+    	puts stderr "Cannot create $tmpname:"
+	puts stderr "	$err"
+	return false
+    }
+    setenv TMPDIR   $tmpname
+    return true
+}
+
+module-whatis "Adds SPSS 26 to your environment"
+
+conflict spss
+
+# set local variables
+
+set spssroot      /shared/ucl/apps/SPSS/Statistics/26
+
+# Add bin directory to PATH
+
+append-path PATH        $spssroot/bin
+
+# set TMPDIR environment variable if it doesn't exist
+
+if { ! [info exists ::env(TMPDIR) ] } {
+    puts stderr "Creating TMPDIR."
+    if { ! [setupTMPDIR ] } {
+    	puts stderr ""
+	puts stderr "**** error: setting up TMPDIR directory failed."
+    	puts stderr ""
+    }
+
+}
+
+setenv SPSS_HOME $spssroot
+setenv SPSSTMPDIR $::env(TMPDIR)
+
+# set OMP_NUM_THREADS if not already set.
+
+if { ! [info exists ::env(OMP_NUM_THREADS) ] } {
+    puts stderr "Setting OMP_NUM_THREADS to 4."
+    setenv OMP_NUM_THREADS 4
+}
+
+set SPSS_UserDir "~/IBM"
+set SPSS_UserConfigDir "~/.IBM"
+
+if { [modulefunctions::isModuleLoad] } {
+        if { ! [appDirSetup $SPSS_UserDir] } {
+	    puts stderr ""
+	    puts stderr "**** error: setting up $SPSS_UserDir directory failed."
+	    puts stderr ""
+	    puts stderr "Note: you must load the SPSS module at least once from a login node before"
+	    puts stderr "running any jobs or qrsh sessions on the cluster."
+	    puts stderr ""
+	}
+        if { ! [appDirSetup $SPSS_UserConfigDir] } {
+	    puts stderr ""
+	    puts stderr "**** error: setting up $SPSS_UserConfigDir directory failed."
+	    puts stderr ""
+	    puts stderr "Note: you must load the SPSS module at least once from a login node before"
+	    puts stderr "running any jobs or qrsh sessions on the cluster."
+	    puts stderr ""
+	}
+    
+}
