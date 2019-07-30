@@ -20,7 +20,7 @@ set              prefix               /no/prefix/given
 setenv GERUN_LAUNCHER intel
 setenv MPI_HOME /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
 setenv I_MPI_ROOT /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
-setenv I_MPI_DEVICE rdssm
+#setenv I_MPI_DEVICE rdssm
 setenv I_MPI_CC icc
 setenv I_MPI_CXX icpc
 setenv I_MPI_F90 ifort
@@ -44,7 +44,7 @@ if { [info exists ::env(NHOSTS) ] } {
         if { $::env(NHOSTS) > 1} {
 
                 # Multi-node, scheduled.
-                setenv I_MPI_FABRICS shm:tmi
+                setenv I_MPI_FABRICS shm:ofi
         } else {
 
                 # Single node, scheduled.
