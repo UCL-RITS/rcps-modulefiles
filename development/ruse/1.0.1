@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {A command-line utility to periodically measure the memory use of a process and its subprocesses.}
+}
+module-whatis {A command-line utility to periodically measure the memory use of a process and its subprocesses.}
+
+conflict ruse
+
+set prefix /tmp/ruse-test-prefix.l58wJmW0ED
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
