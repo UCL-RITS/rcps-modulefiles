@@ -22,7 +22,7 @@ if { [ file type /shared/ucl/apps ] == "link" } {
    set           baselink          [ file readlink /shared/ucl/apps ]
    set           base              $baselink/tensorflow/1.14.0/mkl
 } else {
-   set           base              /shared/ucl/apps/tensorflow/1.8.0/mkl
+   set           base              /shared/ucl/apps/tensorflow/1.14.0/mkl
 }
 set              root              $base
 
