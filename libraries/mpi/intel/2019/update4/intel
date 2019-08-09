@@ -26,13 +26,13 @@ setenv I_MPI_CC icc
 setenv I_MPI_CXX icpc
 setenv I_MPI_F90 ifort
 setenv I_MPI_F77 ifort
-setenv TMI_CONFIG /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/etc/tmi.conf
+#setenv TMI_CONFIG /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/etc/tmi.conf
 prepend-path PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/bin
 prepend-path MANPATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/man
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib
 prepend-path CPATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/include
-prepend-path PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
+#prepend-path PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
 prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
 
 # Check to see whether this is running in a scheduled environment (NHOSTS>1) and
