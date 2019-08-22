@@ -2,7 +2,7 @@
 ##
 ## modulefile
 ##
-## Built by O.K. on Legion on 2017-10-11
+## Built by O.K. on Legion on 2019-08-22
 
 proc ModulesHelp { } {
   puts stderr "\tAdds UCL recommended set of python packages to your environment variables."
@@ -16,7 +16,7 @@ proc ModulesHelp { } {
 module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list"
 
 prereq gcc-libs
-module load python/3.7.2
+module load python/3.7.4
 
 if { [ file type /shared/ucl/apps ] == "link" } {
    set           baselink          [ file readlink /shared/ucl/apps ]
@@ -24,7 +24,7 @@ if { [ file type /shared/ucl/apps ] == "link" } {
 } else {
    set           base              /shared/ucl/apps/python/bundles
 }
-set              root              $base/python37-4.0.0
+set              root              $base/python37-4.0.1
 set              home              $::env(HOME)
 
 # Derefence venv location
