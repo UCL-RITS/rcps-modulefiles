@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SIMD optimised version of the Pillow package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Pillow-SIMD to your environment."
+
+prereq gcc-libs
+prereq python/3.7.4
+
+conflict pillow-simd
+
+set root 			/shared/ucl/apps/pillow-simd/6.0.0.post0/python3.7.4
+prepend-path PYTHONPATH         $root
