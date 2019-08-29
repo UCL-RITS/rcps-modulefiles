@@ -8,6 +8,7 @@
 proc ModulesHelp { } {
 
     puts stderr "This module adds FreeSurfer 6.0.0 to your environment."
+    puts stderr ""
     puts stderr "FreeSurfer is a set of automated tools for reconstruction of"
     puts stderr "the brain's cortical surface from structural MRI data, and" 
     puts stderr "overlay of functional MRI data onto the reconstructed surface."
