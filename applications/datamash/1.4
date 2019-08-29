@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {This is a module with no description string.}
+}
+module-whatis {This is a module with no description string.}
+
+conflict datamash
+
+set prefix /shared/ucl/apps/datamash/1.4
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MAN_PATH $prefix/share/man
+
