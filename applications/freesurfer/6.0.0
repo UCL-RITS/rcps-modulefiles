@@ -13,7 +13,7 @@ proc ModulesHelp { } {
     puts stderr "overlay of functional MRI data onto the reconstructed surface."
     puts stderr ""
     puts stderr "In job scripts or interactive qrsh sessions, remember to add the"
-    puts stderr "option:"
+    puts stderr "option"
     puts stderr "            -openmp $NSLOTS"
     puts stderr ""
     puts stderr "to commands like recon-all etc."
