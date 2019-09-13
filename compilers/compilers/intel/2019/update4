@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis {[intel/2019.Update4] This is the package for the Intel C, C++, and Fortran compilers.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs
 
 conflict intel
 
