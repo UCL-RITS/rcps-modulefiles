@@ -84,9 +84,9 @@ prepend-path INCLUDE_PATH	$prefix/c_headers
 setenv NAG_DIR          $prefix
 setenv NAGLIB_BASEDIR   $prefix
 setenv NAGLIB_CC        icc
-setenv NAGLIB_CFLAGS
+setenv NAGLIB_CFLAGS    ""
 setenv NAGLIB_CX        icpc
-setenv NAGLIB_CXXFLAGS
+setenv NAGLIB_CXXFLAGS  ""
 setenv NAGLIB_F77       ifort
 setenv NAGLIB_INCLUDE   -I$prefix/${i64prefix}lp64/include -I$prefix/${i64prefix}lp64/nag_interface_blocks
 if { $libtype eq "dynamic" } {
