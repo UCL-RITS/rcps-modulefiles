@@ -1,0 +1,120 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Library Mark 27 for Intel 2019
+
+## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
+## Updated November 2018 to fix NAG_KUSARI_FILE variable for all clusters with LMs
+## Updated January 2019 as Grace now has an LM running on util01
+## Updated March 2019 for new Legion update
+## Updated July 2019 for Myriad
+## Updated September 2019 for Mark 27 now unified Fortran/C/C++ library
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "This module adds the NAG Library Mark 27 to your environment."
+    puts stderr ""
+    puts stderr "This version is for the Intel Fortran/C/C++ Compilers version 2019."
+    puts stderr ""
+    puts stderr "The NAG Library provides numerical routines covering a wide range of areas"
+    puts stderr "including curve, surface fitting and interpolation; linear, quadratic,"
+    puts stderr "integer and nonlinear programming and least squares problems; ordinary and"
+    puts stderr "partial differential equations, and mesh generation; and many more. For details"
+    puts stderr "see https://www.nag.co.uk/content/nag-library and online documentation."
+    puts sdterr ""
+    puts stderr "Directory: /shared/ucl/apps/NAG/fortran-library/nll6i27dbl"
+    puts stderr "NAG Docs:  /shared/ucl/apps/NAG/fortran-library/doc/nagdoc_27"
+}
+
+module-whatis "Adds NAG Library Mark 27 for Intel 2019 to your environment."
+
+conflict nag
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq compilers/intel/2019
+
+set prefix	/shared/ucl/apps/NAG/fortran-library/nll6i27dbl
+
+# {int32,int64} specifies the default size for integer arguments and variables within NAG routines.
+# {vendor,nag} specifies whether to use the set of NAG libraries that depend upon the supplied MKL
+#              library for BLAS and LAPACK or NAG's own. NAG recommend vendor for preformance.
+# {static,dynamic} specifies whether to link to static or dynamic (shared) versions of the NAG
+#                  libraries.
+# The defaults below can be altered by setting the envirnment variables: NAG_INTSIZE, NAG_BLAS and
+# NAG_LIBTYPE.
+set intsize int32
+set blas_option vendor
+set libtype dynamic
+if { [info exists ::env(NAG_INTSIZE)] } {
+    set intsize ::env(NAG_INTSIZE)
+}
+if { $intsize eq "int64" } {
+    setenv NAGLIB_FFLAGS    -i8
+    set i64prefix i
+} else {
+    setenv NAGLIB_FFLAGS
+    set i64prefix ""
+}
+if { [info exists ::env(NAG_BLAS)] } {
+    set blas_option ::env(NAG_BLAS)
+}
+if { $blas_option eq "vendor" } {
+    set blas mkl
+    set mkl_libs "-L$prefix/mkl/lib/intel64 -lmkl_intel_${i64prefix}lp64 -lmkl_intel_thread -lmkl_core"
+} else {
+    set blas nag
+    set mkl_libs ""
+}
+if { [info exists ::env(NAG_LIBTYPE)] } {
+    set libtype ::env(NAG_LIBTYPE)
+}
+
+
+prepend-path PATH               $prefix/license/bin/linux_x64
+prepend-path PATH		$prefix/scripts
+prepend-path LD_LIBRARY_PATH	$prefix/${i64prefix}lp64/lib:$prefix/mkl/lib/intel64:$prefix/rtl/lib/intel64
+prepend-path LIBRARY_PATH	$prefix/${i64prefix}lp64/lib:$prefix/mkl/lib/intel64:$prefix/rtl/lib/intel64
+prepend-path LD_RUN_PATH	$prefix/${i64prefix}lp64/lib:$prefix/mkl/lib/intel64:$prefix/rtl/lib/intel64
+prepend-path CPATH		$prefix/c_headers
+prepend-path INCLUDE_PATH	$prefix/c_headers
+
+setenv NAG_DIR          $prefix
+setenv NAGLIB_BASEDIR   $prefix
+setenv NAGLIB_CC        icc
+setenv NAGLIB_CFLAGS
+setenv NAGLIB_CX        icpc
+setenv NAGLIB_CXXFLAGS
+setenv NAGLIB_F77       ifort
+setenv NAGLIB_INCLUDE   -I$prefix/${i64prefix}lp64/include -I$prefix/${i64prefix}lp64/nag_interface_blocks
+if { $libtype eq "dynamic" } {
+    setenv NAGLIB_LINK      $prefix/${i64prefix}lp64/lib/libnag_$mkl.so $mkl_libs -L$prefix/rtl/lib/intel64 -liomp5 -lpthread -lm -ldl -lifcoremt -lpthread -lstdc++
+    setenv NAGLIB_AD_LINK   $prefix/${i64prefix}lp64/lib/libnag_${mkl}_ad.so $prefix/${i64prefix}lp64/lib/libnag_dcof.a
+} else {
+    if { $blas eq "mkl" } {
+	setenv NAGLIB_LINK   $prefix/${i64prefix}lp64/lib/libnag_mkl.a -Wl,--start-group $prefix/mkl/lib/intel64/libmkl_intel_lp64.a $prefix/mkl/lib/intel64/libmkl_intel_thread.a $prefix/mkl/lib/intel64/libmkl_core.a -Wl,--end-group -L$prefix/rtl/lib/intel64 -liomp5 -lpthread -lm -ldl -lstdc++
+	setenv NAGLIB_AD_LINK $prefix/${i64prefix}lp64/lib/libnag_mkl_ad.a $prefix/${i64prefix}lp64/lib/libnag_dcof.a
+    } else {
+	setenv NAGLIB_LINK    $prefix/${i64prefix}lp64/lib/libnag_nag.a -lm -ldl -lpthread -lstdc++
+	setenv NAGLIB_AD_LINK $prefix/${i64prefix}lp64/lib/libnag_nag_ad.a $prefix/${i64prefix}lp64/lib/libnag_dcof.a
+    }
+}
+
+
+if { [modulefunctions::isCluster Thomas]  } {
+    setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Michael] } {
+    setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Grace] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Myriad]  } {
+    setenv NAG_KUSARI_FILE util05:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Aristotle]  } {
+    setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} else {
+    setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
+}
+
+prepend-path CMAKE_PREFIX_PATH  $prefix
