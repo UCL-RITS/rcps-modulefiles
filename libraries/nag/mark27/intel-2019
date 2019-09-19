@@ -55,7 +55,7 @@ if { $intsize eq "int64" } {
     setenv NAGLIB_FFLAGS    -i8
     set i64prefix i
 } else {
-    setenv NAGLIB_FFLAGS
+    setenv NAGLIB_FFLAGS    ""
     set i64prefix ""
 }
 if { [info exists ::env(NAG_BLAS)] } {
