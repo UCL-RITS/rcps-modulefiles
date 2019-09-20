@@ -12,12 +12,10 @@ proc ModulesHelp { } {
 
 module-whatis {[Intel MPI/2019.4.243] This is Intel's MPI implementation, version 2019.4.243, which is bundled with compiler package version 2019.Update4.}
 
-puts stderr {WARNING: Currently this does not work for multi-node jobs.}
-
 
 conflict intel
 
-set              prefix               /no/prefix/given
+set              prefix               /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
 
 setenv GERUN_LAUNCHER intel
 setenv MPI_HOME /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
@@ -37,12 +35,18 @@ prepend-path CPATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/include
 #prepend-path PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
 prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
 
+# use internal libfabric
+prepend-path PATH               $prefix/intel64/libfabric/bin
+prepend-path LD_LIBRARY_PATH    $prefix/intel64/libfabric/lib
+prepend-path LIBRARY_PATH       $prefix/intel64/libfabric/lib
+setenv FI_PROVIDER_PATH         $prefix/intel64/libfabric/lib/prov
+
 # Check to see whether this is running in a scheduled environment (NHOSTS>1) and
 # if not, set shared memory only.
 if { [info exists ::env(NHOSTS) ] } {
 
         # Scheduled.
-        # Check to see whether we have more than one host and if so set tmi and shared
+        # Check to see whether we have more than one host and if so set ofi and shared
         # memory, otherwise, set shared memory.
         if { $::env(NHOSTS) > 1} {
 
