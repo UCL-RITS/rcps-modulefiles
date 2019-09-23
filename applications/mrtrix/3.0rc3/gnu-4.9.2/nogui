@@ -23,7 +23,7 @@ module-whatis "Adds MRtrix 3.0RC3 to your environment."
 
 # Module requirements have changed slightly in this version
 prereq gcc-libs
-prereq python3/recommended
+prereq python3/3.6
 prereq qt/4.8.6/gnu-4.9.2
 prereq eigen/3.2.5/gnu-4.9.2
 prereq fftw/3.3.6-pl2/gnu-4.9.2
