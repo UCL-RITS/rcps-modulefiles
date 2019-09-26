@@ -88,7 +88,7 @@ setenv NAGLIB_CFLAGS    ""
 setenv NAGLIB_CX        icpc
 setenv NAGLIB_CXXFLAGS  ""
 setenv NAGLIB_F77       ifort
-setenv NAGLIB_INCLUDE   -I$prefix/${i64prefix}lp64/include -I$prefix/${i64prefix}lp64/nag_interface_blocks
+setenv NAGLIB_INCLUDE   "-I$prefix/${i64prefix}lp64/include -I$prefix/${i64prefix}lp64/nag_interface_blocks"
 if { $libtype eq "dynamic" } {
     setenv NAGLIB_LINK      "$prefix/${i64prefix}lp64/lib/libnag_${blas}.so $mkl_libs -L$prefix/rtl/lib/intel64 -liomp5 -lpthread -lm -ldl -lifcoremt -lpthread -lstdc++"
     setenv NAGLIB_AD_LINK   "$prefix/${i64prefix}lp64/lib/libnag_${blas}_ad.so $prefix/${i64prefix}lp64/lib/libnag_dcof.a"
