@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## Module bundle for NAG Library Mark 27 Intel version
+##
+## September 2019
+
+proc ModulesHelp { } {
+    puts stderr "This module adds the NAG Library Mark 27 to your environment."
+    puts stderr ""
+    puts stderr "This module also unloads and adds other modules as required."
+    puts stderr ""
+    puts stderr ""
+}
+
+module-whatis "adds the NAG Library Mark 27 and required modules to your environment."
+
+module unload compilers mpi gcc-libs
+module load beta-modules
+module load gcc-libs/9.2.0
+module load compilers/intel/2019
+module load mpi/intel/2019/update4/intel
+module load nag/mark27/intel-2019
