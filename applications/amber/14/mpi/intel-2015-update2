@@ -12,7 +12,12 @@ proc ModulesHelp { } {
 
 module-whatis "Adds AMBER 14 to your environment"
 
-puts stderr "PLEASE DO NOT RUN NAB IN ARRAY JOBS."
+if { [ module-info mode load ] } {
+    puts stderr "NB: PLEASE DO NOT RUN NAB IN ARRAY JOBS."
+    puts stderr "Each NAB job requires blocking access to an external server
+                  and large numbers of jobs will cause this to fail."
+    # (It's the Intel license server, as NAB uses the compiler at runtime.)
+}
 
 conflict amber
 prereq gcc-libs
