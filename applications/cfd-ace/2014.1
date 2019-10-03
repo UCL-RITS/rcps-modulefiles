@@ -88,25 +88,25 @@ prepend-path LD_LIBRARY_PATH    $prefix/2014.1/UTILS/lib
 
 setenv MPI_IC_ORDER "upapl:tcp"
 
-if {  [modulefunctions::isCluster Legion] || [modulefunctions::isCluster Thomas] || [modulefunctions::isCluster Aristotle]} {
-    puts stderr ""
-    puts stderr "**** error: CFD-ACE is only available on Grace and Myriad."
-    puts stderr ""
-} 
+if { [ module-info mode load ] } {
+    if { ! [modulefunctions::isCluster Grace] && \
+         ! [modulefunctions::isCluster Myriad] } {
+        puts stderr ""
+        puts stderr "**** error: CFD-ACE is only available on Grace and Myriad."
+        puts stderr ""
+    } 
 
-# on load, check if user is in the correct group for CDF-ACE
-if [modulefunctions::isModuleLoad] {
+    # on load, check if user is in the correct group for CDF-ACE
     modulefunctions::isMember "lgcfdace"     
-}
 
-# Setup CFD-ACE+ settings directory in Scratch
-
-if { ! [appDirSetup $cfdaceDir] } {
-    puts stderr ""
-    puts stderr "**** error: setting up $cfdaceDir directory failed."
-    puts stderr ""    
-    puts stderr "Note: you must load the cfd-ace module at least once from a login node."
-    puts stderr ""
+    # Setup CFD-ACE+ settings directory in Scratch
+    if { ! [appDirSetup $cfdaceDir] } {
+        puts stderr ""
+        puts stderr "**** error: setting up $cfdaceDir directory failed."
+        puts stderr ""    
+        puts stderr "Note: you must load the cfd-ace module at least once from a login node."
+        puts stderr ""
+    }
 }
 
 
