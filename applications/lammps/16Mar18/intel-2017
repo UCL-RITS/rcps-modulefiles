@@ -19,9 +19,11 @@ proc ModulesHelp { } {
 
 module-whatis "Adds LAMMPS 16Mar18 to your environment. Binary is lmp_default."
 
-puts stderr "You probably want to be running one of lammps/16Mar18/basic/intel-2018 or"
-puts stderr "lammps/16Mar18/userintel/intel-2018 rather than this version, particularly"
-puts stderr "if this version is lacking an optional module you need."
+if { [module-info mode load] } {
+    puts stderr "You probably want to be running one of lammps/16Mar18/basic/intel-2018 or"
+    puts stderr "lammps/16Mar18/userintel/intel-2018 rather than this version, particularly"
+    puts stderr "if this version is lacking an optional module you need."
+}
 
 conflict lammps
 prereq gcc-libs
