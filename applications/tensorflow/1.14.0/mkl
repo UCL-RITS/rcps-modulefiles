@@ -16,14 +16,14 @@ module-whatis "Adds Tensorflow 1.14.0 to your environment."
 
 prereq gcc-libs
 #module load python/3.6.3
-set python_ver 3.6
+set python_ver 3.7
 set pystr ""
 
 if { [info exists ::env(PYTHON_VERSION_TAG)] } {
    set python_ver $::env(PYTHON_VERSION_TAG)
 }
 
-if { $python_ver=="3.6" } {module load python/3.6.3}
+if { $python_ver=="3.6" } {prereq python/3.6.3}
 if { $python_ver=="3.7" } {prereq python3/3.7.4
                            set pystr "-py37"}
 

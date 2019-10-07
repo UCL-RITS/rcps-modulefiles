@@ -20,7 +20,7 @@ conflict tensorflow
 
 # Add binary to PATH
 #module load python/3.6.3
-set python_ver 3.6
+set python_ver 3.7
 set pystr ""
 
 if { [info exists ::env(PYTHON_VERSION_TAG)] } {
@@ -28,7 +28,7 @@ if { [info exists ::env(PYTHON_VERSION_TAG)] } {
 }
 
 if { $python_ver=="3.6" } {
-   module load python/3.6.3
+   prereq python/3.6.3
    set root 			/shared/ucl/apps/tensorflow/1.14.0/gpu
    if { [file isdirectory $root] } then {
 	prepend-path PYTHONPATH         $root
