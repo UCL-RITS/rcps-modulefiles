@@ -24,7 +24,7 @@ if { [info exists ::env(PYTHON_VERSION_TAG)] } {
 }
 
 if { $python_ver=="3.6" } {prereq python/3.6.3}
-if { $python_ver=="3.7" } {prereq python3/3.7.4
+if { $python_ver=="3.7" } {prereq python/3.7.4
                            set pystr "-py37"}
 
 
