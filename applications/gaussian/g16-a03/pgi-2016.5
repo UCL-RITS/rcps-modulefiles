@@ -33,8 +33,10 @@ if [modulefunctions::isTMPDIR] {
 } elseif [modulefunctions::isCluster "Aristotle"] {
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
 } else {
-    puts stderr "The main Gaussian executable (g16) is too resource-intensive"     
-    puts stderr "to be run on the login nodes. Please submit it as a job."
+    if [modulefunctions::isModuleLoad] {
+        puts stderr "The main Gaussian executable (g16) is too resource-intensive"     
+        puts stderr "to be run on the login nodes. Please submit it as a job."
+    }
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
 }
 
