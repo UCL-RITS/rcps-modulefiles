@@ -43,10 +43,7 @@ prereq gcc-libs
 
 set prefix /shared/ucl/apps/ABAQUS/2017
 
-# on load, check if user is in the correct group for Abaqus
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legabq"     
-}
+modulefunctions::mustBeMemberToLoad "legabq"
 
 # Set location of Mech Eng licence manager
 prepend-path LM_LICENSE_FILE   27004@ntsrv1.meng.ucl.ac.uk

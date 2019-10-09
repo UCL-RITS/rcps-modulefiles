@@ -34,7 +34,8 @@ conflict comsol
 # Will need to setup a different group as legcomsl is for the EE version!
 
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgcomsol"     
+    # This function performs its own check on loading mode but it's fine
+    modulefunctions::mustBeMember "lgcomsol"     
 
     set comsoldir "~/Scratch/.comsol"   
     modulefunctions::createDir $comsoldir

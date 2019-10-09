@@ -15,10 +15,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds DL_POLY 4.08 to your environment."
 
-# on load, check if user is in the correct group
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgdlp408"
-}
+modulefunctions::mustBeMemberToLoad "lgdlp408"
 
 # Add DL_Poly binary to PATH
 prereq gcc-libs

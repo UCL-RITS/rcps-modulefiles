@@ -21,10 +21,7 @@ prereq gcc-libs
 
 conflict gaussian
 
-# Check if user is in Gaussian group
-if [modulefunctions::isModuleLoad] {
-        modulefunctions::isMember legg09
-}
+modulefunctions::mustBeMemberToLoad legg09
 
 # Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
 # systemd will wipe these files when no active sessions remain.

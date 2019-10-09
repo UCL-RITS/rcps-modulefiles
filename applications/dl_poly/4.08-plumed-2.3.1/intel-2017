@@ -23,10 +23,7 @@ prereq plumed/2.3.1/intel-2017-update1
 
 conflict dl_poly
 
-# on load, check if user is in the correct group
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgdlp408"
-}
+modulefunctions::mustBeMemberToLoad "lgdlp408"
 
 
 set              prefix               /shared/ucl/apps/dl_poly/4.08-plumed-2.3.1/intel-2017

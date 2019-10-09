@@ -21,10 +21,7 @@ prereq gcc-libs
 prereq compilers/intel
 prereq tcl
 
-# check for restricted group membership
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgchemsh"
-}
+modulefunctions::mustBeMemberToLoad "lgchemsh"
 
 set          prefix            /shared/ucl/apps/chemshell/3.7.1/intel-2018/chemsh-3.7.1
 

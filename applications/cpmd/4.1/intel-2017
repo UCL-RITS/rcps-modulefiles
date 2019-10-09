@@ -47,9 +47,6 @@ prereq mpi/intel
 
 set prefix /shared/ucl/apps/CPMD/4.1/Intel-MPI
 
-# on load, check if user is in the correct group for CPMD
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legcpmd"     
-}
+modulefunctions::mustBeMemberToLoad "legcpmd"
 
 prepend-path PATH		$prefix/bin

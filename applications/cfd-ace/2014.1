@@ -97,7 +97,7 @@ if { [ module-info mode load ] } {
     } 
 
     # on load, check if user is in the correct group for CDF-ACE
-    modulefunctions::isMember "lgcfdace"     
+    modulefunctions::mustBeMember "lgcfdace"     
 
     # Setup CFD-ACE+ settings directory in Scratch
     if { ! [appDirSetup $cfdaceDir] } {

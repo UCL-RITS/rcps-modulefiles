@@ -29,10 +29,7 @@ conflict gatk
 prereq gcc-libs
 #prereq java/1.8.0_45 		not presently compatible with java 1.8
 
-# on load, check if user is in the correct group
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "leggatk"     
-}
+modulefunctions::mustBeMemberToLoad leggatk
 
 set prefix /shared/ucl/apps/gatk/3.8-0
 

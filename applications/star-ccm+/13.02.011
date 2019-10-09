@@ -75,10 +75,7 @@ prereq gcc-libs
 
 set prefix /shared/ucl/apps/STAR-CCM+/13.02.011/13.02.011
 
-# on load, check if user is in the correct group for STAR-CCM+
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legstarc"     
-}
+modulefunctions::mustBeMemberToLoad legstarc
 
 # Set location of Mech Eng licence manager
 setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
