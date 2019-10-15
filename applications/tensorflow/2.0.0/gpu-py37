@@ -20,7 +20,7 @@ prereq cuda/10.0.130/gnu-4.9.2
 prereq cudnn/7.4.2.24/cuda-10.0
 conflict tensorflow
 
-set           base                 /shared/ucl/apps/tensorflow/2.0.0-37/gpu/
+set           base                 /shared/ucl/apps/tensorflow/2.0.0-37/gpu
 set              root              $base
 
 prepend-path     LD_RUN_PATH       $root/lib
