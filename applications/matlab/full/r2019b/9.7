@@ -131,10 +131,14 @@ if { ! [info exists ::env(NAG_KUSARI_FILE)]} {
 	setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
     } elseif { [modulefunctions::isCluster Michael] } {
 	setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Grace] } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Myriad]  } {
+	setenv NAG_KUSARI_FILE util05:,lic-nag.ucl.ac.uk:
     } elseif { [modulefunctions::isCluster Aristotle]  } {
 	setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
     } else {
-	setenv NAG_KUSARI_FILE lm-server2:,lic-nag.ucl.ac.uk:
+	setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
     }
 }
 
