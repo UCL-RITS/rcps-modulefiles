@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## IMPUTE2 2.3.2
+##
+## October 2019 for use with the Cancer IT suite.
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+  puts stderr "Adds Impute2 V2.3.2 to your environment."
+  puts stderr ""
+}
+
+module-whatis "adds  Impute2 V2.3.2 to your environment."
+
+prereq gcc-libs
+
+set             prefix     /shared/ucl/apps/Impute2/impute_v2.3.2_x86_64_dynamic     
+prepend-path	PATH		$prefix
+
