@@ -14,7 +14,7 @@ proc ModulesHelp { } {
 
 }
 
-module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list.  THIS IS A TRIAL BUILD FOR PYTHON 3.8 AND IS MISSING SOME PACKAGES."
+module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list"
 
 prereq gcc-libs
 module load python/3.8.0
@@ -43,6 +43,9 @@ prepend-path     LD_LIBRARY_PATH   $root/venv/lib
 
 prepend-path     LD_RUN_PATH       $root/venv/lib64
 prepend-path     LD_LIBRARY_PATH   $root/venv/lib64
+
+# Scipy fix
+prepend-path     LD_LIBRARY_PATH   $root/venv/lib/python3.8/site-packages/numpy/.libs
 
 prepend-path     CPATH             $root/venv/include
 prepend-path     INCLUDE_PATH      $root/venv/include
