@@ -53,4 +53,4 @@ if { [file isdirectory $prefix/include] } then {
 }
 prepend-path CMAKE_PREFIX_PATH  $prefix
 
-setenv HDF5HOME $root
+setenv HDF5HOME $prefix
