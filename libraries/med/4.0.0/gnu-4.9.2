@@ -21,5 +21,5 @@ prepend-path LIBRARY_PATH $prefix/lib
 prepend-path LD_RUN_PATH $prefix/lib
 prepend-path LD_LIBRARY_PATH $prefix/lib
 
-setenv PYTHONPATH $prefix
+prepend-path PYTHONPATH $prefix/lib/python3.7/site-packages
 
