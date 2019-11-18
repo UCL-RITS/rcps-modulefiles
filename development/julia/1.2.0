@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2019-05-14
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Julia 1.2.0 to your environment variables"
+}
+
+module-whatis "adds Julia 1.2.0 to your environment variables"
+
+conflict julia
+prereq gcc-libs
+
+set              root              /shared/ucl/apps/julia/1.2.0
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path CMAKE_PREFIX_PATH $root
