@@ -5,9 +5,6 @@
 ## Tools for Research Computing Ops
 ##
 
-lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
-package require modulefunctions 1.0
-
 proc ModulesHelp { } {
 
   puts stderr "\tTools for Ops work"
@@ -20,9 +17,4 @@ prepend-path PATH /shared/ucl/apps/cluster-bin
 
 # location of become
 prepend-path PATH /shared/ucl/sysops/bin
-
-# on Thomas and Michael, this is the correct lquota
-if { [modulefunctions::isCluster thomas] || [modulefunctions::isCluster michael] } {
-    prepend-path PATH /shared/ucl/sysops/lquota/bin
-}
 
