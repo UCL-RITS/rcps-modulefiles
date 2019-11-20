@@ -15,7 +15,7 @@ module-whatis "Adds OpenFOAMplus v1906 to your environment"
 
 conflict openfoam
 conflict openfoamplus
-prereq gcc-libs
+prereq gcc-libs/7.3.0
 prereq compilers/gnu/7.3.0
 prereq mpi/openmpi/3.1.4/gnu-7.3.0
 
