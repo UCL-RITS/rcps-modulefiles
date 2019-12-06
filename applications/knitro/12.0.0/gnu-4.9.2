@@ -38,7 +38,7 @@ setenv KNITRODIR $knitroDir
 setenv KNDIR $knitroDir
 setenv KNRELEASE 1200
 setenv ARTELYS_LICENSE_NETWORK_ADDR lm-server3.ucl.ac.uk:8349
-prepend-path LD_LIBRARY_PATH KNITRODIR/lib
+prepend-path LD_LIBRARY_PATH $knitroDir/lib
 
 if { ! [info exists ::env(OMP_NUM_THREADS)]} {
     setenv  OMP_NUM_THREADS 	4
