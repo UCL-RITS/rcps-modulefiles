@@ -28,12 +28,14 @@ module-whatis "Adds Knitro solver 12.0.0 to your environment."
 # Location of Knitro:
 
 set prefix /shared/ucl/apps/Knitro
+set knitroDir $prefix/knitro-12.0.0-z-Linux-64
 prereq gcc-libs
 prereq compilers/gnu/4.9.2
 
 conflict knitro
 
-setenv KNITRODIR $prefix/knitro-12.0.0-z-Linux-64
+setenv KNITRODIR $knitroDir
+setenv KNDIR $knitroDir
 setenv KNRELEASE 1200
 setenv ARTELYS_LICENSE_NETWORK_ADDR lm-server3.ucl.ac.uk:8349
 prepend-path LD_LIBRARY_PATH KNITRODIR/lib
