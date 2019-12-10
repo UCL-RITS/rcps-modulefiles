@@ -23,9 +23,9 @@ conflict pytorch
 
 if { [ file type /shared/ucl/apps ] == "link" } {
    set           baselink          [ file readlink /shared/ucl/apps ]
-   set           base              $baselink/pytorch/1.2.0/python3.7.4/gpu
+   set           base              $baselink/pytorch/1.2.0/python3.7.4/cuda
 } else {
-   set           base              /shared/ucl/apps/pytorch/1.2.0/python3.7.4/gpu
+   set           base              /shared/ucl/apps/pytorch/1.2.0/python3.7.4/cuda
 }
 set              root              $base
 
