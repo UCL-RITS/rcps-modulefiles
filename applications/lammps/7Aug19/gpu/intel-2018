@@ -1,0 +1,47 @@
+#%Module -*- tcl -*-
+##
+## LAMMPS 16Mar18 with additional packages kspace, replica, rigid, class2
+##
+## Built March 2018
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS 7Aug19 package to your environment."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines.  This version has been "
+    puts stderr "built as a binary (\"lmp_default\")"
+    puts stderr ""
+    puts stderr "This version has been built with the mixed precision GPU package for CUDA."
+    puts stderr ""
+    puts stderr "To use this you must force the Intel MPI to launch locally"
+    puts stderr "with fork and tell lammps to use the gpu package with some"
+    puts stderr "number of GPUs."
+    puts stderr "e.g."
+    puts stderr "  gerun -bootstrap fork lmp_default -sf gpu -pk gpu 2 -in..."
+    puts stderr ""
+    puts stderr "would use two GPUs."
+    puts stderr ""
+    puts stderr "For more information see http://lammps.sandia.gov/doc/accelerate_gpu.html"
+    puts stderr ""
+    puts stderr "Please note that you must have CUDA, the Intel MPI and compilers "
+    puts stderr "loaded for this version of LAMMPS to work."
+    puts stderr ""
+    puts stderr "This version is only available on Legion and Myriad as only they have GPUs."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 7Aug19 to your environment. Binary is lmp_default."
+
+
+conflict lammps
+prereq gcc-libs
+prereq compilers/intel/2018
+prereq mpi/intel/2018
+prereq cuda/9.0.176-patch4
+
+set              root              /shared/ucl/apps/lammps/7Aug2019/gpumixed/intel-2018/lammps
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib

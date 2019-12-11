@@ -24,10 +24,7 @@ prereq gcc-libs
 set version	4.26.011
 set prefix      /shared/ucl/apps/STAR-CD/$version
 
-# on load, check if user is in the correct group
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "legstarc"     
-}
+modulefunctions::mustBeMemberToLoad "legstarc"
 
 # use /tmp if on a login node, otherwise $TMPDIR
 if { [info exists ::env(TMPDIR) ] } {

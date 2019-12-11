@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {WavPack is a completely open audio compression format providing lossless, high-quality lossy, and a unique hybrid compression mode.}
+}
+module-whatis {WavPack is a completely open audio compression format providing lossless, high-quality lossy, and a unique hybrid compression mode.}
+
+conflict wavpack
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+
+set prefix /tmp/wavpack-test-prefix.TnhujVlRlr
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MAN_PATH $prefix/share/man
+

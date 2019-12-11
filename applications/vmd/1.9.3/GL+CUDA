@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting.}
+}
+module-whatis {VMD is a molecular visualization program for displaying, animating, and analyzing large biomolecular systems using 3-D graphics and built-in scripting.}
+
+conflict vmd
+
+set prefix /shared/ucl/apps/vmd/1.9.3-GL+CUDA
+
+prepend-path PATH /shared/ucl/apps/vmd/1.9.3-GL+CUDA/bin
+
+

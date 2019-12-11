@@ -81,9 +81,11 @@ if { [info exists ::env(JOB_ID)] } {
     setenv R_ENABLE_JIT 3
 } else {
     # interactive session so do not set env vars
-    puts stderr ""
-    puts stderr "R Version 3.4.2 setup."
-    puts stderr ""
+    if { [module-info mode load] } {
+        puts stderr ""
+        puts stderr "R Version 3.4.2 setup."
+        puts stderr ""
+    }
 }
 
 prepend-path CMAKE_PREFIX_PATH $prefix

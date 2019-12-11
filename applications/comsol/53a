@@ -3,6 +3,8 @@
 ## modulefile
 ##
 ## COMSOL 53a for Chemical Eng.
+##
+## Updated August 2019 to explicitly set license manger host.
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -32,7 +34,8 @@ conflict comsol
 # Will need to setup a different group as legcomsl is for the EE version!
 
 if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgcomsol"     
+    # This function performs its own check on loading mode but it's fine
+    modulefunctions::mustBeMember "lgcomsol"     
 
     set comsoldir "~/Scratch/.comsol"   
     modulefunctions::createDir $comsoldir
@@ -44,6 +47,8 @@ set prefix      /shared/ucl/apps/Comsol/comsol53a/multiphysics
 prepend-path PATH		$prefix/bin
 prepend-path CMAKE_PREFIX_PATH  $prefix
 setenv FLROOT			$prefix
+
+prepend-path LM_LICENSE_FILE 27003@ls-1.chemeng.ucl.ac.uk
 
 # Set Intel MPI variables for correct fabric choice.
 if {  [modulefunctions::isCluster Myriad] } {

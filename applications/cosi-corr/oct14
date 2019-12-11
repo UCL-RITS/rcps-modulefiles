@@ -1,0 +1,43 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## COSI-Corr Version Oct14 for use with ENVI 5.5.2
+##
+## August 2019 - BAA
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds  COSI-Corr Version Oct14 for use with ENVI 5.5.2 to your environment."
+    puts stderr ""
+    puts stderr "COSI-Corr is an addon to ENVI which provides tools to accurately orthorectify"
+    puts stderr "co-register, and correlate optical remotely sensed images (frame and"
+    puts stderr "pushbroom satellite images) with the ultimate objective of retrieving ground"
+    puts stderr "surface deformation from multi-temporal images."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/COSI-Corr/Oct14/cosi-corr"
+}
+
+
+module-whatis "Adds COSI-Corr Version Oct14 for use with ENVI 5.5.2 to your environment."
+
+conflict cosi-corr
+
+prereq gcc-libs/4.9.2
+prereq envi/5.5.2
+
+# Location of COSI-Corr
+
+set prefix /shared/ucl/apps/COSI-Corr/Oct14/cosi-corr
+
+append-path IDL_PATH '$prefix:<IDL_DEFAULT>'
+append-path IDL_DLM_PATH '$prefix/cosi-modules:<IDL_DEFAULT>'
+append-path PATH $prefix/usgs
+append-path LD_LIBRARY_PATH $prefix/cosi-modules
+

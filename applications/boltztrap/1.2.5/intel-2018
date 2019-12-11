@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## bolztrap
+##
+
+set module_name boltztrap
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds boltztrap 1.2.5 compiled with Intel 2018 to your environment.}
+
+}
+
+module-whatis {Adds boltztrap 1.2.5 to your environment.}
+
+prereq gcc-libs
+prereq compilers/intel/2018
+
+conflict boltztrap
+
+set              prefix               /shared/ucl/apps/boltztrap/1.2.5/intel-2018/boltztrap-1.2.5
+
+
+if { [file isdirectory $prefix/src] } then {
+  prepend-path      PATH                 $prefix/src
+}
+

@@ -1,0 +1,53 @@
+#%Module -*- tcl -*-
+#
+# Tensorflow CPU version
+#
+#                                                      O.K. Jun 2018
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Tensorflow 1.14.0 package to your environment."
+    puts stderr ""
+    puts stderr "This version is built for CPU only with MKL (no GPU support)."
+
+}
+
+module-whatis "Adds Tensorflow 1.14.0 to your environment."
+
+prereq gcc-libs
+#module load python/3.6.3
+set python_ver 3.7
+set pystr ""
+
+if { [info exists ::env(PYTHON_VERSION_TAG)] } {
+   set python_ver $::env(PYTHON_VERSION_TAG)
+}
+
+if { $python_ver=="3.6" } {prereq python/3.6.3}
+if { $python_ver=="3.7" } {prereq python/3.7.4
+                           set pystr "-py37"}
+
+
+conflict tensorflow
+
+if { [ file type /shared/ucl/apps ] == "link" } {
+   set           baselink          [ file readlink /shared/ucl/apps ]
+   set           base              $baselink/tensorflow/1.14.0/mkl$pystr
+} else {
+   set           base              /shared/ucl/apps/tensorflow/1.14.0/mkl$pystr
+}
+set              root              $base
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     PATH              $root/bin
+prepend-path     PYTHONPATH        $root/lib/python$python_ver/site-packages
+
+prepend-path     LD_RUN_PATH       $root/lib64
+prepend-path     LD_LIBRARY_PATH   $root/lib64
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path CMAKE_PREFIX_PATH $root/venv

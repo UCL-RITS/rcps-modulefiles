@@ -22,10 +22,7 @@ prereq compilers/intel
 prereq mpi/intel
 prereq tcl
 
-# check for restricted group membership
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgchemsh"
-}
+modulefunctions::mustBeMemberToLoad "lgchemsh"
 
 set          prefix            /shared/ucl/apps/chemshell/3.7.1/mpi-gulp4.5/intel-2018/chemsh-3.7.1
 

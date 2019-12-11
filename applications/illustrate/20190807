@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+
+proc ModulesHelp { } {
+
+  puts stderr "\tIllustrate is a small Fortran program for creating non-photorealistic illustrations of molecules, with cartoony colors and outlines, and soft ambient shadows. "
+}
+
+module-whatis "adds Illustrate to your environment variables"
+
+prereq gcc-libs
+
+set              root              /shared/ucl/apps/illustrate/20190807/896e8d73be0330b8d17f6d899f2d0e546b03da49/Illustrate/
+
+prepend-path     PATH              $root

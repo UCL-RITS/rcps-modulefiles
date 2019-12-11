@@ -21,10 +21,7 @@ prereq gcc-libs
 
 conflict gaussian
 
-# Check if user is in Gaussian group
-if [modulefunctions::isModuleLoad] {
-        modulefunctions::isMember legg09
-}
+modulefunctions::mustBeMemberToLoad legg09
 
 # Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
 # systemd will wipe these files when no active sessions remain.
@@ -33,9 +30,11 @@ if [modulefunctions::isTMPDIR] {
 } elseif [modulefunctions::isCluster "Aristotle"] {
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 } else {
-    puts stderr "The main Gaussian executable (g09) is too resource-intensive"     
-    puts stderr "to be run on the login nodes. Please submit it as a job."
-    puts stderr "Gaussview 5 is segfaulting with newer Xservers. 6 is available with Gaussian 16."
+    if [modulefunctions::isModuleLoad] {
+        puts stderr "The main Gaussian executable (g09) is too resource-intensive"     
+        puts stderr "to be run on the login nodes. Please submit it as a job."
+        puts stderr "Gaussview 5 is segfaulting with newer Xservers. 6 is available with Gaussian 16."
+    }
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 }
 

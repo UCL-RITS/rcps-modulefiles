@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Dymola is a commercial modeling and simulation environment based on the open Modelica modeling language.}
+}
+module-whatis {Dymola is a commercial modeling and simulation environment based on the open Modelica modeling language.}
+
+conflict dymola
+prereq gcc-libs
+prereq xorg-utils
+prereq mesa
+
+set prefix /shared/ucl/apps/dymola/2020.1-1
+
+setenv DYMOLA /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64
+prepend-path PATH /shared/ucl/apps/dymola/2020.1-1/bin
+prepend-path PATH /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64/insert
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64/lib
+
+

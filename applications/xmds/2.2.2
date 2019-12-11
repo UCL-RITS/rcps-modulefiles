@@ -23,8 +23,10 @@ conflict xmds
 
 set prefix /shared/ucl/apps/xmds/2.2.2/gnu-4.9.2
 
-puts stderr "WARNING: If you use the create-svn-xmds-inst script to pull a version of XMDS 2 from SVN, that version is completely untested."
-puts stderr "This program requires per-user configuration. Please run the script 'xmds2-setup' before first running the program."
+if { [module-info mode load] } {
+    puts stderr "WARNING: If you use the create-svn-xmds-inst script to pull a version of XMDS 2 from SVN, that version is completely untested."
+    puts stderr "This program requires per-user configuration. Please run the script 'xmds2-setup' before first running the program."
+}
 
 prereq python2/recommended
 prereq compilers/gnu/4.9.2

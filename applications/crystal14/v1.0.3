@@ -34,8 +34,7 @@ if { [info exists ::env(TMPDIR) ] } {
 
 set prefix /shared/ucl/apps/Crystal14/v1.0.3
 
-# check if user is in the correct group for Crystal14
-modulefunctions::isMember "legcryst"
+modulefunctions::mustBeMemberToLoad "legcryst"
 
 setenv CRY14_ROOT $prefix
 setenv CRY14_BIN bin

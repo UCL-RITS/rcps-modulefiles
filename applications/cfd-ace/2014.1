@@ -5,6 +5,7 @@
 ## CFD-ACE 2014.1
 ##
 ## Brian Alston December 2015
+## Updated July 2019 for new license manager location.
 ##
 ## Updated July 2018 as CFD-ACE is now only on Grace and Myriad.
 ## Updated August 2018 to set MPI fabric which Myriad needs (jobs
@@ -77,7 +78,8 @@ setenv ESI_HOME $prefix
 setenv PYTHONHOME $prefix/2014.1/UTILS
 setenv MPI_ROOT $prefix/2014.1/UTILS/platform_mpi-09.01.02.00
 setenv MPI_REMSH "/usr/bin/ssh -o StrictHostKeyChecking=no"
-setenv PAM_LMD_LICENSE_FILE 7789@ntsrv1.meng.ucl.ac.uk
+setenv PAM_LMD_LICENSE_FILE 7789@mech-lic1.meng.ucl.ac.uk
+
 
 prepend-path PATH		$prefix/2014.1/UTILS/bin
 prepend-path LD_LIBRARY_PATH    $prefix/2014.1/UTILS/lib
@@ -86,25 +88,25 @@ prepend-path LD_LIBRARY_PATH    $prefix/2014.1/UTILS/lib
 
 setenv MPI_IC_ORDER "upapl:tcp"
 
-if {  [modulefunctions::isCluster Legion] || [modulefunctions::isCluster Thomas] || [modulefunctions::isCluster Aristotle]} {
-    puts stderr ""
-    puts stderr "**** error: CFD-ACE is only available on Grace and Myriad."
-    puts stderr ""
-} 
+if { [ module-info mode load ] } {
+    if { ! [modulefunctions::isCluster Grace] && \
+         ! [modulefunctions::isCluster Myriad] } {
+        puts stderr ""
+        puts stderr "**** error: CFD-ACE is only available on Grace and Myriad."
+        puts stderr ""
+    } 
 
-# on load, check if user is in the correct group for CDF-ACE
-if [modulefunctions::isModuleLoad] {
-    modulefunctions::isMember "lgcfdace"     
-}
+    # on load, check if user is in the correct group for CDF-ACE
+    modulefunctions::mustBeMember "lgcfdace"     
 
-# Setup CFD-ACE+ settings directory in Scratch
-
-if { ! [appDirSetup $cfdaceDir] } {
-    puts stderr ""
-    puts stderr "**** error: setting up $cfdaceDir directory failed."
-    puts stderr ""    
-    puts stderr "Note: you must load the cfd-ace module at least once from a login node."
-    puts stderr ""
+    # Setup CFD-ACE+ settings directory in Scratch
+    if { ! [appDirSetup $cfdaceDir] } {
+        puts stderr ""
+        puts stderr "**** error: setting up $cfdaceDir directory failed."
+        puts stderr ""    
+        puts stderr "Note: you must load the cfd-ace module at least once from a login node."
+        puts stderr ""
+    }
 }
 
 

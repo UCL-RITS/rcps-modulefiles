@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# NASA Ames Stereo Pipeline (ASP)  2.6.2
+#
+#                                                     BA. Nov 2019
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds NASA Ames Stereo Pipeline (ASP) 6.2.2 to your environment."
+    puts stderr ""
+    puts stderr "ASP is a suite of free and open source automated geodesy and stereogrammetry"
+    puts stderr "tools designed for processing stereo imagery captured from satellites (around"
+    puts stderr "Earth and other planets), robotic rovers, aerial cameras, and historical imagery,"
+    puts stderr "with and without accurate camera pose information. It produces cartographic"
+    puts stderr "products, including digital elevation models (DEMs), ortho-projected imagery,"
+    puts stderr "3D models, and bundle-adjusted networks of cameras."
+    puts stderr ""
+}
+
+module-whatis "Adds NASA Ames Stereo Pipeline (ASP) 6.2.2 to your environment."
+
+conflict asp
+
+prereq gcc-libs
+
+set prefix  /shared/ucl/apps/ASP/StereoPipeline-2.6.2-2019-06-17-x86_64-Linux
+
+prepend-path PATH $prefix/bin
+
+

@@ -5,6 +5,7 @@
 ## NAG Fortran Library Mark 22 for GCC 4.9.2
 ## Updated November 2018 to fix NAG_KUSARI_FILE variable for all clusters with LMs
 ## Updated March 2019 for new Legion update
+## Updated July 2019 for Myriad
 
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
@@ -46,6 +47,10 @@ if { [modulefunctions::isCluster Thomas]  } {
     setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Michael] } {
     setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Grace] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Myriad]  } {
+    setenv NAG_KUSARI_FILE util05:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {

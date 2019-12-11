@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {EnergyPlus™ is a whole building energy simulation program that engineers, architects, and researchers use to model both energy consumption—for heating, cooling, ventilation, lighting and plug and process loads—and water use in buildings.}
+}
+module-whatis {EnergyPlus™ is a whole building energy simulation program that engineers, architects, and researchers use to model both energy consumption—for heating, cooling, ventilation, lighting and plug and process loads—and water use in buildings.}
+
+conflict energyplus
+prereq gcc-libs/8.3.0 gcc-libs/9.2.0
+
+set prefix /shared/ucl/apps/energyplus/9.1.0-bindist
+
+setenv ENERGYPLUS_DIR /shared/ucl/apps/energyplus/9.1.0-bindist
+prepend-path PATH /shared/ucl/apps/energyplus/9.1.0-bindist
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/energyplus/9.1.0-bindist
+
+

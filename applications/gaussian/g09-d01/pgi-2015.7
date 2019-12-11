@@ -24,28 +24,12 @@ prereq gcc-libs
 
 conflict gaussian
 
-# Check if user is in one of the Gaussian groups
-proc isGaussianMember { group } {
-
-    set p1 [open "| /usr/bin/groups"]
-    set myGroups [read $p1]
-    if {[catch {close $p1} err]} {
-        puts stderr "groups command failed: $err"
-    }
-    if { [lsearch -exact $myGroups $group] != -1 } {
-        return true
-    } else {
-        return false
-    }
-}
-
-
 # Check if user is in Gaussian group
 set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
 
-if [isGaussianMember legg09] {
+if [modulefunctions::isMember legg09] {
     set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7
-} elseif [isGaussianMember legg03] {
+} elseif [modulefunctions::isMember legg03] {
     set root /shared/ucl/apps/gaussian/g09-d01/pgi-2015.7_2
 } elseif [modulefunctions::isModuleLoad]  {
     puts stderr ""
@@ -68,9 +52,11 @@ if [modulefunctions::isTMPDIR] {
 } elseif [modulefunctions::isCluster "Aristotle"] {
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 } else {
-    puts stderr "The main Gaussian executable (g09) is too resource-intensive" 
-    puts stderr "to be run on the login nodes. Please submit it as a job."
-    puts stderr "Gaussview 5 is segfaulting with newer Xservers. 6 is available with Gaussian 16."
+    if [modulefunctions::isModuleLoad] {
+        puts stderr "The main Gaussian executable (g09) is too resource-intensive" 
+        puts stderr "to be run on the login nodes. Please submit it as a job."
+        puts stderr "Gaussview 5 is segfaulting with newer Xservers. 6 is available with Gaussian 16."
+    }
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
 }
 

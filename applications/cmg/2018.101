@@ -1,0 +1,47 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## CMG Version 2018.101
+##
+## October 2018
+##
+## Updated February 2019 to add /shared/ucl/apps/CMG/2017.101.GU/Launcher/2017.10/Linux_x64/EXE
+## to your path.
+## Updated August 2019 for CMG 2018.101
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds CMG Reservoir Simulation Software Version 2018.101 to your"
+    puts stderr "environment."
+    puts ""
+    puts stderr "CMG provides reservoir simulation software, including thermal,"
+    puts stderr "compositional, black oil and enhanced oil recovery processes"
+    puts stderr "using easy-to-use model building workflows, and multi-physics"
+    puts stderr "e.g. thermal effects, geochemistry, geomechanics, fluid and"
+    puts stderr "phase behavior, wellbore hydraulics and completions."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/CMG/2018.101.GU/"
+}
+
+module-whatis "Adds CMG Reservoir Simulation Software Version 2018.101 to your environment."
+
+# Location of CMG:
+
+set prefix /shared/ucl/apps/CMG/2018.101.GU
+
+prereq gcc-libs
+conflict cmg
+
+setenv CMG_HOME $prefix
+prepend-path PATH		$prefix
+prepend-path PATH               $prefix/br/2018.10/linux_x64/exe
+prepend-path PATH		$prefix/imex/2018.10/linux_x64/exe
+prepend-path LD_LIBRARY_PATH    $prefix/imex/2018.10/linux_x64/lib
+prepend-path PATH		$prefix/gem/2018.10/linux_x64/exe
+prepend-path LD_LIBRARY_PATH    $prefix/gem/2018.10/linux_x64/lib
+prepend-path PATH		$prefix/stars/2018.10/linux_x64/exe
+prepend-path LD_LIBRARY_PATH    $prefix/stars/2018.10/linux_x64/lib
+prepend-path PATH               $prefix/Launcher/2018.10/Linux_x64/EXE
+setenv CMG_LIC_HOST lic-cmg.ucl.ac.uk:2700

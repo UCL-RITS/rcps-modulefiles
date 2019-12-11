@@ -70,7 +70,7 @@ if { [modulefunctions::isModuleLoad] } {
     if { [string match Grace [getClusterName]] == 1  } {
 
 	# check if user is in the correct group for ADF
-	modulefunctions::isMember "legadf"
+    modulefunctions::mustBeMember legadf
 
 	setenv ADFHOME $prefix
 	setenv ADFBIN  $prefix/bin

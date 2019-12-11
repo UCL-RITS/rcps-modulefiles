@@ -20,39 +20,9 @@ prereq gcc-libs
 
 conflict gaussian
 
-# Check if user is in one of the Gaussian groups
-proc isGaussianMember { group } {
-
-    set p1 [open "| /usr/bin/groups"]
-    set myGroups [read $p1]
-    if {[catch {close $p1} err]} {
-        puts stderr "groups command failed: $err"
-    }
-    if { [lsearch -exact $myGroups $group] != -1 } {
-        return true
-    } else {
-        return false
-    }
-}
-
-
-# Check if user is in Gaussian group
 set root /shared/ucl/apps/gaussian/g16-a03/pgi-2016.5
 
-if [isGaussianMember legg16] {
-    set root  /shared/ucl/apps/gaussian/g16-a03/pgi-2016.5
-} elseif [modulefunctions::isModuleLoad]  {
-    puts stderr ""
-    puts stderr "You are not currently a member of the reserved application group"
-    puts stderr "for this module. Please email"
-    puts stderr ""
-    puts stderr "    rc-support@ucl.ac.uk"
-    puts stderr ""
-    puts stderr "requesting access to the software."
-    puts stderr ""
-    puts stderr "=================================="
-    puts stderr ""
-}
+modulefunctions::mustBeMemberToLoad legg16
 
 # Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
 # systemd will wipe these files when no active sessions remain.
@@ -63,8 +33,10 @@ if [modulefunctions::isTMPDIR] {
 } elseif [modulefunctions::isCluster "Aristotle"] {
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
 } else {
-    puts stderr "The main Gaussian executable (g16) is too resource-intensive"     
-    puts stderr "to be run on the login nodes. Please submit it as a job."
+    if [modulefunctions::isModuleLoad] {
+        puts stderr "The main Gaussian executable (g16) is too resource-intensive"     
+        puts stderr "to be run on the login nodes. Please submit it as a job."
+    }
     setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
 }
 

@@ -4,6 +4,7 @@
 ##
 ## lm-utils - license manager utilities
 ##
+## Updated September 2019 for new scripts location.
 
 proc ModulesHelp { } {
 
@@ -16,4 +17,4 @@ conflict lm-utils
 
 set prefix /shared/ucl/apps/lm-utils
 
-prepend-path PATH               $prefix/bin
+prepend-path PATH               $prefix/scripts

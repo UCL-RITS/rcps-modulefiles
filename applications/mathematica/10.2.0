@@ -57,12 +57,14 @@ if { ! [info exists ::env(OMP_NUM_THREADS)]} {
     setenv  OMP_NUM_THREADS 	4
 }
 
-if {[info exists ::env(DISPLAY)]} {
-    puts stderr ""
-    puts stderr "When running the Notebook interface please start Mathematica"
-    puts stderr "using:"
-    puts stderr "        mathematica -mesa"
-    puts stderr ""
-    puts stderr "If you do not, your X server may crash!"
-    puts stderr ""
+if { [module-info mode load] } {
+    if {[info exists ::env(DISPLAY)]} {
+        puts stderr ""
+        puts stderr "When running the Notebook interface please start Mathematica"
+        puts stderr "using:"
+        puts stderr "        mathematica -mesa"
+        puts stderr ""
+        puts stderr "If you do not, your X server may crash!"
+        puts stderr ""
+    }
 }

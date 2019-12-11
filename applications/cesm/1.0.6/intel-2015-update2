@@ -31,7 +31,10 @@ if { $ct == "intel-2017" } {
   set ncroot /shared/ucl/apps/cesm/support/netcdf
 
 } else {
-  puts stderr "There is no support NetCDF package built for this compiler."
+  set curMod [module-info name]
+  if { [module-info mode load] } {
+      puts stderr "$curMod: NB: There is no support NetCDF package built for this compiler."
+  }
   set ncroot /shared/ucl/apps/cesm/support/netcdf
 }
 

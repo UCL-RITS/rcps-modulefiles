@@ -84,11 +84,13 @@ if { [info exists ::env(JOB_ID)] } {
     setenv R_ENABLE_JIT 3
 } else {
     # interactive session so do not set env vars
-    puts stderr ""
-    puts stderr "R Version 3.5.0 setup."
-    puts stderr ""
-    puts stderr "NOTE: Rmpi is not currently working with R 3.5.0 - R restricted to single node jobs."
-    puts stderr ""
+    if { [module-info mode load] } {
+        puts stderr ""
+        puts stderr "R Version 3.5.0 setup."
+        puts stderr ""
+        puts stderr "NOTE: Rmpi is not currently working with R 3.5.0 - R restricted to single node jobs."
+        puts stderr ""
+    }
 }
 
 prepend-path CMAKE_PREFIX_PATH $prefix

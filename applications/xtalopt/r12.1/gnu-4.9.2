@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## XtalOpt r12.1 compiled with GCC 4.9.2 etc
+##
+## Brian Alston July 2019 
+
+proc ModulesHelp { } {
+    puts stderr "Adds XtalOpt r12.1 to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/XtalOpt/r12.1/gnu-4.9.2/"
+}
+
+module-whatis "Adds XtalOpt r12.1 to your environment."
+
+# Location of XtalOpt:
+
+set prefix /shared/ucl/apps/XtalOpt/r12.1/gnu-4.9.2
+
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq bison/3.0.4/gnu-4.9.2
+prereq gperf/3.0.4/gnu-4.9.2
+prereq xorg-utils/X11R7.7
+prereq qt/5.12.1/gnu-4.9.2
+prereq eigen/3.2.5/gnu-4.9.2
+prereq qwt/6.1.4/gnu-4.9.2
+
+
+prepend-path PATH		$prefix/bin
