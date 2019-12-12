@@ -3,6 +3,9 @@
 ## dot modulefile
 ##
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
     puts stderr "Adds the userscripts directory to your path."
     puts stderr "Provides jobhist among other utilities."
@@ -17,3 +20,9 @@ set prefix /shared/ucl/apps/cluster-scripts
 
 prepend-path PATH               $prefix
 prepend-path PATH       /shared/ucl/apps/cluster-bin
+
+# on Thomas and Michael, this is the correct lquota
+if { [modulefunctions::isCluster thomas] || [modulefunctions::isCluster michael] } {
+    prepend-path PATH /shared/ucl/sysops/lquota/bin
+}
+
