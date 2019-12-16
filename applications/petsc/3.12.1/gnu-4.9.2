@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Petsc 3.12.1 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Petsc 3.12.1 to your environment"
+
+
+conflict petsc
+prereq beta-modules
+prereq gcc-libs/4.9.2
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.4/gnu-4.9.2
+prereq openblas/0.3.7-openmp/gnu-4.9.2
+
+
+set              root              /shared/ucl/apps/petsc/3.12.1/gnu-4.9.2/petsc-3.12.1
+
+prepend-path     PATH              $root/bin
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path CMAKE_PREFIX_PATH $root

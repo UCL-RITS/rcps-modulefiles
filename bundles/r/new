@@ -17,8 +17,8 @@
 ##     Also updated for udunits 2.2.26
 ## Updated for R 3.5.3 April 2019
 ## Updated for R 3.6.0 and Bioconductor 3.9 June 2019
-
 ## Install as r/new bundle 15th August 2019
+## Updated to add pandocs module November 2019
 
 proc ModulesHelp { } {
     puts stderr "This module adds the R 3.6.0 and Bioconductor 3.9 package to your environment."
@@ -39,6 +39,7 @@ module load fftw/3.3.6-pl2/gnu-4.9.2
 module load ghostscript/9.19/gnu-4.9.2
 module load texinfo/6.6/gnu-4.9.2
 module load texlive/2019
+module load pandoc/1.19.2.1
 module load gsl/2.4/gnu-4.9.2
 module load hdf/5-1.8.15/gnu-4.9.2
 module load netcdf/4.3.3.1/gnu-4.9.2

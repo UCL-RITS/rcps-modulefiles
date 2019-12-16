@@ -1,0 +1,45 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Knitro solver 12.0.0
+##
+## Brian Alston December 2019
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds Knitro solver 12.0.0 to your environment."
+    puts stderr ""
+    puts stderr "Knitro is a solver for nonlinear optimization problems. It is a"
+    puts stderr "commercial product by Artelys (www.artelys.com). The UCL license"
+    puts stderr "is owned by the Economics department."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Knitro"
+}
+
+module-whatis "Adds Knitro solver 12.0.0 to your environment."
+
+# Location of Knitro:
+
+set prefix /shared/ucl/apps/Knitro
+set knitroDir $prefix/knitro-12.0.0-z-Linux-64
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+
+conflict knitro
+
+setenv KNITRODIR $knitroDir
+setenv KNDIR $knitroDir
+setenv KNRELEASE 1200
+setenv ARTELYS_LICENSE_NETWORK_ADDR lm-server3.ucl.ac.uk:8349
+prepend-path LD_LIBRARY_PATH $knitroDir/lib
+
+if { ! [info exists ::env(OMP_NUM_THREADS)]} {
+    setenv  OMP_NUM_THREADS 	4
+}
