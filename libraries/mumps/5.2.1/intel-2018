@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds mumps 5.2.1 to your environment. Sequential version built with Intel and METIS.}
+}
+module-whatis {Adds mumps 5.2.1 to your environment. Sequential version built with Intel and METIS.}
+
+conflict mumps
+prereq gcc-libs
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+
+set prefix /shared/ucl/apps/mumps/5.2.1/intel-2018/MUMPS_5.2.1
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
