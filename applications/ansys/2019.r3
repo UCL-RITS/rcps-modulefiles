@@ -19,6 +19,7 @@
 # Fix bug with creating ~/.config/Ansys settings directory when ~/.config
 # doesn't exist    Oct 2018
 # Updated for ANSYS 2019 R3 and included in beta modules  17th Oct 2019.
+# Moved to main modules 19th December 2019
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
