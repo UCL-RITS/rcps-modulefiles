@@ -1,0 +1,110 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {OpenMPI 3.1.4/GNU 4.9.2 build of CP2K with libint, libxsmm, quip, libsmm, libxc.}.
+
+}
+
+module-whatis {Adds CP2K to your environment.}
+
+prereq gcc-libs
+prereq mpi/openmpi/3.1.4/gnu-4.9.2
+prereq openblas/0.3.7-openmp/gnu-4.9.2
+
+conflict cp2k
+
+set              prefix               /shared/ucl/apps/cp2k/7.1/gnu-4.9.2/cp2k-7.1
+
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/man] } then {
+  prepend-path      MANPATH              $prefix/man
+}
+
+if { [file isdirectory $prefix/share/man] } then {
+  prepend-path      MANPATH              $prefix/share/man
+}
+
+if { [file isdirectory $prefix/lib] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib
+}
+
+if { [file isdirectory $prefix/lib64] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib64
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib64
+}
+
+if { [file isdirectory $prefix/lib/pkgconfig] } then {
+  prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+
+setenv CP2K_DATA_DIR $prefix/data
+
+# Toolchain
+
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/cmake-3.15.1/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/cmake-3.15.1/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/cmake-3.15.1/lib
+prepend-path CPATH $prefix/tools/toolchain/install/cmake-3.15.1/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/elpa-2019.05.001/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/elpa-2019.05.001/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/elpa-2019.05.001/lib
+prepend-path CPATH $prefix/tools/toolchain/install/elpa-2019.05.001/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/fftw-3.3.8/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/fftw-3.3.8/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/fftw-3.3.8/lib
+prepend-path CPATH $prefix/tools/toolchain/install/fftw-3.3.8/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/gsl-2.5/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/gsl-2.5/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/gsl-2.5/lib
+prepend-path CPATH $prefix/tools/toolchain/install/gsl-2.5/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/hdf5-1.10.4/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/hdf5-1.10.4/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/hdf5-1.10.4/lib
+prepend-path CPATH $prefix/tools/toolchain/install/hdf5-1.10.4/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/lib
+prepend-path CPATH $prefix/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/libvdwxc-0.4.0/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/libvdwxc-0.4.0/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/libvdwxc-0.4.0/lib
+prepend-path CPATH $prefix/tools/toolchain/install/libvdwxc-0.4.0/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/libxc-4.3.4/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/libxc-4.3.4/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/libxc-4.3.4/lib
+prepend-path CPATH $prefix/tools/toolchain/install/libxc-4.3.4/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/libxsmm-1.14/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/libxsmm-1.14/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/libxsmm-1.14/lib
+prepend-path CPATH $prefix/tools/toolchain/install/libxsmm-1.14/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/openblas-0.3.6/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/openblas-0.3.6/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/openblas-0.3.6/lib
+prepend-path CPATH $prefix/tools/toolchain/install/openblas-0.3.6/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/quip-cc83ceea5776c40fcb5ab224a25ab04d62175449/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/quip-cc83ceea5776c40fcb5ab224a25ab04d62175449/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/quip-cc83ceea5776c40fcb5ab224a25ab04d62175449/lib
+prepend-path CPATH $prefix/tools/toolchain/install/quip-cc83ceea5776c40fcb5ab224a25ab04d62175449/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/scalapack-2.0.2/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/scalapack-2.0.2/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/scalapack-2.0.2/lib
+prepend-path CPATH $prefix/tools/toolchain/install/scalapack-2.0.2/include
+prepend-path LD_LIBRARY_PATH $prefix/tools/toolchain/install/spglib-1.12.2/lib
+prepend-path LIBRARY_PATH $prefix/tools/toolchain/install/spglib-1.12.2/lib
+prepend-path LD_RUN_PATH $prefix/tools/toolchain/install/spglib-1.12.2/lib
+prepend-path CPATH $prefix/tools/toolchain/install/spglib-1.12.2/include
+
