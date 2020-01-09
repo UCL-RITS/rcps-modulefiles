@@ -1,0 +1,61 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds Optimet to your environment.}
+
+}
+
+module-whatis {Adds Optimet to your environment.}
+
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.4/gnu-4.9.2
+prereq git/2.19.1
+prereq hdf/5-1.10.5/gnu-4.9.2
+prereq gsl/1.16/gnu-4.9.2
+prereq openblas/0.3.7-serial/gnu-4.9.2
+prereq scalapack/2.0.2/gnu-4.9.2/openblas-0.3.7
+
+conflict optimet
+
+set              prefix               /shared/ucl/apps/optimet/1.0.1/gnu-4.9.2/OPTIMET
+
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/man] } then {
+  prepend-path      MANPATH              $prefix/man
+}
+
+if { [file isdirectory $prefix/share/man] } then {
+  prepend-path      MANPATH              $prefix/share/man
+}
+
+if { [file isdirectory $prefix/lib] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib
+  prepend-path      PYTHONPATH           $prefix/lib/python3.6/site-packages
+}
+
+if { [file isdirectory $prefix/lib64] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib64
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib64
+}
+
+if { [file isdirectory $prefix/lib/pkgconfig] } then {
+  prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+
+
+
