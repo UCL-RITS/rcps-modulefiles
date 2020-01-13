@@ -20,6 +20,7 @@
 # doesn't exist    Oct 2018
 # Updated for ANSYS 2019 R3 and included in beta modules  17th Oct 2019.
 # Moved to main modules 19th December 2019
+# Updated to add AUTODYN paths January 2020
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -87,6 +88,11 @@ prepend-path PATH       $prefix/v195/ansys/bin
 prepend-path PATH       $prefix/v195/aisol
 prepend-path PATH       $prefix/v195/aisol/bin/linx64
 prepend-path PATH       $prefix/v195/aisol/CommonFiles/linx64
+
+# Added for ANSYS Autodyn installed with 2019.R3
+prepend-path PATH       $prefix/v195/autodyn/bin
+prepend-path PATH       $prefix/v195/autodyn/bin/linx64
+
 
 prepend-path LM_LICENSE_FILE	1055@lic-ansys.ucl.ac.uk
 
