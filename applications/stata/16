@@ -1,0 +1,55 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Stata/MP 16
+##
+## Brian Alston August 2015
+## Updated for Stata 15 January 2018
+## Updated for Stata 16 January 2020
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds Stata/MP Version 16 (4 cores) to your environment."
+    puts stderr ""
+    puts stderr "Stata/MP is the version of Stata that supports shared"
+    puts stderr "memory parallel working. The UCL Legion licence allows"
+    puts stderr "Stata to run on up to 4 cores per job. Stata is a,"
+    puts stderr "integrated statistical package that provides tools for"
+    puts stderr "data analysis, data management, and graphics."
+    puts stderr ""
+    puts stderr "Stata has been updated to version 16.x (January 2020)"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/StataMP/"
+}
+
+module-whatis "Adds Stata/MP 16 to your environment."
+
+# Location of Stata:
+
+set prefix /shared/ucl/apps/StataMP/stata16
+prereq gcc-libs
+
+conflict stata
+
+prepend-path PATH		$prefix
+
+if {! [modulefunctions::isCluster Myriad]  } {
+    puts stderr ""
+    puts stderr "**** error: STATA 16 is only available on Myriad."
+    puts stderr ""
+} else {
+    prepend-path PATH		$prefix
+
+    if { [info exists ::env(TMPDIR) ] } {
+	setenv STATATMP $::env(TMPDIR)
+    } else {
+	setenv STATATMP /tmp
+    }
+}
