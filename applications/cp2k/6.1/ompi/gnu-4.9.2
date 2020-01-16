@@ -3,7 +3,7 @@
 
 proc ModulesHelp { } {
 
-  puts stderr {OpenMPI 3.1.4/GNU 4.9.2 build of CP2K with libint, libsmm, libxc.}.
+  puts stderr {OpenMPI 3.1.4/GNU 4.9.2 build of CP2K with libint, libxsmm, libsmm, libxc.}.
 
 }
 
@@ -15,7 +15,7 @@ prereq openblas/0.3.7-openmp/gnu-4.9.2
 
 conflict cp2k
 
-set              prefix               /shared/ucl/apps/cp2k/6.1/gnu-4.9.2/cp2k-6.1
+set              prefix               /shared/ucl/apps/cp2k/6.1-libxsmm-master/gnu-4.9.2/cp2k-6.1
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
