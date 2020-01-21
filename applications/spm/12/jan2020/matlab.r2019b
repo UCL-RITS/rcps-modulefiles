@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2015-07-14
+## Updated for SPM 12 of January 2020 and Matlab R2019b
+
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SPM12 package to your environment."
+    puts stderr ""
+    puts stderr "SPM 12 of January 2020 for use with Matlab R2091b."
+    puts stderr ""
+}
+
+module-whatis "Adds SPM12 to your environment"
+
+
+conflict spm
+prereq beta-modules
+prereq gcc-libs/7.3.0
+prereq compilers/gnu/7.3.0
+prereq xorg-utils/X11R7.7
+prereq matlab/full/r2019b/9.7
+
+set              root              /shared/ucl/apps/spm/spm12-jan2020
+prepend-path     MATLABPATH        $root
