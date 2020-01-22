@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {CASTEP is a program that uses density functional theory to calculate the properties of materials from first principles.}
+}
+module-whatis {CASTEP is a program that uses density functional theory to calculate the properties of materials from first principles.}
+
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+modulefunctions::mustBeMemberToLoad lgcastep
+conflict castep
+prereq gcc-libs
+prereq compilers/intel/2019/update4
+prereq mpi/intel/2019/update4/intel
+
+set prefix /shared/ucl/apps/castep/19.1.1/intel-2019
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
