@@ -10,7 +10,7 @@ proc ModulesHelp { } {
 
     puts stderr "This module adds the SPM12 package to your environment."
     puts stderr ""
-    puts stderr "SPM 12 of January 2020 for use with Matlab R2091b."
+    puts stderr "SPM 12 of January 2020 (v7771) for use with Matlab R2091b."
     puts stderr ""
 }
 
