@@ -26,7 +26,7 @@ proc ModulesHelp { } {
     puts stderr "integrated statistical package that provides tools for"
     puts stderr "data analysis, data management, and graphics."
     puts stderr ""
-    puts stderr "Stata has been updated to version 16.x (January 2020)"
+    puts stderr "Stata has been updated to version 16.0 (8th January 2020)"
     puts stderr ""
     puts stderr "Directory: /shared/ucl/apps/StataMP/"
 }
