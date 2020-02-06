@@ -4,9 +4,11 @@
 ##
 ## Stata/MP 16
 ##
-## Brian Alston August 2015
+## Brian Alston August 2015 
 ## Updated for Stata 15 January 2018
 ## Updated for Stata 16 January 2020
+## Updated February 2020 to add libpng and gcc-libs/9.2.0 dependency. Also
+## moved to beta-modules.
 ##
 
 # New Legion modules layout
@@ -24,7 +26,7 @@ proc ModulesHelp { } {
     puts stderr "integrated statistical package that provides tools for"
     puts stderr "data analysis, data management, and graphics."
     puts stderr ""
-    puts stderr "Stata has been updated to version 16.x (January 2020)"
+    puts stderr "Stata has been updated to version 16.0 (8th January 2020)"
     puts stderr ""
     puts stderr "Directory: /shared/ucl/apps/StataMP/"
 }
@@ -34,7 +36,9 @@ module-whatis "Adds Stata/MP 16 to your environment."
 # Location of Stata:
 
 set prefix /shared/ucl/apps/StataMP/stata16
-prereq gcc-libs
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq libpng/1.6.37/gnu-9.2.0
 
 conflict stata
 
