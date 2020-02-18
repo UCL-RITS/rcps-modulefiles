@@ -3,6 +3,9 @@
 ## quantum-espresso
 ##
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 set module_name quantum-espresso
 
 proc ModulesHelp { } {
@@ -20,11 +23,14 @@ prereq xorg-utils
 
 conflict quantum-espresso
 
-set root /shared/ucl/apps/quantum-espresso/6.4.1/intel-2018
+set root /shared/ucl/apps/quantum-espresso/6.4.1-fixedlinks/intel-2018/q-e
 
 prepend-path PATH $root/bin
 
-if { [info exists ::env(TMPDIR) ] } {
+# First check for clusters without TMPDIR
+if [modulefunctions::isCluster kathleen] {
+  setenv ESPRESSO_TMPDIR $::env(HOME)/Scratch
+} elseif { [info exists ::env(TMPDIR) ] } {
   setenv ESPRESSO_TMPDIR $::env(TMPDIR)
 } else {
   setenv ESPRESSO_TMPDIR /tmp
