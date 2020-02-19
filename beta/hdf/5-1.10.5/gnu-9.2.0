@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds hdf 5-1.10.5 to your environment. Serial version built with GNU.}
+}
+module-whatis {Adds hdf 5-1.10.5 to your environment. Serial version built with GNU.}
+
+conflict hdf
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq compilers/gnu/9.2.0
+
+set prefix /shared/ucl/apps/hdf/5-1.10.5/gnu-9.2.0
+
+setenv HDF5HOME /shared/ucl/apps/hdf/5-1.10.5/gnu-9.2.0
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+

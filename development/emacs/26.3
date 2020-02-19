@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds Emacs 26.3 to your environment. An extensible text editor.}
+}
+module-whatis {Adds Emacs 26.3 to your environment. An extensible text editor.}
+
+conflict emacs
+
+set prefix /shared/ucl/apps/emacs/26.3
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path MAN_PATH $prefix/share/man
+prepend-path INFO_PATH $prefix/share/info
+

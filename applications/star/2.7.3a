@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+##
+## STAR 2.7.3a
+##								OK 13 Jun 2015
+## Updated January 2020 for version 2.7.3a
+
+proc ModulesHelp { } {
+    puts stderr "Adds STAR 2.7.3a to your environment."
+    puts stderr ""
+    puts stderr "Spliced Transcripts Alignment to a Reference (c) Alexander Dobin, 2009-2019"
+    puts stderr ""
+    puts stderr "For more details see:"
+    puts stderr "    https://github.com/alexdobin/STAR"
+    puts stderr "    https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf"
+    puts stderr ""
+
+}
+
+module-whatis "Adds STAR 2.7.3a to your environment."
+
+conflict star
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/star/2.7.3a/gnu-4.9.2/STAR-2.7.3a
+
+append-path PATH                $prefix/bin

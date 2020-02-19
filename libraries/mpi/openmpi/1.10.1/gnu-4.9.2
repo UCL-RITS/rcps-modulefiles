@@ -20,7 +20,13 @@ prereq gcc-libs
 prereq compilers/gnu/4.9.2
 
 set              openmpiversion    1.10.1
-set              root              /shared/ucl/apps/openmpi/1.10.1/no-verbs/gnu-4.9.2
+
+# Patched version for hyperthreading-enabled clusters
+if [modulefunctions::isCluster "Kathleen"] {
+    set root     /shared/ucl/apps/openmpi/1.10.1/hthread/gnu-4.9.2
+}  else {
+    set root     /shared/ucl/apps/openmpi/1.10.1/no-verbs/gnu-4.9.2
+}
 
 prepend-path     PATH              $root/bin
 prepend-path     PATH              /shared/ucl/apps/openmpi/ucl-wrapper/bin
@@ -39,7 +45,7 @@ setenv           GERUN_LAUNCHER    openmpi-sge
 prepend-path CMAKE_PREFIX_PATH  $root
 
 # Add compatibility library for MPI built for infiniband not omnipath
-if [modulefunctions::isCluster "Thomas"] {
+if { [modulefunctions::isCluster thomas] || [modulefunctions::isCluster michael] } {
     prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
 }
 # Add compatibility library for MPI built for infiniband not omnipath

@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## quantum-espresso built with version 1.2.1 of the thermo_pw add-on.
+##
+
+set module_name quantum-espresso
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds quantum-espresso 6.5 + thermo_pw 1.2.1 to your environment.}
+
+}
+
+module-whatis {Adds quantum-espresso 6.5 + thermo_pw 1.2.1 to your environment.}
+
+prereq gcc-libs
+prereq compilers/intel/2018
+prereq mpi/intel/2018
+prereq xorg-utils
+prereq gnuplot
+
+conflict quantum-espresso
+
+set root /shared/ucl/apps/quantum-espresso-thermo_pw/6.5/intel-2018
+
+prepend-path PATH $root/bin
+
+if { [info exists ::env(TMPDIR) ] } {
+  setenv ESPRESSO_TMPDIR $::env(TMPDIR)
+} else {
+  setenv ESPRESSO_TMPDIR /tmp
+}
+
+setenv PWGUI $root/GUI/PWgui
+

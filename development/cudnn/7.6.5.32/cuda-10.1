@@ -1,19 +1,20 @@
 #%Module -*- tcl -*-
 ##
+
 proc ModulesHelp { } {
 
-  puts stderr {Adds metis 5.1.0 to your environment. METIS is a set of serial programs for partitioning graphs, partitioning finite element meshes, and producing fill reducing orderings for sparse matrices.}
+  puts stderr {Adds cuDNN to your environment.}
 
 }
 
-module-whatis {Adds metis 5.1.0 to your environment. METIS is a set of serial programs for partitioning graphs, partitioning finite element meshes, and producing fill reducing orderings for sparse matrices.}
+module-whatis {Adds cuDNN to your environment.}
 
 prereq gcc-libs
-prereq compilers/gnu
+prereq cuda/10.1.243/gnu-4.9.2
 
-conflict metis
+conflict cudnn
 
-set              prefix               /shared/ucl/apps/metis/5.1.0/gnu-4.9.2
+set              prefix               /shared/ucl/apps/cudnn/7.6.5.32/10.1/cuda
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
@@ -35,6 +36,11 @@ if { [file isdirectory $prefix/lib] } then {
   prepend-path      LD_LIBRARY_PATH      $prefix/lib
 }
 
+if { [file isdirectory $prefix/lib] } then {
+  setenv            SBCL_HOME            $prefix/lib/sbcl
+}
+
+
 if { [file isdirectory $prefix/lib64] } then {
   prepend-path      LIBRARY_PATH         $prefix/lib64
   prepend-path      LD_LIBRARY_PATH      $prefix/lib64
@@ -49,4 +55,3 @@ if { [file isdirectory $prefix/include] } then {
   prepend-path      INCLUDE_PATH         $prefix/include
 }
 
-setenv METIS_HOME $prefix

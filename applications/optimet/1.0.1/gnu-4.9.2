@@ -1,19 +1,25 @@
 #%Module -*- tcl -*-
 ##
+
 proc ModulesHelp { } {
 
-  puts stderr {Adds metis 5.1.0 to your environment. METIS is a set of serial programs for partitioning graphs, partitioning finite element meshes, and producing fill reducing orderings for sparse matrices.}
+  puts stderr {Adds Optimet to your environment.}
 
 }
 
-module-whatis {Adds metis 5.1.0 to your environment. METIS is a set of serial programs for partitioning graphs, partitioning finite element meshes, and producing fill reducing orderings for sparse matrices.}
+module-whatis {Adds Optimet to your environment.}
 
 prereq gcc-libs
-prereq compilers/gnu
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.4/gnu-4.9.2
+prereq hdf/5-1.10.5/gnu-4.9.2
+prereq gsl/1.16/gnu-4.9.2
+prereq openblas/0.3.7-serial/gnu-4.9.2
+prereq scalapack/2.0.2/gnu-4.9.2/openblas-0.3.7
 
-conflict metis
+conflict optimet
 
-set              prefix               /shared/ucl/apps/metis/5.1.0/gnu-4.9.2
+set              prefix               /shared/ucl/apps/optimet/1.0.1/gnu-4.9.2/OPTIMET
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
@@ -49,4 +55,5 @@ if { [file isdirectory $prefix/include] } then {
   prepend-path      INCLUDE_PATH         $prefix/include
 }
 
-setenv METIS_HOME $prefix
+
+

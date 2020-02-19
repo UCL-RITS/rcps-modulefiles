@@ -1,8 +1,8 @@
 #%Module
 #
-# Personal Legion Modules 
+# Personal modules bundle
 #
-#                                                      O.K. 17/Sept/2015
+#                                                      O.K. 11/02/2020
 
 proc ModulesHelp { } {
 
@@ -15,7 +15,7 @@ proc ModulesHelp { } {
 
 module-whatis "Adds personal modules to your environment."
 
-set myusername $::tcl_platform(user)
+set              home              $::env(HOME)
 
-module           use --append /home/${myusername}/modulefiles
+module           use --append $home/modulefiles
 

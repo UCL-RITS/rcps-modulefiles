@@ -1,0 +1,50 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+# customised to add group membership reqs and tmpdir selection
+proc ModulesHelp { } {
+  puts stderr {The CRYSTAL program computes the electronic structure of periodic systems within Hartree Fock, density functional or various hybrid approximations.}
+}
+module-whatis {The CRYSTAL program computes the electronic structure of periodic systems within Hartree Fock, density functional or various hybrid approximations.}
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+modulefunctions::mustBeMemberToLoad legg16
+
+conflict crystal17
+prereq gcc-libs
+prereq compilers/intel/2017/update4
+prereq mpi/intel/2017/update3/intel
+
+set prefix /shared/ucl/apps/crystal17/1.0.2/intel-2017
+
+setenv CRY17_ROOT /shared/ucl/apps/crystal17/1.0.2/intel-2017
+setenv CRY17_BIN bin
+setenv CRY17_ARCH Linux-ifort17_XE_emt64
+setenv VERSION v1.0.2-UCL-RCPS
+setenv CRY17_EXEDIR /shared/ucl/apps/crystal17/1.0.2/intel-2017/bin/Linux-ifort17_XE_emt64/v1.0.2
+setenv CRY17_UTILS /shared/ucl/apps/crystal17/1.0.2/intel-2017/utils17
+setenv CRY2K6_GRA /shared/ucl/apps/crystal17/1.0.2/intel-2017/crgra2006
+setenv CRY17_TEST /shared/ucl/apps/crystal17/1.0.2/intel-2017/test_cases/inputs
+setenv GRA6_EXEDIR /shared/ucl/apps/crystal17/1.0.2/intel-2017/crgra2006/bin/Linux-pgf
+prepend-path PATH /shared/ucl/apps/crystal17/1.0.2/intel-2017/bin/Linux-ifort17_XE_emt64/v1.0.2
+prepend-path PATH /shared/ucl/apps/crystal17/1.0.2/intel-2017/utils17
+prepend-path PATH /shared/ucl/apps/crystal17/1.0.2/intel-2017/crgra2006
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
+# Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
+# systemd will wipe these files when no active sessions remain.
+if [modulefunctions::isTMPDIR] {
+    # In theory if this is in a job the user tag is unnecessary
+    # but, just to be sure
+    setenv CRY17_SCRDIR $::env(TMPDIR)/$::env(USER)/crystal17.[randomLabel]
+} else {
+    setenv CRY17_SCRDIR $::env(XDG_RUNTIME_DIR)/crystal17.[randomLabel]
+} 
+
+if [modulefunctions::isModuleLoad] {
+    modulefunctions::createDir $::env(CRY17_SCRDIR)
+}
+

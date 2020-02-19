@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds openmpi 3.1.5 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
+}
+module-whatis {Adds openmpi 3.1.5 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
+
+conflict mpi
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq compilers/gnu/9.2.0
+
+set prefix /shared/ucl/apps/openmpi/3.1.5/gnu-9.2.0
+
+setenv MPI_HOME /shared/ucl/apps/openmpi/3.1.5/gnu-9.2.0
+setenv MPI_RUN /shared/ucl/apps/openmpi/3.1.5/gnu-9.2.0/bin/mpirun
+setenv GERUN_LAUNCHER openmpi-sge
+prepend-path PATH /shared/ucl/apps/openmpi/ucl-wrapper-omp3+/bin
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MAN_PATH $prefix/share/man
+

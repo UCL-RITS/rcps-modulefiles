@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds med 4.0.0 to your environment. Allows reading and writing of MED format files.}
+}
+module-whatis {Adds med 4.0.0 to your environment. Allows reading and writing of MED format files.}
+
+conflict med
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq compilers/gnu/9.2.0
+prereq hdf/5-1.10.5/gnu-9.2.0
+prereq openblas/0.3.7-native-threads/gnu-9.2.0
+prereq python3/3.7
+
+set prefix /shared/ucl/apps/med/4.0.0/gnu-9.2.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
+prepend-path PYTHONPATH $prefix/lib/python3.7/site-packages
+
