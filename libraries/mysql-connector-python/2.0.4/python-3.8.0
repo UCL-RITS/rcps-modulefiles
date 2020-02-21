@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# mysql-connector-python 2.0.4 
+#
+#                                                      
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds mysql-connector-python 2.0.4 to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds mysql-connector-python 2.0.4 to your environment. This is Oracle's python-only MySQL connector for Python3"
+
+prereq gcc-libs
+prereq python/3.8.0
+
+conflict mysql-connector-python
+
+set root 			/shared/ucl/apps/mysql-connector-python/2.0.4/python-3.8.0
+prepend-path PYTHONPATH         $root/lib/python3.8/site-packages
+

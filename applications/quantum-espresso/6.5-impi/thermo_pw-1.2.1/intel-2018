@@ -3,6 +3,9 @@
 ## quantum-espresso built with version 1.2.1 of the thermo_pw add-on.
 ##
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 set module_name quantum-espresso
 
 proc ModulesHelp { } {
@@ -21,11 +24,14 @@ prereq gnuplot
 
 conflict quantum-espresso
 
-set root /shared/ucl/apps/quantum-espresso-thermo_pw/6.5/intel-2018
+set root /shared/ucl/apps/quantum-espresso-thermo_pw/6.5-fixedlinks/intel-2018/q-e
 
 prepend-path PATH $root/bin
 
-if { [info exists ::env(TMPDIR) ] } {
+# First check for clusters without TMPDIR
+if [modulefunctions::isCluster kathleen] {
+  setenv ESPRESSO_TMPDIR $::env(HOME)/Scratch
+} elseif { [info exists ::env(TMPDIR) ] } {
   setenv ESPRESSO_TMPDIR $::env(TMPDIR)
 } else {
   setenv ESPRESSO_TMPDIR /tmp

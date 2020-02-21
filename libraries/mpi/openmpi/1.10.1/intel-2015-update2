@@ -42,4 +42,7 @@ prepend-path CMAKE_PREFIX_PATH  $root
 if [modulefunctions::isCluster "Thomas"] {
     prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
 }
-
+# Add compatibility library for MPI built for infiniband not omnipath
+if [modulefunctions::isCluster "Kathleen"] {
+    prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
+}
