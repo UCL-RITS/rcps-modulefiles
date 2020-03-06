@@ -21,7 +21,7 @@ setenv I_MPI_CC icc
 setenv I_MPI_CXX icpc
 setenv I_MPI_F90 ifort
 setenv I_MPI_F77 ifort
-setenv FI_PROVIDER_PATH:/shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/libfabric/lib/prov
+setenv FI_PROVIDER_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/libfabric/lib/prov
 prepend-path PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/bin
 prepend-path MANPATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/man
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/lib
