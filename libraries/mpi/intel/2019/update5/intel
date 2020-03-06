@@ -1,6 +1,9 @@
 #%Module -*- tcl -*-
 ##
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
 
   puts stderr {[Intel MPI/2019.5.281] This is Intel's MPI implementation, version 2019.5.281, which is bundled with compiler package version 2019.Update5.}
@@ -13,6 +16,11 @@ module-whatis {[Intel MPI/2019.5.281] This is Intel's MPI implementation, versio
 conflict intel
 
 set              prefix               /no/prefix/given
+
+# Add compatibility library for MPI built for infiniband not omnipath
+if { [modulefunctions::isCluster grace] } {
+    setenv FI_VERBS_IFACE=ib0:1
+}
 
 setenv GERUN_LAUNCHER intel
 setenv MPI_HOME /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281

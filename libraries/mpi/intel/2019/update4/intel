@@ -4,6 +4,9 @@
 ## using cmd line:
 ##  "-d -c intel -o /home/ccspapp/temporary-intel-dirs/intel-modules.efhr6yr4KB/mpi/intel/2019/update4/intel -e PATH:/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/bin -e MANPATH:/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/man -e LD_LIBRARY_PATH:/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib -e LIBRARY_PATH:/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib -e CPATH:/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/include -v GERUN_LAUNCHER=intel -e PATH:/shared/ucl/apps/intel-mpi/ucl-wrapper/bin -v MPI_HOME=/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243 -v I_MPI_ROOT=/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243 -v I_MPI_DEVICE=rdssm -v I_MPI_CC=icc -v I_MPI_CXX=icpc -v I_MPI_F90=ifort -v I_MPI_F77=ifort -v TMI_CONFIG=/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/etc/tmi.conf -e CMAKE_PREFIX_PATH:/shared/ucl/apps/intel/2019.Update4/impi/2019.4.243 -w [Intel MPI/2019.4.243] This is Intel's MPI implementation, version 2019.4.243, which is bundled with compiler package version 2019.Update4."
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
 
   puts stderr {[Intel MPI/2019.4.243] This is Intel's MPI implementation, version 2019.4.243, which is bundled with compiler package version 2019.Update4.}
@@ -16,6 +19,11 @@ module-whatis {[Intel MPI/2019.4.243] This is Intel's MPI implementation, versio
 conflict intel
 
 set              prefix               /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
+
+# Add compatibility library for MPI built for infiniband not omnipath
+if { [modulefunctions::isCluster grace] } {
+    setenv FI_VERBS_IFACE=ib0:1
+}
 
 setenv GERUN_LAUNCHER intel
 setenv MPI_HOME /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
