@@ -22,7 +22,7 @@ set              prefix               /shared/ucl/apps/intel/2019.Update4/impi/2
 
 # Add compatibility library for MPI built for infiniband not omnipath
 if { [modulefunctions::isCluster grace] } {
-    setenv FI_VERBS_IFACE=ib0:1
+    setenv FI_VERBS_IFACE ib0:1
 }
 
 setenv GERUN_LAUNCHER intel
