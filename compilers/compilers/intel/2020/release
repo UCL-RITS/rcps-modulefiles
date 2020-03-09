@@ -22,7 +22,7 @@ setenv CXXCPP "icpc -E"
 setenv F77 ifort
 setenv F90 ifort
 setenv FC ifort
-setenv COMPILER_TAG intel-2019
+setenv COMPILER_TAG intel-2020
 setenv BLAS_TAG mkl
 setenv MKLROOT /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl
 setenv IPPROOT /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp
