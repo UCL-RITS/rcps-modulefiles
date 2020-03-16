@@ -9,7 +9,7 @@ module-whatis {The CRYSTAL program computes the electronic structure of periodic
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
 
-modulefunctions::mustBeMemberToLoad legg16
+modulefunctions::mustBeMemberToLoad legcryst
 
 conflict crystal17
 prereq gcc-libs
