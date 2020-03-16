@@ -1,0 +1,81 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {[intel/2020] This is the package for the Intel C, C++, and Fortran compilers.}
+
+}
+
+module-whatis {[intel/2020] This is the package for the Intel C, C++, and Fortran compilers.}
+
+prereq gcc-libs
+
+conflict intel
+
+set              prefix               /shared/ucl/apps/intel/2020
+
+setenv INTEL_LICENSE_FILE 28518@lic-intel.ucl.ac.uk
+setenv CC icc
+setenv CXX icpc
+setenv CXXCPP "icpc -E"
+setenv F77 ifort
+setenv F90 ifort
+setenv FC ifort
+setenv COMPILER_TAG intel-2020
+setenv BLAS_TAG mkl
+setenv MKLROOT /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl
+setenv IPPROOT /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp
+setenv TBBROOT /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb
+setenv DAALROOT /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal
+setenv GDBSERVER_MIC /shared/ucl/apps/intel/2020/debugger_2018/gdb/targets/mic/bin/gdbserver
+setenv GDB_CROSS /shared/ucl/apps/intel/2020/debugger_2018/gdb/intel64_mic/bin/gdb-mic
+setenv MPM_LAUNCHER /shared/ucl/apps/intel/2020/debugger_2018/mpm/mic/bin/start_mpm.sh
+setenv INTEL_PYTHONHOME /shared/ucl/apps/intel/2020/debugger_2018/python/intel64/
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/../compiler/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/lib/intel64
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/intel64/gcc4.4
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/lib/intel64_lin
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../tbb/lib/intel64_lin/gcc4.4
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../compiler/lib/intel64_lin
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/mic/lib
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/lib/mic
+prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/mic
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/lib
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/../compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/lib/intel64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/intel64/gcc4.4
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/lib/intel64_lin
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../tbb/lib/intel64_lin/gcc4.4
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../compiler/lib/intel64_lin
+prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/mic
+prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/mic/lib
+prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/mic
+prepend-path CPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/include
+prepend-path CPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/include
+prepend-path CPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/include
+prepend-path CPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/include
+prepend-path NLSPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64/locale/%l_%t/%N
+prepend-path NLSPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/lib/intel64/locale/%l_%t/%N
+prepend-path PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/bin/intel64
+prepend-path PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/intel64/bin
+prepend-path CLASSPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/lib/daal.jar
+prepend-path MANPATH /shared/ucl/apps/intel/2020/man/common
+prepend-path MANPATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/man/en_US
+prepend-path MANPATH /shared/ucl/apps/intel/2020/documentation_2018/en/debugger/gdb-ia/man/
+prepend-path MANPATH /shared/ucl/apps/intel/2020/documentation_2018/en/debugger/gdb-mic/man/
+prepend-path MANPATH /shared/ucl/apps/intel/2020/documentation_2018/en/debugger/gdb-igfx/man/
+prepend-path INFOPATH /shared/ucl/apps/intel/2020/documentation_2018/en/debugger/gdb-ia/info/
+prepend-path INFOPATH /shared/ucl/apps/intel/2020/documentation_2018/en/debugger/gdb-mic/info/
+prepend-path INFOPATH /shared/ucl/apps/intel/2020/documentation_2018/en/debugger/gdb-igfx/info/
+prepend-path PATH /shared/ucl/apps/intel/2020/debugger_2018/gdb/intel64_mic/bin
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/debugger_2018/libipt/intel64/lib
+prepend-path NLSPATH /shared/ucl/apps/intel/2020/debugger_2018/gdb/intel64_mic/share/locale/%l_%t/%N
+prepend-path NLSPATH /shared/ucl/apps/intel/2020/debugger_2018/gdb/intel64/share/locale/%l_%t/%N

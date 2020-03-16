@@ -1,0 +1,54 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Mosek Optimizer 9.1.12
+##
+## Brian Alston February 2020
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds Mosek 9.1.12 to your environment."
+    puts stderr ""
+    puts stderr "The Mosek Optimizer is a solver for mathematical programming including"
+    puts stderr "an interior-point optimizer for continuous linear, quadratic and conic"
+    puts stderr "problems. Includes interfaces to C, C++, Java, MATLAB, .NET, Python, R"
+    puts stderr "and command line."
+    puts sdterr ""
+    puts stderr "Mosek is a comercial product and UCL has a free academic site license."
+    puts stderr "See: https://www.mosek.com/ for more information."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Mosek"
+}
+
+module-whatis "Adds Mosek 9.1.12 to your environment."
+
+# Location of Mosek:
+
+set prefix /shared/ucl/apps/Mosek
+set verLong 9.1.12
+set verShort 9.1
+set mosekDir $prefix/$verLong/mosek/$verShort
+
+prereq gcc-libs
+
+conflict mosek
+
+setenv MKSHOME $prefix/$verLong
+setenv MOSEK_HOME $mosekDir
+
+prepend-path PATH $mosekDir/tools/platform/linux64x86/bin
+prepend-path LD_LIBRARY_PATH $mosekDir/tools/platform/linux64x86/bin
+
+prepend-path MATLABPATH $mosekDir/toolbox/r2015a
+
+setenv MOSEKLM_LICENSE_FILE 27007@lm-server3.ucl.ac.uk
+
+
+if { ! [info exists ::env(OMP_NUM_THREADS)]} {
+    setenv  OMP_NUM_THREADS 	4
+}

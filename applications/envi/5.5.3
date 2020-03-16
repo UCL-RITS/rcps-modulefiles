@@ -1,0 +1,98 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## ENVI 5.5.3 with IDL 8.7.3
+##
+## Updated from IDL 8.7.1 module file June 2019 BAA
+## Updated February 2020 for ENVI 5.5.3 and IDL 8.7.3
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds ENVI 5.5.3 with IDL 8.7.3 to your environment."
+    puts stderr ""
+    puts stderr "ENVI is an application for image analysis primarily used in"
+    puts stderr "remote sensing and GIS applications. It can be used both"
+    puts stderr "interactively and in batch mode."
+    puts stderr ""
+    puts stderr "UCL has a site license for ENVI and in addition a small"
+    puts stderr "number of IDL licenses."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ENVI/5.5.3"
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+module-whatis "Adds ENVI 5.5.3 with IDL 8.7.3 to your environment."
+
+conflict envi
+conflict idl
+
+prereq gcc-libs/4.9.2
+
+# Location of ENVI
+
+set prefix /shared/ucl/apps/ENVI/5.5.3/envi55
+
+append-path PATH  $prefix/bin
+setenv ENVI_DIR   $prefix
+
+# Location of IDL
+
+set idlloc $prefix/idl87
+
+# Location of IDL prefs and settings directory
+set IDLDir "~/.idl"
+
+append-path PATH  $idlloc/bin
+setenv IDL_DIR    $idlloc
+
+# Set maximum number of threads on  login nodes to 4.
+if { ! [info exists env(OMP_NUM_THREADS)] } {
+	setenv IDL_CPU_TPOOL_NTHREADS 4
+}
+
+if { [modulefunctions::isModuleLoad] } {
+    if { ! [appDirSetup $IDLDir] } {
+	puts stderr ""
+	puts stderr "**** error: setting up IDL application user directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the ENVI/IDL module at least once from a login node."
+	puts stderr ""
+    }
+}
+
+
