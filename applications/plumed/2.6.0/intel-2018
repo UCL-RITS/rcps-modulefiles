@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+#
+# PLUMED 2.6.0
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLUMED 2.6.0 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds PLUMED 2.6.0 to your environment, built using MKL and libmatheval"
+
+# Add binary to PATH
+prereq gcc-libs
+prereq compilers/intel/2018
+prereq mpi/intel/2018
+prereq flex/2.5.39
+prereq libmatheval/1.1.11
+
+conflict plumed
+
+set root                        /shared/ucl/apps/plumed/2.6.0/intel-2018/mkl
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE		$root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+
+setenv PLUMED_KERNEL          	$root/lib/libplumedKernel.so
+
