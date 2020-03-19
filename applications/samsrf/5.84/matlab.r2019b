@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## SamSrf V5.84
+## Based on SPM 12 of January 2020 which is required and Matlab R2019b
+
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SamSrf Matlab toolbox to your environment."
+    puts stderr ""
+    puts stderr "SamSrf allows you to conduct a range of pRF analyses, including"
+    puts stderr "model-free pRF and connective field analyses, and also supports a"
+    puts stderr "number of other surface-based analyses of neuroimaging data."
+    puts stderr ""
+    puts stderr "Requires SPM 12 of January 2020 (v7771) for use with Matlab R2091b."
+    puts stderr ""
+}
+
+module-whatis "Adds the SamSrf Matlab toolbox to your environment"
+
+
+conflict samsrf
+prereq spm/12/jan2020/matlab.r2019b
+prereq matlab/full/r2019b/9.7
+
+set              root              /shared/ucl/apps/SamSrf/SamSrf_v5.84
+prepend-path     MATLABPATH        $root
