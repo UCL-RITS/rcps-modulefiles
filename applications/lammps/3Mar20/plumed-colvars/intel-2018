@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+##
+## LAMMPS 3Mar20 with plumed, kspace, manybody, molecule, rigid, lib-linalg, user-colvars
+##
+## Built March 2020
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS 3Mar20 package to your environment."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines."
+    puts stderr "This version was built with packages kspace, manybody, molecule"
+    puts stderr "rigid, lib-linalg, user-colvars and user-plumed."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 3Mar20 to your environment. LAMMPS is a GPL molecular dynamics code which shows exceptional scaling on a wide variety of machines. Binary is lmp_mpi or lmp_default. This version was built with packages kspace, manybody, molecule, rigid, lib-linalg, user-colvars and user-plumed."
+
+
+conflict lammps
+prereq gcc-libs
+prereq compilers/intel/2018
+prereq mpi/intel/2018
+prereq flex
+prereq libmatheval
+prereq plumed/2.6.0/intel-2018
+
+set              root              /shared/ucl/apps/lammps/3Mar2020/plumed-colvars/intel-2018/lammps/
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
