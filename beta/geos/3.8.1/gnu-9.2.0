@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds geos 3.8.1 to your environment. GEOS (Geometry Engine, Open Source) is a library for performing various spatial operations, especially for boolean operations on GIS data. Note this version *does not* include the SWIG, Python, Ruby, or PHP bindings.}
 
-prereq gcc-libs/4.9.2
+prereq gcc-libs/9.2.0
 
 conflict geos
 
