@@ -102,7 +102,7 @@ if { [info exists ::env(JOB_ID)] } {
         puts stderr ""
         puts stderr "R Version 3.6.3 setup."
         puts stderr ""
-        puts stderr "NOTE: Rmpi from R 3.5.1 onwards has major changes!"
+        puts stderr "NOTE: built with GNU 9.2.0 so beta-modules required."
         puts stderr ""
     }
 }
