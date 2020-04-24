@@ -1,0 +1,17 @@
+#%Module
+#
+# Economics Myriad Modules 
+#
+#                                                      BAA 24 Apr 2020
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Economics Department modules to your environment."
+    puts stderr ""
+    puts stderr "Allows access to applications licensed only for Economics users."
+    puts stderr ""
+}
+
+module-whatis "Adds Economics Department modules to your environment."
+
+module           use --append /shared/ucl/depts/economics/modulefiles
