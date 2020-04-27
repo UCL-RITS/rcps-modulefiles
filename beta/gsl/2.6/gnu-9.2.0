@@ -1,31 +1,27 @@
 #%Module -*- tcl -*-
 ##
-lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
-package require modulefunctions 1.0
-
-set module_name {VASP 5.4.4 18apr2017}
+## modulefile
+##
+## GSL 2.6 compiled using GNU 9.2.0
+## April 2020
 
 proc ModulesHelp { } {
-
-  puts stderr {Adds VASP 5.4.4 to your environment.}
-
+    puts stderr "Adds the GNU Scientific Library Version 2.6 compiled using GNU 9.2.0"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "GSL provides a wide range of mathematical routines such as random"
+    puts stderr "number generators, special functions and least-squares fitting."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/gsl/2.6/gnu-9.2.0"
 }
 
-module-whatis {Adds VASP 5.4.4 to your environment.}
+module-whatis "adds GSL 2.6 for GCC 9.2.0 to your environment."
 
-prereq compilers/intel
-prereq mpi/intel
+conflict gsl
+prereq gcc-libs
 
-conflict vasp
+set              prefix               /shared/ucl/apps/gsl/2.6/gnu-9.2.0
 
-set              prefix               /shared/ucl/apps/vasp/5.4.4-18apr2017/intel-2017
-
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set prefix /shared/ucl/apps-overrides/avx512/vasp/5.4.4-18apr2017/intel-2017
-
-   }    
-}
 
 if { [file isdirectory $prefix/bin] } then {
   prepend-path      PATH                 $prefix/bin
@@ -57,4 +53,4 @@ if { [file isdirectory $prefix/include] } then {
   prepend-path      CPATH                $prefix/include
   prepend-path      INCLUDE_PATH         $prefix/include
 }
-
+prepend-path CMAKE_PREFIX_PATH  $prefix

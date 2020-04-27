@@ -1,0 +1,39 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NetCDF 4.7.4 compiled using GCC 9.2.0
+##
+## Updated to set loaction path to /shared/ucl/apps/NetCDF/4.3.3.1-gnu-4.9.2 - May 2016
+## Updated for 4.7.4 - April 2020
+
+proc ModulesHelp { } {
+    puts stderr "Adds NetCDF Version 4.7.4 compiled using GCC 9.2.0"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "NetCDF is a set of software libraries and self-describing,"
+    puts stderr "machine-independent data formats that support the creation,"
+    puts stderr "access, and sharing of array-oriented scientific data."
+    puts stderr ""
+    puts stderr "This version was compiled with GCC 9.2.0"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.7.4-gnu-9.2.0/"
+}
+
+module-whatis "adds NetCDF 4.7.4 for GCC 9.2.0 to your environment."
+
+conflict netcdf
+prereq gcc-libs
+prereq hdf/5-1.10.5/gnu-9.2.0
+
+set              root              /shared/ucl/apps/NetCDF/4.7.4-gnu-9.2.0
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
+
+prepend-path CMAKE_PREFIX_PATH  $root

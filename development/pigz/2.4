@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {pigz is a fully functional replacement for gzip that exploits multiple processors and multiple cores when compressing data.}
+}
+module-whatis {pigz is a fully functional replacement for gzip that exploits multiple processors and multiple cores when compressing data.}
+
+conflict pigz
+
+set prefix /shared/ucl/apps/pigz/2.4
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MAN_PATH $prefix/share/man
+

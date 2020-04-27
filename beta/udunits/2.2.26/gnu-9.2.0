@@ -1,31 +1,31 @@
 #%Module -*- tcl -*-
 ##
-lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
-package require modulefunctions 1.0
-
-set module_name {VASP 5.4.4 18apr2017}
+## modulefile
+##
+## UDUNITS 2.2.26 compiled using GCC 9.2.0
+##
+## Updated September 2018 for version 2.2.26
+## Updated April 2020 for GNU 9.2.0
 
 proc ModulesHelp { } {
-
-  puts stderr {Adds VASP 5.4.4 to your environment.}
-
+    puts stderr "Adds the UDUNITS-2 package version 2.2.26 compiled using GCC 9.2.0"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "The UDUNITS-2 package provides support for units of physical quantities."
+    puts stderr "Included is a C library, a utility for obtaining the definition of a"
+    puts stderr "unit and for converting numeric values between compatible units,"
+    puts sdterr "and a large database of units."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/udunits/2.2.26/gnu-9.2.0"
 }
 
-module-whatis {Adds VASP 5.4.4 to your environment.}
+module-whatis "adds the UDUNITS-2 package to your environment."
 
-prereq compilers/intel
-prereq mpi/intel
+conflict udunits
+prereq gcc-libs
 
-conflict vasp
+set    prefix    /shared/ucl/apps/udunits/2.2.26/gnu-9.2.0
 
-set              prefix               /shared/ucl/apps/vasp/5.4.4-18apr2017/intel-2017
-
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set prefix /shared/ucl/apps-overrides/avx512/vasp/5.4.4-18apr2017/intel-2017
-
-   }    
-}
 
 if { [file isdirectory $prefix/bin] } then {
   prepend-path      PATH                 $prefix/bin
@@ -57,4 +57,4 @@ if { [file isdirectory $prefix/include] } then {
   prepend-path      CPATH                $prefix/include
   prepend-path      INCLUDE_PATH         $prefix/include
 }
-
+prepend-path CMAKE_PREFIX_PATH  $prefix
