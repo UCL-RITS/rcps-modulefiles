@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds freetype 2.8.1 to your environment. FreeType is a freely available software library to render fonts.}
+}
+module-whatis {Adds freetype 2.8.1 to your environment. FreeType is a freely available software library to render fonts.}
+
+conflict freetype
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/freetype/2.8.1/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MAN_PATH $prefix/share/man
+
