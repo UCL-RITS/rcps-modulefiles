@@ -18,6 +18,7 @@
 ## Updated for R 3.5.3 April 2019
 ## Updated for R 3.6.0 and Bioconductor 3.9 June 2019
 ## Updated for R 3.6.3 and Bioconductor 3.10 compiled with GNU 9.2.0 April 2020
+## Updated to add loading our freetype/2.8.1/gnu-4.9.2 module May 2020
 
 ## Will need updating for additional packages
 
@@ -41,6 +42,7 @@ module load openblas/0.3.7-serial/gnu-9.2.0
 module load mpi/openmpi/3.1.5/gnu-9.2.0
 module load java/1.8.0_92
 module load fftw/3.3.8/gnu-9.2.0
+module load freetype/2.8.1/gnu-4.9.2
 module load ghostscript/9.19/gnu-4.9.2
 module load texinfo/6.6/gnu-4.9.2
 module load texlive/2019
