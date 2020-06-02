@@ -5,17 +5,18 @@ proc ModulesHelp { } {
   puts stderr {Once loaded the binaries are:}
   puts stderr {CovidSim <- all models}
   puts stderr {Data files are in $SPATIALSIM_DATA}
-  puts stderr {This version is built with the gnu 4.9.2 compilers.}
+  puts stderr {This version is built with the Intel compilers, -fp-model strict so as to pass tests.}
 }
 
 module-whatis {SpatialSim COVID-19 pandemic modelling tool from Imperial College.}
 
 prereq gcc-libs
+prereq compilers/intel/2020
 prereq python3/3.7
 
 conflict covid-19-spatial-sim
 
-set              prefix               /shared/ucl/apps/covid-19-spatial-sim/0.14.0/gnu-4.9.2
+set              prefix               /shared/ucl/apps/covid-19-spatial-sim/0.14.0/intel-2020
 
 setenv SPATIALSIM_DATA $prefix/data
 setenv SPATIALSIM_DOCS $prefix/docs
