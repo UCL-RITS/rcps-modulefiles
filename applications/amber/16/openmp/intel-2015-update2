@@ -23,7 +23,9 @@ if { [ module-info mode load ] } {
 conflict amber
 prereq gcc-libs
 prereq compilers/intel
-prereq python/2.7.9
+prereq python
+
+module load amber/16/serial/intel-2015-update2
 
 set              root              /shared/ucl/apps/amber/amber-16-openmp
 
@@ -36,3 +38,5 @@ prepend-path     LD_LIBRARY_PATH   $root/lib
 prepend-path  PATH  $root/AmberTools/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages
