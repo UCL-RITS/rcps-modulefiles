@@ -20,13 +20,11 @@ if { [ module-info mode load ] } {
 }
 
 
-#conflict amber
+conflict amber
 prereq gcc-libs
 prereq compilers/intel
 prereq mpi/intel
 prereq python
-
-module load amber/16/serial/intel-2015-update2
 
 set              root              /shared/ucl/apps/amber/amber-16-mpi
 

@@ -25,8 +25,6 @@ prereq gcc-libs
 prereq compilers/intel
 prereq python
 
-module load amber/16/serial/intel-2015-update2
-
 set              root              /shared/ucl/apps/amber/amber-16-openmp
 
 setenv           AMBERHOME         $root
@@ -39,4 +37,5 @@ prepend-path  PATH  $root/AmberTools/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
 
+prepend-path     PYTHONPATH        /shared/ucl/apps/amber/support/16/lib/python2.7/site-packages
 prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages

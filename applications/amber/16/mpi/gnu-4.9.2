@@ -13,13 +13,11 @@ proc ModulesHelp { } {
 module-whatis "Adds AMBER 16 to your environment"
 
 
-#conflict amber
+conflict amber
 prereq gcc-libs
 prereq compilers/gnu/4.9.2
 prereq mpi/openmpi/3.1.1/gnu-4.9.2
 prereq python
-
-module load amber/16/serial/gnu-4.9.2
 
 set              root              /shared/ucl/apps/amber-gcc/amber-16-mpi
 

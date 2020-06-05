@@ -12,12 +12,10 @@ proc ModulesHelp { } {
 
 module-whatis "Adds AMBER 16 to your environment"
 
-#conflict amber
+conflict amber
 prereq gcc-libs
 prereq compilers/gnu/4.9.2
 prereq python
-
-module load amber/16/serial/gnu-4.9.2
 
 set              root              /shared/ucl/apps/amber-gcc/amber-16-openmp
 
@@ -31,4 +29,5 @@ prepend-path  PATH  $root/AmberTools/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
 
+prepend-path     PYTHONPATH        /shared/ucl/apps/amber/support/16/lib/python2.7/site-packages
 prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages
