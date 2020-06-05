@@ -20,7 +20,7 @@ if { [ module-info mode load ] } {
 }
 
 
-conflict amber
+#conflict amber
 prereq gcc-libs
 prereq compilers/intel
 prereq python
