@@ -15,7 +15,9 @@ module-whatis "Adds AMBER 16 to your environment"
 conflict amber
 prereq gcc-libs
 prereq compilers/gnu/4.9.2
-prereq python/2.7.9
+prereq python
+
+module load amber/16/serial/gnu-4.9.2
 
 set              root              /shared/ucl/apps/amber-gcc/amber-16-openmp
 
