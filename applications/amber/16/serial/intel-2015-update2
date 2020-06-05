@@ -23,7 +23,7 @@ if { [ module-info mode load ] } {
 conflict amber
 prereq gcc-libs
 prereq compilers/intel
-prereq python/2.7.9
+prereq python
 
 set              root              /shared/ucl/apps/amber/amber-16
 
