@@ -15,7 +15,7 @@ module-whatis "Adds AMBER 16 to your environment"
 conflict amber
 prereq gcc-libs
 prereq compilers/gnu/4.9.2
-prereq python/2.7.9
+prereq python
 
 set              root              /shared/ucl/apps/amber-gcc/amber-16
 
@@ -28,3 +28,6 @@ prepend-path     LD_LIBRARY_PATH   $root/lib
 prepend-path  PATH  $root/AmberTools/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     PYTHONPATH        /shared/ucl/apps/amber/support/16/lib/python2.7/site-packages
+prepend-path     PYTHONPATH        $root/lib/python2.7/site-packages
