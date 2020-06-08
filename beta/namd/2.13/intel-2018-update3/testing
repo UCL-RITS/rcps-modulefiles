@@ -38,6 +38,6 @@ prereq gcc-libs
 prereq compilers/intel/2018/update3
 prereq mpi/intel/2018/update3/intel
 
-set              root              /shared/ucl/apps/namd/intel-2018-opt/NAMD_2.13_Source
+set              root              /shared/ucl/apps/namd/intel-2018-opt2/NAMD_2.13_Source
 
 prepend-path     PATH              $root/bin
