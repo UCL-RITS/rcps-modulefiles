@@ -8,6 +8,7 @@
 ## Updated January 2019 as Grace now has an LM running on util01
 ## Updated March 2019 for new Legion update
 ## Updated July 2019 for Myriad
+## Updated June 2020 for new Util server names
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -45,13 +46,13 @@ prepend-path INCLUDE_PATH	$prefix/c_headers
 setenv NAG_DIR $prefix
 
 if { [modulefunctions::isCluster Thomas]  } {
-    setenv NAG_KUSARI_FILE util03:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Michael] } {
-    setenv NAG_KUSARI_FILE util11:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Grace] } {
     setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Myriad]  } {
-    setenv NAG_KUSARI_FILE util05:,lic-nag.ucl.ac.uk:
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
 } else {
