@@ -5,14 +5,14 @@
 #                                                      H.T. 24 Feb 2009
 # Updated for SAS 9.4 December 2014 - BAA
 # Updated for updated Legion software stack - April 2015 - BAA
-# Updated June 2020 for SAS 9.4 (May 2020)
+# Updated June 2020 for SAS 9.4 M6 (June 2020)
 
 proc ModulesHelp { } {
 
     puts stderr "This module adds SAS 9.4 May 2020 64 bit to your environment."
     puts stderr ""
     puts stderr "This is a full SAS Foundation instllation including all components"
-    puts stderr "licenced to UCL. SAS 9.04.01M4P113016"
+    puts stderr "licenced to UCL. SAS 9.04.01M6"
     puts stderr ""
 }
 
@@ -29,13 +29,13 @@ proc setupTMPDIR { } {
     return true
 }
 
-module-whatis "Adds SAS 9.4 (9.04.01M4P113016) 64 bit to your environment"
+module-whatis "Adds SAS 9.4 (9.04.01M6) 64 bit to your environment"
 
 conflict sas
 
 # set local variables
 
-set sasroot     /shared/ucl/apps/SAS/9.4_May2020/SASFoundation/9.4
+set sasroot     /shared/ucl/apps/SAS/9.4M6/SASFoundation/9.4
 
 # Add  directory with sas wrapper to PATH
 
