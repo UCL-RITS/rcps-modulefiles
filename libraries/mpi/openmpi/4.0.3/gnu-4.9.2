@@ -1,5 +1,9 @@
 #%Module -*- tcl -*-
 ## module_made (v2)
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
   puts stderr {Adds openmpi 4.0.3 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
 }
@@ -8,6 +12,13 @@ module-whatis {Adds openmpi 4.0.3 to your environment. The Open MPI Project is a
 conflict mpi
 prereq gcc-libs
 prereq compilers/gnu/4.9.2
+
+# Myriad requires UCX
+if [modulefunctions::isCluster Myriad] {
+  prereq numactl/2.0.12
+  prereq binutils/2.29.1/gnu-4.9.2
+  prereq ucx/1.8.0/gnu-4.9.2
+}
 
 set prefix /shared/ucl/apps/openmpi/4.0.3/gnu-4.9.2
 
