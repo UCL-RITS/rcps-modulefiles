@@ -29,7 +29,7 @@ prepend-path PATH              $prefix/bin
 
 # Myriad requires UCX
 if { [modulefunctions::isCluster Myriad] } {
-    prepend-path PATH              /shared/ucl/apps/openmpi/ucl-wrapper-ompi4-ucx/bin
+    prepend-path PATH              /shared/ucl/apps/openmpi/ucl-wrapper-ompi3+-ucx/bin
 } else {
     prepend-path PATH              /shared/ucl/apps/openmpi/ucl-wrapper-omp3+/bin
 }
