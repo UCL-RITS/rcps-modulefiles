@@ -15,6 +15,6 @@ set prefix /shared/ucl/apps/dymola/2020.1-1
 setenv DYMOLA /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64
 prepend-path PATH /shared/ucl/apps/dymola/2020.1-1/bin
 prepend-path PATH /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64/insert
-prepend-path LD_LIBRARY_PATH /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64/lib
-
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64/bin/lib
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/dymola/2020.1-1/opt/dymola-2020-x86_64/bin/lib64
 
