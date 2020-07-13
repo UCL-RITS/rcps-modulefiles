@@ -28,9 +28,10 @@ if { [ file type /shared/ucl/apps ] == "link" } {
 set              root              $base/python3-3.0.0
 set              home              $::env(HOME)
 
+# NOTE: 13/Jul/2020 - commenting this out as it breaks on the links - the two lines below these mean that they do nothing except break on certain type of link.
 # Derefence venv location
-set              vname             [ file readlink $root ]  
-set              realroot          $base/$vname
+#set              vname             [ file readlink $root ]  
+#set              realroot          $base/$vname
 
 # Having VIRTUAL_ENV set breaks iPython - removing for now.
 #setenv           VIRTUAL_ENV       $root/venv

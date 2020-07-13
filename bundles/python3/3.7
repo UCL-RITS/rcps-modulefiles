@@ -28,8 +28,9 @@ set              root              $base/python37-4.0.1
 set              home              $::env(HOME)
 
 # Derefence venv location
-set              vname             [ file readlink $root ]  
-set              realroot          $base/$vname
+# NOTE: 13/Jul/2020 - commenting this out as it breaks on the links - the two lines below these mean that they do nothing except break on certain type of link.
+#set              vname             [ file readlink $root ]  
+#set              realroot          $base/$vname
 
 # Having VIRTUAL_ENV set breaks iPython - removing for now.
 #setenv           VIRTUAL_ENV       $root/venv
