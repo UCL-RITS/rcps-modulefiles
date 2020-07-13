@@ -6,7 +6,7 @@
 ##
 ## Brian Alston June 2017
 ## Updated August 2017 to include reserved appp group check
-##
+## Updated June 2020 for MPI settings on Kathleen
 ##
 
 # New Legion modules layout
@@ -49,3 +49,10 @@ modulefunctions::mustBeMemberToLoad "legabq"
 prepend-path LM_LICENSE_FILE   27004@ntsrv1.meng.ucl.ac.uk
 
 prepend-path PATH		$prefix/Commands
+
+if { [modulefunctions::isCluster Kathleen]  } {
+
+    # Platform MPI settings for Kathleen
+    
+    setenv MPI_IC_ORDER "upapl:tcp"
+}
