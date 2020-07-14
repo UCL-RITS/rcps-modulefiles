@@ -29,7 +29,7 @@ conflict compilers
 prereq gcc-libs
 
 set             prefix          /shared/ucl/apps/NAG/fortran-compiler
-set		release		7.0.7020
+set		release		7.0-7020
 
 prepend-path	PATH		$prefix/$release/bin
 prepend-path    LD_LIBRARY_PATH $prefix/$release/lib/NAG_Fortran
