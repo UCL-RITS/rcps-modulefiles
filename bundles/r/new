@@ -1,6 +1,6 @@
 #%Module -*- tcl -*-
 ##
-## Recommended R bundle - version for R 3.6.0 and Bioconductor 3.9
+## Recommended R bundle - version for R 4.2.0 and Bioconductor 3.11
 ##
 ## Version 1.5 by BAA on Legion on 11-10-2016
 ## Moved to recommended 11th July 2016
@@ -19,44 +19,50 @@
 ## Updated for R 3.6.0 and Bioconductor 3.9 June 2019
 ## Install as r/new bundle 15th August 2019
 ## Updated to add pandocs module November 2019
+## Updated for R 4.0.2 and Bioconductor 3.11 July 2020
+
+## ***** Note: Major change: R now built with GNU 9.2.0 from beta-modules
 
 proc ModulesHelp { } {
-    puts stderr "This module adds the R 3.6.0 and Bioconductor 3.9 package to your environment."
+    puts stderr "This module adds the R 4.0.2 and Bioconductor 3.11 package to your environment."
     puts stderr ""
     puts stderr "This module also adds other modules as required."
     puts stderr ""
     puts stderr ""
 }
 
-module-whatis "adds UCL recommended set of R packages to your environment variables"
+module-whatis "adds UCL recommended set of R packages for R 4.0.2 to your environment."
 
-module load gcc-libs/4.9.2            
-module load compilers/gnu/4.9.2 
-module load openblas/0.2.14/gnu-4.9.2
-module load mpi/openmpi/3.0.0/gnu-4.9.2
+# Note: module unload -f compilers mpi gcc-libs needed
+module load beta-modules
+module load gcc-libs/9.2.0
+module load compilers/gnu/9.2.0
+module load openblas/0.3.7-serial/gnu-9.2.0
+module load mpi/openmpi/3.1.5/gnu-9.2.0
 module load java/1.8.0_92
-module load fftw/3.3.6-pl2/gnu-4.9.2
+module load fftw/3.3.8/gnu-9.2.0
+module load freetype/2.8.1/gnu-4.9.2
 module load ghostscript/9.19/gnu-4.9.2
 module load texinfo/6.6/gnu-4.9.2
 module load texlive/2019
-module load pandoc/1.19.2.1
-module load gsl/2.4/gnu-4.9.2
-module load hdf/5-1.8.15/gnu-4.9.2
-module load netcdf/4.3.3.1/gnu-4.9.2
-module load udunits/2.2.26/gnu-4.9.2
-module load jags/4.2.0/gnu.4.9.2-openblas
-module load root/5.34.36/gnu-4.9.2-fftw-3.3.6-gsl-2.4
-module load glpk/4.60/gnu-4.9.2
+module load gsl/2.6/gnu-9.2.0
+module load hdf/5-1.10.5/gnu-9.2.0
+module load udunits/2.2.26/gnu-9.2.0
+module load netcdf/4.7.4/gnu-9.2.0
+module load pcre2/10.35/gnu-9.2.0
+# module load glpk/4.60/gnu-4.9.2
 module load perl/5.22.0
 module load libtool/2.4.6
 module load graphicsmagick/1.3.21
-module load python2/recommended
-module load proj.4/6.1.0
-module load gdal/2.1.4
-module load gmt/5.4.5
-module load geos/3.5.0/gnu-4.9.2
+module load python/2.7.12
+module load sqlite/3.31.1/gnu-9.2.0
+module load proj.4/7.0.0/gnu-9.2.0
+module load gdal/3.0.4/gnu-9.2.0
+module load geos/3.8.1/gnu-9.2.0
+module load gmt/6.0.0/gnu-9.2.0
 module load v8/3.15
-module load protobuf/12-2017/gnu-4.9.2
-module load jq/1.5/gnu-4.9.2
 
-module load r/3.6.0-openblas/gnu-4.9.2
+# module load protobuf/12-2017/gnu-4.9.2
+# module load jq/1.5/gnu-4.9.2
+
+module load r/4.0.2-openblas/gnu-9.2.0
