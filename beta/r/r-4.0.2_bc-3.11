@@ -35,7 +35,7 @@ proc ModulesHelp { } {
 
 module-whatis "adds UCL recommended set of R packages for R 4.0.2 to your environment variables"
 
-# Note: module unload compilers mpi gcc-libs needed
+# Note: module unload -f compilers mpi gcc-libs needed
 module load beta-modules
 module load gcc-libs/9.2.0
 module load compilers/gnu/9.2.0
