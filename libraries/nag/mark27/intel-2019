@@ -11,6 +11,7 @@
 ## Updated July 2019 for Myriad
 ## Updated September 2019 for Mark 27 now unified Fortran/C/C++ library
 ## Updated June 2020 for new Util server names
+## Updated August 2020 for the Young cluster
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -114,6 +115,8 @@ if { [modulefunctions::isCluster Thomas]  } {
     setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
 } elseif { [modulefunctions::isCluster Aristotle]  } {
     setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} elseif { [modulefunctions::isCluster Young] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
 } else {
     setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
 }
