@@ -9,6 +9,8 @@
 ## Updated for Stata 16 January 2020
 ## Updated February 2020 to add libpng and gcc-libs/9.2.0 dependency. Also
 ## moved to beta-modules.
+## Updated August 2020 to use the libpng fix from https://github.com/kylebarron/stata-png-fix but
+## in the end decided to remain with using libpng/1.6.37/gnu-9.2.0 instead.
 ##
 
 # New Legion modules layout
