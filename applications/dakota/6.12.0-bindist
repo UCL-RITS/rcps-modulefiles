@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Dakota is a package for performing parametric analysis with other software packages.}
+}
+module-whatis {Dakota is a package for performing parametric analysis with other software packages.}
+
+conflict dakota
+
+set prefix /shared/ucl/apps/dakota/6.12.0-bindist
+
+prepend-path PATH /shared/ucl/apps/dakota/6.12.0-bindist/gui
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
