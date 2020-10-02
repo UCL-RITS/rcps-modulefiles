@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {ArmForge is a collection of parallel profiling and debugging tools for x86_64 and ARM processors.}
+}
+module-whatis {ArmForge is a collection of parallel profiling and debugging tools for x86_64 and ARM processors.}
+
+conflict armforge
+
+set prefix /shared/ucl/apps/armforge/20.1.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
