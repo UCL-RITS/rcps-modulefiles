@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {snpAD is an ancient DNA aware genotype caller.}
+}
+module-whatis {snpAD is an ancient DNA aware genotype caller.}
+
+conflict snpAD
+prereq beta-modules
+prereq gcc-libs/9.2.0
+
+set prefix /shared/ucl/apps/snpAD/0.3.4-bindist
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
