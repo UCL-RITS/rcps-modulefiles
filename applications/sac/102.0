@@ -25,6 +25,7 @@ module-whatis "Adds SAC 102.0 to your environment."
 
 conflict        sac
 prereq          matlab/full/r2019b/9.7
+prereq          curl/7.47.1/gnu-4.9.2
 
 set prefix      /shared/ucl/apps/sac/102.0_R2019b/gnu-4.9.2
 
