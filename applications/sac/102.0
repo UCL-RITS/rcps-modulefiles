@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Added 21/07/2015 by OK
+##
+## SAC (Seismic Analysis Code) Version 102.0
+
+## Updated to use Matlab R2016b as R2015a now deleted - October 2018
+## Updated to SAC version 102.0 and Matlab R2019b - October 2020
+
+proc ModulesHelp { } {
+    puts stderr "Adds SAC 102.0 to your environment."
+    puts stderr ""
+    puts stderr "SAC (Seismic Analysis Code) is a general purpose interactive"
+    puts stderr "program designed for the study of sequential signals,"
+    puts stderr "especially time series data. Emphasis has been placed on "
+    puts stderr "analysis tools used by research seismologists in the study"
+    puts stderr "of seismic events."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/sac/102.0_R2019b/gnu-4.9.2"
+}
+
+module-whatis "Adds SAC 102.0 to your environment."
+
+conflict        sac
+prereq          matlab/full/r2019b/9.7
+
+set prefix      /shared/ucl/apps/sac/102.0_R2019b/gnu-4.9.2
+
+prepend-path    PATH            $prefix/bin
+setenv          SACAUX          $prefix/aux
+setenv          SACGRAPHICS     xwindows
