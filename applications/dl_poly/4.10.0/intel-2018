@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+#
+# DL_POLY 4.10.0, 64 bit
+#
+#                                                     
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the DL_POLY 4.10.0 package to your environment."
+    puts stderr "DL_POLY is a general purpose classical molecular dynamics (MD) simulation software."
+    puts stderr ""
+}
+
+module-whatis "Adds DL_POLY 4.10.0 to your environment. DL_POLY is a general purpose classical molecular dynamics (MD) simulation software."
+
+# on load, check if user is in the correct group
+modulefunctions::mustBeMemberToLoad "lgdlp410"
+
+# Add DL_Poly binary to PATH
+prereq gcc-libs
+prereq compilers/intel
+prereq mpi/intel
+
+conflict dl_poly
+
+set root /shared/ucl/apps/dl_poly/4.10.0/intel-2018
+
+prepend-path PATH            $root/execute
+prepend-path PATH            $root/bin
+prepend-path LIBRARY_PATH    $root/lib64
+prepend-path LD_LIBRARY_PATH $root/lib64
+
