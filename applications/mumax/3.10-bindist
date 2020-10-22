@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {mumax3 is a GPU-accelerated micromagnetic simulation program.}
+}
+module-whatis {mumax3 is a GPU-accelerated micromagnetic simulation program.}
+
+conflict mumax
+conflict cuda
+
+set prefix /shared/ucl/apps/mumax/3.10-bindist
+
+prepend-path PATH /shared/ucl/apps/mumax/3.10-bindist
+
+

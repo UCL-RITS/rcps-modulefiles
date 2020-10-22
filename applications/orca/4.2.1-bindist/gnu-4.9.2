@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {ORCA is an ab initio, DFT, and semiempirical SCF-MO package.}
+}
+module-whatis {ORCA is an ab initio, DFT, and semiempirical SCF-MO package.}
+
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+modulefunctions::mustBeMemberToLoad legorca
+conflict orca
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.4/gnu-4.9.2
+
+set prefix /shared/ucl/apps/orca/4.2.1-bindist/gnu-4.9.2
+
+setenv RSH_COMMAND ssh
+prepend-path PATH /shared/ucl/apps/orca/4.2.1-bindist/gnu-4.9.2
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/orca/4.2.1-bindist/gnu-4.9.2
+
+
