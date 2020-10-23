@@ -21,7 +21,10 @@ proc ModulesHelp { } {
   puts stderr ""
   puts stderr "Abaqus is a commercial software suite for finite"
   puts stderr "element analysis and computer-aided engineering"
-  puts stderr ""
+    puts stderr ""
+    puts stderr "This version uses our Intel MPI module instead of"
+    puts stderr "the supplied Platform MPI and may perform better."
+    puts stderr ""
   puts stderr "Abaqus is a reserved applications. The license is"
   puts stderr "paid and managed by Mechanical Engineering. Access"
   puts stderr "is controlled by membership of the abaqus group."
@@ -32,13 +35,12 @@ proc ModulesHelp { } {
   puts stderr "Directory: /shared/ucl/apps/ABAQUS/2017-Intel"
 }
 
-
-
 module-whatis "Adds Abaqus 2017 to your environment."
 
 conflict abaqus
 
 prereq gcc-libs
+prereq mpi/intel
 
 # Location of ABAQUS:
 
