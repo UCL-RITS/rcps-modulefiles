@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {DL_MONTE is an open-source program for applying Monte Carlo molecular simulation to a wide range of systems.}
+}
+module-whatis {DL_MONTE is an open-source program for applying Monte Carlo molecular simulation to a wide range of systems.}
+
+conflict dl_monte
+prereq gcc-libs
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+
+set prefix /shared/ucl/apps/dl_monte/2.07/intel-2018
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
