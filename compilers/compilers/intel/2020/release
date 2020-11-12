@@ -36,9 +36,9 @@ prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_20
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/lib/intel64
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/lib/intel64
-prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/intel64/gcc4.4
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/intel64/gcc4.8
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/lib/intel64_lin
-prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../tbb/lib/intel64_lin/gcc4.4
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../tbb/lib/intel64_lin/gcc4.8
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../compiler/lib/intel64_lin
 prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/mic
 prepend-path MIC_LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/mic/lib
@@ -51,9 +51,9 @@ prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/ipp/lib/intel64
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/intel64
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mkl/lib/intel64
-prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/intel64/gcc4.4
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/tbb/lib/intel64/gcc4.8
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/lib/intel64_lin
-prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../tbb/lib/intel64_lin/gcc4.4
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../tbb/lib/intel64_lin/gcc4.8
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/daal/../compiler/lib/intel64_lin
 prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/compiler/lib/mic
 prepend-path MIC_LIBRARY_PATH /shared/ucl/apps/intel/2020/compilers_and_libraries_2020.0.166/linux/mpi/mic/lib
