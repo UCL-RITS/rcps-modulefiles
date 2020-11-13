@@ -14,7 +14,7 @@ module-whatis {This is a module with no description string.}
 
 prereq gcc-libs
 prereq compilers/intel
-prereq mpi/intel/
+prereq mpi/intel
 
 conflict yambo
 
