@@ -9,7 +9,7 @@
 ## Updated for version 12.04.010 November 2017.
 ## Updated to set correct MPI fabric choice - June 2018
 ## Updated for version 13.02.011 - July 2018
-##
+## Updated November 2020 for new LM host
 ##
 
 # New Legion modules layout
@@ -78,7 +78,7 @@ set prefix /shared/ucl/apps/STAR-CCM+/13.02.011/13.02.011
 modulefunctions::mustBeMemberToLoad legstarc
 
 # Set location of Mech Eng licence manager
-setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+setenv CDLMD_LICENSE_FILE 1999@mech-lic1.meng.ucl.ac.uk
 
 # Location of STAR-CCM+ prefs and settings directories
 set username $env(USER)

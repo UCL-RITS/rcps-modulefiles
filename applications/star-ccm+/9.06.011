@@ -5,7 +5,7 @@
 ## STAR-CCM+ 9.06.011
 ##
 ## Brian Alston September 2015
-##
+## Updated November 2020 for new LM host
 ##
 
 # New Legion modules layout
@@ -72,7 +72,7 @@ set prefix /shared/ucl/apps/STAR-CCM+/9.06.011
 modulefunctions::mustBeMemberToLoad legstarc
 
 # Set location of Mech Eng licence manager
-setenv CDLMD_LICENSE_FILE 1999@ntsrv1.meng.ucl.ac.uk
+setenv CDLMD_LICENSE_FILE 1999@mech-lic1.meng.ucl.ac.uk
 
 # Location of STAR-CCM+ prefs and settings directories
 set username $env(USER)
