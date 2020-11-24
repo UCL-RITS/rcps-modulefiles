@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {ScaLAPACK is a library of high-performance linear algebra routines for parallel distributed memory machines. ScaLAPACK solves dense and banded linear systems, least squares problems, eigenvalue problems, and singular value problems.}
+}
+module-whatis {ScaLAPACK is a library of high-performance linear algebra routines for parallel distributed memory machines. ScaLAPACK solves dense and banded linear systems, least squares problems, eigenvalue problems, and singular value problems.}
+
+conflict scalapack
+prereq beta-modules
+prereq gcc-libs
+prereq compilers/gnu/9.2.0
+prereq mpi/openmpi/3.1.5/gnu-9.2.0
+prereq openblas/0.3.7-serial/gnu-9.2.0
+
+set prefix /shared/ucl/apps/scalapack/2.1.0-openblas/gnu-9.2.0
+
+setenv SCALAPACK_HOME /shared/ucl/apps/scalapack/2.1.0-openblas/gnu-9.2.0
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/scalapack/2.1.0-openblas/gnu-9.2.0/lib
+prepend-path LIBRARY_PATH /shared/ucl/apps/scalapack/2.1.0-openblas/gnu-9.2.0/lib
+prepend-path PKG_CONFIG_PATH /shared/ucl/apps/scalapack/2.1.0-openblas/gnu-9.2.0/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/scalapack/2.1.0-openblas/gnu-9.2.0
+
