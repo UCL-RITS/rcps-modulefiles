@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+#
+# Molpro 2020.1 binary distribution
+#
+# December 2020
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Molpro 2020.1 openmp binary (no Infiniband support) to your"
+    puts stderr "environment."
+    puts stderr ""
+    puts stderr "Molpro is a complete system of ab initio programs for molecular electronic"
+    puts stderr "structure calculations."
+    puts stderr ""
+}
+
+module-whatis "Adds Molpro 2020.1 openmp binary (no Infiniband support) to your environment."
+
+conflict molpro
+
+set root                        /shared/ucl/apps/molpro/2020.1/openmp
+prepend-path PATH		$root/bin
+
