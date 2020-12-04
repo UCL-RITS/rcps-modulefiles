@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {A tool for transferring files between users on the same node: 'pipe-give' and 'pipe-receive'.}
+}
+module-whatis {A tool for transferring files between users on the same node: 'pipe-give' and 'pipe-receive'.}
+
+conflict pipe-gifts
+
+set prefix /shared/ucl/apps/pipe-gifts/1.0.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
