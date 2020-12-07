@@ -21,7 +21,7 @@
 ## Updated to add pandocs module November 2019
 ## Updated for R 4.0.2 and Bioconductor 3.11 July 2020
 ## Updated to add pandoc module November 2020
-
+## Updated to add new protobuf and current jq modules December 2020
 
 ## ***** Note: Major change: R now built with GNU 9.2.0 from beta-modules
 
@@ -64,8 +64,7 @@ module load geos/3.8.1/gnu-9.2.0
 module load gmt/6.0.0/gnu-9.2.0
 module load v8/3.15
 module load pandoc/1.19.2.1
-
-# module load protobuf/12-2017/gnu-4.9.2
-# module load jq/1.5/gnu-4.9.2
+module load protobuf/3.14.0/gnu-9.2.0
+module load jq/1.5/gnu-4.9.2
 
 module load r/4.0.2-openblas/gnu-9.2.0
