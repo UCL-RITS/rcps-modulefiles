@@ -16,4 +16,4 @@ proc ModulesHelp { } {
 module-whatis "Adds UCL recommended set of python packages to your environment variables. To see what is included, check https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-shared.list and https://github.com/UCL-RITS/rcps-buildscripts/blob/master/lists/python-3.list"
 
 prereq gcc-libs
-module load python3/3.7
+module load python3/3.8
