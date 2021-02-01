@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM formatted data.}
+}
+module-whatis {Tools for reading/writing/editing/indexing/viewing SAM/BAM/CRAM formatted data.}
+
+conflict samtools
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/samtools/1.11/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MAN_PATH $prefix/share/man
+
