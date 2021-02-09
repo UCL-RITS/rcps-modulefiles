@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD version.}
+}
+module-whatis {OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD version.}
+
+conflict openblas
+conflict atlas
+prereq beta-modules
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+
+set prefix /shared/ucl/apps/openblas/0.3.13-openmp/gnu-10.2.0
+
+setenv BLAS_TAG openblas
+setenv OPENBLASROOT /shared/ucl/apps/openblas/0.3.13-openmp/gnu-10.2.0
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+
