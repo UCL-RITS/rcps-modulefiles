@@ -7,9 +7,7 @@ module-whatis {OpenBLAS is an optimized BLAS library based on GotoBLAS2 1.13 BSD
 
 conflict openblas
 conflict atlas
-prereq beta-modules
 prereq gcc-libs/10.2.0
-prereq compilers/gnu/10.2.0
 
 set prefix /shared/ucl/apps/openblas/0.3.13-native-threads/gnu-10.2.0
 
