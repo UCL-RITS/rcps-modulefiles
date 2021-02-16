@@ -10,6 +10,7 @@
 ## Updated July 2018 as CFD-ACE is now only on Grace and Myriad.
 ## Updated August 2018 to set MPI fabric which Myriad needs (jobs
 ## were failing).
+## Updated February 2021 for Kathleen access and to remove Grace
 
 # New Legion modules layout
 
@@ -25,7 +26,7 @@ proc ModulesHelp { } {
   puts stderr "solving problems involving flow (of fluids or solids), heat" 	   
   puts stderr "transfer and turbulence."
   puts stderr ""
-  puts stderr "CFD-ACE is only available on the Grace and Myriad clusters."
+  puts stderr "CFD-ACE is only available on the Kathleen and Myriad clusters."
   puts stderr ""
   puts stderr "CFD-ACE+ is a reserved application. Access is controlled"
   puts stderr "by membership of the Legion CFD-ACE+ group. To be given"
@@ -65,7 +66,7 @@ proc appDirSetup { appDir } {
 }
 
 
-module-whatis "Adds CFD-ACE+ to your execution path. Only on Grace and Myriad."
+module-whatis "Adds CFD-ACE+ to your execution path. Only on Kathleen and Myriad."
 
 conflict cfd-ace
 
@@ -89,10 +90,10 @@ prepend-path LD_LIBRARY_PATH    $prefix/2014.1/UTILS/lib
 setenv MPI_IC_ORDER "upapl:tcp"
 
 if { [ module-info mode load ] } {
-    if { ! [modulefunctions::isCluster Grace] && \
+    if { ! [modulefunctions::isCluster Kathleen] && \
          ! [modulefunctions::isCluster Myriad] } {
         puts stderr ""
-        puts stderr "**** error: CFD-ACE is only available on Grace and Myriad."
+        puts stderr "**** error: CFD-ACE is only available on Kathleen and Myriad."
         puts stderr ""
     } 
 
