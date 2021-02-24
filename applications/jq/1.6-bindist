@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {jq is a lightweight and flexible command-line JSON processor.}
+}
+module-whatis {jq is a lightweight and flexible command-line JSON processor.}
+
+conflict jq
+
+set prefix /shared/ucl/apps/jq/1.6-bindist
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
