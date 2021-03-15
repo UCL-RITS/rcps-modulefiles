@@ -1,0 +1,63 @@
+#%Module -*- tcl -*-
+#
+# SAS 9.4, 364 bit
+#
+#                                                      H.T. 24 Feb 2009
+# Updated for SAS 9.4 December 2014 - BAA
+# Updated for updated Legion software stack - April 2015 - BAA
+# Updated June 2020 for SAS 9.4 M6 (June 2020)
+# Updated March 2021 for SAS 9.4 M7
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds SAS 9.4 M7 64 bit to your environment."
+    puts stderr ""
+    puts stderr "This is a full SAS Foundation instllation including all components"
+    puts stderr "licenced to UCL. SAS 9.04.01M7"
+    puts stderr ""
+}
+
+# Create TMPDIR directory and set environment variable
+
+proc setupTMPDIR { } {
+    set tmpname /tmp/$::env(USER).[pid]
+    if { [catch {file mkdir $tmpname} err] } {
+    	puts stderr "Cannot create $tmpname:"
+	puts stderr "	$err"
+	return false
+    }
+    setenv TMPDIR   $tmpname
+    return true
+}
+
+module-whatis "Adds SAS 9.4 (9.04.01M7) 64 bit to your environment"
+
+conflict sas
+
+# set local variables
+
+set sasroot     /shared/ucl/apps/SAS/9.4M7/SASFoundation/9.4
+
+# Add  directory with sas wrapper to PATH
+
+append-path PATH        $sasroot
+
+# set TMPDIR environment variable if it doesn't exist
+
+if { ! [info exists ::env(TMPDIR) ] } {
+    puts stderr "Creating TMPDIR."
+    if { ! [setupTMPDIR ] } {
+    	puts stderr ""
+	puts stderr "**** error: setting up TMPDIR directory failed."
+    	puts stderr ""
+    }
+
+}
+
+# set OMP_NUM_THREADS if not already set.
+
+if { ! [info exists ::env(OMP_NUM_THREADS) ] } {
+    puts stderr "Setting OMP_NUM_THREADS to 1."
+    setenv OMP_NUM_THREADS 1
+}
+
