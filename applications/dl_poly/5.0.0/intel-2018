@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {DL_POLY is a general-purpose classical molecular dynamics (MD) simulation software package.}
+}
+module-whatis {DL_POLY is a general-purpose classical molecular dynamics (MD) simulation software package.}
+
+conflict dl-poly
+prereq gcc-libs
+prereq cmake/3.19.1
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+
+set prefix /shared/ucl/apps/dl-poly/5.0.0/intel-2018
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib64
+prepend-path LD_RUN_PATH $prefix/lib64
+prepend-path LD_LIBRARY_PATH $prefix/lib64
+
