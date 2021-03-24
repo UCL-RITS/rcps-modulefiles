@@ -6,7 +6,7 @@
 
 proc ModulesHelp { } {
 
-    puts stderr "This module adds Molpro 2020.1 openmp binary (no Infiniband support) to your"
+    puts stderr "This module adds Molpro 2020.1 mpi binary to your"
     puts stderr "environment."
     puts stderr ""
     puts stderr "Molpro is a complete system of ab initio programs for molecular electronic"
@@ -14,7 +14,19 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds Molpro 2020.1 openmp binary (no Infiniband support) to your environment."
+module-whatis "Adds Molpro 2020.1 mpi binary to your environment."
+
+# When there is only one care, tell the launcher to use fork rather than qrsh or it
+# will fail with "execution daemon didn't accept task".
+# All jobs have $NSLOTS set, but tests on login nodes or Aristotle do not.
+if { [info exists ::env(NSLOTS)] } {
+    if { $env(NSLOTS) == 1 } {
+        setenv HYDRA_LAUNCHER fork
+    }
+} else {
+    # On login nodes
+    setenv HYDRA_LAUNCHER fork
+}
 
 conflict molpro
 
