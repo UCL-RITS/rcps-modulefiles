@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Boost is a collection of miscellaneous C++ libraries. This build does not include Python bindings or MPI support, and is multi-threaded.}
+}
+module-whatis {Boost is a collection of miscellaneous C++ libraries. This build does not include Python bindings or MPI support, and is multi-threaded.}
+
+conflict boost
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/boost/1.75.0/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
