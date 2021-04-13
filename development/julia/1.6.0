@@ -12,7 +12,8 @@ proc ModulesHelp { } {
 module-whatis "adds Julia 1.6.0 to your environment variables"
 
 conflict julia
-prereq gcc-libs
+prereq beta-modules
+prereq gcc-libs/10.2.0
 
 set              root              /shared/ucl/apps/julia/1.6.0/julia-1.6.0
 
