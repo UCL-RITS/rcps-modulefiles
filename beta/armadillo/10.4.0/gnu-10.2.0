@@ -18,7 +18,7 @@ prereq superlu/5.2.1/gnu-10.2.0
 
 conflict armadillo
 
-set              prefix               /shared/ucl/apps/superlu/5.2.1/gnu-10.2.0
+set              prefix               /shared/ucl/apps/Armadillo/10.4.0-gnu-10.2.0
 
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
