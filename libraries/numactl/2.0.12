@@ -15,5 +15,5 @@ prepend-path INCLUDE_PATH $prefix/include
 prepend-path LIBRARY_PATH $prefix/lib
 prepend-path LD_LIBRARY_PATH $prefix/lib
 prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
-prepend-path MAN_PATH $prefix/share/man
+prepend-path MANPATH $prefix/share/man
 
