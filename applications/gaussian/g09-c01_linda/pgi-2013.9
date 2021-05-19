@@ -33,18 +33,38 @@ conflict gaussian
 # Check if user is in Gaussian group (using g03 group for old versions of g09)
 modulefunctions::mustBeMemberToLoad "legg03"
 
+set mainExe g09
+if {[modulefunctions::isModuleLoad] && [modulefunctions::nodeIsLoginNode]} {
+    puts stderr "The main Gaussian executable ($mainExe) is too resource-intensive"
+    puts stderr "to be run on the login nodes. Please submit it as a job."
+}
+
 # Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
 # systemd will wipe these files when no active sessions remain.
 if [modulefunctions::isTMPDIR] {
-    setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/[pid]
-} elseif [modulefunctions::isCluster "Aristotle"] {
-    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
-} else {
-    if [modulefunctions::isModuleLoad] {
-        puts stderr "The main Gaussian executable (g09) is too resource-intensive"     
-        puts stderr "to be run on the login nodes. Please submit it as a job."
+    # Check TMPDIR has a reasonable amount of free space (1GB): if not, point to Scratch instead
+    if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
+        # In theory if this is in a job the user tag is unnecessary
+        # but, just to be sure
+        setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/gaussian.[randomLabel]
+    } else {
+        setenv GAUSS_SCRDIR $::env(HOME)/Scratch/Gaussian_ScrDirs/[randomLabel]
     }
-    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)
+} elseif [modulefunctions::isCluster "Aristotle"] {
+    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+} else {
+    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+}
+
+if {[modulefunctions::isModuleLoad]} {
+    puts stderr "Creating Gaussian Scratch directory:"
+    puts stderr "  GAUSS_SCRDIR=$::env(GAUSS_SCRDIR)"
+    if { [modulefunctions::createDir "$::env(GAUSS_SCRDIR)"] } {
+        puts stderr ""
+    } else {
+        puts stderr "Gaussian Scratch directory creation failed."
+        break
+    }
 }
 
 set prefix_gv /shared/ucl/apps/gaussian/gaussview
