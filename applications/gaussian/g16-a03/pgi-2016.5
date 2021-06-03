@@ -30,8 +30,9 @@ if {[modulefunctions::isModuleLoad] && [modulefunctions::nodeIsLoginNode]} {
     puts stderr "to be run on the login nodes. Please submit it as a job."
 }
 
-# Check if TMPDIR exists - if not, use $XDG_RUNTIME_DIR (/run/user/$uid)
+# Check if TMPDIR exists - if not, try $XDG_RUNTIME_DIR (/run/user/$uid)
 # systemd will wipe these files when no active sessions remain.
+# If there's no TMPDIR *and* no XDG_RUNTIME_DIR, fall back to /tmp
 if [modulefunctions::isTMPDIR] {
     # Check TMPDIR has a reasonable amount of free space (1GB): if not, point to Scratch instead
     if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
@@ -42,9 +43,17 @@ if [modulefunctions::isTMPDIR] {
         setenv GAUSS_SCRDIR $::env(HOME)/Scratch/Gaussian_ScrDirs/[randomLabel]
     }
 } elseif [modulefunctions::isCluster "Aristotle"] {
-    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+    } else {
+        setenv GAUSS_SCRDIR /tmp/gaussian.[randomLabel]
+    }
 } else {
-    setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+    } else {
+        setenv GAUSS_SCRDIR /tmp/gaussian.[randomLabel]
+    }
 }
 
 if {[modulefunctions::isModuleLoad]} {
