@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {OpenJPEG is an open-source JPEG 2000 codec written in C language.}
+}
+module-whatis {OpenJPEG is an open-source JPEG 2000 codec written in C language.}
+
+conflict openjpeg
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/openjpeg/2.4.0/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+
