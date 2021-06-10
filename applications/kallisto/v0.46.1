@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+#
+# Kallisto v0.46.1
+#
+#                                                      O.K. 24th May 2016
+# Updated June 2021 for v0.46.1
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Kallisto v0.46.1 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Kallisto v0.46.1 to your environment."
+
+conflict kallisto
+prereq gcc-libs
+prereq hdf/5-1.10.5/gnu-4.9.2
+
+set root 			/shared/ucl/apps/kallisto/v0.46.1/gnu-4.9.2
+prepend-path PATH      		$root/bin
