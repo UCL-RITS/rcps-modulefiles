@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds bcl2fastq2 2.20.0.422 from rpm to your environment.}
+
+}
+
+module-whatis {Adds bcl2fastq2 2.20.0.422 from rpm to your environment.}
+
+prereq gcc-libs
+
+conflict bcl2fastq2
+conflict bcl2fastq
+
+set              prefix               /shared/ucl/apps/bcl2fastq2/v2.20.0-rpm/usr/local
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+prepend-path        PATH                 $prefix/bin
+
