@@ -1,0 +1,115 @@
+#%Module -*- tcl -*-
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+  puts stderr {OpenMPI 4.0.5/GNU 10.2.0 build of CP2K with libint, libxsmm, quip, libsmm, libxc.}.
+
+}
+
+module-whatis {Adds CP2K to your environment.}
+
+prereq beta-modules
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+# Myriad requires UCX
+if [modulefunctions::isCluster Myriad] {
+    prereq numactl/2.0.12
+    prereq binutils/2.36.1/gnu-10.2.0
+    prereq ucx/1.9.0/gnu-10.2.0
+}
+prereq mpi/openmpi/4.0.5/gnu-10.2.0
+prereq openblas/0.3.13-openmp/gnu-10.2.0
+
+conflict cp2k
+
+set              prefix               /shared/ucl/apps/cp2k/8.2/cp2k-8.2
+
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+
+if { [file isdirectory $prefix/bin] } then {
+  prepend-path      PATH                 $prefix/bin
+}
+
+if { [file isdirectory $prefix/man] } then {
+  prepend-path      MANPATH              $prefix/man
+}
+
+if { [file isdirectory $prefix/share/man] } then {
+  prepend-path      MANPATH              $prefix/share/man
+}
+
+if { [file isdirectory $prefix/lib] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib
+}
+
+if { [file isdirectory $prefix/lib64] } then {
+  prepend-path      LIBRARY_PATH         $prefix/lib64
+  prepend-path      LD_LIBRARY_PATH      $prefix/lib64
+}
+
+if { [file isdirectory $prefix/lib/pkgconfig] } then {
+  prepend-path      PKG_CONFIG_PATH      $prefix/lib/pkgconfig
+}
+
+if { [file isdirectory $prefix/include] } then {
+  prepend-path      CPATH                $prefix/include
+  prepend-path      INCLUDE_PATH         $prefix/include
+}
+
+setenv CP2K_DATA_DIR $prefix/data
+
+# Toolchain
+
+prepend_path PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/cmake-3.18.5/bin
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/fftw-3.3.8/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/fftw-3.3.8/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/fftw-3.3.8/lib
+prepend_path CPATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/fftw-3.3.8/include
+setenv FFTW_ROOT /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/fftw-3.3.8
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/lib
+prepend_path CPATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libint-v2.6.0-cp2k-lmax-5/include
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxc-5.1.4/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxc-5.1.4/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxc-5.1.4/lib
+prepend_path CPATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxc-5.1.4/include
+prepend_path PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxsmm-1.16.1/bin
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxsmm-1.16.1/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxsmm-1.16.1/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libxsmm-1.16.1/lib
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/scalapack-2.1.0/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/scalapack-2.1.0/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/scalapack-2.1.0/lib
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/COSMA-2.5.0/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/COSMA-2.5.0/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/COSMA-2.5.0/lib
+prepend_path CPATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/COSMA-2.5.0/include
+setenv COSMA_INCLUDE_DIR /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/COSMA-2.5.0/include
+setenv COSMA_ROOT /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/COSMA-2.5.0
+prepend_path PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/elpa-2020.11.001/bin
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/elpa-2020.11.001/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/elpa-2020.11.001/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/elpa-2020.11.001/lib
+setenv ELPAROOT /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/elpa-2020.11.001
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/quip-b4336484fb65b0e73211a8f920ae4361c7c353fd/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/quip-b4336484fb65b0e73211a8f920ae4361c7c353fd/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/quip-b4336484fb65b0e73211a8f920ae4361c7c353fd/lib
+prepend_path CPATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/quip-b4336484fb65b0e73211a8f920ae4361c7c353fd/include
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/spglib-1.16.0/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/spglib-1.16.0/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/spglib-1.16.0/lib
+prepend_path CPATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/spglib-1.16.0/include
+setenv LIBSPGROOT /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/spglib-1.16.0
+setenv LIBSPG_INCLUDE_DIR /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/spglib-1.16.0/include
+prepend_path LD_LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libvori-210412/lib
+prepend_path LD_RUN_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libvori-210412/lib
+prepend_path LIBRARY_PATH /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libvori-210412/lib
+setenv LIBVORI_ROOT /shared/ucl/apps/cp2k/8.2/cp2k-8.2/tools/toolchain/install/libvori-210412
+
