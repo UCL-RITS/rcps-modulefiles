@@ -13,13 +13,13 @@ proc ModulesHelp { } {
 module-whatis {Adds gromacs 2021.2 to your environment. GROMACS is a package for performing molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.}
 
 prereq beta-modules
-prereq gnu-7.3.0
+prereq gcc-libs/7.3.0
 prereq mpi/openmpi/3.1.4/gnu-7.3.0
 prereq python3
 
 conflict gromacs
 
-set              prefix               /shared/ucl/apps/gromacs/2021.1/gnu-7.3.0
+set              prefix               /shared/ucl/apps/gromacs/2021.2/gnu-7.3.0
 
 if { [modulefunctions::isCluster michael] } {
    if { [modulefunctions::hasArch avx512] } {
