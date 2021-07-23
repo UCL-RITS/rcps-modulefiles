@@ -38,6 +38,6 @@ prepend-path PATH		$prefix/xmds-3.0.0/bin
 prepend-path PATH		$prefix/xmds/bin
 prepend-path PATH               /shared/ucl/apps/xmds/3.0.0/gnu-4.9.2
 prepend-path PATH		$prefix/xmds/scripts
-prepend-path PYTHONPATH         $prefix/xmds-3.0.0/lib/python3.7/site-packages
+prepend-path PYTHONPATH         $prefix/xmds-3.0.0
 prepend-path PYTHONPATH         $prefix/xmds/lib/python3.7/site-packages
 
