@@ -1,0 +1,43 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## 
+
+proc ModulesHelp { } {
+    puts stderr "XMDS2 3.0.0 is 'a software package that allows the"
+    puts stderr " fast and easy solution of sets of ordinary,"
+    puts stderr " partial and stochastic differential equations, "
+    puts stderr " using a variety of efficient numerical algorithms.'"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/xmds/3.0.0/gnu-4.9.2/xmds-3.0.0"
+    puts stderr ""
+    puts stderr "Also provides the create-svn-xmds3-inst script to allow users"
+    puts stderr "to use the SVN version of xmds."
+    puts stderr ""
+}
+
+module-whatis "Adds XMDS 3.0.0 (GNU/ATLAS/Intel MPI/FFTW toolchain) to your environment."
+
+conflict xmds
+
+set prefix /shared/ucl/apps/xmds/3.0.0/gnu-4.9.2
+
+if { [module-info mode load] } {
+    puts stderr "WARNING: If you use the create-svn-xmds3-inst script to pull a version of XMDS 2 from SVN, that version is completely untested."
+    puts stderr "This program requires per-user configuration. Please run the script 'xmds3-setup' before first running the program."
+}
+
+prereq python3/3.7
+prereq compilers/gnu/4.9.2
+prereq mpi/intel/2015/update3/gnu-4.9.2
+prereq fftw/3.3.4-impi/gnu-4.9.2
+prereq hdf/5-1.8.15/gnu-4.9.2
+
+prepend-path PATH		$prefix/xmds-3.0.0/bin
+prepend-path PATH		$prefix/xmds/bin
+prepend-path PATH               /shared/ucl/apps/xmds/3.0.0/gnu-4.9.2
+prepend-path PATH		$prefix/xmds/scripts
+prepend-path PYTHONPATH         $prefix/xmds-3.0.0
+prepend-path PYTHONPATH         $prefix/xmds/lib/python3.7/site-packages
+
