@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. on Legion on 2021-07-29
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Screen 4.8.0 + security fixes to your environment variables,"
+}
+
+module-whatis "adds Screen 4.8.0 to your environment variables"
+
+conflict screen
+prereq gcc-libs
+
+# GNU screen
+prepend-path     PATH                 /shared/ucl/apps/screen/4.8.0-ucl1/bin
+prepend-path     MANPATH              /shared/ucl/apps/screen/4.8.0-ucl1/share/man
