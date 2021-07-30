@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K. 
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds APR-util 1.6.1 to your environment variables,"
+}
+
+module-whatis "adds APR-util 1.6.1 to your environment variables"
+
+conflict apr-util
+prereq gcc-libs
+prereq apr/1.7.0
+
+prepend-path     PATH                 /shared/ucl/apps/apr-util/1.6.1/bin
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/apr-util/1.6.1/lib
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/apr-util/1.6.1/lib
+prepend-path     CPATH                /shared/ucl/apps/apr-util/1.6.1/include
+
+prepend-path     CMAKE_PREFIX_PATH    /shared/ucl/apps/apr-util/1.6.1
