@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Built by O.K.
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Subversion 1.14.1 to your environment variables,"
+}
+
+module-whatis "adds Subversion 1.14.1 to your environment variables"
+
+conflict subversion
+prereq gcc-libs
+prereq apr/1.7.0
+prereq apr-util/1.6.1
+
+# Subversion
+prepend-path     PATH                 /shared/ucl/apps/subversion/1.14.1/bin
+prepend-path     MANPATH              /shared/ucl/apps/subversion/1.14.1/share/man
+prepend-path     LD_LIBRARY_PATH      /shared/ucl/apps/subversion/1.14.1/lib
+prepend-path     LIBRARY_PATH         /shared/ucl/apps/subversion/1.14.1/lib
+
