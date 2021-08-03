@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {PRSice (pronounced 'precise') is a software package for calculating, applying, evaluating and plotting the results of polygenic risk scores (PRS).}
+}
+module-whatis {PRSice (pronounced 'precise') is a software package for calculating, applying, evaluating and plotting the results of polygenic risk scores (PRS).}
+
+conflict prsice
+prereq beta-modules
+prereq gcc-libs/9.2.0
+
+set prefix /shared/ucl/apps/prsice/2.3.3/gnu-9.2.0
+
+prepend-path PATH /shared/ucl/apps/prsice/2.3.3/gnu-9.2.0/PRSice/bin
+
