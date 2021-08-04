@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Rvtests: Rare variant test software for next generation sequencing data}
+}
+module-whatis {Rvtests: Rare variant test software for next generation sequencing data}
+
+conflict rvtests
+
+set prefix /shared/ucl/apps/rvtests/2.1.0
+
+prepend-path PATH /shared/ucl/apps/rvtests/2.1.0/executable
+
