@@ -6,20 +6,21 @@
 
 proc ModulesHelp { } {
 
-  puts stderr {Base module for gcc 10.2.0 -- does not set the standard compiler environment variables. The GNU Compiler Collection includes front ends for C, C++, Objective-C, and Fortran, as well as libraries for these languages (libstdc++,...).}
+  puts stderr {Base module for gcc 10.2.0 -- does not set the standard compiler environment variables. The GNU Compiler Collection includes front ends for C, C++, Objective-C, and Fortran, as well as libraries for these languages (libstdc++,...). Patch 95889 for __has_include applied.}
 
 }
 
-module-whatis {Base module for gcc 10.2.0 -- does not set the standard compiler environment variables. The GNU Compiler Collection includes front ends for C, C++, Objective-C, and Fortran, as well as libraries for these languages (libstdc++,...).}
+module-whatis {Base module for gcc 10.2.0 -- does not set the standard compiler environment variables. The GNU Compiler Collection includes front ends for C, C++, Objective-C, and Fortran, as well as libraries for these languages (libstdc++,...). Patch 95889 for __has_include applied.}
 
 
 conflict gcc-libs
 
-set              prefix               /shared/ucl/apps/gcc/10.2.0
+set              prefix               /shared/ucl/apps/gcc/10.2.0-p95889
 
-prepend-path LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0/lib
-prepend-path LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0/lib64
-prepend-path LD_LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0/lib
-prepend-path LD_LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0/lib64
-prepend-path PATH /shared/ucl/apps/gcc/10.2.0/bin
-prepend-path MANPATH /shared/ucl/apps/gcc/10.2.0/man
+prepend-path LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0-p95889/lib
+prepend-path LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0-p95889/lib64
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0-p95889/lib
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/gcc/10.2.0-p95889/lib64
+prepend-path PATH /shared/ucl/apps/gcc/10.2.0-p95889/bin
+prepend-path MANPATH /shared/ucl/apps/gcc/10.2.0-p95889/man
+

@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Cmake 3.21.1 to your environment variables,"
+}
+
+module-whatis "adds Cmake 3.21.1 to your environment variables"
+
+conflict cmake
+prereq gcc-libs
+
+prepend-path     PATH                 /shared/ucl/apps/cmake/3.21.1/gnu-4.9.2/bin
+prepend-path     MANPATH              /shared/ucl/apps/cmake/3.21.1/gnu-4.9.2/share/man

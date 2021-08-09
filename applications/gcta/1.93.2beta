@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {GCTA: a tool for Genome-wide Complex Trait Analysis.}
+}
+module-whatis {GCTA: a tool for Genome-wide Complex Trait Analysis.}
+
+conflict gcta
+
+set prefix /shared/ucl/apps/gcta/1.93.2beta
+
+prepend-path PATH /shared/ucl/apps/gcta/1.93.2beta/gcta_1.93.2beta
+

@@ -6,14 +6,14 @@
 
 proc ModulesHelp { } {
 
-  puts stderr "\tAdds Julia 1.6.0 to your environment variables"
+  puts stderr "\tAdds Julia 1.6.2 to your environment variables"
 }
 
-module-whatis "adds Julia 1.6.0 to your environment variables"
+module-whatis "adds Julia 1.6.2 to your environment variables"
 
 conflict julia
 
-set              root              /shared/ucl/apps/julia/1.6.0/julia-1.6.0
+set              root              /shared/ucl/apps/julia/1.6.2/julia-1.6.2
 
 # Note use wrapper so we pick up bundled libs
 prepend-path     PATH              $root/ucl-wrapper
