@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The COIN-OR Tools project ThirdParty-Mumps can be used to download the MUMPS code and build a MUMPS library that is recognized by Ipopt. This version of ThirdParty-Mumps retrieves and builds MUMPS 5.4.0.}
+}
+module-whatis {The COIN-OR Tools project ThirdParty-Mumps can be used to download the MUMPS code and build a MUMPS library that is recognized by Ipopt. This version of ThirdParty-Mumps retrieves and builds MUMPS 5.4.0.}
+
+conflict mumps-thirdparty
+conflict mumps
+prereq gcc-libs
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+prereq metis/5.1.0/intel-2018
+
+set prefix /shared/ucl/apps/mumps-thirdparty/3.0.0/intel-2018
+
+prepend-path INCLUDE_PATH /shared/ucl/apps/mumps-thirdparty/3.0.0/intel-2018/include/coin-or/mumps/
+prepend-path CPATH /shared/ucl/apps/mumps-thirdparty/3.0.0/intel-2018/include/coin-or/mumps/
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+
