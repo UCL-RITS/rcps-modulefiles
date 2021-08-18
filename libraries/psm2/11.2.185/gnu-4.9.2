@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds psm2 11.2.185 to your environment. The PSM2 messaging API, libpsm2. A low-level user-level communications interface for the Intel(R) OPA. family of products.}
+}
+module-whatis {Adds psm2 11.2.185 to your environment. The PSM2 messaging API, libpsm2. A low-level user-level communications interface for the Intel(R) OPA. family of products.}
+
+conflict psm2
+prereq gcc-libs
+prereq numactl/2.0.12
+
+set prefix /shared/ucl/apps/psm2/11.2.185/gnu-4.9.2/usr
+
+prepend-path LD_RUN_PATH       $prefix/lib
+prepend-path LD_LIBRARY_PATH   $prefix/lib
+prepend-path LD_RUN_PATH       $prefix/lib64
+prepend-path LD_LIBRARY_PATH   $prefix/lib64
+prepend-path CPATH             $prefix/include
+prepend-path INCLUDE_PATH      $prefix/include
+prepend-path CMAKE_PREFIX_PATH $prefix
+
