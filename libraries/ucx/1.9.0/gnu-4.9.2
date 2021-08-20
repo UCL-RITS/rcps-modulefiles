@@ -1,0 +1,23 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds ucx 1.9.0 to your environment. Unified Communication X (UCX) provides an optimized communication layer for Message Passing (MPI), PGAS/OpenSHMEM libraries and RPC/data-centric applications.}
+}
+module-whatis {Adds ucx 1.9.0 to your environment. Unified Communication X (UCX) provides an optimized communication layer for Message Passing (MPI), PGAS/OpenSHMEM libraries and RPC/data-centric applications.}
+
+conflict ucx
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq numactl/2.0.12
+prereq binutils/2.29.1/gnu-4.9.2
+
+set prefix /shared/ucl/apps/ucx/1.9.0/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+
