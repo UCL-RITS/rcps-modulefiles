@@ -1,0 +1,50 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Proj.4 Cartographic Projections Library compiled with GCC 10.2.0
+##
+## Updated April 2019 for version 6.0.0
+## Updated June 2019 for version 6.1.0
+## Updated April 2020 for version 7.0.0
+## Updated September 2021 for version 8.1.1
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds the PROJ.4 Cartographic Projections library version 8.1.1 to your environment."
+    puts stderr ""
+    puts stderr "PROJ.4 is a standard Linux filter function which converts geographic"
+    puts stderr "longitude and latitude coordinates into cartesian coordinates, by means"
+    puts stderr "of a wide variety of cartographic projection functions."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/PROJ.4/8.1.1"
+}
+
+module-whatis "Adds the PROJ.4 Cartographic Projections library to your environment."
+
+# Location of PROJ.4:
+
+set prefix /shared/ucl/apps/PROJ.4/
+set ver    8.1.1
+
+prereq gcc-libs/10.2.0
+prereq sqlite/3.36.0/gnu-10.2.0
+# gmt is not required as I build 6.1.0 on the rstudion dev box with no GMT
+# installed.
+# prereq gmt
+conflict proj.4
+
+set libdir	$prefix/$ver/lib
+set incdir      $prefix/$ver/include
+
+prepend-path PATH	    	$prefix/$ver/bin
+prepend-path LD_LIBRARY_PATH	$libdir
+prepend-path MANPATH		$prefix/$ver/share/man
+prepend-path LD_RUN_PATH        $libdir
+prepend-path LIBRARY_PATH       $libdir
+prepend-path CPATH              $incdir
+prepend-path INCLUDE_PATH       $incdir
+
+setenv PROJ_LIB $prefix/$ver/share/proj
