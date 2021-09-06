@@ -1,0 +1,38 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## SQLite 3.36.0 compiled with GCC 20.2.0
+##
+## April 2020
+## Updated September for 3.36.0
+##
+
+# New modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds SQLite Version 3.36.0 to your environment."
+    puts stderr ""
+    puts stderr "SQLite is an in-process library that implements a self-contained, serverless,"
+    puts stderr "zero-configuration, transactional SQL database engine."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/SQLite/3360000"
+}
+
+module-whatis "Adds SQLite Version 3.36.0 to your environment."
+
+# Location of SQLite:
+
+set prefix /shared/ucl/apps/SQLite/3360000
+
+prereq gcc-libs/10.2.0
+conflict sqlite
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+prepend-path LD_RUN_PATH        $prefix/lib
+prepend-path LD_LIBRARY_PATH    $prefix/lib
+prepend-path LIBRARY_PATH       $prefix/lib
+prepend-path CPATH              $prefix/include
+prepend-path INCLUDE_PATH       $prefix/include
+prepend-path PKG_CONFIG_PATH    $prefix/lib/pkgconfig
