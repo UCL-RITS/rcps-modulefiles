@@ -25,7 +25,7 @@ conflict matlab
 
 prereq gcc-libs/10.2.0
 prereq perl/5.22.0
-prereq python3
+prereq python/3.9.6
 prereq sqlite/3.36.0/gnu-10.2.0
 prereq hdf/5-1.10.6/gnu-10.2.0
 prereq netcdf/4.8.1/gnu-10.2.0
