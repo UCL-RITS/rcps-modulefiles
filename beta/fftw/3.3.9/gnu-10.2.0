@@ -1,0 +1,34 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## 
+## FFTW 3.3.9 built with GNU 10.2.0 includes OpenMP and POSIX threads
+## September 2021
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds FFTW 3.3.9 for GCC 10.2.0 compilers to your environment variables. Includes single and double precision, plus long-double and quad. Includes OpenMP and POSIX threads libraries."
+}
+
+module-whatis "Adds FFTW 3.3.9 for GCC 10.2.0 compilers to your environment variables. Includes single and double precision, plus long-double and quad. Includes OpenMP and POSIX threads libraries."
+
+conflict fftw
+prereq gcc-libs
+
+set              root              /shared/ucl/apps/fftw/3.3.9/gnu-10.2.0
+
+prepend-path     PATH              $root/bin
+prepend-path     MANPATH           $root/share/man
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           FFTWLIBDIR        $root/lib
+setenv           FFTWINCLUDE       $root/include
+setenv           FFTWLIB           fftw
+
+prepend-path PKG_CONFIG_PATH	$root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH  $root
+

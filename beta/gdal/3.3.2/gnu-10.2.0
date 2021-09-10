@@ -1,0 +1,47 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## Updated for Python 2.7.12 Nov 2016
+## Updated for GDAL 2.1.4 June 2019
+## Updated to use PROJ.4 6.1.0 July 2019
+## Updated for GDAL 3.0.4 April 2020
+## Updated again to use PROJ.4 7.0.0 and GNU 9.2.0 20th April 2020
+## Updated for GDAL 3.1.3 with Python bindings added October 2020
+## Updated for GDAL 3.3.2 September 2021
+
+proc ModulesHelp { } {
+
+    puts stderr "\tAdds GDAL 3.3.2 with PROJ.4 8.1.1 to your environment variables."
+    puts stderr "\tThis version of GDAL has been built additonally with Python3 bindings."
+}
+
+module-whatis "adds GDAL 3.3.2 with PROJ.4 8.1.1 to your environment variables."
+
+conflict gdal
+
+# matlab loads an old libtiff that breaks gdal
+conflict matlab
+
+prereq gcc-libs/10.2.0
+prereq perl/5.22.0
+prereq python3/3.9-gnu-10.2.0
+prereq sqlite/3.36.0/gnu-10.2.0
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq netcdf/4.8.1/gnu-10.2.0
+prereq proj.4/8.1.1/gnu-10.2.0
+
+set              root              /shared/ucl/apps/gdal/3.3.2_proj-8/gnu-10.2.0
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path	 PYTHONPATH        $root/lib/python3.8/site-packages
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path	 CMAKE_PREFIX_PATH $root
