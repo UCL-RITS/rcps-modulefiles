@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {PatchELF is a simple utility for modifying existing ELF executables and libraries.}
+}
+module-whatis {PatchELF is a simple utility for modifying existing ELF executables and libraries.}
+
+conflict patchelf
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+
+set prefix /shared/ucl/apps/patchelf/0.13/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+

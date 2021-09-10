@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {RStudio is an integrated development environment (IDE) for R}
+}
+module-whatis {RStudio is an integrated development environment (IDE) for R}
+
+conflict RStudio-IDE
+prereq gcc-libs
+prereq qt/5.12.1/gnu-4.9.2
+prereq r/3.6.0-openblas/gnu-4.9.2
+prereq postgresql/9.5.3/gnu-4.9.2
+prereq mesa/10.6.9/gnu-4.9.2
+
+set prefix /shared/ucl/apps/RStudio-IDE/1.4.1717
+
+prepend-path PATH /shared/ucl/apps/RStudio-IDE/1.4.1717/rstudio-1.4.1717/bin
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/RStudio-IDE/1.4.1717/rstudio-1.4.1717/lib
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+
