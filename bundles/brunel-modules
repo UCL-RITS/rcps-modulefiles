@@ -1,0 +1,18 @@
+#%Module
+#
+# FARR maintained Legion Modules 
+#
+#                                                      O.K. 12 Oct 2015
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Brunel licensed software module space to module avail."
+    puts stderr ""
+    puts stderr ""
+    puts stderr ""
+}
+
+module-whatis "Adds Brunel licensed software module space to module avail."
+
+module           use --append /shared/ucl/apps/modulefiles/bundles/brunel
+
