@@ -14,5 +14,5 @@ proc ModulesHelp { } {
 
 module-whatis "Adds Brunel licensed software module space to module avail."
 
-module           use --append /shared/ucl/apps/modulefiles/bundles/brunel
+module           use --append /shared/ucl/apps/modulefiles/dept/brunel
 
