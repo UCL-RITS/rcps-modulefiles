@@ -55,7 +55,7 @@ module load netcdf/4.8.1/gnu-10.2.0
 module load pcre2/10.37/gnu-10.2.0
 module load numactl/2.0.12
 module load binutils/2.36.1/gnu-10.2.0
-module laod ucx/1.9.0/gnu-10.2.0
+module load ucx/1.9.0/gnu-10.2.0
 module load mpi/openmpi/4.0.5/gnu-10.2.0
 module load perl/5.22.0
 module load libtool/2.4.6
