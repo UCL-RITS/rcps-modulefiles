@@ -43,7 +43,7 @@ modulefunctions::mustBeMemberToLoad "lgabqbru"
 # Set location of Brunel licence manager
 prepend-path LM_LICENSE_FILE   27002@134.83.82.151
 
-prepend-path PATH		$prefix/Products/Commands
+prepend-path PATH   $prefix/Products/Commands
 
 if { [modulefunctions::isCluster Young]  } {
 
