@@ -15,6 +15,7 @@
 ## Updated September 2018 for R 3.5.1
 ## Updated April 2019 for R 3.5.3 and GSL 2.4
 ## Updated June 2019 for R 3.6.0, Bioconductor 3.9 and Texinfo 6.6
+## Updated September 2021 to add setting INCLUDE_PATH for calling R from C etc.
 ##
 
 
@@ -60,7 +61,9 @@ prereq jags/4.2.0/gnu.4.9.2-openblas
 
 prepend-path PATH		$prefix/bin
 prepend-path MANPATH		$prefix/share/man
+append-path  INCLUDE_PATH       $prefix/lib64/R/include
 append-path  LD_LIBRARY_PATH	$prefix/lib64/R/lib
+append-path  LIBRARY_PATH       $prefix/lib64/R/lib
 setenv 	     R_BROWSER		firefox
 
 append-path PATH                $prefix/lib64/R/library/snow
