@@ -62,6 +62,7 @@ prereq jags/4.2.0/gnu.4.9.2-openblas
 prepend-path PATH		$prefix/bin
 prepend-path MANPATH		$prefix/share/man
 append-path  INCLUDE_PATH       $prefix/lib64/R/include
+append-path  CPATH              $prefix/lib64/R/include
 append-path  LD_LIBRARY_PATH	$prefix/lib64/R/lib
 append-path  LIBRARY_PATH       $prefix/lib64/R/lib
 setenv 	     R_BROWSER		firefox

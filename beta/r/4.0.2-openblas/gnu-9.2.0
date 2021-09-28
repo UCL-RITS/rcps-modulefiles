@@ -68,6 +68,7 @@ prepend-path MANPATH		$prefix/share/man
 append-path  LD_LIBRARY_PATH	$prefix/lib64/R/lib
 append-path  LD_LIBRARY_PATH    $prefix/lib64
 prepend-path INCLUDE_PATH       $prefix/lib64/R/include
+prepend-path CPATH              $prefix/lib64/R/include
 setenv 	     R_BROWSER		firefox
 
 append-path PATH                $prefix/lib64/R/library/snow
