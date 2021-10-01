@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# SOD 3.2.10
+#
+# Updated October 2021 for version 3.2.10 and Java prereq.                                                    
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the SOD 3.2.10 seismology package to your environment."
+    puts stderr ""
+    puts stderr "SOD is a program that automates tedious data selection, downloading,"
+    puts stderr "and routine processing tasks in seismology."
+    puts stderr ""
+
+}
+
+module-whatis "Adds SOD 3.2.10 to your environment. SOD is a program that automates tedious data selection, downloading, and routine processing tasks in seismology."
+
+prereq gcc-libs
+
+# Using this version of Java as less warnings produced when running sod!
+prereq java/openjdk-8/8u212/openj9
+
+conflict sod
+
+set prefix                      /shared/ucl/apps/sod/3.2.10/sod-3.2.10
+prepend-path PATH               $prefix/bin
+prepend-path CMAKE_PREFIX_PATH	$prefix
+
