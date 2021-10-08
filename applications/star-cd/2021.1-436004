@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds STAR-CD 2021.1-436004 to your environment. STAR-CD is a code for performing CFD simulations. It is designed for modelling fluid flow, heat transfer, mass transfer and chemical reactions.}
+}
+module-whatis {Adds STAR-CD 2021.1-436004 to your environment. STAR-CD is a code for performing CFD simulations. It is designed for modelling fluid flow, heat transfer, mass transfer and chemical reactions.}
+
+conflict STAR-CD
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/STAR-CD/2021.1-436004
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path PATH $prefix/sbin
+
