@@ -5,6 +5,9 @@ proc ModulesHelp { } {
 }
 module-whatis {Adds STAR-CD 2021.1-436004 using Intel 2019 compiler suite to your environment. STAR-CD is a code for performing CFD simulations. It is designed for modelling fluid flow, heat transfer, mass transfer and chemical reactions.}
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 conflict STAR-CD
 prereq gcc-libs
 
