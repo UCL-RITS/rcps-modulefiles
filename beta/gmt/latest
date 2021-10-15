@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+##
+## GMT Module bundle for latest version on the clusters
+##
+## Currently: 6.2.0 October 2021
+
+module load   gcc-libs/10.2.0
+module load   compilers/gnu/10.2.0
+module load   perl/5.22.0
+module load   python3/3.9-gnu-10.2.0
+module load   hdf/5-1.10.6/gnu-10.2.0
+module load   netcdf/4.8.1/gnu-10.2.0
+module load   sqlite/3.36.0/gnu-10.2.0
+module load   proj.4/8.1.1/gnu-10.2.0
+module load   gdal/3.3.2/gnu-10.2.0
+module load   geos/3.9.1/gnu-10.2.0
+module load   libtool/2.4.6
+module load   graphicsmagick/1.3.21
+module load   ghostscript/9.19/gnu-4.9.2
+module load   fftw/3.3.9/gnu-10.2.0
+module load   openblas/0.3.13-serial/gnu-10.2.0
+module load   gmt/6.2.0/gnu-10.2.0
