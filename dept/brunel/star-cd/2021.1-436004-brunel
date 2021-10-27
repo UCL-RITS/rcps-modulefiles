@@ -14,7 +14,7 @@ prereq gcc-libs
 set version 2021.1-436004
 set prefix /shared/ucl/apps/STAR-CD/$version
 
-modulefunctions::mustBeMemberToLoad "legstarc"
+modulefunctions::mustBeMemberToLoad "lgstabru"
 
 # use /tmp if on a login node, otherwise $TMPDIR
 if { [info exists ::env(TMPDIR) ] } {
