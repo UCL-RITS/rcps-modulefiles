@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## GRASS GIS 8.0 Dev bundle
+##
+## November 2021
+
+proc ModulesHelp { } {
+    puts stderr "This module adds GRASS GIS 8.0 Development Version to your environment."
+    puts stderr ""
+    puts stderr "This module also adds other modules as required."
+    puts stderr ""
+    puts stderr ""
+}
+
+module-whatis "adds UCL set of modules for GRASS GIS 8.0 Dev to your environment"
+
+# Note: module unload -f compilers mpi gcc-libs needed
+module load beta-modules
+module load gcc-libs/10.2.0
+module load compilers/gnu/10.2.0
+module load bison/3.0.4/gnu-4.9.2
+module load flex/2.5.39
+module load sqlite/3.36.0/gnu-10.2.0
+module load perl/5.22.0
+module load openblas/0.3.13-serial/gnu-10.2.0
+module load python3/3.9-gnu-10.2.0
+module load fftw/3.3.9/gnu-10.2.0
+module load libtool/2.4.6
+module load hdf/5-1.10.6/gnu-10.2.0
+module load netcdf/4.8.1/gnu-10.2.0
+module load proj.4/8.1.1/gnu-10.2.0
+module load gdal/3.3.2/gnu-10.2.0
+module load geos/3.9.1/gnu-10.2.0
+
+module load grass/8.0-dev/gnu-10.2.0

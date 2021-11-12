@@ -1,0 +1,65 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GRASS GIS 8.0 Development Version compiled with GCC 10.2.0 + OpenBLAS
+##
+## Also built to be compaitible with R 4.1.1
+##
+## Brian Alston/Manesh Mistry November 2021
+
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds GRASS GIS 8.0 Development Version GCC 10.2.0 + OpenBLAS to your environment."
+    puts stderr ""
+    puts stderr "Geographic Resources Analysis Support System, commonly referred to as GRASS GIS, is"
+    puts stderr "a Geographic Information System (GIS) built for vector and raster geospatial data"
+    puts stderr "management, geoprocessing, spatial modelling and visualization."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/GRASS/GRASS-8.0.dev"
+}
+
+module-whatis "Adds GRASS GIS 8.0 Development Version to your environment."
+
+# Location of GRASS:
+
+set prefix /shared/ucl/apps/GRASS/GRASS-8.0.dev
+
+prereq beta-modules
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+prereq bison/3.0.4/gnu-4.9.2
+prereq flex/2.5.39
+prereq sqlite/3.36.0/gnu-10.2.0
+prereq perl/5.22.0
+prereq openblas/0.3.13-serial/gnu-10.2.0
+prereq python3/3.9-gnu-10.2.0
+prereq fftw/3.3.9/gnu-10.2.0
+prereq libtool/2.4.6
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq netcdf/4.8.1/gnu-10.2.0
+prereq proj.4/8.1.1/gnu-10.2.0
+prereq gdal/3.3.2/gnu-10.2.0
+prereq geos/3.9.1/gnu-10.2.0
+
+set grass_dir $prefix/grass_gnu-10.2.0
+set zstd_dir  $prefix/zstd_gnu-10.2.0
+
+prepend-path PATH $zstd_dir/bin
+prepend-path PATH $grass_dir/bin
+prepend-path PATH $grass_dir/grass80/bin
+
+prepend-path MANPATH $grass_dir/grass80/docs/man
+prepend-path MANPATH $zstd_dir/share/man
+
+append-path  LD_LIBRARY_PATH $zstd_dir/lib
+append-path  LD_LIBRARY_PATH $grass_dir/grass80/lib
+
+prepend-path INCLUDE_PATH $zstd_dir/include
+prepend-path INCLUDE_PATH $grass_dir/grass80/include
+
+prepend-path CMAKE_PREFIX_PATH $grass_dir/grass80
+prepend-path CMAKE_PREFIX_PATH $zstd_dir
