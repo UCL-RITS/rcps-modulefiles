@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+##
+## VMD 1.9.4 Development Version a55
+##
+## November 2021
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds VMD 1.9.4 Development Version a55 to your environment"
+    puts stderr ""
+    puts stderr "VMD is a molecular visualization program for displaying, animating, and"
+    puts stderr "analyzing large biomolecular systems using 3-D graphics and built-in"
+    puts stderr "scripting."
+}
+
+module-whatis "Adds VMD 1.9.4 Development Version a55 to your environment."
+
+conflict vmd
+
+set prefix /shared/ucl/apps/vmd/1.9.4a55-GL+CUDA
+
+# This might be all that is needed as CMD is self-conatined and shoud set itself up relative
+# to the above directory.
+
+prepend-path PATH $prefix/bin
+
+
