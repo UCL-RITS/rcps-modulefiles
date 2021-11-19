@@ -6,6 +6,7 @@
 ##
 ## Brian Alston December 2019
 ##
+## Updated November 2021 to use new RH8 license server.
 
 # New Legion modules layout
 
@@ -37,7 +38,7 @@ conflict knitro
 setenv KNITRODIR $knitroDir
 setenv KNDIR $knitroDir
 setenv KNRELEASE 1200
-setenv ARTELYS_LICENSE_NETWORK_ADDR lm-server3.ucl.ac.uk:8349
+setenv ARTELYS_LICENSE_NETWORK_ADDR lic-rhel01.ad.ucl.ac.uk:8349
 prepend-path LD_LIBRARY_PATH $knitroDir/lib
 
 if { ! [info exists ::env(OMP_NUM_THREADS)]} {
