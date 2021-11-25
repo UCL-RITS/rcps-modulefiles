@@ -19,9 +19,57 @@ conflict vmd
 
 set prefix /shared/ucl/apps/vmd/1.9.4a55-GL+CUDA
 
-# This might be all that is needed as CMD is self-conatined and shoud set itself up relative
-# to the above directory.
-
 prepend-path PATH $prefix/bin
 
+# When VMD is run in text mode many environment variables that are required for access to the many
+# plugins are not set by the vmd wrapper script. They are set when VMD is run in full GUI mode. To
+# get round this problem we set these environment variables in the module file.
+
+setenv ALASCANFEPDIR $prefix/lib/plugins/noarch/tcl/alascanfep1.0
+setenv APBSRUNDIR $prefix/lib/plugins/noarch/tcl/apbsrun1.3
+setenv AUTOIMDDIR $prefix/lib/plugins/noarch/tcl/autoimd1.7
+setenv AUTOPSFDIR $prefix/lib/plugins/LINUXAMD64/tcl/autopsf1.8
+setenv BLOSUMDIR $prefix/lib/plugins/noarch/tcl/seqedit1.1/blosum
+setenv CGTOOLSDIR $prefix/lib/plugins/noarch/tcl/cgtools1.3
+setenv CHARMMPARDIR $prefix/lib/plugins/noarch/tcl/readcharmmpar1.5
+setenv CHARMMTOPDIR $prefix/lib/plugins/noarch/tcl/readcharmmtop1.2
+setenv CLUSTALWDIR $prefix/lib/plugins/LINUXAMD64/tcl/clustalw1.1
+setenv CLUSTALWPLUGINDIR $prefix/lib/plugins/LINUXAMD64/tcl/clustalw1.1
+setenv CV_DASHBOARD_DIR $prefix/lib/plugins/noarch/tcl/cv_dashboard1.3
+setenv FFTKDIR $prefix/lib/plugins/noarch/tcl/fftk2.1
+setenv HEATMAPPERDIR $prefix/lib/plugins/noarch/tcl/heatmapper1.2
+setenv IDATMDIR $prefix/lib/plugins/noarch/tcl/idatm0.2
+setenv ILSTOOLSDIR $prefix/lib/plugins/noarch/tcl/ilstools1.5
+setenv INFOBUTTONDIR $prefix/lib/plugins/noarch/tcl/infobutton1.0
+setenv INORGANICBUILDERDIR $prefix/lib/plugins/noarch/tcl/inorganicbuilder0.1
+setenv LIBBIOKITPLUGINDIR $prefix/lib/plugins/LINUXAMD64/tcl/libbiokit1.1
+setenv MAFFTRUNDIR $prefix/lib/plugins/LINUXAMD64/tcl/mafft1.1
+
+setenv MDFFDIR $prefix/lib/plugins/noarch/tcl/mdff0.6
+setenv MEMBRANEDIR $prefix/lib/plugins/noarch/tcl/membrane1.2
+setenv MMPDIR $prefix/lib/plugins/noarch/tcl/membranemixer1.0
+setenv MOLEFACTUREDIR $prefix/lib/plugins/noarch/tcl/molefacture2.0
+setenv MOLTOPTOOLDIR $prefix/lib/plugins/noarch/tcl/moltoptools0.1
+setenv NAMDENERGYDIR $prefix/lib/plugins/noarch/tcl/namdenergy1.4
+setenv NAMDGUIDIR $prefix/lib/plugins/noarch/tcl/namdgui1.4
+setenv PARATOOLDIR $prefix/lib/plugins/noarch/tcl/paratool1.6
+
+setenv QMTOOLDIR $prefix/lib/plugins/noarch/tcl/qmtool2.0
+setenv QWIKFOLDDIR $prefix/lib/plugins/noarch/tcl/qwikfold0.5
+setenv QWIKMDDIR $prefix/lib/plugins/noarch/tcl/qwikmd1.3
+setenv RMSDTTDIR $prefix/lib/plugins/noarch/tcl/rmsdtt3.0
+setenv RMSDVTDIR $prefix/lib/plugins/noarch/tcl/rmsdvt1.0
+setenv RNAVIEW $prefix/lib/plugins/LINUXAMD64/tcl/rnaview1.1
+setenv SOLVATEDIR $prefix/lib/plugins/noarch/tcl/solvate1.7
+setenv STAMPDIR $prefix/lib/plugins/LINUXAMD64/tcl/stamp1.2
+setenv STAMPPLUGINDIR $prefix/lib/plugins/LINUXAMD64/tcl/stamp1.2
+
+setenv TKCONDIR $prefix/lib/plugins/noarch/tcl/vmdtkcon2.0
+setenv TOPOTOOLSDIR $prefix/lib/plugins/noarch/tcl/topotools1.8
+setenv TORPLOTDIR $prefix/lib/plugins/noarch/tcl/torsionplot1.2
+setenv UPGMA_CLUSTERPLUGINDIR $prefix/lib/plugins/LINUXAMD64/tcl/phylotree1.2
+setenv VERSIONDIR $prefix/lib/plugins/noarch/tcl/multiseq3.1
+setenv VMDANTEDIR $prefix/lib/plugins/noarch/tcl/runante0.2
+
+setenv VMDSQMDIR $prefix/lib/plugins/noarch/tcl/runsqm0.2
 
