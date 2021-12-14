@@ -5,7 +5,7 @@
 ## Mosek Optimizer 9.1.12
 ##
 ## Brian Alston February 2020
-##
+## Updated December 2021 for new License Manager host
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -46,7 +46,7 @@ prepend-path LD_LIBRARY_PATH $mosekDir/tools/platform/linux64x86/bin
 
 prepend-path MATLABPATH $mosekDir/toolbox/r2015a
 
-setenv MOSEKLM_LICENSE_FILE 27007@lm-server3.ucl.ac.uk
+setenv MOSEKLM_LICENSE_FILE 27007@lic-rhel01.ad.ucl.ac.uk
 
 
 if { ! [info exists ::env(OMP_NUM_THREADS)]} {
