@@ -1,0 +1,40 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds AMBER 20 and AmberTools 21"
+    puts stderr "to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds AMBER 20 and AmberTools 21 to your environment"
+
+conflict amber
+prereq beta-modules
+prereq gcc-libs/10.2.0
+prereq python/3.8.6
+prereq openblas/0.3.13-serial/gnu-10.2.0
+
+
+set              root              /shared/ucl/apps/amber-gcc/amber-20
+set              pyroot            /shared/ucl/apps/amber/support/20
+
+setenv           AMBERHOME         $root
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     PERL5LIB          $root/lib/perl
+prepend-path     MANPATH           $root/share/man
+prepend-path     CMAKE_PREFIX_PATH  $root
+
+# AmberTools
+setenv           QUICK_BASIS       $root/AmberTools/src/quick/basis
+prepend-path     PYTHONPATH        $pyroot/lib/python3.8/site-packages
+prepend-path     PATH              $pyroot/bin
+prepend-path     MANPATH           $pyroot/share/man
+
+prepend-path     PYTHONPATH        $root/lib/python3.8/site-packages
+
