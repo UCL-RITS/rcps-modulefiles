@@ -6,11 +6,11 @@
 proc ModulesHelp { } {
 
     puts stderr "This module adds AMBER 20 and AmberTools 21"
-    puts stderr "to your environment."
+    puts stderr "to your environment. OpenMP threaded version."
     puts stderr ""
 }
 
-module-whatis "Adds AMBER 20 and AmberTools 21 to your environment"
+module-whatis "Adds AMBER 20 and AmberTools 21 to your environment. OpenMP threaded version."
 
 conflict amber
 prereq beta-modules
@@ -19,7 +19,7 @@ prereq python/3.8.6
 prereq openblas/0.3.13-serial/gnu-10.2.0
 
 
-set              root              /shared/ucl/apps/amber-gcc/amber-20
+set              root              /shared/ucl/apps/amber-gcc/amber-20openmp
 set              pyroot            /shared/ucl/apps/amber/support/20
 
 setenv           AMBERHOME         $root

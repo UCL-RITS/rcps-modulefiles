@@ -3,6 +3,9 @@
 ## modulefile
 ##
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
 
     puts stderr "This module adds AMBER 20 and AmberTools 21"
@@ -15,11 +18,20 @@ module-whatis "Adds AMBER 20 and AmberTools 21 to your environment"
 conflict amber
 prereq beta-modules
 prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
 prereq python/3.8.6
 prereq openblas/0.3.13-serial/gnu-10.2.0
 
+# Myriad requires UCX
+if [modulefunctions::isCluster Myriad] {
+    prereq numactl/2.0.12
+    prereq binutils/2.36.1/gnu-10.2.0
+    prereq ucx/1.9.0/gnu-10.2.0
+}
 
-set              root              /shared/ucl/apps/amber-gcc/amber-20
+prereq mpi/openmpi/4.0.5/gnu-10.2.0
+
+set              root              /shared/ucl/apps/amber-gcc/amber-20mpi
 set              pyroot            /shared/ucl/apps/amber/support/20
 
 setenv           AMBERHOME         $root
