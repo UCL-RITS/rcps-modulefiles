@@ -14,8 +14,6 @@ proc ModulesHelp { } {
 
 module-whatis {Adds VASP 6.2.1 to your environment.}
 
-put stderr {Note this version of VASP can only be run on GPUs.}
-
 prereq compilers/nvidia/hpc-sdk/22.1
 prereq fftw/3.3.10/nvidia-22.1
 
