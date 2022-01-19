@@ -22,7 +22,7 @@ set              prefix               /shared/ucl/apps/vasp/6.2.1-19Jan2022/inte
 
 if { [modulefunctions::isCluster michael] } {
    if { [modulefunctions::hasArch avx512] } {
-      set prefix /shared/ucl/apps-overrides/avx512/vasp/6.2.1-19Jan2022/intel-2019
+      set prefix /shared/ucl/apps-overrides/avx512/vasp/6.2.1-20220191/intel-2019
 
    }    
 }
