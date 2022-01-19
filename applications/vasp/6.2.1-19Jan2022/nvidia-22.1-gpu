@@ -12,7 +12,7 @@ proc ModulesHelp { } {
 
 }
 
-module-whatis {Adds VASP 6.2.1 to your environment.}
+module-whatis {Adds VASP 6.2.1 FOR GPUS ONLY to your environment.}
 
 prereq compilers/nvidia/hpc-sdk/22.1
 prereq fftw/3.3.10/nvidia-22.1
