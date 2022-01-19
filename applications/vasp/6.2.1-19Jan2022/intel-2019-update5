@@ -18,7 +18,7 @@ prereq mpi/intel/2019/update5/intel
 
 conflict vasp
 
-set              prefix               /shared/ucl/apps/vasp/6.2.1-19Jan2021/intel-2019
+set              prefix               /shared/ucl/apps/vasp/6.2.1-19Jan2022/intel-2019
 
 # Waiting for build to finish
 #if { [modulefunctions::isCluster michael] } {
