@@ -74,6 +74,5 @@ prepend-path PATH /shared/ucl/apps/openmpi/ucl-wrapper-omp3+/bin
 setenv COMPILER_TAG nvidia-2022-22.1
 setenv GERUN_LAUNCHER openmpi
 
-setenv MPI_RUN /shared/ucl/apps/nvhpc/2022_221/Linux_x86_64/22.1/comm_libs/mpi/bin/mpirun
-
-setenv MPI_HOME /shared/ucl/apps/nvhpc/2022_221/Linux_x86_64/22.1/comm_libs/mpi
+setenv MPI_RUN $prefix/comm_libs/mpi/bin/mpirun
+setenv MPI_HOME $prefix/comm_libs/mpi
