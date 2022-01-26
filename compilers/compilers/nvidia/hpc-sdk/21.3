@@ -19,7 +19,7 @@ conflict mpi
 set              nvinst               /shared/ucl/apps/nvhpc/2021_213
 set              topdir               $nvinst/Linux_x86_64/21.3
 
-foreach i {cuda compilers profilers math_libs comm_libs/mpi comm_libs/nccl comm_libs/nvshmem cuda/11.2/extras/CUPTI} {
+foreach i {cuda compilers profilers math_libs comm_libs/mpi comm_libs/nccl comm_libs/nvshmem cuda/11.2/extras/CUPTI compilers/extras/qd} {
 
     set prefix $topdir/$i
 
