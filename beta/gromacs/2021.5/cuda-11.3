@@ -1,0 +1,41 @@
+#%Module -*- tcl -*-
+##
+## 
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds gromacs 2021.5 built with CUDA 11.3 to your environment. ThreadMPI and OpenMPI versions included. GROMACS is a package for performing molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.}
+
+}
+
+module-whatis {Adds gromacs 2021.5 built with CUDA 11.3 to your environment. ThreadMPI and OpenMPI versions included. GROMACS is a package for performing molecular dynamics, i.e. simulate the Newtonian equations of motion for systems with hundreds to millions of particles.}
+
+conflict gromacs
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+prereq python3
+prereq cuda/11.3.1/gnu-10.2.0
+
+# Myriad requires UCX
+if [modulefunctions::isCluster Myriad] {
+    prereq numactl/2.0.12
+    prereq binutils/2.36.1/gnu-10.2.0
+    prereq ucx/1.9.0/gnu-10.2.0
+}
+
+prereq mpi/openmpi/4.0.5/gnu-10.2.0
+
+set              prefix               /shared/ucl/apps/gromacs/2021.5-gpu/gnu-10.2.0
+
+prepend-path        CMAKE_PREFIX_PATH    $prefix
+prepend-path        PATH                 $prefix/bin
+prepend-path        MANPATH              $prefix/share/man
+prepend-path        LIBRARY_PATH         $prefix/lib64
+prepend-path        LD_LIBRARY_PATH      $prefix/lib64
+prepend-path        PKG_CONFIG_PATH      $prefix/lib64/pkgconfig
+prepend-path        CPATH                $prefix/include
+prepend-path        INCLUDE_PATH         $prefix/include
+
