@@ -42,7 +42,7 @@ if [modulefunctions::isCluster Myriad] {
 
 prereq mpi/openmpi/4.0.5/gnu-10.2.0
 
-set root /shared/ucl/apps/lammps/29Sep2021_update2/basic
+set root /shared/ucl/apps/lammps/29Sep2021_update2/basic/gnu-10.2.0
 
 # if { [modulefunctions::isCluster michael] } {
 #    if { [modulefunctions::hasArch avx512] } {
