@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Sets up the environment and cache directories for the Singularity container runtime."
+    puts stderr ""
+    puts stderr "Cache directories are set to be in Scratch space."
+    puts stderr "By default, these would be in /tmp which can cause problems."
+    puts stderr ""
+}
+
+module-whatis "Sets up the environment and cache directories for the Singularity container runtime."
+
+set prefix "$::env(HOME)/Scratch/.singularity"
+
+if { [module-info mode load] } {
+    puts stderr "Ensuring Singularity cache directories exist..."
+    modulefunctions::createDir "$prefix"
+    modulefunctions::createDir "$prefix/tmp"
+    modulefunctions::createDir "$prefix/localcache"
+    modulefunctions::createDir "$prefix/pull"
+    puts stderr "...done."
+}
+
+setenv SINGULARITY_CACHEDIR       "$prefix"
+setenv SINGULARITY_TMPDIR         "$prefix/tmp"
+setenv SINGULARITY_LOCALCACHEDIR  "$prefix/localcache"
+setenv SINGULARITY_PULLFOLDER     "$prefix/pull"
+
+prepend-path --delim=, SINGULARITY_BINDPATH "/scratch/scratch/$::env(USER)"
+prepend-path --delim=, SINGULARITY_BINDPATH "/tmpdir"
+
