@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The toolchain for the Rust programming language.}
+}
+module-whatis {The toolchain for the Rust programming language.}
+
+conflict rust
+conflict compilers/rust
+
+set prefix /shared/ucl/apps/rust/1.58.1
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path MANPATH $prefix/share/man
+
