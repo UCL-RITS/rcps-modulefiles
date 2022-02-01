@@ -1,0 +1,28 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Adoptium Temurin 8u322-b06 compilers to your environment variables,"
+}
+
+module-whatis "adds Adoptium Temurin 8u322-b06 compilers to your environment variables"
+
+conflict java
+prereq gcc-libs
+
+set              root              /shared/ucl/apps/temurin/8u322b06/jdk8u322-b06
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           JAVA_HOME         $root
+
+prepend-path CMAKE_PREFIX_PATH $root
