@@ -38,7 +38,9 @@ setenv I_MPI_F77 ifort
 prepend-path PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/bin
 prepend-path MANPATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/man
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib/release_mt
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib
+prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/lib/release_mt
 prepend-path CPATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243/intel64/include
 #prepend-path PATH /shared/ucl/apps/intel-mpi/ucl-wrapper/bin
 prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/intel/2019.Update4/impi/2019.4.243
