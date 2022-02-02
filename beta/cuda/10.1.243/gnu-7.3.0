@@ -9,7 +9,7 @@ proc ModulesHelp { } {
 
 module-whatis {Adds cuda 10.1.243 to your environment. This is for compiling CUDA code to run on NVIDIA GPUs.}
 
-prereq gcc-libs/7.3.0
+prereq gcc-libs
 
 conflict cuda
 
