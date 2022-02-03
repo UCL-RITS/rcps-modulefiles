@@ -33,9 +33,7 @@ setenv FI_PROVIDER_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/inte
 prepend-path PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/bin
 prepend-path MANPATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/man
 prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/lib
-prepend-path LD_LIBRARY_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/lib/release_mt
 prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/lib
-prepend-path LIBRARY_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/lib/release_mt
 prepend-path CPATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/include
 prepend-path CMAKE_PREFIX_PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281
 prepend-path PATH /shared/ucl/apps/intel/2019.Update5/impi/2019.5.281/intel64/libfabric/bin
