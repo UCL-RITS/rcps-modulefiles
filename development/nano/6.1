@@ -1,0 +1,15 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The nano text editor.}
+}
+module-whatis {The nano text editor.}
+
+conflict nano
+
+set prefix /shared/ucl/apps/nano/6.1
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+prepend-path INFO_PATH $prefix/share/info
+
