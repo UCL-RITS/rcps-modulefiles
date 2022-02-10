@@ -30,8 +30,8 @@ prepend-path PATH                $prefix
 setenv       GATK_LOCAL_JAR      $prefix/gatk-package-4.2.5.0-local.jar
 setenv       GATK_CONDA          $prefix/conda
 
-puts stderr {Some GATK tools require conda and associate libraries.}
-puts stderr {To use them run:}
-puts stderr { module load python/miniconda3/4.10.3 }
-puts stderr { source $UCL_CONDA_PATH/etc/profile.d/conda.sh }
-puts stderr { conda activate $GATK_CONDA }
+puts stderr {GATK: Some GATK tools require conda and associate libraries.}
+puts stderr {      To use them run:}
+puts stderr {       module load python/miniconda3/4.10.3 }
+puts stderr {       source $UCL_CONDA_PATH/etc/profile.d/conda.sh }
+puts stderr {       conda activate $GATK_CONDA }
