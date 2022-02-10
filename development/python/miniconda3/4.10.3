@@ -51,6 +51,10 @@ if { [file isdirectory $prefix/include] } then {
 }
 
 
+setenv _CONDA_ROOT $prefix
+setenv _CONDA_SHELL_FLAVOUR bash
+setenv _CONDA_EXE $prefix/bin/conda
+
 set-alias _conda_activate "
     if \[ -n \"\$\{CONDA_PS1_BACKUP:+x\}\" \]; then
         PS1=\"\$CONDA_PS1_BACKUP\";
