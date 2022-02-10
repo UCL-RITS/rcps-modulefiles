@@ -15,6 +15,8 @@ conflict python
 
 set              prefix               /shared/ucl/apps/miniconda/4.10.3
 
+setenv              UCL_CONDA_PATH $prefix
+
 setenv              PYTHON_VERSION_TAG   3.7
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
@@ -51,4 +53,4 @@ if { [file isdirectory $prefix/include] } then {
 }
 
 puts stderr { To make conda operate correctly, please run: }
-puts stderr { source $prefix/etc/profile.d/conda.sh }
+puts stderr { source $UCL_CONDA_PATH/etc/profile.d/conda.sh }
