@@ -1,3 +1,5 @@
+#%Module -*- tcl -*-
+## module_made (v2)
 proc ModulesHelp { } {
   puts stderr {NAMD is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems. This is NAMD's Linux-x86_64-multicore-CUDA binary.}
 }
