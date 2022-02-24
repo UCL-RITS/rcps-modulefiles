@@ -81,7 +81,7 @@ setenv WM_PROJECT_VERSION v1906
 setenv WM_THIRD_PARTY_DIR $mod_third_dir
 
 prepend-path LD_LIBRARY_PATH $root/platforms/linux64GccDPInt64Opt/lib/dummy
-prepend-path LD_LIBRARY_PATH $mod_third_dir/platforms/linux64GccDPInt64Opt/lib
+prepend-path LD_LIBRARY_PATH $mod_third_dir/platforms/linux64GccDPInt64/lib
 prepend-path LD_LIBRARY_PATH $root/platforms/linux64GccDPInt64Opt/lib
 prepend-path LD_LIBRARY_PATH $oftop/site/v1906/platforms/linux64GccDPInt64Opt/lib
 prepend-path LD_LIBRARY_PATH $local/platforms/linux64GccDPInt64Opt/lib
