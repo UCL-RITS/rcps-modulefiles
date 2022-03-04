@@ -19,9 +19,17 @@ proc ModulesHelp { } {
 
 module-whatis "Adds GATK 4.2.1.0 to your environment. The Genome Analysis Toolkit or GATK is a software package developed at the Broad Institute to analyze high-throughput sequencing data. Website: https://www.broadinstitute.org/gatk/index.php"
 
+set java_variant temurin
+
 conflict gatk
 prereq gcc-libs
-prereq java/temurin-8
+
+if { [info exists ::env(JAVA_VARIANT_TAG)] } {
+   set java_variant $::env(JAVA_VARIANT_TAG)
+}
+
+if { $java_variant=="temurin" } {prereq  java/temurin-8}
+if { $java_variant=="semeru" } {prereq  java/semeru-8}
 
 set prefix /shared/ucl/apps/gatk-bsd/4.2.5.0/gatk-4.2.5.0
 

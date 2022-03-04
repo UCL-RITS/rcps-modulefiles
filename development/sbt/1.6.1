@@ -9,8 +9,17 @@ proc ModulesHelp { } {
 
 module-whatis {This is a module with no description string.}
 
+set java_variant temurin
+
 prereq gcc-libs
-prereq java/temurin-17
+
+if { [info exists ::env(JAVA_VARIANT_TAG)] } {
+   set java_variant $::env(JAVA_VARIANT_TAG)
+}
+
+if { $java_variant=="temurin" } {prereq  java/temurin-8}
+if { $java_variant=="semeru" } {prereq  java/semeru-8}
+
 
 conflict scala
 conflict sbt
