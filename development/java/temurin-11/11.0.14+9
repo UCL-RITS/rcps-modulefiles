@@ -25,4 +25,6 @@ prepend-path     INCLUDE_PATH      $root/include
 
 setenv           JAVA_HOME         $root
 
+setenv           JAVA_VARIANT      temurin
+
 prepend-path CMAKE_PREFIX_PATH $root
