@@ -9,9 +9,16 @@ proc ModulesHelp { } {
 
 module-whatis {This is a module with no description string.}
 
+set java_variant temurin
+
 prereq gcc-libs
 prereq rlwrap
-prereq java/temurin-17
+if { [info exists ::env(JAVA_VARIANT)] } {
+   set java_variant $::env(JAVA_VARIANT)
+}
+
+if { $java_variant=="temurin" } {prereq  java/temurin-17}
+if { $java_variant=="semeru" } {prereq  java/semeru-17}
 
 conflict clojure
 

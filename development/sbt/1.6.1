@@ -13,12 +13,12 @@ set java_variant temurin
 
 prereq gcc-libs
 
-if { [info exists ::env(JAVA_VARIANT_TAG)] } {
-   set java_variant $::env(JAVA_VARIANT_TAG)
+if { [info exists ::env(JAVA_VARIANT)] } {
+   set java_variant $::env(JAVA_VARIANT)
 }
 
-if { $java_variant=="temurin" } {prereq  java/temurin-8}
-if { $java_variant=="semeru" } {prereq  java/semeru-8}
+if { $java_variant=="temurin" } {prereq  java/temurin-17}
+if { $java_variant=="semeru" } {prereq  java/semeru-17}
 
 
 conflict scala
