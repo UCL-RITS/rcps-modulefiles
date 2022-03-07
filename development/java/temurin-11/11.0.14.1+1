@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Adoptium Temurin 11.0.14.1+1 compilers to your environment variables,"
+}
+
+module-whatis "adds Adoptium Temurin 11.0.14.1+1 compilers to your environment variables"
+
+conflict java
+prereq gcc-libs
+
+set              root              /shared/ucl/apps/temurin/11.0.14.1_1/jdk-11.0.14.1+1
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+setenv           JAVA_HOME         $root
+
+setenv           JAVA_VARIANT      temurin
+
+prepend-path CMAKE_PREFIX_PATH $root
