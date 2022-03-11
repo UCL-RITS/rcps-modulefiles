@@ -1,0 +1,31 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLUMED 2.7.2 package to your environment."
+    puts stderr "PLUMED is a plugin that works with a large number of molecular dynamics codes."
+    puts stderr ""
+}
+
+module-whatis "Adds PLUMED 2.7.2 to your environment, built using MKL and libmatheval. PLUMED is a plugin that works with a large number of molecular dynamics codes."
+
+# Add binary to PATH
+prereq gcc-libs
+prereq compilers/intel/2020/release
+prereq mpi/intel/2019/update6/intel
+prereq flex/2.5.39
+prereq libmatheval/1.1.11
+
+conflict plumed
+
+set root                        /shared/ucl/apps/plumed/2.7.2/intel-2020/mkl
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE		$root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+
+setenv PLUMED_KERNEL          	$root/lib/libplumedKernel.so
+
