@@ -1,0 +1,43 @@
+#%Module -*- tcl -*-
+#
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the PLUMED 2.7.2 package to your environment."
+    puts stderr "PLUMED is a plugin that works with a large number of molecular dynamics codes."
+    puts stderr ""
+}
+
+module-whatis "Adds PLUMED 2.7.2 to your environment, built using GCC, OpenBLAS and libmatheval. PLUMED is a plugin that works with a large number of molecular dynamics codes."
+
+# Add binary to PATH
+prereq beta-modules
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+
+# Myriad requires UCX
+if [modulefunctions::isCluster Myriad] {
+    prereq numactl/2.0.12
+    prereq binutils/2.36.1/gnu-10.2.0
+    prereq ucx/1.9.0/gnu-10.2.0
+}
+prereq mpi/openmpi/4.0.5/gnu-10.2.0
+prereq openblas/0.3.13-serial/gnu-10.2.0
+prereq flex/2.5.39
+prereq libmatheval/1.1.11
+
+conflict plumed
+
+set root                        /shared/ucl/apps/plumed/2.7.2/gnu-10.2.0/openblas
+prepend-path PATH               $root/bin
+prepend-path LD_LIBRARY_PATH    $root/lib
+prepend-path LIBRARY_PATH       $root/lib
+prepend-path CPATH              $root/include
+prepend-path INCLUDE		$root/include
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+
+setenv PLUMED_KERNEL          	$root/lib/libplumedKernel.so
+
