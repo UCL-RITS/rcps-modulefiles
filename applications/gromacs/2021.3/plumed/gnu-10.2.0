@@ -1,0 +1,43 @@
+#%Module -*- tcl -*-
+##
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+  puts stderr {GROMACS 2021.3 molecular dynamics package, built with GNU 10.2.0 compilers, PLUMED 2.7.2 patches (including libmatheval).}
+
+}
+
+module-whatis {GROMACS 2021.3 molecular dynamics package, built with GNU 10.2.0 compilers, PLUMED 2.7.2 patches (including libmatheval).}
+
+prereq beta-modules
+prereq gcc-libs/10.2.0
+
+# Myriad requires UCX
+if [modulefunctions::isCluster Myriad] {
+    prereq numactl/2.0.12
+    prereq binutils/2.36.1/gnu-10.2.0
+    prereq ucx/1.9.0/gnu-10.2.0
+}
+
+prereq mpi/openmpi/4.0.5/gnu-10.2.0
+prereq openblas/0.3.13-serial/gnu-10.2.0
+prereq python3/3.9-gnu-10.2.0
+prereq libmatheval
+prereq flex
+prereq plumed/2.7.2/gnu-10.2.0
+
+conflict gromacs
+
+set              prefix               /shared/ucl/apps/gromacs/2021.3-plumed/gnu-10.2.0
+
+prepend-path      CMAKE_PREFIX_PATH    $prefix
+prepend-path      PATH                 $prefix/bin
+prepend-path      MANPATH              $prefix/share/man
+prepend-path      LIBRARY_PATH         $prefix/lib64
+prepend-path      LD_LIBRARY_PATH      $prefix/lib64
+prepend-path      PKG_CONFIG_PATH      $prefix/lib64/pkgconfig
+prepend-path      CPATH                $prefix/include
+prepend-path      INCLUDE_PATH         $prefix/include
+
