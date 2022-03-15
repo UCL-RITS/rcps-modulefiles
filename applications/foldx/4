@@ -5,23 +5,33 @@
 ## FoldX suite from http://foldxsuite.crg.eu
 ##
 ## February 2018
+## Updated March 2022 for version licensed until 31st Decmber 2022 and to add app group check.
 ##
 
 # New Legion modules layout
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
 proc ModulesHelp { } {
-    puts stderr "Adds FoldX Suite 4 to your environment."
+    puts stderr "Adds FoldX Suite Version 4.0 to your environment."
     puts ""
     puts stderr "http://foldxsuite.crg.eu"
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/FoldX/v4"
+    puts stderr "Note: FoldX is licensed software. You need an individual free academic license for it"
+    puts stderr "which can be obtained via the above web site. You then need to be added to the"
+    puts stderr "appropriate reserved application group - send email to rc-support AT ucl.ac.uk"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/FoldX/v4.0"
 }
 
-module-whatis "Adds FoldX Suite 4 to your environment."
+module-whatis "Adds FoldX Suite 4.0 to your environment."
 
 # Location of FoldX:
 
-set prefix /shared/ucl/apps/FoldX/v4
+set prefix /shared/ucl/apps/FoldX/v4.0
+
+modulefunctions::mustBeMemberToLoad "legfldx"
 
 prereq gcc-libs
 conflict foldx
