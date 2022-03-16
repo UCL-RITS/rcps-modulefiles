@@ -1,0 +1,42 @@
+#%Module -*- tcl -*-
+##
+## quantum-espresso
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+set module_name quantum-espresso
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds quantum-espresso 7.0 to your environment.}
+
+}
+
+module-whatis {Adds quantum-espresso 7.0 to your environment.}
+
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq compilers/gnu/9.2.0
+prereq mpi/openmpi/3.1.5/gnu-9.2.0
+prereq fftw/3.3.8/gnu-9.2.0
+
+
+conflict quantum-espresso
+
+set root /shared/ucl/apps/quantum-espresso/7.0/gnu-9.2.0/q-e/
+
+prepend-path PATH $root/bin
+
+# First check for clusters without TMPDIR
+if [modulefunctions::isCluster kathleen] {
+  setenv ESPRESSO_TMPDIR $::env(HOME)/Scratch
+} elseif { [info exists ::env(TMPDIR) ] } {
+  setenv ESPRESSO_TMPDIR $::env(TMPDIR)
+} else {
+  setenv ESPRESSO_TMPDIR /tmp
+}
+
+setenv PWGUI $root/GUI/PWgui
+
