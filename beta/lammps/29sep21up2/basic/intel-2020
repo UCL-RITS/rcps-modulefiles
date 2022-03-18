@@ -46,4 +46,5 @@ prepend-path     CPATH             $prefix/include
 prepend-path     INCLUDE_PATH      $prefix/include     
 prepend-path     MANPATH           $prefix/share/man
 prepend-path     PKG_CONFIG_PATH      $prefix/lib64/pkgconfig
+prepend-path     PYTHONPATH        $prefix/lib/python3.9/site-packages
 
