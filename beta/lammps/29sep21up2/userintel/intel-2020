@@ -1,0 +1,51 @@
+#%Module -*- tcl -*-
+##
+## LAMMPS 29 September 2021 Update 2 with most additional packages.
+##
+## Serial and MPI using Intel 2020 and Eigen 3.3.9
+
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0 
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS September 2021 Update 2 package to your environment."
+    puts stderr "It includes the INTEL package with additional optimisations."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines. The binary for this version"
+    puts stderr "is called lmp_mpi or lmp_default."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 29Sep2021 Update 2 with INTEL package to your environment. Binary is lmp_mpi or lmp_default."
+
+
+conflict lammps
+prereq gcc-libs
+prereq compilers/intel/2020/release
+prereq mpi/intel/2019/update6/intel
+prereq python/3.9.10
+
+set prefix /shared/ucl/apps/lammps/29Sep2021_update2/INTEL/intel-2020
+
+# if { [modulefunctions::isCluster michael] } {
+#    if { [modulefunctions::hasArch avx512] } {
+#       set prefix /shared/ucl/apps-overrides/avx512/lammps/29Sep2021_update2/INTEL/intel-2020
+
+#    }    
+# }
+
+prepend-path     CMAKE_PREFIX_PATH    $prefix
+prepend-path     PATH              $prefix/bin
+prepend-path     LD_RUN_PATH       $prefix/lib
+prepend-path     LD_LIBRARY_PATH   $prefix/lib
+prepend-path     LIBRARY_PATH      $prefix/lib64
+prepend-path     LD_LIBRARY_PATH   $prefix/lib64
+prepend-path     CPATH             $prefix/include
+prepend-path     INCLUDE_PATH      $prefix/include     
+prepend-path     MANPATH           $prefix/share/man
+prepend-path     PKG_CONFIG_PATH      $prefix/lib64/pkgconfig
+prepend-path     PYTHONPATH        $prefix/lib/python3.9/site-packages
+

@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Ruse is a command-line utility that periodically measures the resource use of a process and its subprocesses.}
+}
+module-whatis {Ruse is a command-line utility that periodically measures the resource use of a process and its subprocesses.}
+
+conflict ruse
+
+set prefix /shared/ucl/apps/ruse/2.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+

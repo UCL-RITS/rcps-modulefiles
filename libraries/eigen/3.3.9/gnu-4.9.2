@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds Eigen 3.3.9 to your environment. Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms."
+}
+
+module-whatis "Adds Eigen 3.3.9 to your environment. Eigen is a C++ template library for linear algebra: matrices, vectors, numerical solvers, and related algorithms."
+
+conflict eigen
+prereq gcc-libs
+
+set              prefix              /shared/ucl/apps/eigen/3.3.9/gnu-4.9.2
+
+prepend-path     CPATH             $prefix/include
+prepend-path     INCLUDE_PATH      $prefix/include
+
+prepend-path CMAKE_PREFIX_PATH  $prefix
+
