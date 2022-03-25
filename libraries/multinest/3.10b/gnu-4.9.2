@@ -1,0 +1,42 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## MultiNest 3.10b
+
+proc ModulesHelp { } {
+
+    puts stderr "\tAdds MultiNest 3.10b to your environment."
+    puts stderr ""
+    puts stderr "\tMultiNest is a Bayesian inference tool which calculates the evidence and explores the"
+    puts stderr "\tparameter space which may contain multiple posterior modes and pronounced (curving)"
+    puts stderr "\tdegeneracies in moderately high dimensions."
+    puts stderr ""
+    puts stderr "\t\thttps://github.com/JohannesBuchner/MultiNest"
+    puts stderr ""
+    puts stderr "\tIt has been built with the same compiler and MPI vefrsion as the mpi4pi module:"
+    puts stderr ""
+    puts stderr "\tmpi4py/3.0.2/gnu-4.9.2"
+    puts stderr ""
+}
+
+module-whatis "Adds MultiNest 3.10b to your environment."
+
+conflict multinest
+
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+prereq mpi/openmpi/3.1.4/gnu-4.9.2
+prereq openblas/0.3.7-serial/gnu-4.9.2
+
+set              root              /shared/ucl/apps/MultiNest/3.10b/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path	 CMAKE_PREFIX_PATH $root
