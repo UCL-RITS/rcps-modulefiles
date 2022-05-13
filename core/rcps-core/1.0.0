@@ -25,7 +25,7 @@ module load nano/2.4.2
 module load nedit/5.6-aug15
 module load dos2unix/7.3
 module load giflib/5.1.1
-module load emacs/26.3
+module load emacs/28.1
 module load tmux/3.2a
 module load mrxvt/0.5.4
 module load userscripts
