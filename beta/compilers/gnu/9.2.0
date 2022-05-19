@@ -14,7 +14,8 @@ module-whatis {The GNU Compiler Collection includes front ends for C, C++, Objec
 
 prereq gcc-libs/9.2.0
 
-conflict compilers
+conflict compilers/gnu
+conflict compilers/intel
 conflict gcc
 
 set              prefix               /shared/ucl/apps/gcc/9.2.0
