@@ -16,6 +16,8 @@ prereq gcc-libs/9.2.0
 
 conflict compilers/gnu
 conflict compilers/intel
+conflict compilers/nvidia
+conflict compilers/pgi
 conflict gcc
 
 set              prefix               /shared/ucl/apps/gcc/9.2.0
