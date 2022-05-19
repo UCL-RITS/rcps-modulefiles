@@ -1,0 +1,48 @@
+#%Module -*- tcl -*-
+##
+## Test to see if we can get away with loading new GNU on top of old...
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+
+  puts stderr {Chapel 1.26.0 for GCC}
+
+}
+
+module-whatis {Chapel 1.26.0 for GCC}
+
+prereq compilers/gnu/9.2.0
+prereq mpi/openmpi/3.1.5/gnu-9.2.0
+conflict compilers/chapel
+
+set              prefix               /shared/ucl/apps/chapel/1.26.0/gnu-9.2.0/chapel-1.26.0
+
+prepend-path PATH $prefix/bin/linux64-x86_64
+prepend-path PATH $prefix/util
+prepend-path MANPATH $prefix/man
+setenv CHPL_HOME $prefix
+
+# Myriad is SMP only, others use OFI on OPA
+if [modulefunctions::isCluster Myriad] {
+  setenv CHPL_COMM gasnet
+  setenv CHPL_LAUNCHER smp
+  setenv CHPL_COMM_SUBSTRATE smp
+  setenv CHPL_TARGET_CPU native
+  setenv CHPL_GASNET_SEGMENT fast
+} else {
+  setenv MPI_DIR /shared/ucl/apps/openmpi/3.1.5/gnu-9.2.0
+  setenv CHPL_COMM gasnet
+  setenv CHPL_LAUNCHER gasnetrun_ofi
+  setenv CHPL_TARGET_CPU native
+  setenv CHPL_GASNET_SEGMENT everything
+  setenv CHPL_COMM_SUBSTRATE ofi
+  if [modulefunctions::nodeIsLoginNode] {
+    setenv GASNET_OFI_SPAWNER mpi
+  } else {
+    setenv GASNET_OFI_SPAWNER ssh
+  }
+}
+
