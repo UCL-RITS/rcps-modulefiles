@@ -89,12 +89,13 @@ append-path PATH                $prefix/lib64/R/library/snow
 # Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
 if { [info exists ::env(NHOSTS)] } {
         if { $::env(NHOSTS) == 1} {
-          setenv OMPI_MCA_btl tcp,vader,self 
-          setenv OMPI_MCA_pml ob1
+          setenv OMPI_MCA_btl tcp,vader,self
+	    setenv OMPI_MCA_pml ob1
+	    setenv OMPI_MCA_btl_tcp_if_include eno1
         }
 } else {
     setenv OMPI_MCA_btl tcp,vader,self
-    setenv OMPI_MCA_pml ob1
+    setenv OMPI_MCA_pml ucx
 }
 
 # Set environment for non-interactive R (running in a job) to improve calculation
