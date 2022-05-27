@@ -89,11 +89,11 @@ append-path PATH                $prefix/lib64/R/library/snow
 # Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
 if { [info exists ::env(NHOSTS)] } {
         if { $::env(NHOSTS) == 1} {
-          setenv OMPI_MCA_btl tcp,sm,self
+          setenv OMPI_MCA_btl tcp,vader,self 
           setenv OMPI_MCA_pml ob1
         }
 } else {
-    setenv OMPI_MCA_btl tcp,sm,self
+    setenv OMPI_MCA_btl tcp,vader,self
     setenv OMPI_MCA_pml ob1
 }
 
