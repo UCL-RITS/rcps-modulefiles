@@ -1,0 +1,144 @@
+#%Module -*- tcl -*-
+#
+# Gaussian G16-A03 with Linda and Gaussview 6
+#
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Gaussian G16-C01 package to your environment."
+    puts stderr "Also includes Linda and Gaussview 6"
+    puts stderr ""
+}
+
+module-whatis "Adds Gaussian G16-C01 to your environment and also includes Linda and Gaussview 6. "
+
+# Add binary to PATH
+prereq gcc-libs
+
+conflict gaussian
+
+set root /shared/ucl/apps/gaussian/g16-c01/pgi-18.10
+
+modulefunctions::mustBeMemberToLoad legg16
+
+set mainExe g16
+if {[modulefunctions::isModuleLoad] && [modulefunctions::nodeIsLoginNode]} {
+    puts stderr "The main Gaussian executable ($mainExe) is too resource-intensive"
+    puts stderr "to be run on the login nodes. Please submit it as a job."
+}
+
+# Check if TMPDIR exists - if not, try $XDG_RUNTIME_DIR (/run/user/$uid)
+# systemd will wipe these files when no active sessions remain.
+# If there's no TMPDIR *and* no XDG_RUNTIME_DIR, fall back to /tmp
+if [modulefunctions::isTMPDIR] {
+    # Check TMPDIR has a reasonable amount of free space (1GB): if not, point to Scratch instead
+    if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
+        # In theory if this is in a job the user tag is unnecessary
+        # but, just to be sure
+        setenv GAUSS_SCRDIR $::env(TMPDIR)/$::env(USER)/gaussian.[randomLabel]
+    } else {
+        setenv GAUSS_SCRDIR $::env(HOME)/Scratch/Gaussian_ScrDirs/[randomLabel]
+    }
+} elseif [modulefunctions::isCluster "Aristotle"] {
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+    } else {
+        setenv GAUSS_SCRDIR /tmp/gaussian.[randomLabel]
+    }
+} else {
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv GAUSS_SCRDIR $::env(XDG_RUNTIME_DIR)/gaussian.[randomLabel]
+    } else {
+        setenv GAUSS_SCRDIR /tmp/gaussian.[randomLabel]
+    }
+}
+
+if {[modulefunctions::isModuleLoad]} {
+    puts stderr "Creating Gaussian Scratch directory:"
+    puts stderr "  GAUSS_SCRDIR=$::env(GAUSS_SCRDIR)"
+    if { [modulefunctions::createDir "$::env(GAUSS_SCRDIR)"] } {
+        puts stderr ""
+    } else {
+        puts stderr "Gaussian Scratch directory creation failed."
+        break
+    }
+}
+
+append-path PATH      	$root/g16
+append-path PATH	$root/g16/bsd
+prepend-path PATH       $root/gv6
+
+setenv g16root		$root
+setenv GAUSS_EXEDIR	$root/g16
+setenv GV_DIR		$root/gv6
+setenv lindaConv	$root/linda.perl
+setenv LINDA_PATH	$root/g16/linda9.0/linux64bit/
+
+
+# Extra config -- do not set up any of this outside a job
+if {[info exists ::env(JOB_ID)]} {
+    # GAUSS_?DEF Reference: https://gaussian.com/link0/
+    # (See: Equivalencies)
+    
+    # Default link 0 command value NProcShared = SMP threads
+    setenv GAUSS_PDEF $::env(OMP_NUM_THREADS)
+    
+    # Allow a 5% margin on Gaussian's memory limit
+    # SGE_UCL_MEM is in bytes, Gaussian's minimum unit is KB
+    setenv GAUSS_MDEF [expr int( $::env(SGE_UCL_MEM) * 0.95 / 1024) ]KB
+
+    # GAUSS_SDEF -> command to use for Linda remote commands: default is rsh, set to ssh instead
+    setenv GAUSS_SDEF ssh
+
+    # I'd like to set GAUSS_WDEF (the linda workers setup) here
+    #  but it's a little too finicky
+
+    # WDEF (linda worker config) requires some work
+    # It might honestly be a bit much for here
+    if {[info exists ::env(PE_HOSTFILE)]} {
+        if {[modulefunctions::isModuleLoad]} {
+
+            set result [list]
+            set threads_per_worker $::env(OMP_NUM_THREADS)
+            set hostname [lindex [split [info hostname] "."] 0]
+            set fp [open $::env(PE_HOSTFILE) r]
+            set file_data [read $fp]
+            close $fp
+            set node_entries [split $file_data "\n"]
+            foreach node_entry_line $node_entries {
+                if {[string equal "" $node_entry_line]} {
+                    # There's a blank line at the end of the hostfile for some reason
+                    break
+                }
+                set node_entry [split $node_entry_line " "]
+                set node_name [lindex [split [lindex $node_entry 0] "."] 0]
+                set cores_per_node [lindex $node_entry 1]
+                set workers_per_node [expr $cores_per_node / $threads_per_worker]
+            #puts stderr "node_name: $node_name"
+            #puts stderr "cores_per_node:  $cores_per_node"
+            #puts stderr "workers_per_node:  $workers_per_node"
+            #puts stderr "threads_per_worker: $threads_per_worker"
+                if {[string equal $hostname $node_name]} {
+                    # The controller process is not included but still runs workloads
+                    incr workers_per_node -1 
+                }
+                if {$workers_per_node > 0} {
+                    lappend result "$node_name:$workers_per_node"
+                }
+            }
+
+            #puts [join $result ","]
+            setenv GAUSS_WDEF [join $result ","]
+        } else {
+            # It's useful to know that GAUSS_WDEF is being set but working out the full value
+            #  isn't necessary unless we're loading
+            setenv GAUSS_WDEF "(placeholder: actual value constructed on module load)"
+        }
+    }
+}
+
+
+# # GAUSS_WDEF="$(cut -f 1,2 -d ' ' "$PE_HOSTFILE" | tr ' \n' ':,' )"
