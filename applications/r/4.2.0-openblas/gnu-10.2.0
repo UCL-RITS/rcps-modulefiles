@@ -109,7 +109,7 @@ if { [info exists ::env(JOB_ID)] } {
     # interactive session so do not set env vars
     if { [module-info mode load] } {
         puts stderr ""
-        puts stderr "R Version 4.1.1 setup."
+        puts stderr "R Version 4.2.0 setup."
         puts stderr ""
         puts stderr "NOTE: built with GNU 10.2.0 so beta-modules required."
         puts stderr ""
