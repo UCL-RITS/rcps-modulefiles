@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {p7zip is a port of the command-line version of the 7-zip file compression tool to UNIX-like systems.}
+}
+module-whatis {p7zip is a port of the command-line version of the 7-zip file compression tool to UNIX-like systems.}
+
+conflict p7zip
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/p7zip/16.02/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path MANPATH $prefix/man
+
