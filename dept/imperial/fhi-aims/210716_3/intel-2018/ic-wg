@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+#
+# FHI-aims Release 210716_3
+#
+# For Imperial College Wolpert Group on Young - lgfhaimw
+#
+# June 2022
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds FHI-aims release 210716_3 to your environment."
+    puts stderr ""
+    puts stderr "FHI-aims (Fritz Haber Institute ab initio molecular simulations) is an application for"
+    puts stderr "computational materials science using mainly DFT (density functional theory). It is"
+    puts stderr "licensed software and can only be used if you have FHI-aims research group license."
+    puts stderr ""
+    puts stderr "This version is for use by the Imperial College Wolpert group on Young."
+    puts stderr ""
+}
+
+module-whatis "Adds FHI-aims release 210716_3 to your environment"
+
+conflict fhi-aims
+
+prereq gcc-libs
+prereq mpi/intel/2018/update3/intel
+
+# Check user is in the IC Wolpert group Unix group.
+modulefunctions::mustBeMemberToLoad "lgfhaimw"
+
+set          prefix	/shared/ucl/apps/FHI-aims/ic-wg/210716_3/intel-2018/fhi-aims.210716_3
+
+prepend-path PATH       $prefix/bin
+

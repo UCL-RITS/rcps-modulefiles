@@ -1,0 +1,18 @@
+#%Module
+#
+# Imoerial College Modules for Young
+#
+#                                                      BAA June 2022
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Imperial College licensed software module space to module avail."
+    puts stderr ""
+    puts stderr ""
+    puts stderr ""
+}
+
+module-whatis "Adds Imperial College licensed software module space to module avail."
+
+module           use --append /shared/ucl/apps/modulefiles/dept/imperial
+
