@@ -1,0 +1,55 @@
+#%Module -*- tcl -*-
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds NAMD 2.14 OFI-SMP-GPU version to your environment."
+    puts stderr "This version has been built with OFI for GPUs and should be run using charmrun."
+    puts stderr ""
+    puts stderr "NAMD is a molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines. "
+    puts stderr ""
+    puts stderr "NAMD was developed by the Theoretical and Computational "
+    puts stderr "Biophysics Group in the Beckman Institute for Advanced Science" 
+    puts stderr "and Technology at the University of Illinois at Urbana-Champaign."
+    puts stderr ""
+    puts stderr "NAMD web-site:"
+    puts stderr "http://www.ks.uiuc.edu/Research/namd/"
+    puts stderr ""
+    puts stderr "Please read the NAMD license and register: "
+    puts stderr "http://www.ks.uiuc.edu/Research/namd/license.html"
+    puts stderr ""
+    puts stderr "Note: It is a condition of the license that you cite"
+    puts stderr "specific papers in any research published that used NAMD."
+    puts stderr "More details may be found at the link above."
+
+}
+
+module-whatis {Adds NAMD 2.14 OFI-SMP-GPU version to your environment. This version should be run using charmrun.}
+
+conflict namd
+prereq beta-modules
+prereq gcc-libs/7.3.0
+prereq compilers/intel/2019/update5
+prereq mpi/intel/2019/update5/intel
+prereq cuda/11.3.1/gnu-10.2.0
+
+# This version is for OmniPath clusters
+if [modulefunctions::isCluster Myriad] {
+    if [isModuleLoad] {
+        puts stderr "The OFI versions of NAMD are for OmniPath clusters - on Myriad, use multicore or other versions."
+    }
+}
+
+set prefix /shared/ucl/apps/namd/2.14-ofi-smp-gpu/intel-2019/NAMD_2.14_Source
+
+setenv CHARM_RUN $prefix/bin/charmrun
+setenv CHARMRUN_VERSION charmrun-mpirun
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path PATH /shared/ucl/apps/namd/ucl-charmrun-wrapper
+
