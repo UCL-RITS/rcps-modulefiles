@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NetCDF 4.9.0 compiled using Intel 2018
+
+proc ModulesHelp { } {
+    puts stderr "Adds NetCDF Version 4.9.0 compiled using Intel 2018"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "NetCDF is a set of software libraries and self-describing,"
+    puts stderr "machine-independent data formats that support the creation,"
+    puts stderr "access, and sharing of array-oriented scientific data."
+    puts stderr ""
+    puts stderr "This version was compiled with Intel 2018 Update 3"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.9.0-intel-2018"
+}
+
+module-whatis "adds NetCDF 4.9.0 for Intel 2018 to your environment."
+
+conflict netcdf
+prereq gcc-libs
+prereq compilers/intel
+prereq hdf/5-1.10.2-impi/intel-2018
+
+set              root              /shared/ucl/apps/NetCDF/4.9.0-intel-2018
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
+
+prepend-path CMAKE_PREFIX_PATH  $root
