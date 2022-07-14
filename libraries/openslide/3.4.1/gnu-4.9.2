@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## OpenSlide library v3.4.1
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds OpenSlide library 3.4.1 to your environment variables,"
+    puts stderr ""
+    puts stderr "OpenSlide is a C ibrary for for reading whole-slide images, also"
+    puts stderr "known as virtual slides, which are high-resolution images used in"
+    puts stderr "digital pathology."
+    puts stderr ""
+}
+
+module-whatis "adds OpenSlide library 3.4.1 to your environment variables"
+
+conflict openslide
+
+prereq gcc-libs
+prereq openjpeg/2.4.0/gnu-4.9.2
+
+set              root              /shared/ucl/apps/OpenSlide/v3.4.1/gnu-4.9.2
+
+prepend-path     PATH              $root/bin
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path     MANPATH $root/share/man
