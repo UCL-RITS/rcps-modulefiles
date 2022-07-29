@@ -1,0 +1,44 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {COMSOL is a general-purpose macroscopic physics simulation package.}
+}
+module-whatis {COMSOL is a general-purpose macroscopic physics simulation package.}
+
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+modulefunctions::mustBeMemberToLoad lgcomsol
+conflict COMSOL
+
+set prefix /shared/ucl/apps/COMSOL/6.0
+
+setenv LM_LICENSE_FILE 27003@ls-1.chemeng.ucl.ac.uk
+setenv FLROOT /shared/ucl/apps/COMSOL/6.0
+setenv I_MPI_FALLBACK 1
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
+# Check to see whether this is running in a scheduled environment (NHOSTS>1) and
+# if not, set shared memory only.
+if { [info exists ::env(NHOSTS) ] } {
+    # Scheduled.
+    # Check to see whether we have more than one host and if so set tmi and shared
+    # memory, otherwise, set shared memory.
+    if { $::env(NHOSTS) > 1} {
+        # Multi-node, scheduled.
+        setenv I_MPI_FABRICS shm:tmi
+    } else {
+        # Single node, scheduled.
+        setenv I_MPI_FABRICS shm
+    }
+} else {
+    # Not scheduled.
+    setenv I_MPI_FABRICS shm
+}
+
