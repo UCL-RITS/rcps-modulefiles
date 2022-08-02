@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# BLAST+ 2.13.0
+#
+#                                                      H.K. 27th May 2015
+# Updated for 2.13.0 August 2022
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the BLAST+ 2.13.0 package to your environment."
+    puts stderr ""
+}
+
+module-whatis "This module adds the BLAST+ 2.13.0 package to your environment."
+
+
+prereq gcc-libs/7.3.0
+
+conflict blast+
+
+set root 			/shared/ucl/apps/blast+/2.13.0/gnu-7.3.0
+prepend-path PATH      		$root/bin/
+prepend-path LD_LIBRARY_PATH 	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path CPATH		$root/include
+
+setenv BLASTDB			$root/data
