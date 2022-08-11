@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# AFNI 22.2.05
+#
+#                                                      O.K. 30 Oct 2015
+# Updated August 2022 for version 22.2.05
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the AFNI Version 22.2.05 package to your environment."
+    puts stderr ""
+    puts stderr "This package is the version of afni_src.tar from 10-08-2022."
+    puts stderr ""
+
+}
+
+module-whatis "Adds AFNI to your environment. "
+
+# Add binary to PATH
+prereq gcc-libs
+
+conflict afni
+prereq gsl/2.4/gnu-4.9.2
+
+set root 			/shared/ucl/apps/afni/22.2.05/gnu-4.9.2
+setenv AFNI_PLUGINPATH          $root
+prepend-path PATH               $root
