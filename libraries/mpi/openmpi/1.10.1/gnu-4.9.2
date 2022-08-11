@@ -3,6 +3,8 @@
 ## modulefile
 ##
 ## Built without verbs 201703
+##
+## Updated August 2022 to work on Young - hyperthreading enabled
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -22,7 +24,7 @@ prereq compilers/gnu/4.9.2
 set              openmpiversion    1.10.1
 
 # Patched version for hyperthreading-enabled clusters
-if [modulefunctions::isCluster "Kathleen"] {
+if { [modulefunctions::isCluster "Kathleen"] || [modulefunctions::isCluster "Young"] } {
     set root     /shared/ucl/apps/openmpi/1.10.1/hthread/gnu-4.9.2
 }  else {
     set root     /shared/ucl/apps/openmpi/1.10.1/no-verbs/gnu-4.9.2
@@ -49,7 +51,7 @@ if { [modulefunctions::isCluster thomas] || [modulefunctions::isCluster michael]
     prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
 }
 # Add compatibility library for MPI built for infiniband not omnipath
-if [modulefunctions::isCluster "Kathleen"] {
+if { [modulefunctions::isCluster "Kathleen"] || [modulefunctions::isCluster "Young"] } {
     prepend-path LD_LIBRARY_PATH   /usr/lib64/psm2-compat
 }
 
