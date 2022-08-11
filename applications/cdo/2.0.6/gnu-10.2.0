@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+#
+# CDO 2.0.6
+#
+# August 2022
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the CDO 2.0.6 package to your environment."
+    puts stderr ""
+    puts sdterr "CDO is a collection of command line Operators to manipulate and"
+    puts stderr "analyse Climate and NWP model Data."
+    puts stderr ""
+    puts stderr "see: https://code.mpimet.mpg.de/projects/cdo"
+    puts stderr ""
+}
+
+module-whatis "This module adds the CDO 2.0.6 package to your environment."
+
+
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq netcdf/4.8.1/gnu-10.2.0
+
+conflict cdo
+
+set root 			/shared/ucl/apps/CDO/2.0.6/gnu-10.2.0
+prepend-path PATH      		$root/bin/
