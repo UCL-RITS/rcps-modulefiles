@@ -17,7 +17,7 @@ proc ModulesHelp { } {
 
 module-whatis "This module adds the CDO 2.0.6 package to your environment."
 
-
+prereq beta-modules
 prereq gcc-libs/10.2.0
 prereq compilers/gnu/10.2.0
 prereq hdf/5-1.10.6/gnu-10.2.0
