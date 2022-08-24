@@ -71,3 +71,11 @@ if { [info exists ::env(NHOSTS) ] } {
         setenv I_MPI_FABRICS shm
 }
 
+# 2019 Intel MPI segfaults on certain cpusets if hwloc is used
+# so switch hwloc to ipl if the cpuset is restricted
+if {[modulefunctions::isCpusetLimited]} {
+    setenv I_MPI_HYDRA_TOPOLIB ipl
+} else {
+    # the default
+    setenv I_MPI_HYDRA_TOPOLIB hwloc
+}
