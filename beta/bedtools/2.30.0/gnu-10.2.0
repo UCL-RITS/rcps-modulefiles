@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# bedtools 2.30.0
+#
+#                                                      H.K. Oct 2015
+# Updated September 2022 for version 2.30.0 built with GNU 10.2.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds bedtools 2.30.0 to your environment."
+    puts stderr ""
+    puts stderr "The bedtools utilities are a swiss-army knife of tools for a wide-range of genomics"
+    puts stderr "analysis tasks."
+    puts stderr "This version has been compiled using the GNU 10.2.0 toolchain so that it is compatible"
+    puts stderr "with R 4.2.0"
+    puts stderr ""
+
+}
+
+module-whatis "Adds bedtools 2.30.0 to your environment. The bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks."
+
+conflict bedtools
+prereq beta-modules
+prereq gcc-libs/10.2.0
+
+set prefix /shared/ucl/apps/bedtools/2.30.0/gnu-10.2.0
+
+prepend-path PATH               $prefix/bin
