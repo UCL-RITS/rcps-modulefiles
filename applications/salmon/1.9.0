@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# Salmon 1.9.0 prebuilt binary version
+#
+# Brian Alston September 2022
+
+proc ModulesHelp { } {
+    puts stderr "Adds Salmon 1.9.0 to your environment."
+    puts stderr ""
+    puts stderr "Salmon is a fast program to produce a highly-accurate, transcript-level quantification"
+    puts stderr "estimates from RNA-seq data."
+    puts stderr ""
+
+}
+
+module-whatis "Adds Salmon 1.9.0 to your environment."
+
+conflict salmon
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/salmon/1.9.0/salmon-1.9.0_linux_x86_64
+
+prepend-path PATH               $prefix/bin
+prepend-path LD_LIBRARY_PATH    $prefix/lib
+
