@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Poppler 22.10.0 compiled with GNU 9.2.0 for R 4.0.2
+##
+## Brian Alston November 2022
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Poppler 22.10.0 to your environment."
+    puts stderr ""
+}
+
+module-whatis "Adds Poppler 22.10.0 to your environment."
+
+# Location of Poppler:
+
+set prefix /shared/ucl/apps/Poppler/22.10.0/gnu-9.2.0
+
+prereq beta-modules
+prereq gcc-libs/9.2.0
+prereq boost/1.75.0/gnu-4.9.2
+prereq curl/7.86.0/gnu-4.9.2
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+append-path  LD_LIBRARY_PATH    $prefix/lib64
+prepend-path INCLUDE_PATH       $prefix/include
+prepend-path CPATH              $prefix/include
+
+prepend-path CMAKE_PREFIX_PATH $prefix
