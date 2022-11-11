@@ -18,6 +18,8 @@ set              prefix               /shared/ucl/apps/pkg-config/0.29.2/
 
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 
+prepend-path ACLOCAL_PATH /shared/ucl/apps/pkg-config/0.29.2/share/aclocal
+
 if { [file isdirectory $prefix/bin] } then {
   prepend-path      PATH                 $prefix/bin
 }
