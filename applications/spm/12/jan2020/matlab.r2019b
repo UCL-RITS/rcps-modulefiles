@@ -4,6 +4,7 @@
 ##
 ## Built by O.K. on Legion on 2015-07-14
 ## Updated for SPM 12 of January 2020 and Matlab R2019b
+## Updated November 2022 to set SPM12DIR environment variable
 
 
 proc ModulesHelp { } {
@@ -25,4 +26,5 @@ prereq xorg-utils/X11R7.7
 prereq matlab/full/r2019b/9.7
 
 set              root              /shared/ucl/apps/spm/spm12-jan2020
+setenv SPM12DIR $root
 prepend-path     MATLABPATH        $root
