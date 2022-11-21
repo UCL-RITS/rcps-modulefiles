@@ -10,7 +10,7 @@ proc ModulesHelp { } {
     puts stderr "This module adds the hMRI Toolbox for use with SPM12 to your environment."
     puts stderr ""
     puts stderr "The hMRI-toolbox is a flexible tool, for qMRI data handling and processing. This"
-    puts stderr "versions works with SPM 12 of January 2020 (v7771) for use with Matlab R2091b."
+    puts stderr "version works with SPM 12 of January 2020 (v7771) for use with Matlab R2091b."
     puts stderr ""
 }
 
