@@ -1,0 +1,90 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## IDL 8.8.3
+##
+## Brian Alston December 2018
+##
+## Updated for new license manager location 29th June 2017
+## Updated for IDL 8.7.1 December 2018
+## Updated for IDL 8.7.3 February 2020
+## Updated for IDL 8.8.3 November 2022
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds IDL 8.8.3 to your environment."
+    puts stderr ""
+    puts stderr "IDL is a complete environment and language for the analysis and"
+    puts stderr "visualisation of scientific and other technical data. It can"
+    puts stderr "be used for everything from quick interactive data exploration"
+    puts stderr "to building complex applications."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/IDL/8.8.3/idl88"
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+    set oldDir "$appDir.old"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $target] } {
+	    return [modulefunctions::createSymlink $appDir $target]
+	} else {
+	    return false
+	}
+    }
+
+    if { [modulefunctions::copySource $appDir $target] } {
+	if { [string compare $type "link"] == 0 } { # is a symbolic link
+	    return true
+	} else {
+	    if { [catch {file rename $appDir $oldDir}] } {
+		puts stderr "Cannot move $appDir to $oldDir:"
+		puts stderr "    $err"
+		return false
+	    }
+	    return [modulefunctions::createSymlink $appDir $target]
+	}
+    } else {
+	return false
+    }
+}
+
+module-whatis "Adds IDL 8.8.3 to your environment."
+
+conflict idl
+
+prereq gcc-libs/4.9.2
+
+# Location of IDL:
+
+set prefix /shared/ucl/apps/IDL/8.8.3/idl88
+
+# Location of IDL prefs and settings directory
+set IDLDir "~/.idl"
+
+append-path	PATH            $prefix/bin
+
+# Set maximum number of threads on  login nodes to 4.
+if { ! [info exists env(OMP_NUM_THREADS)] } {
+	setenv IDL_CPU_TPOOL_NTHREADS 4
+}
+
+if { [modulefunctions::isModuleLoad] } {
+    if { ! [appDirSetup $IDLDir] } {
+	puts stderr ""
+	puts stderr "**** error: setting up IDL application user directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the IDL module at least once from a login node."
+	puts stderr ""
+    }
+}
+
+
