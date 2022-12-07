@@ -1,0 +1,62 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NAG Fortran compiler 7.1, 64 bit
+##
+## Modified April 2016 for version 6.1 Build 6106
+## Updated July 2018 to set NAG_KUSARI_FILE different on Thomas and Aristotle.
+## Updated October 2018 to include setting NAG_KUSARI_FILE for Michael.
+## Updated November 2018 to fix NAG_KUSARI_FILE variable
+## Updated January 2019 as Grace now has an LM running on util01
+## Updated March 2019 for new Legion update
+## Updated July 2019 for Myriad
+## Updated June 2020 for new Util server names
+## Updated July 2020 for 7.0
+## Updated August 2020 for the Young cluster
+## Updated February 2021 for Kathleen
+## Updated December 2022 for Version 7.1 build 7114
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+
+  puts stderr "Adds the NAG Fortran compiler V7.1 Build 7114 to your environment."
+  puts stderr ""
+}
+
+module-whatis "adds NAG Fortran compiler V7.1 Build 7114 to your environment."
+
+conflict compilers
+prereq gcc-libs
+
+set             prefix          /shared/ucl/apps/NAG/fortran-compiler
+set		release		7.7-7114
+
+prepend-path	PATH		$prefix/$release/bin
+prepend-path    LD_LIBRARY_PATH $prefix/$release/lib/NAG_Fortran
+prepend-path    LIBRARY_PATH    $prefix/$release/lib/NAG_Fortran   
+prepend-path	MANPATH		$prefix/$release/man
+
+if { [modulefunctions::isCluster Thomas]  } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Michael] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Grace] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Myriad]  } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Aristotle]  } {
+    setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+} elseif { [modulefunctions::isCluster Young] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} elseif { [modulefunctions::isCluster Kathleen] } {
+    setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+} else {
+        setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
+}
+
+setenv FC              nagfor
+setenv F77             nagfor
+setenv COMPILER_TAG    nag-7.1.7114
