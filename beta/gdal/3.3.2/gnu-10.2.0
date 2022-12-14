@@ -40,7 +40,7 @@ prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
 prepend-path     LIBRARY_PATH      $root/lib
 
-prepend-path	 PYTHONPATH        $root/lib/python3.8/site-packages
+prepend-path	 PYTHONPATH        $root/lib/python3.9/site-packages
 
 prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
