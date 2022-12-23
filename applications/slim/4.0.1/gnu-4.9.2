@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+#
+# SLiM 4.0.1
+#
+# December 2022
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds SLiM 4.0.1 to your environment."
+    puts stderr ""
+    puts sdterr "SLiM is an evolutionary simulation framework that combines a powerful engine"
+    puts stderr "for population genetic simulations with the capability of modeling arbitrarily"
+    puts stderr "complex evolutionary scenarios. Command line only version (no GUI)."
+    puts stderr ""
+    puts stderr "see: https://messerlab.org/slim/"
+    puts stderr ""
+}
+
+module-whatis "This module adds SLiM 4.0.1 evolutionary simulation framework to your environment."
+
+prereq gcc-libs
+
+conflict slim
+
+set root 			/shared/ucl/apps/SLiM/4.0.1/gnu-4.9.2
+prepend-path PATH      		$root/bin/
