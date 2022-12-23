@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {RClone is a command-line program intended to download and upload files from and to various storage services and providers. Version 1.61.0 which now works with google drive.}
+}
+module-whatis {RClone is a command-line program intended to download and upload files from and to various storage services and providers.}
+
+conflict rclone
+
+set prefix /shared/ucl/apps/rclone/1.61.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
