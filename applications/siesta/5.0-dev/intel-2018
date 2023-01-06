@@ -1,0 +1,40 @@
+#%Module -*- tcl -*-
+##
+## SIESTA 5.0 Development Version with Intel compiler, MPI, MKL etc
+##
+## January 2023
+
+set module_name siesta
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds SIESTA 5.0 Development Version with PSML to your environment."
+    puts stderr ""
+    puts sdterr "SIESTA is a method and an application to perform efficient electronic structure"
+    puts stderr "calculations and ab initio molecular dynamics simulations of molecules and solids."
+    puts stderr ""
+    puts stderr "This is the 5.0 Development version which includes support for pseudopotentials in"
+    puts stderr "PSML format and is under active development and not all funtions may work."
+    puts stderr ""
+    puts stderr "see: https://departments.icmab.es/leem/siesta/"
+    puts stderr ""
+
+}
+
+module-whatis {Adds SIESTA 5.0 Development Version to your environment.}
+
+prereq gcc-libs
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
+prereq hdf/5-1.10.2-impi/intel-2018
+prereq netcdf/4.9.0/intel-2018-update3
+prereq netcdf-fortran/4.5.4/intel-2018-update3
+
+conflict siesta
+
+set root /shared/ucl/apps/siesta/5.0-Dev/intel-2018
+
+prepend-path PATH $root/bin
+prepend-path INCLUDE_PATH $root/include
+prepend-path LD_LIBRARY_PATH    $root/lib64
+prepend-path CMAKE_PREFIX_PATH $root
