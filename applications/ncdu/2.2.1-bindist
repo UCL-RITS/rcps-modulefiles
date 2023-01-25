@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Ncdu is a disk usage analyzer with an ncurses interface.}
+}
+module-whatis {Ncdu is a disk usage analyzer with an ncurses interface.}
+
+conflict ncdu
+
+set prefix /shared/ucl/apps/ncdu/2.2.1-bindist
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
