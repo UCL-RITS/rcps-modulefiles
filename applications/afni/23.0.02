@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+#
+# AFNI 23.0.02
+#
+#                                                      O.K. 30 Oct 2015
+# Updated August 2022 for version 22.2.05
+# Updated January 2023 for version 23.0.02 built using GNU 10.2.0 so that it is
+# compatible with R 4.2.0.
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the AFNI Version 23.0.02 package to your environment."
+    puts stderr ""
+    puts stderr "This version has been built using the GNU 10.2.0 compilers so that it"
+    puts stderr "can be used with R 4.2.0."
+    puts stderr ""
+
+}
+
+module-whatis "Adds AFNI to your environment. "
+
+# Add binary to PATH
+prereq gcc-libs/10.2.0
+
+conflict afni
+prereq gsl/2.7/gnu-10.2.0
+
+set root 			/shared/ucl/apps/afni/23.0.02/gnu-10.2.0
+setenv AFNI_PLUGINPATH          $root
+prepend-path PATH               $root
