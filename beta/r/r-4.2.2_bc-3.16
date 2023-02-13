@@ -1,0 +1,81 @@
+#%Module -*- tcl -*-
+##
+## Recommended R bundle - version for R 4.2.2 and Bioconductor 3.16
+##
+## Version 1.5 by BAA on Legion on 11-10-2016
+## Moved to recommended 11th July 2016
+## Updated for new version of JAGS 12th July 2016
+## Updated to include GLPK October 2016
+## Updated for R 3.3.2 and R packages rgdal and rgeos November 2016
+## Updated for RNetCDF package December 2016
+## Updated for R 3.4.0 and Bioconductor 3.5 May 2017
+## Updated for R 3.4.2 and Bioconductor 3.6 December 2017
+## Updated for R 3.5.0 and Bioconductor 3.7 June 2018
+## Updated to use mpi/openmpi/3.0.0/gnu-4.9.2 which R3.5.0 needs.
+## NOTE: Rmpi is not working currently working with R3.5.0 - July 2018.
+## Updated for R 3.5.1 September 2018
+##     Also updated for udunits 2.2.26
+## Updated for R 3.5.3 April 2019
+## Updated for R 3.6.0 and Bioconductor 3.9 June 2019
+## Updated for R 3.6.3 and Bioconductor 3.10 compiled with GNU 9.2.0 April 2020
+## Updated to add loading our freetype/2.8.1/gnu-4.9.2 module May 2020
+## Updated for R 4.0.02 and Bioconductor 3.11 including additional dependencies June 2020
+## Updated to add pandoc module November 2020
+## Updated to add new protobuf and current jq modules December 2020
+## Updated for R 4.1.1 and Bioconductor 3.13 September 2021
+## Updated for R 4.2.0 and Bioconductor 3.15 May 2022
+## Updated for R 4.2.2 and Bioconductor 3.16 Feb 2023
+
+## Will need updating for additional packages
+
+## Installed as r/new bundle 
+
+proc ModulesHelp { } {
+    puts stderr "This module adds the R 4.2.2 and Bioconductor 3.16 package to your environment."
+    puts stderr ""
+    puts stderr "This module also adds other modules as required."
+    puts stderr ""
+    puts stderr ""
+}
+
+module-whatis "adds UCL recommended set of R packages for R 4.2.2 to your environment variables"
+
+# Note: module unload -f compilers mpi gcc-libs needed
+module load beta-modules
+module load gcc-libs/10.2.0
+module load compilers/gnu/10.2.0
+module load openblas/0.3.13-serial/gnu-10.2.0
+module load java/1.8.0_92
+module load fftw/3.3.9/gnu-10.2.0
+module load ghostscript/9.19/gnu-4.9.2
+module load texinfo/6.6/gnu-4.9.2
+module load texlive/2019
+module load gsl/2.7/gnu-10.2.0
+module load hdf/5-1.10.6/gnu-10.2.0
+module load udunits/2.2.28/gnu-10.2.0
+module load netcdf/4.8.1/gnu-10.2.0
+module load pcre2/10.37/gnu-10.2.0
+module load numactl/2.0.12
+module load binutils/2.36.1/gnu-10.2.0
+module load ucx/1.9.0/gnu-10.2.0
+module load mpi/openmpi/4.0.5/gnu-10.2.0
+module load perl/5.22.0
+module load libtool/2.4.6
+module load freetype/2.8.1/gnu-4.9.2
+module load graphicsmagick/1.3.21
+module load python3/3.9-gnu-10.2.0
+module load sqlite/3.36.0/gnu-10.2.0
+module load proj.4/8.1.1/gnu-10.2.0
+module load gdal/3.3.2/gnu-10.2.0
+module load geos/3.9.1/gnu-10.2.0
+module load gmt/6.2.0/gnu-10.2.0
+
+# Must use version 3.15 of V8.
+module load v8/3.15
+
+module load pandoc/1.19.2.1
+module load protobuf/3.17.3/gnu-10.2.0
+module load jq/1.5/gnu-4.9.2
+module load plink/1.90b3.40
+
+module load r/4.2.2-openblas/gnu-10.2.0
