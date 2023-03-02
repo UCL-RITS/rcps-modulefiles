@@ -26,7 +26,7 @@ module-whatis "Adds MRtrix 3.0.4 to your environment."
 prereq gcc-libs/10.2.0
 prereq compilers/gnu/10.2.0
 prereq python3/3.9-gnu-10.2.0
-prereg fftw/3.3.9/gnu-10.2.0
+prereq fftw/3.3.9/gnu-10.2.0
 prereq eigen/3.4.0/gnu-10.2.0
 
 conflict mrtrix
