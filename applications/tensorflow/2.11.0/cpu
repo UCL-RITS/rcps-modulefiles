@@ -15,7 +15,7 @@ module-whatis "Adds Tensorflow 2.11.0 to your environment."
 
 
 # Add binary to PATH
-prereq python/ python/3.9.10
+prereq python/3.9.10
 
 conflict tensorflow
 
