@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# Tensorflow GPU version
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the Tensorflow 2.11.0 package to your environment."
+    puts stderr ""
+    puts stderr "This version is includes GPU support."
+
+}
+
+module-whatis "Adds Tensorflow 2.11.0 to your environment."
+
+
+# Add binary to PATH
+prereq python/3.9.10
+prereq cuda/11.2.0/gnu-10.2.0
+prereq cudnn/8.1.0.77/cuda-11.2
+
+conflict tensorflow
+
+set root 			/shared/ucl/apps/tensorflow/2.11.0/GPU
+prepend-path PYTHONPATH         $root
