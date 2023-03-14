@@ -15,7 +15,7 @@ module-whatis "Adds Tensorflow 2.11.0 to your environment."
 
 
 # Add binary to PATH
-prereq python/3.9.10
+prereq python/3.9.6-gnu-10.2.0
 prereq cuda/11.2.0/gnu-10.2.0
 prereq cudnn/8.1.0.77/cuda-11.2
 
