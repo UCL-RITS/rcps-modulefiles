@@ -55,4 +55,5 @@ if { [file isdirectory $prefix/include] } then {
   prepend-path      INCLUDE_PATH         $prefix/include
 }
 
-setenv CUDA_PATH      $prefix
+setenv CUDA_PATH $prefix
+setenv CUDA_DIR  $prefix
