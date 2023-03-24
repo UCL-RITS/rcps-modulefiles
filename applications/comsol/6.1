@@ -32,7 +32,7 @@ if { [info exists ::env(NHOSTS) ] } {
     # memory, otherwise, set shared memory.
     if { $::env(NHOSTS) > 1} {
         # Multi-node, scheduled.
-        setenv I_MPI_FABRICS shm:tmi
+        setenv I_MPI_FABRICS shm:ofi
     } else {
         # Single node, scheduled.
         setenv I_MPI_FABRICS shm
