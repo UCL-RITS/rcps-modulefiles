@@ -23,4 +23,4 @@ conflict tensorflow
 
 set root 			/shared/ucl/apps/tensorflow/2.11.0/GPU
 prepend-path PYTHONPATH         $root
-setenv XLA_FLAGS "--xla_gpu_cuda_data_dir=\$CUDA_DIR"
+setenv XLA_FLAGS --xla_gpu_cuda_data_dir=$::env(CUDA_DIR)
