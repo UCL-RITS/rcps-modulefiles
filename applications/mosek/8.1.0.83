@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The MOSEK Optimization Suite is a software package for solving large optimization problems with many constraints and variables.}
+}
+module-whatis {The MOSEK Optimization Suite is a software package for solving large optimization problems with many constraints and variables.}
+
+conflict mosek
+prereq gcc-libs
+
+set prefix /shared/ucl/apps/mosek/8.1.0.83
+
+setenv MKSHOME /shared/ucl/apps/mosek/8.1.0.83/mosek/8
+setenv MOSEK_HOME /shared/ucl/apps/mosek/8.1.0.83/mosek/8
+setenv MOSEKLM_LICENSE_FILE 27007@lic-mosek.ucl.ac.uk
+prepend-path PATH /shared/ucl/apps/mosek/8.1.0.83/mosek/8/tools/platform/linux64x86/bin
+prepend-path LIBRARY_PATH /shared/ucl/apps/mosek/8.1.0.83/mosek/8/tools/platform/linux64x86/bin
+prepend-path LD_LIBRARY_PATH /shared/ucl/apps/mosek/8.1.0.83/mosek/8/tools/platform/linux64x86/bin
+prepend-path MATLAB_PATH /shared/ucl/apps/mosek/8.1.0.83/mosek/8/toolbox/r2014a
+prepend-path INCLUDE_PATH /shared/ucl/apps/mosek/8.1.0.83/mosek/8/tools/platform/linux64x86/h
+prepend-path CLASSPATH /shared/ucl/apps/mosek/8.1.0.83//mosek/8/tools/platform/linux64x86/bin/mosek.jar
+prepend-path CLASSPATH /shared/ucl/apps/mosek/8.1.0.83//mosek/8/tools/platform/linux64x86/bin/mosekmatlab.jar
+
+
