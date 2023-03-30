@@ -5,6 +5,7 @@
 #                                                      H.K. Sept 2015
 # Updated August 2019 for FreeSurfer 6.0
 # Updated January 2022 for FreeSurfer 7.2.0
+# Updated March 2023 - Added setting FREESURFER env var to fix issue with recon-all 
 
 proc ModulesHelp { } {
 
@@ -31,6 +32,7 @@ prereq xorg-utils/X11R7.7
 set root 		/shared/ucl/apps/freesurfer/7.2.0/freesurfer
 
 setenv FREESURFER_HOME  $root
+setenv FREESURFER       $root
 setenv SUBJECTS_DIR     $root/subjects
 setenv FUNCTIONALS_DIR  $root/sessions
 setenv LOCAL_DIR        $root/local
