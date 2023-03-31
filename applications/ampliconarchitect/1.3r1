@@ -1,0 +1,21 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Amplicon Architect is a tool for finding amplicons in Illumina reads.}
+}
+module-whatis {Amplicon Architect is a tool for finding amplicons in Illumina reads.}
+
+conflict ampliconarchitect
+prereq gcc-libs/4.9.2
+prereq samtools/1.11/gnu-4.9.2
+prereq bcftools/1.11/gnu-4.9.2
+prereq bwa/0.7.12/gnu-4.9.2
+prereq mosek/8.1.0.83
+prereq python3/3.9
+
+set prefix /shared/ucl/apps/ampliconarchitect/1.3r1
+
+prepend-path PYTHONPATH /shared/ucl/apps/ampliconarchitect/1.3r1/AmpliconArchitect/src
+prepend-path PATH /shared/ucl/apps/ampliconarchitect/1.3r1/AmpliconArchitect/src
+
+
