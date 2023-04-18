@@ -13,9 +13,9 @@ module-whatis "Adds xkbcommon to your environment."
 # Add binary to PATH
 prereq gcc-libs
 
-conflict xkbcommon
+conflict libxkbcommon
 
-set root 			/shared/ucl/apps/xkbcommon/1.5.0/gnu-4.9.2
+set root 			/shared/ucl/apps/libxkbcommon/1.5.0/gnu-4.9.2
 prepend-path LD_LIBRARY_PATH	$root/lib64
 prepend-path LIBRARY_PATH	$root/lib64
 
