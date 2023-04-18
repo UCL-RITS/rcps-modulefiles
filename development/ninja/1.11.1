@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## GNU Automake 1.16.1
+##
+## June 2018
+##
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds Ninja Version 1.11.1 to your environment."
+}
+
+module-whatis "Adds Ninja Version 1.11.1 to your environment."
+
+# Location of Automake:
+
+set prefix /shared/ucl/apps/ninja/1.11.1
+
+prereq gcc-libs
+conflict ninja
+
+prepend-path PATH		$prefix/bin
