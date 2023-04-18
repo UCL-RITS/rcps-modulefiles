@@ -15,7 +15,7 @@ prereq gcc-libs
 
 conflict libxkbcommon
 
-set root 			/shared/ucl/apps/libxkbcommon/1.5.0/gnu-4.9.2
+set root 			/shared/ucl/apps/libxkbcommon/1.5.0
 prepend-path LD_LIBRARY_PATH	$root/lib64
 prepend-path LIBRARY_PATH	$root/lib64
 
