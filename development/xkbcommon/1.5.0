@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the xkbcommon package to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds xkbcommon to your environment."
+
+# Add binary to PATH
+prereq gcc-libs
+
+conflict xkbcommon
+
+set root 			/shared/ucl/apps/xkbcommon/1.5.0/gnu-4.9.2
+prepend-path LD_LIBRARY_PATH	$root/lib64
+prepend-path LIBRARY_PATH	$root/lib64
+
+prepend-path CMAKE_PREFIX_PATH  $root
