@@ -1,0 +1,22 @@
+#%Module -*- tcl -*-
+#
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds various xcb-util packages to your environment."
+    puts stderr ""
+
+}
+
+module-whatis "Adds xcb-util packages to your environment."
+
+# Add binary to PATH
+prereq gcc-libs
+
+conflict xcb-util
+
+set root 			/shared/ucl/apps/xcb-util/0.4.0
+prepend-path LD_LIBRARY_PATH	$root/lib
+prepend-path LIBRARY_PATH	$root/lib
+prepend-path PKG_CONFIG_PATH    $root/lib/pkgconfig
+prepend-path CMAKE_PREFIX_PATH  $root
