@@ -41,5 +41,8 @@ append-path LIBRARY_PATH	$prefix/lib
 append-path LD_RUN_PATH         $prefix/lib
 
 setenv JAGS		$prefix/bin/jags
-setenv JAGS_INCLUDE	$prefix/include/JAGS
+setenv JAGS_INCLUDEDIR	$prefix/include
 setenv JAGS_LIBDIR      $prefix/lib
+seetnv JAGS_PREFIX      $prefix
+
+# install.packages("rjags", configure.args="--enable-rpath")
