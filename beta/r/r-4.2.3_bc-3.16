@@ -25,7 +25,7 @@
 ## Updated for R 4.1.1 and Bioconductor 3.13 September 2021
 ## Updated for R 4.2.0 and Bioconductor 3.15 May 2022
 ## Updated for R 4.2.2 and Bioconductor 3.16 Feb 2023
-## Updated for r $.2.3 and Bioconductor 3.16 April 2023
+## Updated for r $.2.3 and Bioconductor 3.16 also includes JAGS April 2023
 
 ## Will need updating for additional packages
 
@@ -60,6 +60,7 @@ module load numactl/2.0.12
 module load binutils/2.36.1/gnu-10.2.0
 module load ucx/1.9.0/gnu-10.2.0
 module load mpi/openmpi/4.0.5/gnu-10.2.0
+module load jags/4.3.2/gnu-10.2.0-openblas
 module load perl/5.22.0
 module load libtool/2.4.6
 module load freetype/2.8.1/gnu-4.9.2
