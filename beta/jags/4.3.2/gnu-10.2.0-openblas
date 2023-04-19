@@ -38,6 +38,8 @@ append-path PATH                $prefix/bin
 append-path MANPATH             $prefix/share/man
 append-path LD_LIBRARY_PATH	$prefix/lib
 append-path LIBRARY_PATH	$prefix/lib
+append-path LD_RUN_PATH         $prefix/lib
 
 setenv JAGS		$prefix/bin/jags
 setenv JAGS_INCLUDE	$prefix/include/JAGS
+setenv JAGS_LIBDIR      $prefix/lib
