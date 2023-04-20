@@ -6,29 +6,30 @@
 ##
 ## Brian Alston July 2016
 ## Updated May 2021 for JAGS 4.3.0 and GNU 10.2.0
-## Updated April 2023 for JAGS 4.3.2 to use with R 4.2.3
+## Updated April 2023 for JAGS 4.3.1 to use with R 4.2.3
 
 # New Legion modules layout
 
 proc ModulesHelp { } {
-    puts stderr "Adds JAGS 4.3.2 to your environment."
+    puts stderr "Adds JAGS 4.3.1 to your environment."
     puts stderr ""
     puts stderr "JAGS (Just Another Gibbs Sampler) is a program for analysis"
     puts stderr "of Bayesian hierarchical models using Markov Chain Monte Carlo"
     puts stderr "(MCMC) simulation  not wholly unlike BUGS."
     puts stderr ""
     puts stderr "It integrates well with R using the rjags package. This version"
-    puts stderr "was compiled with the OpenBLAS high performance BLAS library Note:"
-    puts stderr "this version cannot be used with R 4.2.3."
+    puts stderr "was compiled with the OpenBLAS high performance BLAS library and"
+    puts stderr "can be used with R 4.2.3. Note: this is the most recent version"
+    puts stderr "of JAGS that works with the rjags package in R."
     puts stderr ""
-    puts stderr "Directory: /shared/ucl/apps/JAGS/4.3.2_OpenBLAS/gnu-10.2.0"
+    puts stderr "Directory: /shared/ucl/apps/JAGS/4.3.1_OpenBLAS/gnu-10.2.0"
 }
 
-module-whatis "Adds JAGS 4.3.2 to your environment."
+module-whatis "Adds JAGS 4.3.1 to your environment."
 
 # Location of JAGS:
 
-set prefix /shared/ucl/apps/JAGS/4.3.2_OpenBLAS/gnu-10.2.0
+set prefix /shared/ucl/apps/JAGS/4.3.1_OpenBLAS/gnu-10.2.0
 prereq gcc-libs/10.2.0
 prereq openblas/0.3.13-serial/gnu-10.2.0
 
