@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+##
+
+proc ModulesHelp { } {
+
+  puts stderr {Microsoft .NET SDK}
+
+}
+
+module-whatis {Microsoft .NET SDK}
+
+conflict mono
+conflict dotnet-sdk
+set root /shared/ucl/apps/dotnet-sdk/7.0.203
+setenv DOTNET_ROOT $root
+append-path PATH $root
+append-path PATH $root/tools
