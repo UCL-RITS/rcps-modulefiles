@@ -60,7 +60,10 @@ module load numactl/2.0.12
 module load binutils/2.36.1/gnu-10.2.0
 module load ucx/1.9.0/gnu-10.2.0
 module load mpi/openmpi/4.0.5/gnu-10.2.0
-module load jags/4.3.2/gnu-10.2.0-openblas
+
+# Note: this is the most recent version of JAGS that works with the rjags package.
+module load jags/4.3.1/gnu-10.2.0-openblas
+
 module load perl/5.22.0
 module load libtool/2.4.6
 module load freetype/2.8.1/gnu-4.9.2
