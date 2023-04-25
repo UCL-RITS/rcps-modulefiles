@@ -6,6 +6,7 @@
 # Updated August 2022 for version 22.2.05
 # Updated January 2023 for version 23.0.02 built using GNU 10.2.0 so that it is
 # compatible with R 4.2.0.
+# Updated April 2023 to add access to default atlases
 
 proc ModulesHelp { } {
 
@@ -26,5 +27,5 @@ conflict afni
 prereq gsl/2.7/gnu-10.2.0
 
 set root 			/shared/ucl/apps/afni/23.0.02/gnu-10.2.0
-setenv AFNI_PLUGINPATH          $root
+setenv AFNI_PLUGINPATH          $root:$root/afni_atlases_dist
 prepend-path PATH               $root
