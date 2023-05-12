@@ -16,7 +16,7 @@ conflict julia
 set              root              /shared/ucl/apps/julia/1.9.0/julia-1.9.0
 
 # Note use wrapper so we pick up bundled libs
-#prepend-path     PATH              $root/ucl-wrapper
+prepend-path     PATH              $root/bin
 append-path      MANPATH           $root/share/man
 
 prepend-path     LD_RUN_PATH       $root/lib
