@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.}
+}
+module-whatis {SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.}
+
+conflict sqlite
+
+set prefix /shared/ucl/apps/sqlite/3.41.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MANPATH $prefix/share/man
+
