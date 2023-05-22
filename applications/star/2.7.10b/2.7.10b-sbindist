@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The Spliced Transcripts Alignment to a Reference (STAR) package for RNA sequence alignment. This installation uses the statically-linked binaries by default.}
+}
+module-whatis {The Spliced Transcripts Alignment to a Reference (STAR) package for RNA sequence alignment. This installation uses the statically-linked binaries by default.}
+
+conflict star
+
+set prefix /shared/ucl/apps/star/2.7.10b-sbindist
+
+prepend-path PATH /shared/ucl/apps/star/2.7.10b-sbindist/bin/Linux_x86_64_static
+
+
