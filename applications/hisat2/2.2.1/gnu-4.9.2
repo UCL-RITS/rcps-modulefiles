@@ -1,0 +1,27 @@
+#%Module -*- tcl -*-
+#
+# HISAT2 2.2.1
+#
+#                                                      BAA 1st June 2023
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds HISAT2 Version 2.2.1 to your environment."
+    puts stderr ""
+    puts stderr "HISAT2 is a fast and sensitive alignment program for mapping next-generation"
+    puts stderr "sequencing reads (whole-genome, transcriptome, and exome sequencing data)"
+    puts stderr "against the general human population (as well as against a single reference"
+    puts stderr "genome)."
+    puts stderr ""
+
+}
+
+module-whatis "Adds HISAT2 Version 2.2.1 to your environment. "
+
+prereq gcc-libs
+prereq python3/recommended
+
+conflict hisat2
+
+set root 			/shared/ucl/apps/hisat2/2.2.1/gnu-4.9.2
+prepend-path PATH               $root
