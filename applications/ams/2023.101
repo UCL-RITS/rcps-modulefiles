@@ -1,0 +1,85 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Amsterdam Modeling Suite Version 2023.101
+##
+## Brian Alston June 2023
+## 
+## For use on Young by UCL Chemical Engineering Michail Stamatakis Research
+## Group.
+##
+
+# New Legion modules layout
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+proc ModulesHelp { } {
+    puts stderr "Adds the Amsterdam Modeling Suite Version 2023.101 to your path."
+    puts stderr ""
+    puts stderr "The Amsterdam Modeling Suite (AMS) provides a comprehensive set of"
+    puts stderr "modules for computational chemistry and materials science, from"
+    puts stderr "quantum mechanics to fluid thermodynamics."
+    puts stderr ""
+    puts stderr "AMS is only availble on the MMM Hub Young cluster."
+    puts stderr ""
+    puts stderr "AMS is a reserved application. Access is controlled by membership"
+    puts stderr "of the legams group. To be given access to AMS your request will"
+    puts stderr "need to authorised by Prof Michail Stamatakis, UCL Chem. Eng."
+    puts stderr "who owns the license."
+    puts stderr ""  
+    puts stderr "Directory: /shared/ucl/apps/AMS/ams2023.101"
+}
+
+module-whatis "Adds the Amsterdam Modeling Suite Version 2023.101 to your environment."
+
+conflict ams
+
+prereq gcc-libs
+
+# Location of AMS:
+
+set prefix /shared/ucl/apps/AMS/ams2023.101
+set scmtemp ~/Scratch/SCM_TempDir
+
+proc scmTempDirSetup { appDir } {
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+	if { [modulefunctions::createDir $appDir] } {
+	    return true
+	} else {
+	    return false
+	}
+    } else {
+	return true
+    }
+}
+
+modulefunctions::mustBeMemberToLoad "legams"
+
+if { [modulefunctions::isModuleLoad] } {
+
+    # Check that user is on the Young cluster
+    if [modulefunctions::isCluster Young] {
+
+	setenv AMSHOME $prefix
+	setenv AMSBIN $prefix/bin
+	setenv AMSRESOURCES $prefix/atomicdata
+	setenv SCMLICENSE $prefix/license.txt
+
+	if { ! [scmTempDirSetup $scmtemp] } {
+	    puts stderr ""
+	    puts stderr "**** error: setting up $scmtemp directory failed."
+	    puts stderr ""
+	}
+	setenv SCM_TMPDIR $scmtemp
+    } else {
+	puts stderr ""
+	puts stderr "***** the Amsterdam Modeling Suite is only available on the MMM Hub Young cluster."
+	puts stderr ""
+    }
+}
+
+
