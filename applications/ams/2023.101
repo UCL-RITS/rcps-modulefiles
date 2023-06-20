@@ -68,6 +68,7 @@ if { [modulefunctions::isModuleLoad] } {
 	setenv AMSBIN $prefix/bin
 	setenv AMSRESOURCES $prefix/atomicdata
 	setenv SCMLICENSE $prefix/license.txt
+	prepend-path PATH $prefix/bin
 
 	if { ! [scmTempDirSetup $scmtemp] } {
 	    puts stderr ""
