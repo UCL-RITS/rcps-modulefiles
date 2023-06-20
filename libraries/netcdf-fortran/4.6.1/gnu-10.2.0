@@ -1,0 +1,35 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NetCDF Fortran bindings 4.6.1 compiled using GNU 10.2.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds NetCDF Fortran bindings Version 4.6.1 compiled using GCC"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "NetCDF is a set of software libraries and self-describing,"
+    puts stderr "machine-independent data formats that support the creation,"
+    puts stderr "access, and sharing of array-oriented scientific data."
+    puts stderr ""
+    puts stderr "This version was compiled with GNU 10.2.0"
+}
+
+module-whatis "adds NetCDF 4.6.1 for GCC to your environment."
+
+conflict netcdf-fortran
+prereq gcc-libs
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq netcdf/4.9.2/gnu-10.2.0
+
+set              root              /shared/ucl/apps/NetCDF-fortran/4.6.1-gnu-10.2.0/
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
+
+prepend-path CMAKE_PREFIX_PATH  $root
