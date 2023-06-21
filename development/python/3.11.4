@@ -1,0 +1,24 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds Python 3.11.4 with pip and virtualenv to your environment variables.}
+}
+module-whatis {Adds Python 3.11.4 with pip and virtualenv to your environment variables.}
+
+conflict python
+prereq openssl/1.1.1u
+
+set prefix /shared/ucl/apps/python/3.11.4/gnu-4.9.2
+
+setenv PYTHON_VERSION_TAG 3.11
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MANPATH $prefix/share/man
+
