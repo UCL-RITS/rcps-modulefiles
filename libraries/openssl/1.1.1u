@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {OpenSSL is a widely-used toolkit for general-purpose cryptography and secure communication.}
+}
+module-whatis {OpenSSL is a widely-used toolkit for general-purpose cryptography and secure communication.}
+
+conflict openssl
+
+set prefix /shared/ucl/apps/openssl/1.1.1u
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
+prepend-path MANPATH $prefix/share/man
+
