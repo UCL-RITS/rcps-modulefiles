@@ -1,0 +1,33 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## 
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds Julia 1.9.1 to your environment variables"
+}
+
+module-whatis "adds Julia 1.9.1 to your environment variables"
+
+conflict julia
+
+set              root              /shared/ucl/apps/julia/1.9.1/julia-1.9.1
+
+# If we have a wrapper use that.
+if { [file isdirectory $root/ucl-wrapper] } then {
+	prepend-path     PATH              $root/ucl-wrapper
+} else {
+	prepend-path     PATH              $root/bin
+} 
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+
+prepend-path CMAKE_PREFIX_PATH $root
