@@ -1,0 +1,30 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## JAGURS recommended module bundle - MPI version
+##
+## Version of JAGURS V0516
+##
+## June 2023
+
+proc ModulesHelp { } {
+  puts stderr "\tAdds set of default modules to the environment for JAGURS users."
+}
+
+module-whatis "Adds set of default modules to the environment for JAGURS users."
+
+module load gcc-libs/10.2.0
+module load compilers/gnu/10.2.0
+module load numactl/2.0.12
+module load binutils/2.36.1/gnu-10.2.0
+module load ucx/1.9.0/gnu-10.2.0
+module load mpi/openmpi/4.0.5/gnu-10.2.0
+module load sqlite/3.36.0/gnu-10.2.0
+module load proj.4/4.9.1
+module load fftw/3.3.9/gnu-10.2.0
+module load hdf/5-1.10.6/gnu-10.2.0
+module load netcdf/4.9.2/gnu-10.2.0
+module load netcdf-fortran/4.6.1/gnu-10.2.0
+module load szip/2.1
+module load jagurs/gnu-10.2.0-ompi
