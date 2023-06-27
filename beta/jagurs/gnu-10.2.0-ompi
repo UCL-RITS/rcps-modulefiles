@@ -1,0 +1,58 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## JAGURS V0516 MPI version module file. June 2023
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0 
+
+proc ModulesHelp { } {
+
+    puts stderr "Adds JAGURS V0516 MPI version to your environment variables."
+    puts stderr "" 
+    puts stderr "JAGURS is a tsunami simulation code solving linear/nonlinear"
+    puts stderr "long-wave/Boussinesq equations with/without effects of elastic"
+    puts stderr "deformation of the Earth due to tsunami load and vertical profile"
+    puts stderr "of seawater density stratification. JAGURS has both OpenMP and MPI"
+    puts stderr "support."
+    puts stderr ""
+    puts stderr "This version has been built with GNU 10.2.0 compilers and OpenMPI."
+    puts stderr ""
+}
+
+module-whatis "adds JAGURS V0516 MPI version to your environment variables"
+
+conflict jagurs
+
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+
+# Additional module depenedencies for OpenMPI on Myriad.
+
+if [modulefunctions::isCluster Myriad] {
+    prereq numactl/2.0.12
+    prereq binutils/2.36.1/gnu-10.2.0
+    prereq ucx/1.9.0/gnu-10.2.0
+}
+
+prereq mpi/openmpi/4.0.5/gnu-10.2.0
+prereq sqlite/3.36.0/gnu-10.2.0
+prereq proj.4/4.9.1
+prereq fftw/3.3.9/gnu-10.2.0
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq netcdf/4.9.2/gnu-10.2.0
+prereq netcdf-fortran/4.6.1/gnu-10.2.0
+prereq szip/2.1
+
+set              root              /shared/ucl/apps/JAGUURS/V0516/gnu-10.2.0_MPI
+
+prepend-path     PATH              $root/bin
+prepend-path     PATH              $root/tools
+
+if { [module-info mode load] } {
+    puts stderr ""
+    puts stderr "Note: you may also need to load a suitable GMT module bundle."
+    puts stderr ""
+}
+

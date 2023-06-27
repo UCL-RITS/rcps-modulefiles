@@ -13,6 +13,9 @@
 
 # New Legion modules layout
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0 
+
 proc ModulesHelp { } {
     puts stderr "Adds the PROJ.4 Cartographic Projections library version 9.2.0 to your environment."
     puts stderr ""
