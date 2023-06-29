@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Git is a free and open source distributed version control system. This installation includes git-lfs pre-configured.}
+}
+module-whatis {Git is a free and open source distributed version control system. This installation includes git-lfs pre-configured.}
+
+conflict git
+
+set prefix /shared/ucl/apps/git/2.41.0-lfs-3.3.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
