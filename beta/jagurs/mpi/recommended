@@ -8,6 +8,9 @@
 ##
 ## June 2023
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0 
+
 proc ModulesHelp { } {
   puts stderr "\tAdds set of default modules to the environment for JAGURS users."
 }
@@ -16,6 +19,15 @@ module-whatis "Adds set of default modules to the environment for JAGURS users."
 
 module load gcc-libs/10.2.0
 module load compilers/gnu/10.2.0
+
+# Additional module depenedencies for OpenMPI on Myriad.
+
+if [modulefunctions::isCluster Myriad] {
+    module load numactl/2.0.12
+    module load binutils/2.36.1/gnu-10.2.0
+    module load ucx/1.9.0/gnu-10.2.0
+}
+
 module load numactl/2.0.12
 module load binutils/2.36.1/gnu-10.2.0
 module load ucx/1.9.0/gnu-10.2.0
