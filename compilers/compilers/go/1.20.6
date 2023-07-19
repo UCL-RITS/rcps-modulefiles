@@ -1,0 +1,19 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Go is an open-source, compiled, statically-typed language with garbage collection, limited structural typing, memory safety features and CSP-style concurrent programming features added.}
+}
+module-whatis {Go is an open-source, compiled, statically-typed language with garbage collection, limited structural typing, memory safety features and CSP-style concurrent programming features added.}
+
+conflict compilers/go
+
+set prefix /shared/ucl/apps/go/1.20.6
+
+setenv GOROOT /shared/ucl/apps/go/1.20.6
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
