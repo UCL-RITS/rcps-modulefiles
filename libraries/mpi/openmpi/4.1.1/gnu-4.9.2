@@ -5,9 +5,9 @@ lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
 
 proc ModulesHelp { } {
-  puts stderr {Adds openmpi 4.1.1 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
+  puts stderr {Adds openmpi 4.1.1 to your environment. The Open MPI Project is an open source Message Passing Interface implementation. Note: we set --mca btl vader in our mpirun wrapper on OmniPath clusters for this version. It will work multi-node but be slower than other transports.}
 }
-module-whatis {Adds openmpi 4.1.1 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
+module-whatis {Adds openmpi 4.1.1 to your environment. The Open MPI Project is an open source Message Passing Interface implementation. Note: we set --mca btl vader in our mpirun wrapper on OmniPath clusters for this version. It will work multi-node but be slower than other transports.}
 
 conflict mpi
 prereq gcc-libs
@@ -34,7 +34,7 @@ prepend-path PATH              $prefix/bin
 if { [modulefunctions::isCluster Myriad] } {
     prepend-path PATH              /shared/ucl/apps/openmpi/ucl-wrapper-ompi3+-ucx/bin
 } else {
-    prepend-path PATH              /shared/ucl/apps/openmpi/ucl-wrapper-omp3+/bin
+    prepend-path PATH              /shared/ucl/apps/openmpi/ucl-wrapper-omp4.1/bin
 }
 
 prepend-path LD_RUN_PATH       $prefix/lib
