@@ -35,7 +35,7 @@ if { [modulefunctions::isCluster Myriad] } {
     prepend-path PATH          /shared/ucl/apps/openmpi/ucl-wrapper-ompi3+-ucx/bin
 } else {
     prepend-path PATH          /shared/ucl/apps/openmpi/ucl-wrapper-omp4.1/bin
-    setenv OMPI_MCA_btl        vader
+    setenv OMPI_MCA_btl        vader,self
 }
 
 prepend-path LD_RUN_PATH       $prefix/lib
