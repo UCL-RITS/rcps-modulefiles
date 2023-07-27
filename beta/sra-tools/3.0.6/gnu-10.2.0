@@ -47,7 +47,7 @@ prepend-path     LD_LIBRARY_PATH   $roots/lib64
 prepend-path        LIBRARY_PATH   $roots/lib64
 prepend-path     CPATH             $roots/include
 prepend-path     INCLUDE_PATH      $roots/include
-prepend-path     CLASSPATH         $rootS/jar
+prepend-path     CLASSPATH         $roots/jar
 
 prepend-path CMAKE_PREFIX_PATH  $rootn
 prepend-path CMAKE_PREFIX_PATH  $roots
