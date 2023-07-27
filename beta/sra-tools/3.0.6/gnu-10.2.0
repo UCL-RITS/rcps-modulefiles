@@ -1,0 +1,53 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## SRA Tools 3.0.6 compiled using GCC 10.2.0
+##
+## July 2023
+
+proc ModulesHelp { } {
+    puts stderr "Adds SRA Tools 3.0.6 compiled using GCC 10.2.0"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "The SRA Toolkit and SDK from NCBI is a collection of"
+    puts stderr "tools and libraries for using data in the INSDC"
+    puts stderr "Sequence Read Archives."
+    puts stderr ""
+    puts stderr "This version was compiled with GCC 10.2.0"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ncbi/"
+}
+
+module-whatis "adds SRA Tools 3.0.6 for GCC 10.2.0 to your environment."
+
+conflict sra-tools
+prereq gcc-libs/10.2.0
+prereq java/openjdk-11/11.0.1
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq libxml2/2.9.4/gnu-4.9.2
+prereq python3/recommended
+
+set              rootn   /shared/ucl/apps/ncbi/ncbi-vdb/3.0.6/gnu-10.2.0
+set              roots   /shared/ucl/apps/ncbi/sra-tools/3.0.6/gnu-10.2.0
+
+# ncbi-vdb
+
+prepend-path     LD_RUN_PATH       $rootn/lib64
+prepend-path     LD_LIBRARY_PATH   $rootn/lib64
+prepend-path        LIBRARY_PATH   $rootn/lib64
+prepend-path     CPATH             $rootn/include
+prepend-path     INCLUDE_PATH      $rootn/include
+
+# sra tools
+
+prepend-path     PATH              $roots/bin
+prepend-path     LD_RUN_PATH       $roots/lib64
+prepend-path     LD_LIBRARY_PATH   $roots/lib64
+prepend-path        LIBRARY_PATH   $roots/lib64
+prepend-path     CPATH             $roots/include
+prepend-path     INCLUDE_PATH      $roots/include
+prepend-path     CLASSPATH         $rootS/jar
+
+prepend-path CMAKE_PREFIX_PATH  $rootn
+prepend-path CMAKE_PREFIX_PATH  $roots
