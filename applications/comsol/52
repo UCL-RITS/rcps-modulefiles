@@ -4,6 +4,8 @@
 ##
 ## COMSOL 52 binaries
 
+## Updated August 2023 for new EE license server
+
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
 
@@ -13,6 +15,7 @@ proc ModulesHelp { } {
     puts stderr "numerical methods, for modeling and simulating physics-based problems."
     puts stderr "Module must be loaded once from a login node prior to running jobs."
     puts stderr ""
+    puts stderr "This instalation is for Electronic and Electrical Engineering only"
 }
 
 module-whatis "Adds the COMSOL 52 binaries to your environment. COMSOL Multiphysics® is a general-purpose software platform, based on advanced numerical methods, for modeling and simulating physics-based problems. Module must be loaded once from a login node prior to running jobs."
@@ -37,3 +40,4 @@ prepend-path PATH		$prefix/bin
 prepend-path CMAKE_PREFIX_PATH  $prefix
 setenv FLROOT			$prefix
 
+setenv LMCOMSOL_LICENSE_FILE 27000@comsol-lm.ee.ucl.ac.uk
