@@ -1,0 +1,25 @@
+#%Module -*- tcl -*-
+#
+# Trim Galore 0.6.10
+# 
+# updated August 2023 for version 0.6.10                                                   
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds Trim Galore 0.6.10 to your environment."
+    puts stderr "A wrapper tool around Cutadapt and FastQC to consistently apply quality and adapter trimming to FastQ files."
+    puts stderr ""
+}
+
+module-whatis "Adds Trim Galore 0.6.10 to your environment. A wrapper tool around Cutadapt and FastQC to consistently apply quality and adapter trimming to FastQ files."
+
+prereq gcc-libs
+
+conflict trim_galore
+
+prereq fastqc
+prereq python3
+
+set root                      	/shared/ucl/apps/trim_galore/0.6.10/TrimGalore-0.6.10
+prepend-path PATH		$root
+
