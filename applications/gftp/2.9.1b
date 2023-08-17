@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {gFTP is a file transfer client that supports a wide range of FTP-like protocols.}
+}
+module-whatis {gFTP is a file transfer client that supports a wide range of FTP-like protocols.}
+
+conflict gftp
+
+set prefix /shared/ucl/apps/gftp/2.9.1b
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
