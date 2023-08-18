@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Shellcheck is a tool for performing static analysis of shell scripts.}
+}
+module-whatis {Shellcheck is a tool for performing static analysis of shell scripts.}
+
+conflict shellcheck
+
+set prefix /shared/ucl/apps/shellcheck/0.8.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
