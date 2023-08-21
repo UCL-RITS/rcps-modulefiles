@@ -1,0 +1,13 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {CMake is an open-source, cross-platform family of tools designed to build, test and package software.}
+}
+module-whatis {CMake is an open-source, cross-platform family of tools designed to build, test and package software.}
+
+conflict cmake
+
+set prefix /shared/ucl/apps/cmake/3.27.3
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
