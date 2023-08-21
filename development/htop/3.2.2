@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {htop is a cross-platform interactive process viewer.}
+}
+module-whatis {htop is a cross-platform interactive process viewer.}
+
+conflict htop
+
+set prefix /shared/ucl/apps/htop/3.2.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
