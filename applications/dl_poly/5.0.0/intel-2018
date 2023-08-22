@@ -7,7 +7,6 @@ module-whatis {DL_POLY is a general-purpose classical molecular dynamics (MD) si
 
 conflict dl-poly
 prereq gcc-libs
-prereq cmake/3.19.1
 prereq compilers/intel/2018/update3
 prereq mpi/intel/2018/update3/intel
 
