@@ -14,7 +14,7 @@ conflict COMSOL
 
 set prefix /shared/ucl/apps/comsol/6.1
 
-setenv LM_LICENSE_FILE 27003@ls-1.chemeng.ucl.ac.uk
+setenv LM_LICENSE_FILE 27000@comsol-lm.ee.ucl.ac.uk
 setenv FLROOT /shared/ucl/apps/comsol/6.1
 # setenv I_MPI_FALLBACK 1
 
