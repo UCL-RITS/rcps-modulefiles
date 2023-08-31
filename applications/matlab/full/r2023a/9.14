@@ -1,0 +1,161 @@
+#%Module -*- tcl -*-
+#
+# Matlab R2023a
+#
+## Added 29/June/2012 by OK
+## Modified for R2012b and setup of .matlab directory 21st Sept 2012 by BAA
+## Modified for R2013a (Matlab: 8.1.0.604) 26th March 2013 by BAA
+## Modified with fixes for Matlab runtime and GCC 26th April 2013 by BAA
+## Modified to include support for the NAG Toolbox for Matlab March 2014 by BAA
+## Modified for updated Legion software stack and R2015a - April 2015 - BAA
+## Modified for correct version of the NAG Toolbox for Matlab - August
+##  2015 - BAA
+## Updated to Matlab R2015b - November 2015 - BAA
+## Minor updates for DCS support in Matlab R2015b and fix for Grace startup problems - March 2016
+## Modified to improve messages - September 2016 - BAA
+## Updated to matlab R2016b - October 2016 - BAA
+## Updated to Matlab R2017a - June 2017
+## Updated to Matlab R2018a - April 2018
+## Updated to Matlab R2018b - December 2018
+## Updated to Matlab R2019b - October 2019.
+## Updated to Matlab R2021a - March 2021
+## Updated to Matlab R2023a - August 2023
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds Matlab R2023a to your environment."
+    puts stderr ""
+    puts stderr "This is the full Matlab, not just the runtime environment and"
+    puts stderr "has all the toolboxes included in UCL's Total Academic"
+    puts stderr "Headcount-Campus licence.  You can submit single node"
+    puts stderr "multi-threaded Matlab jobs and single-node Matlab jobs that can"
+    puts stderr "fully utilise the Parallel Computing Toolbox and Matlab's"
+    puts stderr "Parallel Computing Server - not yet configured."
+    puts stderr ""
+    puts stderr "The NAG Toolbox for Matlab Mark 25 is also included:"
+    puts stderr ""
+    puts stderr "    http://www.nag.co.uk/numeric/mb/design.asp"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/Matlab/R2023a/full"
+}
+
+
+proc setupLink { from to } {
+
+    if { [catch {file link $from $to} err] } {
+	puts stderr "Cannot link from $from to $to:"
+	puts stderr "    $err"
+	return false
+    }
+    return true
+}
+
+proc appDirSetup { appDir } {
+
+    set target "~/Scratch/[file tail $appDir]"
+
+    if { [catch {file type $appDir} type] } {	# appDir does not exist yet
+    	puts stderr ""
+    	puts stderr "$appDir doesn't exist - creating as symbolic link to Scratch"
+	puts stderr ""
+	catch {file mkdir $target} err
+	return [setupLink $appDir $target]
+    }
+    
+    if { [string compare $type "link"] == 0 } { # is a symbolic link
+    	puts stderr ""
+    	puts stderr "$appDir is a symbolic link pointing to [file readlink $appDir]"
+	puts stderr ""
+	# puts stderr "Note: this MUST be in your Scratch area."
+	# puts stderr ""
+	return true
+    }
+    
+    if { [string compare $type "directory"] == 0 } { # need to move existing dir to Scratch
+    	puts stderr ""
+	puts stderr "Moving existing $appDir to Scratch"
+	puts stderr ""
+	if { [file exists $target] } { # don't trash user's exsiting files
+	    puts stderr "$target already exists - will not be overwritten."
+	    return false
+	}
+	if { [catch {file rename $appDir $target} err] } {
+	    puts stderr "Cannot move $appDir to $target:"
+	    puts stderr "    $err"
+	    return false
+	}
+	puts stderr "creating symbolic link from $appDir to $target"
+	puts stderr ""
+	return [setupLink $appDir $target]
+    }
+
+    return false    
+}
+
+
+module-whatis "Adds Matlab R2023a to your environment."
+
+conflict matlab
+prereq gcc-libs
+prereq xorg-utils/X11R7.7
+# prereq mpi/intel
+
+# matlab loads an old libtiff that breaks gdal
+conflict gdal
+
+# Loading one of our CUDA modules cause Matlab GPU jobs to seg fault! Not sure if this is
+# still true so not active for R2021a
+# conflict cuda
+
+# Location of NAG Toolbox - currently the latest version - April 2018.
+set nagtoolbox /shared/ucl/apps/NAG/matlab-toolbox/MBL6I25DNL_R2018a/MBL6I25DNL
+
+# Location of Matlab prefs and settings directory
+set matlabDir "~/.matlab"
+
+set prefix /shared/ucl/apps/Matlab/R2023a/full
+
+
+append-path PATH                $prefix/bin
+append-path LD_LIBRARY_PATH	$prefix/runtime/glnxa64:$prefix/bin/glnxa64:$nagtoolbox/mex.a64
+setenv MCRPATH                  $prefix
+
+# Set environment variable for the NAG licence manager if not set - correct at March 2021
+
+if { ! [info exists ::env(NAG_KUSARI_FILE)]} {
+    if { [modulefunctions::isCluster Thomas]  } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Michael] } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Grace] } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Myriad]  } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Aristotle]  } {
+	setenv NAG_KUSARI_FILE lic-nag.ucl.ac.uk:    
+    } elseif { [modulefunctions::isCluster Young] } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } elseif { [modulefunctions::isCluster Kathleen] } {
+	setenv NAG_KUSARI_FILE util01:,lic-nag.ucl.ac.uk:
+    } else {
+	setenv NAG_KUSARI_FILE lm-server:,lic-nag.ucl.ac.uk:
+    }
+}
+
+# Setup .matlab in Scratch
+
+if { [modulefunctions::isModuleLoad] } {
+    if { [appDirSetup $matlabDir] } {
+	puts stderr "Matlab setup complete type matlab to start Matlab."
+	puts stderr ""
+    } else {
+	puts stderr ""
+	puts stderr "**** error: setting up .matlab directory failed."
+	puts stderr ""
+	puts stderr "Note: you must load the Matlab module at least once from a login node."
+	puts stderr ""
+    }
+}
+
