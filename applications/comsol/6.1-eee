@@ -9,7 +9,7 @@ module-whatis {COMSOL is a general-purpose macroscopic physics simulation packag
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
 
-modulefunctions::mustBeMemberToLoad lgcomsol
+modulefunctions::mustBeMemberToLoad legcomsl
 conflict COMSOL
 
 set prefix /shared/ucl/apps/comsol/6.1
