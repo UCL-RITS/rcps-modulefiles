@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## Updated May 2017 to request Intel 2015 compilers and MPI.
+## Updated September 2023 fort NONMEM 7.5.1
+
+# New Legion modules layout
+
+proc ModulesHelp { } {
+    puts stderr "Adds NONMEM 7.5.1 using Intel Fortran 2018 to your environment."
+    puts stderr ""
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NONMEM/nm751_Intel/"
+}
+
+module-whatis "Adds NONMEM 7.5.1 using Intel Fortran 2018 to your environment."
+
+# Location of NONMEM:
+
+set prefix /shared/ucl/apps/NONMEM/nm751_Intel
+
+prereq 
+prereq mpi/intel/2015/update3/intel
+
+prepend-path PATH	$prefix/run
+setenv mpibinpath	/shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/intel64/bin
+setenv mpilibpath	/shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/intel64/lib
+setenv mpilibname	libmpi.so
