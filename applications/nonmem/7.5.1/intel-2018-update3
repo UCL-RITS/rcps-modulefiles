@@ -20,8 +20,8 @@ module-whatis "Adds NONMEM 7.5.1 using Intel Fortran 2018 to your environment."
 
 set prefix /shared/ucl/apps/NONMEM/nm751_Intel
 
-prereq 
-prereq mpi/intel/2015/update3/intel
+prereq compilers/intel/2018/update3
+prereq mpi/intel/2018/update3/intel
 
 prepend-path PATH	$prefix/run
 setenv mpibinpath	/shared/ucl/apps/intel/2018.Update3/impi/2018.3.222/intel64/bin
