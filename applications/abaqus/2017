@@ -7,7 +7,7 @@
 ## Brian Alston June 2017
 ## Updated August 2017 to include reserved appp group check
 ## Updated June 2020 for MPI settings on Kathleen
-##
+## Updated October 2023 for new Mech Eng License Server
 
 # New Legion modules layout
 
@@ -46,7 +46,7 @@ set prefix /shared/ucl/apps/ABAQUS/2017
 modulefunctions::mustBeMemberToLoad "legabq"
 
 # Set location of Mech Eng licence manager
-prepend-path LM_LICENSE_FILE   27004@ntsrv1.meng.ucl.ac.uk
+prepend-path LM_LICENSE_FILE   27000@128.40.55.199
 
 prepend-path PATH		$prefix/Commands
 
