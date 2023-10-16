@@ -1,0 +1,18 @@
+#%Module
+#
+# CASTEP Modules for Young
+#
+#                                                     
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the CASTEP dev install space on Young to module avail."
+    puts stderr ""
+    puts stderr ""
+    puts stderr ""
+}
+
+module-whatis "Adds the CASTEP dev install space on Young to module avail."
+
+module           use --append /shared/ucl/depts/castep/modules
+
