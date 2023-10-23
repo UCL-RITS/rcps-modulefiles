@@ -14,5 +14,10 @@ proc ModulesHelp { } {
 
 module-whatis "Adds the CASTEP dev install space on Young to module avail."
 
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+modulefunctions::mustBeMemberToLoad lgcastep
+
 module           use --append /shared/ucl/depts/castep/modules
 
