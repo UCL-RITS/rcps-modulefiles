@@ -117,6 +117,9 @@ set AnsysDir "~/Scratch/.config/Ansys"
 # For Ansys Fluent
 set FLRECENT "~/.flrecent"
 
+# For ANSYS LS-Dyna
+
+setenv LSTC_LICENSE ANSYS
 
 # For ANSYS Electromagnetics products
 prepend-path PATH            $prefix/AnsysEM/v231/Linux64
