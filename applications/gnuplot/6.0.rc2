@@ -1,0 +1,16 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Gnuplot is an open-source, portable, command-line driven graphing utility.}
+}
+module-whatis {Gnuplot is an open-source, portable, command-line driven graphing utility.}
+
+conflict gnuplot
+prereq gcc-libs
+prereq compilers/gnu/4.9.2
+
+set prefix /shared/ucl/apps/gnuplot/6.0.rc2/gnu-4.9.2
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
