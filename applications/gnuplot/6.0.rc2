@@ -6,7 +6,6 @@ proc ModulesHelp { } {
 module-whatis {Gnuplot is an open-source, portable, command-line driven graphing utility.}
 
 conflict gnuplot
-prereq gcc-libs
 
 set prefix /shared/ucl/apps/gnuplot/6.0.rc2/gnu-4.9.2
 prepend-path CMAKE_PREFIX_PATH $prefix
