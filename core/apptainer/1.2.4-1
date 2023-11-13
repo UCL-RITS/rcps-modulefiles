@@ -1,0 +1,29 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Sets up the environment and cache directories for the Apptainer container runtime."
+    puts stderr ""
+    puts stderr "Cache directories are set to be in Scratch space."
+    puts stderr "The temporary build dir is located in /tmp/$USER_apptainerbuild on the login nodes."
+    puts stderr ""
+}
+
+module-whatis "Sets up the environment and cache directories for the Apptainer container runtime."
+
+set prefix "$::env(HOME)/Scratch/.apptainer"
+
+if { [module-info mode load] } {
+    puts stderr "Ensuring Singularity cache directories exist..."
+    modulefunctions::createDir "/tmp/$::env(USER)_apptainerbuild"
+    modulefunctions::createDir "$prefix"
+    puts stderr "...done."
+}
+
+setenv APPTAINER_CACHEDIR       "$prefix"
+setenv APPTAINER_TMPDIR         "/tmp/$::env(USER)_apptainerbuild"
