@@ -12,7 +12,7 @@ proc ModulesHelp { } {
     puts stderr "Cache directories are set to be in Scratch space."
     puts stderr "The temporary build dir must be located on a local filesystem:"
     puts stderr "XDG_RUNTIME_DIR then /tmp/$USER_apptainerbuild on login nodes,"
-    puts stderr "TMPDIR then /dev/shm on compute nodes."
+    puts stderr "TMPDIR on compute nodes with disks."
     puts stderr ""
 }
 
@@ -32,10 +32,7 @@ if { [module-info mode load] } {
         if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
             modulefunctions::createDir "$::env(TMPDIR)/$::env(USER)_apptainerbuild"
             set apptmp "$::env(TMPDIR)/$::env(USER)_apptainerbuild"
-        } else {
-            modulefunctions::createDir "/dev/shm/$::env(USER)_apptainerbuild"
-            set apptmp "/dev/shm/$::env(USER)_apptainerbuild"
-        }
+        } 
     } else {
         if {[info exists ::env(XDG_RUNTIME_DIR)]} {
             modulefunctions::createDir "$::env(XDG_RUNTIME_DIR)/$::env(USER)_apptainerbuild"
