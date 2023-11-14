@@ -19,6 +19,7 @@ proc ModulesHelp { } {
 module-whatis "Sets up the environment and cache directories for the Apptainer container runtime."
 
 set prefix "$::env(HOME)/Scratch/.apptainer"
+set apptmp ""
 
 if { [module-info mode load] } {
     puts stderr "Ensuring Apptainer cache directories exist..."
