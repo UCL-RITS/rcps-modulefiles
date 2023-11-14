@@ -10,7 +10,9 @@ proc ModulesHelp { } {
     puts stderr "Sets up the environment and cache directories for the Apptainer container runtime."
     puts stderr ""
     puts stderr "Cache directories are set to be in Scratch space."
-    puts stderr "The temporary build dir is located in /tmp/$USER_apptainerbuild on the login nodes."
+    puts stderr "The temporary build dir must be located on a local filesystem:"
+    puts stderr "XDG_RUNTIME_DIR then /tmp/$USER_apptainerbuild on login nodes,"
+    puts stderr "TMPDIR then /dev/shm on compute nodes."
     puts stderr ""
 }
 
@@ -19,11 +21,34 @@ module-whatis "Sets up the environment and cache directories for the Apptainer c
 set prefix "$::env(HOME)/Scratch/.apptainer"
 
 if { [module-info mode load] } {
-    puts stderr "Ensuring Singularity cache directories exist..."
-    modulefunctions::createDir "/tmp/$::env(USER)_apptainerbuild"
+    puts stderr "Ensuring Apptainer cache directories exist..."
     modulefunctions::createDir "$prefix"
+
+    # Check if TMPDIR exists - if not, try $XDG_RUNTIME_DIR (/run/user/$uid)
+    # systemd will wipe these files when no active sessions remain.
+    # If there's no TMPDIR *and* no XDG_RUNTIME_DIR, fall back to /tmp
+    if [modulefunctions::isTMPDIR] {
+        # Check TMPDIR has a reasonable amount of free space (1GB): if not, point to Scratch instead
+        if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
+            modulefunctions::createDir "$::env(TMPDIR)/$::env(USER)_apptainerbuild"
+            set apptmp "$::env(TMPDIR)/$::env(USER)_apptainerbuild"
+        } else {
+            modulefunctions::createDir "/dev/shm/$::env(USER)_apptainerbuild"
+            set apptmp "/dev/shm/$::env(USER)_apptainerbuild"
+        }
+    } else {
+        if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+            modulefunctions::createDir "$::env(XDG_RUNTIME_DIR)/$::env(USER)_apptainerbuild"
+            set apptmp "$::env(XDG_RUNTIME_DIR)/$::env(USER)_apptainerbuild"
+        } else {
+            modulefunctions::createDir "/tmp/$::env(USER)_apptainerbuild"
+            set apptmp "/tmp/$::env(USER)_apptainerbuild"
+        }
+    } 
+
     puts stderr "...done."
 }
 
 setenv APPTAINER_CACHEDIR       "$prefix"
-setenv APPTAINER_TMPDIR         "/tmp/$::env(USER)_apptainerbuild"
+setenv APPTAINER_TMPDIR         "$apptmp"
+
