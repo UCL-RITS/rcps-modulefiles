@@ -111,6 +111,8 @@ setenv ANSYS_LOCK      	ON
 setenv ANSYS231_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
 
+setenv AWP_ROOT231     $prefix/v231
+
 set AnsysDirLoc "~/.config"
 set AnsysDir "~/Scratch/.config/Ansys"
 
