@@ -17,7 +17,7 @@ proc ModulesHelp { } {
     puts stderr ""
     puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
     puts stderr "scaling on a wide variety of machines.  This version has been "
-    puts stderr "built as a binary (\"lmp\")"
+    puts stderr "built as a binary (\"lmp_gpu\")"
     puts stderr ""
     puts stderr "Please note that you must have the beta-modules, Open MPI 4.0.5, the"
     puts stderr "GNU 10.2.0 compilers and CUDA 11.3.1 loaded for this version of LAMMPS to run."
@@ -25,13 +25,14 @@ proc ModulesHelp { } {
     puts stderr ""
 }
 
-module-whatis "Adds LAMMPS 2 August 2023 GPU build to your environment. Binary is lmp."
+module-whatis "Adds LAMMPS 2 August 2023 GPU build to your environment. Binary is lmp_gpu."
 
 
 conflict lammps
 prereq gcc-libs/10.2.0
 prereq compilers/gnu/10.2.0
 prereq python3/3.9-gnu-10.2.0
+prereq fftw/3.3.9/gnu-10.2.0
 
 # Additional module depenedencies for OpenMPI on Myriad.
 
