@@ -16,7 +16,7 @@ prereq mpi/intel
 
 conflict vasp
 
-set              prefix               /shared/ucl/apps/vasp/5.4.4-18apr2017-libbeef-vtst198/intel-2017
+set              prefix               /shared/ucl/apps/vasp/5.4.4-18apr2017-libbeef-vtst198/intel-2017-update1
 
 
 if { [file isdirectory $prefix/bin] } then {
