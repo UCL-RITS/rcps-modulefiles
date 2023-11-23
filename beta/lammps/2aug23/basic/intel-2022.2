@@ -1,0 +1,51 @@
+#%Module -*- tcl -*-
+##
+## LAMMPS 2nd August 2023 with most additional packages.
+##
+## Serial and MPI using Intel 2022.2 and Eigen 3.3.9
+
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0 
+
+proc ModulesHelp { } {
+
+    puts stderr "This module adds the LAMMPS 2nd August 2023 package to your environment."
+    puts stderr ""
+    puts stderr "LAMMPS is a GPL molecular dynamics code which shows exceptional"
+    puts stderr "scaling on a wide variety of machines. The binary for this version"
+    puts stderr "is called lmp_mpi or lmp_default."
+    puts stderr ""
+}
+
+module-whatis "Adds LAMMPS 2nd August 2023 to your environment. Binary is lmp_mpi or lmp_default."
+
+
+conflict lammps
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+prereq mpi/intel/2019/update6/intel
+prereq python/3.9.10
+
+
+set prefix /shared/ucl/apps/lammps/2Aug2023/basic/intel-2022
+
+if { [modulefunctions::isCluster michael] } {
+   if { [modulefunctions::hasArch avx512] } {
+      set prefix /shared/ucl/apps-overrides/avx512/lammps/2Aug2023/basic/intel-2022
+
+   }    
+}
+
+prepend-path     CMAKE_PREFIX_PATH    $prefix
+prepend-path     PATH              $prefix/bin
+prepend-path     LD_RUN_PATH       $prefix/lib
+prepend-path     LD_LIBRARY_PATH   $prefix/lib
+prepend-path     LIBRARY_PATH      $prefix/lib64
+prepend-path     LD_LIBRARY_PATH   $prefix/lib64
+prepend-path     CPATH             $prefix/include
+prepend-path     INCLUDE_PATH      $prefix/include     
+prepend-path     MANPATH           $prefix/share/man
+prepend-path     PKG_CONFIG_PATH      $prefix/lib64/pkgconfig
+prepend-path     PYTHONPATH        $prefix/lib/python3.9/site-packages
+
