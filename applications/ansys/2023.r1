@@ -105,8 +105,8 @@ setenv ANSYS_ROOT      	$prefix
 setenv ANSYS212_DIR	$prefix/v231/ansys
 setenv ANSYSLIC_DIR     $prefix/shared_files/licensing
 # I'm not sure what to set this to now the LM has been updated and using the new ANSYS product
-# names Will leave it unset - the correct name will be ANSYS212_PRODUCT
-setenv ANSYS231_PRODUCT aa_mcad
+# names Will leave it unset - the correct name will be ANSYS231_PRODUCT
+# setenv ANSYS231_PRODUCT aa_mcad
 setenv ANSYS_LOCK      	ON
 setenv ANSYS231_WORKING_DIRECTORY ~/Scratch/ansys_work
 setenv ANSBROWSER      /usr/bin/firefox
