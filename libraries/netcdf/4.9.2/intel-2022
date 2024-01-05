@@ -1,0 +1,44 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NetCDF 4.9.2 compiled with Intel 2022.2 compilers and parallel HDF5
+##
+## Updated to set loaction path to /shared/ucl/apps/NetCDF/4.3.3.1-gnu-4.9.2 - May 2016
+## Updated for 4.7.4 - April 2020
+## Updated for 4.8.1 - September 2021
+## Updated for 4.9.2 - June 2023
+## Updated for Intel 2022.2 compilers and parallel HDF5 - January 2024
+
+proc ModulesHelp { } {
+    puts stderr "Adds NetCDF Version 4.9.2 compiled with Intel 2022.2 compilers and parallel HDF5"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "NetCDF is a set of software libraries and self-describing,"
+    puts stderr "machine-independent data formats that support the creation,"
+    puts stderr "access, and sharing of array-oriented scientific data."
+    puts stderr ""
+    puts stderr "This version was compiled with Intel 2022.2 compilers and parallel HDF5"
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/NetCDF/4.9.2-intel-2022/"
+}
+
+module-whatis "adds NetCDF 4.9.2 for Intel 2022.2 compilers to your environment."
+
+conflict netcdf
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+prereq mpi/intel/2019/update6/intel
+prereq hdf/5-1.12.3-impi/intel-2022
+
+set              root       /shared/ucl/apps/NetCDF/4.9.2-intel-2022      
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
+
+prepend-path CMAKE_PREFIX_PATH  $root
