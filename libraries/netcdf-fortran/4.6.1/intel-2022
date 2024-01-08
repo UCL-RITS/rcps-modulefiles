@@ -1,0 +1,37 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## NetCDF Fortran bindings 4.6.1 compiled using Intel 2022 compilers
+
+proc ModulesHelp { } {
+    puts stderr "Adds NetCDF Fortran bindings Version 4.6.1 compiled using Intel 2022"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "NetCDF is a set of software libraries and self-describing,"
+    puts stderr "machine-independent data formats that support the creation,"
+    puts stderr "access, and sharing of array-oriented scientific data."
+    puts stderr ""
+    puts stderr "This version was compiled with Intel 2022 compilers"
+}
+
+module-whatis "adds NetCDF 4.6.1 for Intel 2022 to your environment."
+
+conflict netcdf-fortran
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+prereq mpi/intel/2019/update6/intel
+prereq hdf/5-1.12.3-impi/intel-2022
+prereq netcdf/4.9.2/intel-2022
+
+set              root              /shared/ucl/apps/NetCDF-fortran/4.6.1-intel-2022
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     MANPATH           $root/share/man
+
+prepend-path CMAKE_PREFIX_PATH  $root
