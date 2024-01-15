@@ -1,0 +1,47 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## ABINIT 9.10.3 compiled using Intel 2022
+
+proc ModulesHelp { } {
+    puts stderr "Adds ABINIT Version 9.10.3 compiled using Intel 2022 Compilers and 2019 update 6 MPI"
+    puts stderr "to your environment."
+    puts stderr ""
+    puts stderr "ABINIT is a software suite to calculate the optical, mechanical, vibrational,"
+    puts stderr "and other properties of materials using the equations of density functional"
+    puts stderr "theory (DFT) see:"
+    puts stderr ""
+    puts stderr "https://www.abinit.org/"
+    puts stderr ""
+    puts stderr "for details. This version was compiled with Intel 2022 Compilers and 2019 Up 6 MPI."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/ABINIT/9.10.3/intel-2022"
+}
+
+module-whatis "adds ABINIT Version 9.6.2 compiled using Intel 2018 to your environment."
+
+conflict abinit
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+prereq mpi/intel/2019/update6/intel
+prereq fftw/3.3.10-impi/intel-2022
+prereq hdf/5-1.12.3-impi/intel-2022
+prereq netcdf/4.9.2/intel-2022
+prereq netcdf-fortran/4.6.1/intel-2022
+prereq libxc/6.2.2/intel-2022
+prereq python3/recommended
+
+
+set              root              /shared/ucl/apps/ABINIT/9.10.3/intel-2022
+
+prepend-path     PATH              $root/bin
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path        LIBRARY_PATH   $root/lib
+
+prepend-path CMAKE_PREFIX_PATH  $root
+
+setenv ABI_HOME   /shared/ucl/apps/ABINIT/9.10.3/intel-2022/abinit-9.10.3
+setenv ABI_TESTS  /shared/ucl/apps/ABINIT/9.10.3/intel-2022/abinit-9.10.3/tests
+setenv ABI_PSPDIR /shared/ucl/apps/ABINIT/9.10.3/intel-2022/abinit-9.10.3/tests/Psps_for_tests/
