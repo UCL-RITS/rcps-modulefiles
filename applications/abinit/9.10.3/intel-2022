@@ -19,7 +19,7 @@ proc ModulesHelp { } {
     puts stderr "Directory: /shared/ucl/apps/ABINIT/9.10.3/intel-2022"
 }
 
-module-whatis "adds ABINIT Version 9.6.2 compiled using Intel 2018 to your environment."
+module-whatis "adds ABINIT Version 9.10.3 compiled using Intel 2022 to your environment."
 
 conflict abinit
 prereq gcc-libs/10.2.0
