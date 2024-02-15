@@ -31,3 +31,6 @@ prepend-path     CPATH             $root/include
 prepend-path     INCLUDE_PATH      $root/include
 
 prepend-path CMAKE_PREFIX_PATH $root
+
+# Fix for CA regression in Julia 1.10.1
+setenv JULIA_SSL_CA_ROOTS_PATH /etc/ssl/certs/ca-bundle.crt
