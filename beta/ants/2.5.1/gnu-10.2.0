@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {ANTs (Advanced Normalization Tools) computes high-dimensional mappings to capture the statistics of brain structure and function.}
+}
+module-whatis {ANTs (Advanced Normalization Tools) computes high-dimensional mappings to capture the statistics of brain structure and function.}
+
+conflict ants
+prereq gcc-libs/10.2.0
+
+set prefix /shared/ucl/apps/ants/2.5.1/gnu-10.2.0
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib64
+prepend-path LD_RUN_PATH $prefix/lib64
+prepend-path LD_LIBRARY_PATH $prefix/lib64
+prepend-path PKG_CONFIG_PATH $prefix/lib64/pkgconfig
+
