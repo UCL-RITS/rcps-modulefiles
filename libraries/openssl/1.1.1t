@@ -18,3 +18,6 @@ prepend-path LD_LIBRARY_PATH $prefix/lib
 prepend-path PKG_CONFIG_PATH $prefix/lib/pkgconfig
 prepend-path MANPATH $prefix/share/man
 
+setenv SSL_CERT_FILE /etc/pki/tls/cert.pem
+setenv SSL_CERT_DIR /etc/pki/tls/certs
+
