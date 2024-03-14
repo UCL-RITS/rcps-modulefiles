@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Tools for reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising SNP and short indel sequence variants.}
+}
+module-whatis {Tools for reading/writing BCF2/VCF/gVCF files and calling/filtering/summarising SNP and short indel sequence variants.}
+
+conflict bcftools
+
+set prefix /shared/ucl/apps/bcftools/1.19
+
+setenv BCFTOOLS_PLUGINS /shared/ucl/apps/bcftools/1.19/libexec/bcftools
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
