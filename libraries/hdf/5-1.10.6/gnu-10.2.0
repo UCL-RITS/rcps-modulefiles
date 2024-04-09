@@ -6,7 +6,7 @@ proc ModulesHelp { } {
 module-whatis {Adds hdf 5-1.10.6 to your environment. Serial version built with GNU 10.2.0.}
 
 conflict hdf
-prereq beta-modules
+# prereq beta-modules
 prereq gcc-libs/10.2.0
 prereq compilers/gnu/10.2.0
 
