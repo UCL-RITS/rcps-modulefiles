@@ -21,8 +21,7 @@
 ## Updated May 2022 for R 4.2.0 and Bioconductor 3.15
 ## Updated January 2023 for R 4.2.2 and Bioconductor 3.16
 ## Updated April 2023 for R 4.2.3 and Bioconductor 3.16
-## Updated March 2024 for R 4.3.3 and Bioconductor 3.18
-
+## Updated late March 2024 for R 4.3.3 and Bioconductor 3.18
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
