@@ -1,0 +1,39 @@
+#%Module -*- tcl -*-
+##
+## Quantum-ESPRESSO 7.3.1 built using the Nvidia HPC SDK with GPU support
+##
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+set module_name quantum-espresso
+
+proc ModulesHelp { } {
+
+  puts stderr {Adds quantum-espresso 7.3.1 with GPU support to your environment.}
+
+}
+
+module-whatis {Adds quantum-espresso 7.3.1 to your environment.}
+
+prereq load gcc-libs/10.2.0
+prereq compilers/nvidia/hpc-sdk/22.9
+
+conflict quantum-espresso
+
+set root /shared/ucl/apps/quantum-espresso/7.3.1-GPU/nvidia-2022-22.9/q-e
+
+setenv ESPRESSO_ROOT $root
+prepend-path PATH $root/bin
+
+# First check for clusters without TMPDIR
+if [modulefunctions::isCluster kathleen] {
+  setenv ESPRESSO_TMPDIR $::env(HOME)/Scratch
+} elseif { [info exists ::env(TMPDIR) ] } {
+  setenv ESPRESSO_TMPDIR $::env(TMPDIR)
+} else {
+  setenv ESPRESSO_TMPDIR /tmp
+}
+
+setenv PWGUI $root/GUI/PWgui
+
