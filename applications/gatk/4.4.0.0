@@ -8,7 +8,7 @@ module-whatis {Adds GATK 4.4.0.0 to your environment. The Genome Analysis Toolki
 conflict gatk
 prereq gcc-libs
 prereq python/miniconda3/4.10.3
-prereq java/temurin-17/17.0.2+8
+prereq java/temurin-17/17.0.2_8
 
 set prefix /shared/ucl/apps/gatk/4.4.0.0
 
