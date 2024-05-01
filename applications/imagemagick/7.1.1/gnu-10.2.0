@@ -1,0 +1,32 @@
+#%Module -*- tcl -*-
+##
+## modulefile
+##
+## ImageMagick 7.1.1 compiled with GNU 10.2.0 compilers for use with R
+
+proc ModulesHelp { } {
+
+  puts stderr "\tAdds ImageMagick 7.1.1 to your environment variables,"
+}
+
+module-whatis "adds ImageMagick 7.1.1 to your environment variables"
+
+conflict imagemagick
+prereq gcc-libs/10.2.0
+prereq fftw/3.3.9/gnu-10.2.0
+prereq freetype/2.8.1/gnu-4.9.2
+prereq perl/5.22.0
+prereq ghostscript/9.19/gnu-4.9.2
+
+set              root              /shared/ucl/apps/ImageMagick/7.1.1-31/gnu-10.2.0
+
+prepend-path     PATH              $root/bin
+append-path      MANPATH           $root/share/man
+
+prepend-path     LD_RUN_PATH       $root/lib
+prepend-path     LD_LIBRARY_PATH   $root/lib
+prepend-path     LIBRARY_PATH      $root/lib
+
+prepend-path     CPATH             $root/include
+prepend-path     INCLUDE_PATH      $root/include
+prepend-path     PKG_CONFIG_PATH   $root/lib/pkgconfig
