@@ -2,6 +2,7 @@
 ##
 ## Quantum-ESPRESSO 7.3.1 built using the GNU 10.2.0 compilers CPU/MPI only
 ##
+## Added support for Michael axvx512 nodes
 
 lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
 package require modulefunctions 1.0
@@ -25,6 +26,14 @@ prereq fftw/3.3.9/gnu-10.2.0
 conflict quantum-espresso
 
 set root /shared/ucl/apps/quantum-espresso/7.3.1-CPU/gnu-10.2.0/q-e
+
+if { [modulefunctions::isCluster michael] } {
+   if { [modulefunctions::hasArch avx512] } {
+      set root /shared/ucl/apps-overrides/quantum-espresso/7.3.1-CPU/gnu-10.2.0
+
+   }
+}
+
 
 prepend-path PATH $root/bin
 
