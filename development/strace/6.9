@@ -1,0 +1,14 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {strace is a diagnostic, debugging and instructional userspace utility for Linux.}
+}
+module-whatis {strace is a diagnostic, debugging and instructional userspace utility for Linux.}
+
+conflict strace
+
+set prefix /shared/ucl/apps/strace/6.9
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path MANPATH $prefix/share/man
+
