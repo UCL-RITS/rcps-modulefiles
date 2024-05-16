@@ -1,0 +1,17 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {OPARI2 is a source-to-source instrumentation tool for OpenMP and hybrid codes.}
+}
+module-whatis {OPARI2 is a source-to-source instrumentation tool for OpenMP and hybrid codes.}
+
+conflict opari2
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+
+set prefix /shared/ucl/apps/opari2/2.0.8/intel-2022
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+
