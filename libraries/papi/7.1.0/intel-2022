@@ -8,7 +8,6 @@ module-whatis {The Performance Application Programming Interface (PAPI) provides
 conflict papi
 prereq gcc-libs/10.2.0
 prereq compilers/intel/2022.2
-prereq mpi/intel/2021.6.0/intel
 
 set prefix /shared/ucl/apps/papi/7.1.0/intel-2022
 prepend-path CMAKE_PREFIX_PATH $prefix
