@@ -1,0 +1,20 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds openmpi 4.1.1 built with Intel 2022 compilers to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
+}
+module-whatis {Adds openmpi 4.1.1 to your environment. The Open MPI Project is an open source Message Passing Interface implementation.}
+
+conflict openmpi
+conflict mpi
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+
+set prefix /shared/ucl/apps/openmpi/4.1.1/intel-2022
+
+setenv MPI_HOME /shared/ucl/apps/openmpi/4.1.1/intel-2022
+setenv MPI_RUN /shared/ucl/apps/openmpi/4.1.1/intel-2022/bin/mpirun
+setenv GERUN_LAUNCHER openmpi-sge
+prepend-path PATH /shared/ucl/apps/openmpi/ucl-wrapper-omp3+/bin
+
+
