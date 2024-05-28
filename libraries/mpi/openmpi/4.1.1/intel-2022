@@ -13,6 +13,7 @@ prereq compilers/intel/2022.2
 set prefix /shared/ucl/apps/openmpi/4.1.1/intel-2022
 
 setenv MPI_HOME /shared/ucl/apps/openmpi/4.1.1/intel-2022
+prepend-path $prefix/bin
 setenv MPI_RUN /shared/ucl/apps/openmpi/4.1.1/intel-2022/bin/mpirun
 setenv GERUN_LAUNCHER openmpi-sge
 prepend-path PATH /shared/ucl/apps/openmpi/ucl-wrapper-omp3+/bin
