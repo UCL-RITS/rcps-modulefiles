@@ -1,0 +1,26 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Scalasca is a software tool that supports the performance optimization of parallel programs by measuring and analyzing their runtime behavior.}
+}
+module-whatis {Scalasca is a software tool that supports the performance optimization of parallel programs by measuring and analyzing their runtime behavior.}
+
+conflict scalasca
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+prereq mpi/intel/2021.6.0/intel
+prereq binutils/2.36.1/gnu-10.2.0
+prereq otf2/3.0.3/intel-2022
+prereq opari2/2.0.8/intel-2022
+prereq cubelib/4.8.2/intel-2022
+prereq cubew/4.8.2/intel-2022
+prereq scorep/8.4/intel-2022
+
+set prefix /shared/ucl/apps/scalasca/2.6.1/intel-2022
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path MANPATH $prefix/share/man
+
