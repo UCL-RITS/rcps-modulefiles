@@ -1,0 +1,41 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The CRYSTAL program computes the electronic structure of periodic systems within Hartree Fock, density functional or various hybrid approximations.}
+}
+module-whatis {The CRYSTAL program computes the electronic structure of periodic systems within Hartree Fock, density functional or various hybrid approximations.}
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+
+conflict crystal23
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2022.2
+prereq mpi/openmpi/4.1.1/intel-2022
+
+set prefix /shared/ucl/apps/crystal23/1.0.1/intel-2022
+
+setenv CRY23_ROOT /shared/ucl/apps/crystal23/1.0.1/intel-2022
+setenv CRY23_BIN bin
+setenv CRY23_ARCH Linux-ifort_i64
+setenv VERSION v1.0.1-UCL-ARC
+
+# First check for clusters without TMPDIR
+if [modulefunctions::isCluster kathleen] {
+  setenv CRY23_SCRDIR $::env(HOME)/Scratch
+} elseif { [info exists ::env(TMPDIR) ] } {
+  setenv CRY23_SCRDIR $::env(TMPDIR)
+} else {
+  setenv CRY23_SCRDIR /tmp
+}
+
+setenv CRY23_EXEDIR /shared/ucl/apps/crystal23/1.0.1/intel-2022/bin/Linux-ifort_i64/v1.0.1
+setenv CRY23_UTILS /shared/ucl/apps/crystal23/1.0.1/intel-2022/utils23
+setenv CRY23_TEST /shared/ucl/apps/crystal23/1.0.1/intel-2022/test_cases/inputs
+prepend-path PATH /shared/ucl/apps/crystal23/1.0.1/intel-2022/bin/Linux-ifort_i64/v1.0.1
+prepend-path PATH /shared/ucl/apps/crystal23/1.0.1/intel-2022/utils23
+
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path PATH $prefix/bin
+
