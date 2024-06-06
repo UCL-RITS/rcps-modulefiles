@@ -17,5 +17,9 @@ prepend-path PATH $prefix/bin
 setenv MPI_RUN /shared/ucl/apps/openmpi/4.1.1/intel-2022/bin/mpirun
 setenv GERUN_LAUNCHER openmpi-sge
 prepend-path PATH /shared/ucl/apps/openmpi/ucl-wrapper-omp4.1/bin
-
+prepend-path LD_LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path INCLUDE_PATH $prefix/include 
+prepend-path CPATH $prefix/include
+prepend-path CMAKE_PREFIX_PATH $prefix
 
