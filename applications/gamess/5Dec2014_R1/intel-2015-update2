@@ -10,25 +10,63 @@ package require modulefunctions 1.0
 proc ModulesHelp { } {
 
     puts stderr "This module adds GAMESS 5Dec2014_R1 to your environment, built for Intel MPI."
-    puts stderr "Uses ~/Scratch/gamess for USERSCR by default. You can override by exporting"
-    puts stderr "GAMESS_USERSCR as another path."
+    puts stderr "Uses ~/Scratch/gamess for USERSCR, and TMPDIR or ~/Scratch/gamess/scr_* for SCR."
+    puts stderr "You can override by exporting GAMESS_USERSCR and GAMESS_SCR as other paths."
     puts stderr ""
 }
 
-module-whatis "Adds GAMESS 5Dec2014_R1 to your environment, built for Intel MPI. Uses ~/Scratch/gamess for USERSCR. You can override by exporting GAMESS_USERSCR as another path."
+module-whatis "Adds GAMESS 5Dec2014_R1 to your environment, built for Intel MPI. Uses ~/Scratch/gamess for USERSCR, and TMPDIR or ~/Scratch/gamess/scr_* for SCR. You can override by exporting GAMESS_USERSCR and GAMESS_SCR as other paths."
 
 prereq gcc-libs
 prereq compilers/intel/2015/update2
 prereq mpi/intel/2015/update3/intel
-
-# Create USERSCR directory if it doesn't exist.
-if [modulefunctions::isModuleLoad] {
-	modulefunctions::createDir "~/Scratch/gamess"
-}
 
 conflict gamess
 
 set root                      	/shared/ucl/apps/gamess/5Dec2014_R1/intel-2015-update2
 prepend-path PATH		$root
 prepend-path CMAKE_PREFIX_PATH  $root
-setenv GAMESS_USERSCR           ~/Scratch/gamess
+setenv GAMESS_USERSCR           $::env(HOME)/Scratch/gamess/[randomLabel]
+
+# Check if TMPDIR exists - if not, try $XDG_RUNTIME_DIR (/run/user/$uid)
+# systemd will wipe these files when no active sessions remain.
+# If there's no TMPDIR *and* no XDG_RUNTIME_DIR, fall back to /tmp
+if [modulefunctions::isTMPDIR] {
+    # Check TMPDIR has a reasonable amount of free space (1GB): if not, point to Scratch instead
+    if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
+        # In theory if this is in a job the user tag is unnecessary
+        # but, just to be sure
+        setenv GAMESS_SCR $::env(TMPDIR)/$::env(USER)/gamess.[randomLabel]
+    } else {
+        setenv GAMESS_SCR $::env(HOME)/Scratch/gamess/scr.[randomLabel]
+    }
+} else {   
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv GAMESS_SCR $::env(XDG_RUNTIME_DIR)/gamess/scr.[randomLabel]
+    } else {
+        setenv GAMESS_SCR /tmp/gamess.[randomLabel]
+    }
+}
+
+if {[modulefunctions::isModuleLoad]} {
+    puts stderr "Creating GAMESS_USERSCR directory:"
+    puts stderr "  GAMESS_USERSCR=$::env(GAMESS_USERSCR)"
+    if { [modulefunctions::createDir "$::env(GAMESS_USERSCR)"] } {
+        puts stderr ""
+    } else {
+        puts stderr "GAMESS_USERSCR directory creation failed."
+        break
+    }
+}
+
+if {[modulefunctions::isModuleLoad]} {
+    puts stderr "Creating GAMESS_SCR directory:"
+    puts stderr "  GAMESS_SCR=$::env(GAMESS_SCR)"
+    if { [modulefunctions::createDir "$::env(GAMESS_SCR)"] } {
+        puts stderr ""
+    } else {
+        puts stderr "GAMESS_SCR directory creation failed."
+        break
+    }
+}
+
