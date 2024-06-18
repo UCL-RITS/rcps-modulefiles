@@ -1,0 +1,18 @@
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. This version is for CUDA 11.}
+}
+module-whatis {The NVIDIA CUDA® Deep Neural Network library (cuDNN) is a GPU-accelerated library of primitives for deep neural networks. This version is for CUDA 11.}
+
+conflict cudnn
+prereq cuda/11
+
+set prefix /shared/ucl/apps/cudnn/9.2.0-cuda-11
+prepend-path CMAKE_PREFIX_PATH $prefix
+prepend-path CPATH $prefix/include
+prepend-path INCLUDE_PATH $prefix/include
+prepend-path LIBRARY_PATH $prefix/lib
+prepend-path LD_RUN_PATH $prefix/lib
+prepend-path LD_LIBRARY_PATH $prefix/lib
+
