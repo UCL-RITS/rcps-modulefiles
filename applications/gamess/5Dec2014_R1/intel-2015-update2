@@ -10,12 +10,13 @@ package require modulefunctions 1.0
 proc ModulesHelp { } {
 
     puts stderr "This module adds GAMESS 5Dec2014_R1 to your environment, built for Intel MPI."
-    puts stderr "Uses ~/Scratch/gamess for USERSCR, and TMPDIR or ~/Scratch/gamess/scr_* for SCR."
+    puts stderr "Uses ~/Scratch/gamess/[randomLabel] for USERSCR, and TMPDIR or "
+    puts stderr "~/Scratch/gamess/scr.[randomLabel] for SCR."
     puts stderr "You can override by exporting GAMESS_USERSCR and GAMESS_SCR as other paths."
     puts stderr ""
 }
 
-module-whatis "Adds GAMESS 5Dec2014_R1 to your environment, built for Intel MPI. Uses ~/Scratch/gamess for USERSCR, and TMPDIR or ~/Scratch/gamess/scr_* for SCR. You can override by exporting GAMESS_USERSCR and GAMESS_SCR as other paths."
+module-whatis "Adds GAMESS 5Dec2014_R1 to your environment, built for Intel MPI. Uses ~/Scratch/gamess/[randomLabel] for USERSCR, and TMPDIR or ~/Scratch/gamess/scr.[randomLabel] for SCR. You can override by exporting GAMESS_USERSCR and GAMESS_SCR as other paths."
 
 prereq gcc-libs
 prereq compilers/intel/2015/update2
