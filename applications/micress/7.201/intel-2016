@@ -1,0 +1,17 @@
+ 
+#%Module -*- tcl -*-
+## module_made (v2)
+proc ModulesHelp { } {
+  puts stderr {Adds MICRESS 7.201 to your environment. MICRESS is a software enabling the calculation of microstructure formation in time and space during phase transformations.}
+}
+module-whatis {Adds MICRESS 7.201 to your environment. MICRESS is a software enabling the calculation of microstructure formation in time and space during phase transformations.}
+
+conflict micress
+prereq gcc-libs/10.2.0
+prereq compilers/intel/2016.0.109
+
+set prefix /shared/ucl/apps/micress/7.201
+prepend-path PATH $prefix/Bin
+
+modulefunctions::mustBeMemberToLoad "lgmicres"
+
