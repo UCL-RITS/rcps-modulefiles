@@ -1,4 +1,3 @@
- 
 #%Module -*- tcl -*-
 ## module_made (v2)
 proc ModulesHelp { } {
