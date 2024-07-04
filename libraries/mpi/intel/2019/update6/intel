@@ -13,7 +13,7 @@ proc ModulesHelp { } {
 module-whatis {[Intel MPI/2019.6.166] This is Intel's MPI implementation, version 2019.6.166, which is bundled with compiler package version 2020.}
 
 
-conflict intel
+conflict mpi
 
 set              prefix               /shared/ucl/apps/intel/2020/impi/2019.6.166
 
