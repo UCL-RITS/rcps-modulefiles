@@ -37,7 +37,7 @@ prereq mpi/intel/2019/update5/intel
 
 # This version is for OmniPath clusters
 if [modulefunctions::isCluster Myriad] {
-    if [isModuleLoad] {
+    if [modulefunctions::isModuleLoad] {
         puts stderr "The OFI versions of NAMD are for OmniPath clusters - on Myriad, use multicore or other versions."
     }
 }

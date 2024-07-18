@@ -39,7 +39,7 @@ prereq cuda/11.3.1/gnu-10.2.0
 
 # This version is for OmniPath clusters
 if [modulefunctions::isCluster Myriad] {
-    if [isModuleLoad] {
+    if [modulefunctions::isModuleLoad] {
         puts stderr "The OFI versions of NAMD are for OmniPath clusters - on Myriad, use multicore or other versions."
     }
 }
