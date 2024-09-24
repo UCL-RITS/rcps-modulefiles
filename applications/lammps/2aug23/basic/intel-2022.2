@@ -30,13 +30,6 @@ prereq python/3.9.10
 
 set prefix /shared/ucl/apps/lammps/2Aug2023/basic/intel-2022
 
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set prefix /shared/ucl/apps-overrides/avx512/lammps/2Aug2023/basic/intel-2022
-
-   }    
-}
-
 prepend-path     CMAKE_PREFIX_PATH    $prefix
 prepend-path     PATH              $prefix/bin
 prepend-path     LD_RUN_PATH       $prefix/lib

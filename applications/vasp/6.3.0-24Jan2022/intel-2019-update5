@@ -20,13 +20,6 @@ conflict vasp
 
 set              prefix               /shared/ucl/apps/vasp/6.3.0-24Jan2022/intel-2019
 
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set prefix /shared/ucl/apps-overrides/avx512/vasp/6.3.0-20220124/intel-2019
-
-   }    
-}
-
 if { [file isdirectory $prefix/bin] } then {
   prepend-path      PATH                 $prefix/bin
 }

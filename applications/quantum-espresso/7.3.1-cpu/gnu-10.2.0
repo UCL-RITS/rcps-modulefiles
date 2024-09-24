@@ -27,14 +27,6 @@ conflict quantum-espresso
 
 set root /shared/ucl/apps/quantum-espresso/7.3.1-CPU/gnu-10.2.0/q-e
 
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set root /shared/ucl/apps-overrides/avx512/quantum-espresso/7.3.1-CPU/gnu-10.2.0/q-e
-
-   }
-}
-
-
 prepend-path PATH $root/bin
 
 # First check for clusters without TMPDIR

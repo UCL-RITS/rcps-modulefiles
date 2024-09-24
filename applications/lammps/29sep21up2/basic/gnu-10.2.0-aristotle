@@ -54,13 +54,6 @@ prereq mpi/openmpi/4.0.5/gnu-10.2.0
 # set root /shared/ucl/apps/lammps/29Sep2021_update2/basic/gnu-10.2.0
 set root /home/ccaabaa/apps/lammps/29Sep2021_update2/basic-aristotle/gnu-10.2.0
 
-# if { [modulefunctions::isCluster michael] } {
-#    if { [modulefunctions::hasArch avx512] } {
-#       set root /shared/ucl/apps-overrides/avx512/lammps/7Aug2019/basic/intel-2018/lammps
-
-#    }    
-# }
-
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib
