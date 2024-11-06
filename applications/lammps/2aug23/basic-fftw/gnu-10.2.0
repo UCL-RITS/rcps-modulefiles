@@ -51,13 +51,6 @@ prereq mpi/openmpi/4.0.5/gnu-10.2.0
 
 set root /shared/ucl/apps/lammps/2Aug2023/basic+fftw/gnu-10.2.0
 
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set root /shared/ucl/apps-overrides/avx512/lammps/2Aug2023/basic+fftw/gnu-10.2.0
-
-   }    
-}
-
 prepend-path     PATH              $root/bin
 prepend-path     LD_RUN_PATH       $root/lib
 prepend-path     LD_LIBRARY_PATH   $root/lib

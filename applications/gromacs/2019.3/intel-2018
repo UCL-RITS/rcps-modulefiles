@@ -21,13 +21,6 @@ conflict gromacs
 
 set              prefix               /shared/ucl/apps/gromacs/2019.3/intel-2018
 
-if { [modulefunctions::isCluster michael] } {
-   if { [modulefunctions::hasArch avx512] } {
-      set prefix /shared/ucl/apps-overrides/avx512/gromacs/2019.3/intel-2018
-
-   }    
-}
-
 prepend-path        CMAKE_PREFIX_PATH    $prefix
 
 if { [file isdirectory $prefix/bin] } then {
