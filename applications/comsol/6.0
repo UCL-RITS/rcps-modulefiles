@@ -42,3 +42,31 @@ if { [info exists ::env(NHOSTS) ] } {
     setenv I_MPI_FABRICS shm
 }
 
+# Check if TMPDIR exists - if not, try $XDG_RUNTIME_DIR (/run/user/$uid)
+# systemd will wipe these files when no active sessions remain.
+# If there's no TMPDIR *and* no XDG_RUNTIME_DIR, fall back to /tmp
+# Note that COMSOL creates directories *in* these directories named
+# "csbatch[numbers]" which can be quite large.
+if [modulefunctions::isTMPDIR] {
+    # Check TMPDIR has a reasonable amount of free space (1GB): if not, point to Scratch instead
+    if {[modulefunctions::getTmpdirFreeSpace] >= (1024*1024)} {
+        # In theory if this is in a job the user tag is unnecessary
+        # but, just to be sure
+        setenv COMSOL_TMPDIR $::env(TMPDIR)
+    } else {
+        setenv COMSOL_TMPDIR $::env(HOME)/Scratch
+    }
+} elseif [modulefunctions::isCluster "Aristotle"] {
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv COMSOL_TMPDIR $::env(XDG_RUNTIME_DIR)
+    } else {
+        setenv COMSOL_TMPDIR /tmp
+    }
+} else {
+    if {[info exists ::env(XDG_RUNTIME_DIR)]} {
+        setenv COMSOL_TMPDIR $::env(XDG_RUNTIME_DIR)
+    } else {
+        setenv COMSOL_TMPDIR /tmp
+    }
+}
+
