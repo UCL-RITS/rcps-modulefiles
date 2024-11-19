@@ -9,6 +9,7 @@
 ## Updated April 2020 for version 7.0.0
 ## Updated September 2021 for version 8.1.1
 ## Updated June 2023 for version 9.2.0
+## Updated November 2024 with extra env var settings
 ##
 
 # New Legion modules layout
@@ -52,3 +53,5 @@ prepend-path CPATH              $incdir
 prepend-path INCLUDE_PATH       $incdir
 
 setenv PROJ_LIB $prefix/$ver/share/proj
+
+prepend-path CMAKE_PREFIX_PATH $prefix/$ver
