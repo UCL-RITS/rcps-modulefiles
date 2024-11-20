@@ -32,6 +32,7 @@ prereq sqlite/3.36.0/gnu-10.2.0
 prereq hdf/5-1.10.6/gnu-10.2.0
 prereq netcdf/4.9.2/gnu-10.2.0
 prereq proj.4/9.2.0/gnu-10.2.0
+prereq geos/3.9.1/gnu-10.2.0
 
 set              root              /shared/ucl/apps/gdal/3.10.0_proj-9/gnu-10.2.0
 
