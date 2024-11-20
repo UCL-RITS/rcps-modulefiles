@@ -41,7 +41,7 @@ prereq sqlite/3.36.0/gnu-10.2.0
 # prereq gmt
 conflict proj.4
 
-set libdir	$prefix/$ver/lib
+set libdir	$prefix/$ver/lib64
 set incdir      $prefix/$ver/include
 
 prepend-path PATH	    	$prefix/$ver/bin
