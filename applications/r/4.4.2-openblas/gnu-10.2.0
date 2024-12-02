@@ -1,0 +1,121 @@
+#%Module -*- tcl -*-
+##
+## dot modulefile
+##
+## R 4.4.2 compiled with GCC 10.2.0 + OpenBLAS
+##
+## Brian Alston November 2016 - Updated to R 3.3.2 and Bioconductor 3.4
+## Updated December 2016 to add directory with RMPISNOW script to path.
+## Updated December 2016 to add non-interactive use speed up.
+## Updated May 2017 for R 3.4.0 and Bioconductor 3.5
+## Updated October 2017 for R 3.4.2 and Bioconductor 3.6
+## Updated May 2018 for R 3.5.0 and Bioconductor 3.7
+## Updated July 20128 with note about Rmpi not working
+##         and setting R_LIBS_SITE to work on Myriad.
+## Updated September 2018 for R 3.5.1
+## Updated April 2019 for R 3.5.3 and GSL 2.4
+## Updated June 2019 for R 3.6.0, Bioconductor 3.9 and Texinfo 6.6
+## Updated April 2020 for R 3.6.3, Bioconductor 3.10
+## Updated June 2020 for R 4.0.2, Bioconductor 3.11
+## Updated September 2021 for R 4.1.1, Bioconductor 3.13
+## Updated May 2022 for R 4.2.0 and Bioconductor 3.15
+## Updated January 2023 for R 4.2.2 and Bioconductor 3.16
+## Updated April 2023 for R 4.2.3 and Bioconductor 3.16
+## Updated late March 2024 for R 4.3.3 and Bioconductor 3.18
+## Updated June 2024 for R 4.4.0 and Bioconductor 3.19
+## Updated November 2024 for R 4.4.2 and Java JDK 21
+
+lappend auto_path /shared/ucl/apps/modulelibs/UsefulModuleFunctions
+package require modulefunctions 1.0
+
+proc ModulesHelp { } {
+    puts stderr "Adds R 4.4.2 and Bioconductor 3.20 GCC 10.2.0 + OpenBLAS to your environment."
+    puts stderr ""
+    puts stderr "R is a language and environment for statistical computing and"
+    puts stderr "graphics which provides a wide variety of statistical and"
+    puts stderr "graphical techniques: linear and nonlinear modelling,"
+    puts stderr "statistical tests, time series analysis, classification,"
+    puts stderr "clustering, etc. "
+    puts stderr ""
+    puts stderr "This version of R has been compiled with GCC 10.2.0 and the OpenBLAS"
+    puts stderr "high performance BLAS library."
+    puts stderr ""
+    puts stderr "Bioconductor is a set of R packages that provide tools for the analysis"
+    puts stderr "and comprehension of high-throughput genomic data."
+    puts stderr ""
+    puts stderr "Directory: /shared/ucl/apps/R/R-4.4.0-OpenBLAS/"
+}
+
+module-whatis "Adds R 4.4.2 and Bioconductor 3.20 to your environment."
+
+# Location of R:
+
+set prefix /shared/ucl/apps/R/R-4.4.2-OpenBLAS
+
+prereq gcc-libs/10.2.0
+prereq compilers/gnu/10.2.0
+prereq openblas/0.3.13-serial/gnu-10.2.0
+prereq java/21.0.4
+prereq fftw/3.3.9/gnu-10.2.0
+prereq ghostscript/9.19/gnu-4.9.2
+prereq texinfo/6.6/gnu-4.9.2
+prereq texlive/2019
+prereq gsl/2.7/gnu-10.2.0
+prereq hdf/5-1.10.6/gnu-10.2.0
+prereq udunits/2.2.28/gnu-10.2.0
+prereq netcdf/4.9.2/gnu-10.2.0
+prereq pcre2/10.37/gnu-10.2.0
+
+
+
+prepend-path PATH		$prefix/bin
+prepend-path MANPATH		$prefix/share/man
+append-path  LD_LIBRARY_PATH	$prefix/lib64/R/lib
+append-path  LD_LIBRARY_PATH    $prefix/lib64
+prepend-path INCLUDE_PATH       $prefix/lib64/R/include
+prepend-path CPATH              $prefix/lib64/R/include
+setenv 	     R_BROWSER		firefox
+
+append-path PATH                $prefix/lib64/R/library/snow
+
+# Databases need to be stored on Lustre not NFS - need to use /scratch/scratch/path
+# on Myriad. No longer needed as /shared/ucl/apps is on Lustre.
+# setenv       R_LIBS_SITE	/scratch/scratch/ccspapp/R/R-4.0.2-OpenBLAS/library
+#
+# This doesn't work on Aristotle so
+# if { [modulefunctions::isCluster aristotle] } {
+#     setenv R_LIBS_SITE    /home/ccspapp/Scratch/R/R-4.0.2-OpenBLAS/library
+# }
+
+# Fix OpenMPI in single node Rmpi
+# Rmpi calls openmpi as a library, ignoring the gerun/mpirun wrappers.
+if { [info exists ::env(NHOSTS)] } {
+        if { $::env(NHOSTS) == 1} {
+          setenv OMPI_MCA_btl tcp,vader,self
+	    setenv OMPI_MCA_pml ucx
+	    setenv OMPI_MCA_btl_tcp_if_include eno1
+        }
+} else {
+    setenv OMPI_MCA_btl tcp,vader,self
+    setenv OMPI_MCA_pml ucx
+}
+
+# Set environment for non-interactive R (running in a job) to improve calculation
+# performance
+
+if { [info exists ::env(JOB_ID)] } {
+    # Session is running as a job
+    setenv R_COMPILE_PKGS TRUE
+    setenv R_ENABLE_JIT 3
+} else {
+    # interactive session so do not set env vars
+    if { [module-info mode load] } {
+        puts stderr ""
+        puts stderr "R Version 4.4.2 setup."
+        puts stderr ""
+        puts stderr "NOTE: built with GNU 10.2.0"
+        puts stderr ""
+    }
+}
+
+prepend-path CMAKE_PREFIX_PATH $prefix
